@@ -1,0 +1,1 @@
+for /f "TOKENS=*"  %%s IN ('dir /b /o /s *.lua') do java -jar unluac.jar "%%s" > "%%s.txt"
