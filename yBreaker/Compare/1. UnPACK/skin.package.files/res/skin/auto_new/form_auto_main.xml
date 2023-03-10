@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="auto_new\form_auto_main" init="main_form_init">
+        <prop LimitInScreen="true" ShowGrid="true"  Left="6" Top="160" Width="135" Height="330" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" />
+		
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />
+		 
+        <!-- Main Form PNG -->
+        <control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Top="10" Width="137" Height="340" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\wbhd\wbhd_form.png" />
+        </control>
+        <!-- Khung Button -->
+		<control name="lbl_expand_1" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="2" Top="40" Width="134" Height="290" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\lead\hd_ditu_down.png" />
+        </control>
+       
+        <control name="lbl_titlebg" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="204" Top="22" Width="144" Height="29" ShadowColor="0,0,0,0" AutoSize="true" BackImage="gui\common\form_back\bg_adorn.png" />
+        </control>
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="15" Top="40" Width="100" Height="20" ForeColor="210,225,255,255" ShadowColor="200,255,200,255" Text="@auto_handle" BackImage="card_collect" Font="font_main" />
+        </control>
+		 <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0"  Left="110" Top="14" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>
+        <control name="groupbox_btn" entity="GroupBox" script="" init="">
+            <prop Left="7" Top="63" Width="119" Height="333" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+			<control name="auto_btn_ai" entity="Button" script="" init="">
+                <prop ClickEvent="true" BoxSize="12"  NormalImage="gui\special\origin\button\jianghu_body_0_1_down.png" FocusImage="gui\special\origin\button\jianghu_body_0_1_on.png" CheckedImage="gui\special\origin\button\jianghu_body_0_1_out.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Top="20" Width="118" Height="30" Left="5" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="AI" DataSource="1" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_auto_btn_ai_click" />
+            </control>
+			<control name="auto_btn_cack" entity="Button" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\special\origin\button\jianghu_shashou_down.png" FocusImage="gui\special\origin\button\jianghu_shashou_on.png" CheckedImage="gui\special\origin\button\jianghu_shashou_out.png"  NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Top="58" Width="118" Height="30" Left="5" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Cack" DataSource="2" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_auto_btn_cack_click" />
+            </control>
+			<control name="auto_btn_pvp" entity="Button" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\special\origin\button\jianghu_lianhuan_down.png" FocusImage="gui\special\origin\button\jianghu_lianhuan_on.png" CheckedImage="gui\special\origin\button\jianghu_lianhuan_out.png"  NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Top="98" Width="118" Height="30" Left="5" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="List Auto" DataSource="2" AutoSize="false" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_auto_btn_pvp_click" />
+            </control>
+			<control name="auto_btn_support" entity="Button" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\special\origin\button\sh_qs_down.png" FocusImage="gui\special\origin\button\sh_qs_on.png" CheckedImage="gui\special\origin\button\sh_qs_out.png"  NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Top="138" Width="118" Height="30" Left="5" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Support" DataSource="2" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_auto_btn_support_click" />
+            </control>
+            <control name="auto_btn_smile_1" entity="Button" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\special\origin\button\level1_down.png" FocusImage="gui\special\origin\button\level1_on.png" CheckedImage="gui\special\origin\button\level1_out.png"  NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Top="175" Width="118" Height="30" Left="5" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Mặt Cười" DataSource="2" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_auto_btn_smile_1_click" />
+            </control>
+			<control name="auto_btn_smile_2" entity="Button" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\special\origin\button\level2_down.png" FocusImage="gui\special\origin\button\level2_on.png" CheckedImage="gui\special\origin\button\level2_out.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Top="218" Width="118" Height="30" Left="5" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Liên Hệ" DataSource="3" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_auto_btn_smile_2_click" />
+            </control>
+			
+			
+        </control>
+    </control>
+</form>

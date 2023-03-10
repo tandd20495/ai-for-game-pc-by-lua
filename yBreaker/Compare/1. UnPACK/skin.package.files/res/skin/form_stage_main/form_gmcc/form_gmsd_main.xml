@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="form_stage_main\form_gmcc\form_gmsd_main" init="on_main_form_init">
+        <prop ShowGrid="true" Left="700" Top="117" Width="466" Height="526" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" />
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />
+        <control name="web_help" entity="WebView" script="" init="">
+            <prop Width="466" Height="526" ShadowColor="0,0,0,0" />
+        </control>
+    </control>
+</form>

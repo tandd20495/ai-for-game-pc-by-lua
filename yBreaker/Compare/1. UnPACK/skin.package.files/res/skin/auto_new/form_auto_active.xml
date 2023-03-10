@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_active" init="main_form_init">
+  <prop Transparent="true" LimitInScreen="true" ShowGrid="true" Left="400" Top="300" Width="450" Height="250" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />       
+    <event on_open="on_main_form_open" on_close="on_main_form_close" />
+     <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="7" Top="5" Width="445" Height="240" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+		 
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="4" Top="10" Width="440" Height="230" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+          <control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="150" Top="5" Width="100" Height="16" ForeColor="255,155,50,50" DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Active Auto Cack" Font="font_title" />
+        </control>
+		 <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\close_out.png" FocusImage="gui\special\wuxue\button\close_on.png" PushImage="gui\special\wuxue\button\close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="410" Top="3" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_click="on_btn_close_click" />
+        </control> 
+		<control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\help_out.png" FocusImage="gui\special\wuxue\button\help_on.png" PushImage="gui\special\wuxue\button\help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="0" Top="0" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ff0040&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● &lt;font color=&apos;#c3dbd0&apos;&gt; Có 2 cách để thêm vị trí một là bạn có thể chọn danh sách theo auto đã đưa ra sẳn 2 là tích vào vị trí hiện tại chỉ sử dụng một trong 2&lt;/font&gt;<br>● &lt;font color=&apos;#c3dbd0&apos;&gt;Sau khi chọn cách hoạt động khi bạn muốn mua thêm hạt sau khi mua thêm thì hãy ấn Reload để auto tải lại hạt trong túi đồ&lt;/font&gt;<br>● &lt;font color=&apos;#c3dbd0&apos;&gt;Sau khi cài đặt xong hãy ấn Lưu AI một lần để dử liệu được lưu lại có thể ấn Start để dùng hoặc dùng chung vs AI. &lt;/font&gt;" />
+        </control>
+		<control name="groupbox_highest_priority" entity="GroupBox" script="" init="">
+    		    <prop Left="4" Top="30" Width="433" Height="190" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png" />
+		
+		<control name="lbl_cur_task_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="120" Top="150" Width="72" Height="16" ForeColor="255,0,0,255" ShadowColor="0,0,0,0" Text="" Font="font_main" />
+        </control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="40" Top="15" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Nhấp chọn bên cạnh đề sử dụng key này là key chính" Font="font_main" />
+        </control>	
+		<control name="check_box_account_main" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="15" Top="14" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" Checked="true" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Nếu chọn nút này thì bạn sẽ chọn key chuẩn bị lưu sẽ là key chính để acc clone có thể sử dụng theo thời gian của key này" TabIndex="1" />
+            <event on_checked_changed="check_box_account_main" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="45" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Full" Font="font_main" />
+        </control>	
+		<control name="edt_key_full" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default"  Left="13" Top="58" Width="400" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key full vào" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="88" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Cóc : " Font="font_main" />
+        </control>
+		<control name="edt_key_ab" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="105" Width="400" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>		
+		
+		<control name="btn_add_start" entity="Button" script="" init="">
+			    <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="175" Top="150" AutoSize="true" Width="80"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" Text="Lưu Key" HintText="Lưu Key" TabStop="true"  InSound="MouseOn_20" ClickSound="ok_7" />
+			    <event on_click="btn_add_start" />
+		</control>
+		</control>	
+      </control>  
+     </control>
+ </control>
+</form>
+

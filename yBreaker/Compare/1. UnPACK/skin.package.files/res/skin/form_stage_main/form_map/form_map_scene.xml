@@ -2144,6 +2144,14 @@
             <prop NormalImage="gui\map\weather\map_weather_down.png" FocusImage="gui\map\weather\map_weather_on.png" PushImage="gui\map\weather\map_weather_out.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="289" Top="14" Width="24" Height="24" BackColor="255,192,192,192" ShadowColor="0,0,0,0" HintText="@tips_weather_weathertitle" AutoSize="true" DrawMode="FitWindow" />
             <event on_click="on_btn_tianqi_click" />
         </control>
+        <control name="cbtn_enable_jump" entity="CheckButton" script="" init="">
+            <prop Left="318" Top="16" Width="20" Height="20" HintText="Check vào đây để bật tính năng nhảy MAP" Visible="false" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false"/>
+            <event on_checked_changed="on_cbtn_enable_jump_changed" />
+        </control>
+        <control name="btn_stop_jump" entity="Button" script="" init="">
+            <prop Left="343" Top="14" Width="50" Height="24" Text="Dừng" Visible="false" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="false" DrawMode="Expand" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_click="on_btn_stop_jump_click" />
+        </control>
         <control name="groupbox_new_explore" entity="GroupBox" script="" init="">
             <prop Left="737" Top="447" Width="126" Height="182" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\map\mapn\map_new\tck.png" />
             <control name="cbtn_npctype254" entity="CheckButton" script="" init="">

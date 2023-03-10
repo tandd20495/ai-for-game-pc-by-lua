@@ -1,0 +1,424 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="auto_new\form_auto_chat" init="ChatIni">
+        <prop LimitInScreen="true" Left="530" Top="160" Width="290" Height="550" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="ChatOpen" on_close="ChatClose" />
+        <control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Top="1" Width="290" Height="540" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\lead\bg_main_1.png" />
+        </control>
+        <control name="btn_mini" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_minimum1_out.png" FocusImage="gui\common\button\btn_minimum1_on.png" PushImage="gui\common\button\btn_minimum1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="220" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Ẩn Giao Diện:&lt;/font&gt;<br>&lt;font color=&apos;#ff0000&apos;&gt;● Ẩn giao diện Auto nhưng Auto vẫn chạy bình thường. &lt;/font&gt;<br>&lt;font color=&apos;#ff0000&apos;&gt;" />
+            <event on_click="MinimizeClick" />
+        </control>
+        <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out_1.png" FocusImage="gui\common\button\btn_close_on_1.png" PushImage="gui\common\button\btn_close_down_1.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="240" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Tắt Auto:&lt;/font&gt;<br>&lt;font color=&apos;#ff0000&apos;&gt;● Bấm dừng Auto trước khi thoát. Khi bấm vào đây Auto sẽ tắt và thoát hoàn toàn! &lt;/font&gt;<br>&lt;font color=&apos;#ff0000&apos;&gt;" />
+            <event on_click="CloseClick" />
+        </control>
+
+      <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="60" Top="6" Width="150" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Auto Chat" Font="font_title" />
+        </control>
+		<!--Phần thêm vật phẩm vào ô chat:-->
+        <control name="groupbox_search" entity="GroupBox" script="" init="">
+            <prop Left="20" Top="30" Width="245" Height="60" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Khung nền:-->
+			<control name="lbl_1" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="0" Top="10" Width="230" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_line\ibox_2.png" />
+            </control>
+            <!--Ô tìm kiếm vật phẩm:-->
+            <control name="combobox_itemname" entity="ComboBox" script="" init="">
+              <prop ButtonWidth="22" DropDownHeight="48" DropDownWidth="230" OnlySelect="true" Left="0" Top="10" Width="230" Height="22" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_text" HintText="" NoFrame="true" DrawMode="Expand" />
+              <event on_selected="on_combobox_itemname_selected" />
+              <subor name="InputEdit">
+                <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="255,166,166,166" Caret="Default" ForeColor="255,255,0,255" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" DrawMode="ExpandH" />
+              </subor>
+              <subor name="DropButton">
+                <prop NormalImage="gui\common\combobox\btn_down2_out.png" FocusImage="gui\common\combobox\btn_down2_on.png" PushImage="gui\common\combobox\btn_down2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="FitWindow" />
+              </subor>
+              <subor name="DropListBox">
+                <prop MouseSelect="true" ItemHeight="16" TextOffsetX="10" SelectBackImage="gui\common\combobox\bg_select2.png" ScrollSize="14" ForeColor="255,255,255,255" BackColor="176,0,0,0" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_combox_text" NoFrame="true" DrawMode="Expand" BackImage="gui\common\combobox\bg_list2.png" />
+                <subor name="VScrollBar">
+                  <prop ButtonSize="14" FullBarBack="false" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="ExpandV" BackImage="gui\common\scrollbar\bg_scrollbar2.png" />
+                  <subor name="DecButton">
+                    <prop NormalImage="gui\common\scrollbar\button_2\btn_up_out.png" FocusImage="gui\common\scrollbar\button_2\btn_up_on.png" PushImage="gui\common\scrollbar\button_2\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+                  </subor>
+                  <subor name="IncButton">
+                    <prop NormalImage="gui\common\scrollbar\button_2\btn_down_out.png" FocusImage="gui\common\scrollbar\button_2\btn_down_on.png" PushImage="gui\common\scrollbar\button_2\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" />
+                  </subor>
+                  <subor name="TrackButton">
+                    <prop NormalImage="gui\common\scrollbar\button_2\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_2\btn_trace_on.png" PushImage="gui\common\scrollbar\button_2\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="81" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+                  </subor>
+                </subor>
+              </subor>
+            </control>
+			<control name="check_box_1" entity="CheckButton" script="" init="">
+				<prop  Visible="false" BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="5" Top="34" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Nếu tích chọn: Nếu chưa có đội Auto sẽ tự động lập đội, đã có đội và có quyền mời tổ đội, khi người chơi xin vào đội Auto sẽ tự động chấp nhận!" />
+				<event on_checked_changed="on_check_box_1_changed" />
+			</control>
+			<control name="lbl_send" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="21" Top="36" Visible="false" Width="70" Height="16" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Nhận tổ đội" Font="font_text_figure" />
+			</control>
+			<!--Nút mời đội:-->
+			 <control name="btn_buy_item" entity="Button" script="" init="">
+                <prop HintText="Mua vật phẩm này" NormalImage="gui\common\money\yyb.png" FocusImage="gui\common\money\yyb.png" PushImage="gui\common\money\yyb.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="132" Top="39" Width="18" Height="14" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="" Font="font_main" DrawMode="FixWindow" Enabled="false" AutoSize="false"/>
+                <event on_click="on_btn_buy_item_click" />
+            </control>
+            <!-- <control name="btn_invite" entity="Button" script="" init=""> -->
+                <!-- <prop NormalImage="gui\special\maket\btn_out.png" Visible="false" FocusImage="gui\special\maket\btn_on.png" PushImage="gui\special\maket\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="96" Top="34" Width="62" Height="22" ForeColor="255,255,0,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Mời Đội" Font="font_main" DrawMode="ExpandH" Enabled="true"/> -->
+                <!-- <event on_click="InviteTeam" /> -->
+            <!-- </control> -->
+			<!--Nút thêm:-->
+            <control name="btn_search_key" entity="Button" script="" init="">
+                <prop NormalImage="gui\special\maket\btn_out.png" FocusImage="gui\special\maket\btn_on.png" PushImage="gui\special\maket\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="34" Width="62" Height="22" ForeColor="255,255,0,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="@ui_add" Font="font_main" DrawMode="ExpandH" Enabled="false"/>
+                <event on_click="on_btn_search_key_click" />
+            </control>
+			<!--Ô viết tên vật phẩm-->
+            <control name="ipt_search_key" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="100" TextOffsetX="2" Caret="Default" Left="0" Top="10" Width="220" Height="26" ForeColor="255,128,101,74" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH"/>
+                <event on_get_focus="on_ipt_search_key_get_focus" on_lost_focus="on_ipt_search_key_lost_focus" on_changed="on_ipt_search_key_changed" />
+            </control>
+			<!--Nút chọn mặt cười:-->
+            <control name="btn_chat_face" entity="Button" script="" init="">
+                <prop NormalImage="gui\mainform\chat\btn_face_out.png" FocusImage="gui\mainform\chat\btn_face_on.png" PushImage="gui\mainform\chat\btn_face_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="162" Top="39" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" HintText="@ui_chat_faces" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_chat_face_click" />
+            </control>
+        </control>
+
+
+		<!--Ô điền và sửa text:-->
+		 <!-- <control name="txt_content" entity="RichEdit" script="" init="">
+            <prop ViewRect="4,4,245,90" MaxLength="256" SelectBackColor="190,190,190,190" Caret="Default" LineHeight="20" ScrollSize="18" HasVScroll="true" Left="35" Top="88" Width="210" Height="86" ForeColor="255,255,0,255" BackColor="0,255,255,255" LineColor="0,255,0,0" ShadowColor="0,20,0,0" Font="font_title_tasktrace" Cursor="WIN_IBEAM" TabStop="true" NoFrame="true" DrawMode="Expand" BackImage="gui\special\battlefield\info.png"/>
+            <event on_get_focus="on_txt_content_get_focus" on_enter="on_txt_content_enter" />
+            <subor name="VScrollBar">
+                <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+                <subor name="DecButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_up_out.png" FocusImage="gui\common\scrollbar\button_1\btn_up_on.png" PushImage="gui\common\scrollbar\button_1\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+                </subor>
+                <subor name="IncButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_down_out.png" FocusImage="gui\common\scrollbar\button_1\btn_down_on.png" PushImage="gui\common\scrollbar\button_1\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+                </subor>
+                <subor name="TrackButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_1\btn_trace_on.png" PushImage="gui\common\scrollbar\button_1\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="10" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandH" />
+                </subor>
+            </subor>
+        </control> -->
+        <control name="txt_content" entity="RichEdit" script="" init="">
+            <prop ViewRect="4,4,245,90" MaxLength="256" SelectBackColor="190,190,190,190" Caret="Default" LineHeight="20" ScrollSize="18" HasVScroll="true" Left="19" Top="88" Width="240" Height="86" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,255,0,0" ShadowColor="0,20,0,0" Font="font_title_tasktrace" Cursor="WIN_IBEAM" TabStop="true" NoFrame="true" DrawMode="Expand" BackImage="gui\special\battlefield\info.png"/>
+            <event on_get_focus="on_txt_content_get_focus" on_enter="on_txt_content_enter" />
+            <subor name="VScrollBar">
+                <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+                <subor name="DecButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_up_out.png" FocusImage="gui\common\scrollbar\button_1\btn_up_on.png" PushImage="gui\common\scrollbar\button_1\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+                </subor>
+                <subor name="IncButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_down_out.png" FocusImage="gui\common\scrollbar\button_1\btn_down_on.png" PushImage="gui\common\scrollbar\button_1\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+                </subor>
+                <subor name="TrackButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_1\btn_trace_on.png" PushImage="gui\common\scrollbar\button_1\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="10" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandH" />
+                </subor>
+            </subor>
+        </control>
+
+		<!--Chat gần:-->
+		<control name="groupbox_chat_visualrange" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="179" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_visualrange" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_visualrange" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_visualrange_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_visualrange" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_visualrange_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_visualrange_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_visualrange" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Gần" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat Map:-->
+		<control name="groupbox_chat_scene" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="206" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_scene" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_scene" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_scene_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_scene" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_scene_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_scene_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_scene" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Map" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat Nhóm:-->
+		<control name="groupbox_chat_team" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="233" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_team" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_team" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_team_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_team" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_team_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_team_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_team" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Nhóm" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat Bang:-->
+		<control name="groupbox_chat_guild" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="257" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_guild" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_guild" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_guild_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_guild" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_guild_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_guild_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_guild" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Bang" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat Phái:-->
+		<control name="groupbox_chat_school" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="284" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_school" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_school" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_school_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_school" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_school_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_school_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_school" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Phái" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat TG:-->
+		<control name="groupbox_chat_world" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="311" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_world" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false"/>
+				<event on_checked_changed="cbtn_chat_world" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_world_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_world" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_world_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_world_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_world" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh TG(Tiền)" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat thế lực:-->
+		<control name="groupbox_chat_force" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="338" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_force" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_force" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_force_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_force" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_force_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_force_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_force" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Thế Lực" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat ẩn thế:-->
+		<control name="groupbox_chat_new_school" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="365" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_new_school" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_new_school" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_new_school_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_new_school" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_new_school_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_new_school_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_new_school" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Ẩn Thế" Font="font_main" />
+            </control>
+        </control>
+
+		<!--Chat thanh hải:-->
+		<control name="groupbox_chat_new_territory" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="392" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+            <!--Ô check:-->
+			<control name="cbtn_chat_new_territory" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_new_territory" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_new_territory_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_new_territory" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_new_territory_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_new_territory_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>
+			<!---->
+            <control name="lbl_chat_new_territory" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Thanh Hải" Font="font_main" />
+            </control>
+        </control>
+
+		 <!-- Chat liên minh: -->
+		 <control name="groupbox_chat_guild_league" entity="GroupBox" script="" init="">
+            <prop Left="18" Top="419" Width="230" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+           <!-- Ô check: -->
+			<control name="cbtn_chat_guild_league" entity="CheckButton" script="" init="">
+                <prop BoxSize="12" NormalImage="gui\special\sweetemploy\sweetemploy_choose_off.png" FocusImage="gui\special\sweetemploy\sweetemploy_choose_on.png" CheckedImage="gui\special\sweetemploy\sweetemploy_choose_on.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="0" Top="3" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true"/>
+				<event on_checked_changed="cbtn_chat_guild_league" />
+            </control>
+			<!--khung nền edit thời gian:-->
+            <control name="lbl_chat_guild_league_background" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="20" Top="0" Width="40" Height="22" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            </control>
+			<!--Ô edit thời gian:-->
+            <control name="ipt_chat_guild_league" entity="Edit" script="" init="">
+                <prop ChangedEvent="true" MaxLength="4" TextOffsetX="2" Caret="Default" Left="20" Top="0" Width="40" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="40" BackImage="gui\common\form_line\ibox_2.png"/>
+            </control>
+			
+            <control name="lbl_chat_guild_league_sec" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="0" Width="40" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="@ui_fqfs_037" Font="font_main"/>
+            </control>			
+            <control name="lbl_chat_guild_league_count" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="110" Top="0" Width="30" Height="26" ForeColor="255,128,101,74" DrawMode="Expand" Text="0" Font="font_main"/>
+            </control>			
+            <control name="lbl_chat_guild_league" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="136" Height="26" ForeColor="255,128,101,74" ShadowColor="0,0,0,0" Text="Kênh Liên Minh" Font="font_main" />
+            </control>
+        </control>		
+		<control name="btn_control" entity="Button" script="" init="">
+			<prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="91" Top="490" Width="87" Height="30" ForeColor="0,0,0,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="Chatting" />
+		</control>
+    </control>
+</form>

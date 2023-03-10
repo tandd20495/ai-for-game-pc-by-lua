@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+   <control name="main_form" entity="Form" script="auto_new\form_auto_ai" init="main_form_init">
+  <prop Transparent="false" LimitInScreen="true" ShowGrid="true" Left="250" Top="250" Width="600" Height="500" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />    
+     <event on_open="on_main_form_open" on_close="on_main_form_close" />	
+	 <control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP"  Width="595" Height="495" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+        </control>	
+	<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\close_1_out.png" FocusImage="gui\special\wuxue\button\close_1_on.png" PushImage="gui\special\wuxue\button\close_1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0"  Left="535" Top="0" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>  
+	<control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\help_out.png" FocusImage="gui\special\wuxue\button\help_on.png" PushImage="gui\special\wuxue\button\help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="20" Top="5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ff0040&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● &lt;font color=&apos;#e3e310&apos;&gt;Hãy cài đặt thêm từng Auto vào danh sách,nếu muốn chạy auto riêng bạn có thể ấn vào chữ đã tắt ở mục chạy riêng . &lt;/font&gt;" />
+        </control>		
+		 <control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="250" Top="8" Width="100" Height="16" ForeColor="255,155,50,50"DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Auto AI" Font="font_title" />
+        </control>		
+	 <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="0" Top="20" Width="590" Height="490" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+			<control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+				<prop Left="10" Top="13" Width="585" Height="35" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png"  /> 
+				<control name="lbl_highest_priority_title" entity="Label" script="" init="">
+					  <prop RefCursor="WIN_HELP" Left="25" Top="8" Width="100" Height="16" ForeColor="255,180,50,150"DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Lưu Ý: Hãy cài đặt đầy đủ các Auto đã thêm trước khi bắt đầu AI" Font="font_title" />
+				</control>	
+			</control>	
+			 <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+				<prop Left="10" Top="50" Width="580" Height="360" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png"  /> 
+				  <control name="textgrid_pos" entity="Grid" script="" init="">				
+					<prop ShowComment="true" HeaderRowHeight="20" HeaderBackColor="0,255,255,255" SelectForeColor="255,78,63,47" SelectBackColor="0,147,123,99" CanSelectRow="true" ColWidth="52" ColWidths="100,80,80,50,50,50,90,50" RowHeight="30" ColCount="8" ScrollSize="18" HasHScroll="true" AlwaysVScroll="false" AlwaysHScroll="false" Solid="true" Left="5" Top="8" Width="570" Height="345" ForeColor="255,155,50,50" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="255,255,0,255" Font="font_name_guild" TabStop="true" NoFrame="true" DrawMode="Expand"   BackImage="gui\special\lead\bg_test.png" />						
+						<subor name="HScrollBar">
+						<prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="ExpandH" />
+						<subor name="DecButton">
+							<prop NormalImage="gui\common\scrollbar\button_4\btn_left_out.png" FocusImage="gui\common\scrollbar\button_4\btn_left_on.png" PushImage="gui\common\scrollbar\button_4\btn_left_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="18" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="ExpandH" />
+						</subor>
+						<subor name="IncButton">
+							<prop NormalImage="gui\common\scrollbar\button_4\btn_right_out.png" FocusImage="gui\common\scrollbar\button_4\btn_right_on.png" PushImage="gui\common\scrollbar\button_4\btn_right_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="18" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="ExpandH" />
+						</subor>
+						<subor name="TrackButton">
+							<prop NormalImage="gui\common\scrollbar\button_4\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_4\btn_trace_on.png" PushImage="gui\common\scrollbar\button_4\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+						</subor>
+					</subor>
+					<subor name="VScrollBar">
+						<prop ButtonSize="18" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="ExpandV" />
+						<subor name="DecButton">
+							<prop NormalImage="gui\common\scrollbar\button_2\btn_up_out.png" FocusImage="gui\common\scrollbar\button_2\btn_up_on.png" PushImage="gui\common\scrollbar\button_2\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="FitWindow" />
+						</subor>
+						<subor name="IncButton">
+							<prop NormalImage="gui\common\scrollbar\button_2\btn_down_out.png" FocusImage="gui\common\scrollbar\button_2\btn_down_on.png" PushImage="gui\common\scrollbar\button_2\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="FitWindow" />
+						</subor>
+						<subor name="TrackButton">
+							<prop NormalImage="gui\common\scrollbar\button_2\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_2\btn_trace_on.png" PushImage="gui\common\scrollbar\button_2\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="186" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+						</subor>
+					</subor>
+					<subor name="CornerLabel">
+						<prop Solid="true" RefCursor="WIN_HELP" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="false" />
+					</subor>
+				</control>
+			</control>	
+			<control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+				<prop Left="10" Top="415" Width="580" Height="50" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png"  /> 
+				<control name="lbl_running_auto_check" entity="Label" script="" init=""> 
+				<prop RefCursor="WIN_HELP" Left="130" Top="5" Width="40" Height="18" ForeColor="0,0,0,0" ShadowColor="255,204,0,102" Text="Đang Chạy: " Font="font_main" />
+			</control>	
+			<control name="lbl_running_auto" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="220" Top="5" Width="40" Height="18" ForeColor="0,0,0,0" ShadowColor="210,204,50,10" Text="Loading..." Font="font_main" />
+			</control>	
+			<control name="lbl_running_auto_check" entity="Label" script="" init=""> 
+				<prop RefCursor="WIN_HELP" Left="130" Top="25" Width="40" Height="18" ForeColor="0,0,0,0" ShadowColor="255,204,0,102" Text="Thao Tác:" Font="font_main" />
+			</control>	
+			<control name="lbl_message_auto" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="220" Top="25" Width="40" Height="18" ForeColor="0,0,0,0" ShadowColor="210,204,50,10" Text="Loading..." Font="font_main" />
+			</control>
+				<control name="btn_start_setting_ai" entity="Button" script="" init="">
+					<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="10" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Cài Đặt Cơ Bản" ClickSound="ok_7" />
+					<event on_click="btn_start_setting_ai" />
+				</control>					
+				<control name="btn_start_add_ai" entity="Button" script="" init="">
+					<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="350" Top="10" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Thêm Auto" ClickSound="ok_7" />
+					<event on_click="btn_start_add_ai" />
+				</control>		
+				<control name="btn_start_auto_ai" entity="Button" script="" init="">
+					<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="440" Top="10" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Bắt đầu" ClickSound="ok_7" />
+					<event on_click="btn_start_auto_ai" />
+				</control>	
+			</control>		
+		</control>		
+    </control>
+</form>
