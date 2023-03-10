@@ -220,10 +220,10 @@
 			<control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
 				<prop Left="-340" Top="140" Width="380" Height="550" BackColor="0,255,255,255" ShadowColor="0,0,0,0" HAnchor="Right" NoFrame="true" DrawMode="Expand"  />        
 				 <control name="lbl_title" entity="Label" script="" init="">
-					  <prop RefCursor="WIN_HELP" Left="30" Top="40" Width="70" Height="16" ForeColor="255,255,0,100" ShadowColor="0,0,0,0" Text="Auto Cack 2.8.4" Font="font_title" />
+					  <prop RefCursor="WIN_HELP" Left="30" Top="40" Width="70" Height="16" ForeColor="255,255,0,100" ShadowColor="0,0,0,0" Text="DUY TÂN aka yBreaker" Font="font_title" />
 				</control>
 				<control name="lbl_title" entity="Label" script="" init="">
-					  <prop RefCursor="WIN_HELP" Left="30" Top="10" Width="70" Height="16" ForeColor="255,255,0,100" ShadowColor="0,0,0,0" Text="Bản Đăng Nhập Nhanh" Font="font_title" />
+					  <prop RefCursor="WIN_HELP" Left="30" Top="10" Width="70" Height="16" ForeColor="255,255,0,100" ShadowColor="0,0,0,0" Text="BREAK GAME 2023" Font="font_title" />
 				</control>
 				<control name="edt_add_account" entity="Edit" script="" init="">
 					<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="20" Top="65" Width="140" Height="25" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" HintText="Điền tài khoản mà bạn muốn hiển thị vào sau đó ấn nút thêm" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>						
