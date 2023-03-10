@@ -3,15 +3,15 @@ require("form_stage_main\\form_homepoint\\form_home_point")
 local THIS_FORM = "auto_tools\\tools_thanhanh"
 local b={
 {
-		name = "born01", --kê minh dịch
+		name = "born01",
 		point = "HomePointborn01A,HomePointborn01B,HomePointborn01C,HomePointborn01D"
 	},
 	{
-		name = "born02", -- Ác Nhân Cốc
+		name = "born02",
 		point = "HomePointborn02A,HomePointborn02B,HomePointborn02C,HomePointborn02D,HomePointborn02E,HomePointborn02F"
 	},
 	{
-		name = "born03", --yên Vũ Trang
+		name = "born03",
 		point = "HomePointborn03A,HomePointborn03B,HomePointborn03C,HomePointborn03D,HomePointborn03E"
 	}, 
 	{

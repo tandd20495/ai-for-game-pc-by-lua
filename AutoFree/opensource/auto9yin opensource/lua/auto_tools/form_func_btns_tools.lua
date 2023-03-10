@@ -118,8 +118,8 @@ local tools_btns_data = {
 	{
 		"15", -- Auto cóc
 		"gui\\special\\btn_main40rh\\btn_trade_on.png",
-		"tool_auto_doabduct_label",
-		"auto\\abduct",
+		"tool_about",
+		"auto\\about",
 		"",
 		1
 	},

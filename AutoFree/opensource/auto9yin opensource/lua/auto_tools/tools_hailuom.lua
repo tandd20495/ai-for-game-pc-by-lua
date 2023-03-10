@@ -363,13 +363,9 @@ end
 function combobox3(combobox)
 end
 function tools_show_form() -- để đưa vào main.xml
-local form = nx_value("auto_tools\\tools_hailuom")
   util_auto_show_hide_form("auto_tools\\tools_hailuom")
 --  auto_status()
-	if nx_is_valid(form) then
-	control_this_form(form1, data_npc_id)
-	end
-
+control_this_form(form1, data_npc_id)
 end
 
 function on_btn_control_click(btn)

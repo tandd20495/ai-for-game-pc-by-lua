@@ -130,3 +130,4 @@ tools_fish_waitpick1=Lấy cá xong
 tools_fish_waitpick=Đợi lấy cá
 tools_stallonline=Bày shops online
 ui_bva_damage=暴击
+tool_about=Giới thiệu

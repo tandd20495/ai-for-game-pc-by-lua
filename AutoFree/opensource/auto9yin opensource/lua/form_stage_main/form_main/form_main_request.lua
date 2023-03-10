@@ -118,7 +118,13 @@ request_icon = {
   [REQUESTTYPE_FRESHMAN_SWORN] = "sworn_new",
   [REQUESTTYPE_SWORN_SUMMON] = "gui\\special\\sworn\\btn_summon.png",
   [REQUESTTYPE_RED_PACKET] = "gui\\special\\hongbao\\btn_hongbao_down.png",
-  [REQUESTTYPE_TRANSTO_CANWU_SCENE] = "hs_btn"
+  [REQUESTTYPE_TRANSTO_CANWU_SCENE] = "hs_btn",
+  [REQUESTTYPE_WXJ_MDSS] = "gui\\special\\btn_main\\btn_newschool_smdh_on.png",
+  [REQUESTTYPE_WXJ_LSGLX] = "gui\\special\\btn_main\\btn_newschool_smdh_on.png",
+  [REQUESTTYPE_SHENG_SI_FU] = "gui\\special\\btn_main\\shengsifu_yaoqing.png",
+  [REQUESTTYPE_FLEE_BACHELOR] = "gui\\special\\btn_main\\btn_11_qftd.png",
+  [REQUESTTYPE_DAMO_PK] = "gui\\special\\btn_main\\battle_on.png",
+  [REQUESTTYPE_YEAR_BOSS] = "gui\\special\\btn_main\\btn_ns_checked.png"
 }
 function Init(form_main)
   if not nx_is_valid(form_main) then
@@ -225,6 +231,9 @@ function add_request_item(request_type, request_player, left_time, param1, param
   end
   if request_type == REQUESTTYPE_FRESHMAN_SWORN then
     left_time = -1
+  end
+  if request_type == REQUESTTYPE_SHENG_SI_FU then
+    left_time = 30
   end
   if request_type == REQUESTTYPE_ORIGIN_NOTIFY then
     for i = 1, table.maxn(REQUEST_ARRAY) do
@@ -860,6 +869,37 @@ function on_click_request(button)
         return
       end
       game_visual:CustomSend(nx_int(CLIENT_CUSTOMMSG_TEAM_CONFIRM), nx_int(0), nx_widestr(player_name), nx_int(0))
+    end
+    return
+  end
+  if request_type == REQUESTTYPE_FLEE_BACHELOR then
+    local guild_dialog = nx_execute("util_gui", "util_get_form", "form_common\\form_confirm", true, false)
+    local player_name = nx_widestr(REQUEST_ARRAY[index][INDEX_REQUEST_PARAMS][1])
+    local isLucky = nx_int(REQUEST_ARRAY[index][INDEX_REQUEST_PARAMS][2])
+    local text = util_format_string("ui_flee_confirm_" .. nx_string(isLucky), player_name)
+    nx_execute("form_common\\form_confirm", "show_common_text", guild_dialog, nx_widestr(text))
+    guild_dialog:ShowModal()
+    guild_dialog.Left = (gui.Width - guild_dialog.Width) / 2
+    guild_dialog.Top = (gui.Height - guild_dialog.Height) / 2
+    form:Remove(button.label)
+    form:Remove(button)
+    gui:Delete(button.label)
+    gui:Delete(button)
+    table.remove(REQUEST_ARRAY, index)
+    show_request()
+    local res = nx_wait_event(100000000, guild_dialog, "confirm_return")
+    if res == "ok" then
+      local game_visual = nx_value("game_visual")
+      if not nx_is_valid(game_visual) then
+        return
+      end
+      game_visual:CustomSend(nx_int(CLIENT_CUSTOMMSG_FLEE_BACHELOR), nx_int(1))
+    else
+      local game_visual = nx_value("game_visual")
+      if not nx_is_valid(game_visual) then
+        return
+      end
+      game_visual:CustomSend(nx_int(CLIENT_CUSTOMMSG_FLEE_BACHELOR), nx_int(0))
     end
     return
   end

@@ -627,31 +627,3 @@ function gotoNpcById(npc_id, npc_x, npc_z, scene_id)
     path_finding:TraceTargetByID(scene_id, npc_x, 0, npc_z, 1.8, npc_id)
   end
 end
-function AutoGetCurSelect(type) -- lấy id npc or tên của người chơi đang chọn
--- là người chơi thì trả về tên,
--- là npc thì trả về id, x,,y,z
-  local selectobj = nx_value("game_select_obj")
-  if not nx_is_valid(selectobj) then
-    return nx_widestr("")
-  end
-  local objtype = selectobj:QueryProp("Type")
-  if nx_number(objtype) == 2 then
-    return selectobj:QueryProp("Name") 
-  else
-    if type == nil then return selectobj:QueryProp("ConfigID"), selectobj.PosiX, selectobj.PosiY, selectobj.PosiZ, selectobj.Orient
-    else return selectobj.Ident
-    end
-  end
-  return nx_widestr("")
-end
-function talknpc(number)-- chọn dòng thoại (dòng 1,2,3....)
-  local form = nx_value("form_stage_main\\form_talk_movie")
-  if form.Visible == false then
-    return false
-  end
-  local menu_npctalk = form.mltbox_menu
-  local menu_select = menu_npctalk:GetItemKeyByIndex(number - 1)
-  nx_execute("form_stage_main\\form_talk_movie", "menu_select", menu_select)
-  nx_pause(2)
-  return true
-end

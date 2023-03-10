@@ -312,11 +312,11 @@ function StartEscort(form)
 							if x ~= 0 and z ~= 0 and GetDistanceBetweenTwoPoint(visual_player.PositionX, 0, visual_player.PositionZ, x, 0, z) <= 5 then
 
 								-- Nếu form play game xuất hiện
-							--	local form_escort_game = util_get_form("form_stage_main\\form_school_war\\form_escortnpc_control_game", true)
-							--	if nx_is_valid(form_escort_game) and form_escort_game.Visible then
-			  				--		nx_execute("custom_sender", "custom_escort_game_answer", 398, nx_string(form_escort_game.key_str))
-						    --      util_show_form("form_stage_main\\form_school_war\\form_escortnpc_control_game", false)
-							--	end
+								local form_escort_game = util_get_form("form_stage_main\\form_school_war\\form_escortnpc_control_game", true)
+								if nx_is_valid(form_escort_game) and form_escort_game.Visible then
+			  						nx_execute("custom_sender", "custom_escort_game_answer", 398, nx_string(form_escort_game.key_str))
+						          util_show_form("form_stage_main\\form_school_war\\form_escortnpc_control_game", false)
+								end
 								-- Form quản lý lên xuống xe
 								local form_escort_control = util_get_form("form_stage_main\\form_school_war\\form_escortnpc_control_list", true)
 			 					if nx_is_valid(form_escort_control) and form_escort_control.Visible then

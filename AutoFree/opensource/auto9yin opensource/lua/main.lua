@@ -729,7 +729,7 @@ function main(world, login_addr, login_port, server_name, area_addr, area_port, 
   picturegame:LoadResource(nx_resource_path() .. "share\\")
   nx_log("load hand writing game resource...")
  -- handwritinggame:LoadResource(nx_resource_path() .. "share\\")
-  handwritinggame:LoadResource(nx_resource_path() .. "autofree\\share\\")
+  handwritinggame:LoadResource(nx_resource_path() .. "autofree\\share\\")	 
   nx_log("load ride game resource...")
   RideGame:LoadResource(nx_resource_path() .. "share\\")
   nx_log("load rope swing game resource ...")
@@ -841,8 +841,8 @@ function main(world, login_addr, login_port, server_name, area_addr, area_port, 
   end
   world:ClearWorkingSet()
   if nx_function("ext_is_instance_overflow") then
-  --  wait_user_exit_game()
-  --  return 0
+   -- wait_user_exit_game()
+    return 0
   end
   nx_log("entry login...")
   nx_execute("stage", "set_current_stage", "login")
@@ -1185,5 +1185,9 @@ function init_entity()
   local LockpickCommonGame = nx_create("LockpickCommonGame")
   if nx_is_valid(LockpickCommonGame) then
     nx_set_value("LockpickCommonGame", LockpickCommonGame)
+  end
+  local WhackEggGame = nx_create("WhackEggGame")
+  if nx_is_valid(WhackEggGame) then
+    nx_set_value("WhackEggGame", WhackEggGame)
   end
 end

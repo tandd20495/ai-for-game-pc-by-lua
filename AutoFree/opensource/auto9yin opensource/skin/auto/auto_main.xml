@@ -13,14 +13,14 @@
 		
 		
 		
-    <control name="tab_1_btn" entity="Button" script="auto\about" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="1: About" Font="font_text_figure" AutoSize="true" />
-            <event on_click="on_close_click" />
+    <control name="tab_1_btn" entity="Button" script="auto_tools\tools_lookupabduct" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="1: Tìm cóc" Font="font_text_figure" AutoSize="true" />
+            <event on_click="tools_show_form" />
         </control>
 
-        <control name="tab_2_btn" entity="Button" script="auto_tools\tools_lookupabduct" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="2: Tìm cóc" Font="font_text_figure" AutoSize="true" />
-            <event on_click="tools_show_form" />
+        <control name="tab_2_btn" entity="Button" script="auto\abduct" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="2: Bắt cóc" Font="font_text_figure" AutoSize="true" />
+            <event on_click="AbductClose" />
         </control>
 
         <control name="tab_3_btn" entity="Button" script="auto_tools\tools_qingame" init="">

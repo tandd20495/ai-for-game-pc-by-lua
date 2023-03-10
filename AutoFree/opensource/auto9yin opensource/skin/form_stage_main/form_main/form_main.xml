@@ -108,18 +108,18 @@
                 <prop TextColor="0,255,0,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,38,38" ScrollSize="17" Left="20" Top="35" Width="38" Height="38" ForeColor="0,0,0,0" BackColor="0,255,255,255" ShadowColor="0,0,0,0" Text="mltbox_18" NoFrame="true" DrawMode="FitWindow" />
             </control>
         </control>
-		<control name="groupbox_4" entity="GroupBox" script="" init="">
+        <control name="groupbox_4" entity="GroupBox" script="" init="">
             <prop Transparent="true" Top="344" Width="419" Height="406" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
-            <control name="rbtn_tools" entity="Button" script="" init="">
+			<control name="rbtn_tools" entity="Button" script="" init="">
                 <prop BoxSize="12" NormalImage="skin\auto_images\btn_tool.png" FocusImage="skin\auto_images\btn_tool_hover.png" PushImage="skin\auto_images\btn_tool.png"  FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-147" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" TabStop="true" AutoSize="true" />
                 <event on_lost_capture="on_rbtn_tools_lost_capture" on_get_capture="on_rbtn_tools_get_capture" />
-            </control>
+            </control>	  
             <control name="rbtn_life" entity="RadioButton" script="" init="">
-                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_life_out.png" FocusImage="gui\mainform\btn_life_on.png" CheckedImage="gui\mainform\btn_life_on.png" DisableImage="gui\mainform\btn_life_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-110" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" TabStop="true" AutoSize="true" />
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_life_out.png" FocusImage="gui\mainform\btn_life_on.png" CheckedImage="gui\mainform\btn_life_on.png" DisableImage="gui\mainform\btn_life_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-116" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_rbtn_life_checked_changed" on_lost_capture="on_rbtn_life_lost_capture" on_get_capture="on_rbtn_life_get_capture" />
             </control>
             <control name="rbtn_jianghu" entity="RadioButton" script="" init="">
-                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_sns_out.png" FocusImage="gui\mainform\btn_sns_on.png" CheckedImage="gui\mainform\btn_sns_on.png" DisableImage="gui\mainform\btn_turn_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-73" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" Font="font_money" TabStop="true" AutoSize="true" />
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_sns_out.png" FocusImage="gui\mainform\btn_sns_on.png" CheckedImage="gui\mainform\btn_sns_on.png" DisableImage="gui\mainform\btn_turn_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-76" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" Font="font_money" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_rbtn_jianghu_checked_changed" on_lost_capture="on_rbtn_jianghu_lost_capture" on_get_capture="on_rbtn_jianghu_get_capture" />
             </control>
             <control name="rbtn_fight" entity="RadioButton" script="" init="">

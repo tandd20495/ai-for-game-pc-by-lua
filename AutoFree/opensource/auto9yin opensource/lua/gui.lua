@@ -298,6 +298,7 @@ function gui_key_down(gui, key, shift, ctrl)
 	elseif key == "F12" then
     util_auto_show_hide_form("auto\\auto_main")
 	----
+
   end
   local form = nx_value("form_stage_main\\form_small_game\\form_game_ride")
   if nx_is_valid(form) then
@@ -570,10 +571,12 @@ function gui_size(gui, width, height)
   nx_execute("form_stage_main\\form_sweet_employ\\form_task_skill", "change_form_size")
   nx_execute("form_stage_main\\form_small_game\\form_game_openlocker", "on_size_change")
   nx_execute("form_stage_main\\form_small_game\\form_game_openlocker_common", "on_size_change")
+  nx_execute("form_stage_main\\puzzle_quest\\form_game_whackegg", "on_size_change")
   nx_execute("form_stage_main\\form_attire\\form_attire_main", "change_form_size")
   nx_execute("form_stage_main\\form_attire\\form_attire_save", "change_form_size")
   nx_execute("form_stage_main\\form_huashan\\form_huashan_wuxue_canwu", "change_form_size")
   nx_execute("form_common\\form_play_video", "change_form_size")
+  nx_execute("form_stage_main\\form_small_game\\form_game_songjing", "change_form_size")
   return 1
 end
 function scale_change()

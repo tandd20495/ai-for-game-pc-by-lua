@@ -540,7 +540,7 @@ function on_msg_level_up(is_max_level)
 --
   nx_execute("form_stage_main\\form_wuxue\\form_wuxue_faculty", "auto_uplv")
   nx_execute("custom_sender", "custom_send_faculty_msg", 11)
-  --
+  --	
   if is_max_level == nil then
     is_max_level = nx_int(0)
   end
@@ -562,8 +562,8 @@ function on_msg_level_up(is_max_level)
   end
   nx_execute("form_common\\form_confirm", "show_common_text", dialog, text)
   dialog:Show()
-  local cur_stage = nx_value("stage")
-  if cur_stage ~= "main" then
+  local form_load = nx_value("form_common\\form_loading")
+  if nx_is_valid(form_load) then
     gui.Desktop:ToBack(dialog)
   else
     gui.Desktop:ToFront(dialog)

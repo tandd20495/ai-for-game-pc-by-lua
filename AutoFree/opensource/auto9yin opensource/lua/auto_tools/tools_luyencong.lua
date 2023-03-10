@@ -55,7 +55,6 @@ function auto_init()
 	if not auto_is_running then
 		auto_is_running = true	
 		while auto_is_running == true do
-		lvlup()
 		local FORM_DANCE = util_get_form("form_stage_main\\form_wuxue\\form_faculty_back")
 		if not nx_is_valid(FORM_DANCE) then -- không có cái bảng đen mờ thì chạy
 			local city = get_current_map()

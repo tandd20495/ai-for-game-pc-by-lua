@@ -105,6 +105,7 @@ end
 
 function stop_stall()
   local gui = nx_value("gui")
+  local form = util_get_form(THIS_FORM)
     local dialog = nx_execute("util_gui", "util_get_form", "form_common\\form_confirm", true, false)
     local text = nx_widestr(util_text("ui_Stall_Is_JieSu"))
     nx_execute("form_common\\form_confirm", "show_common_text", dialog, text)
@@ -116,6 +117,9 @@ function stop_stall()
 		auto_is_running = false
 		nx_execute("custom_sender", "custom_stall_return_ready")
 		tools_show_notice(util_text("tool_message_stop_autostall"))
+		if  nx_is_valid(form)  then
+			nx_destroy(form)
+		end	
     end
 
  end
