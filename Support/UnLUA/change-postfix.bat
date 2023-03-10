@@ -1,0 +1,1 @@
+for /f "TOKENS=*"  %%s IN ('dir /b /o /s *.luad') do ren *.luad *.lua
