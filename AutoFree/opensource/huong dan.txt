@@ -1,0 +1,138 @@
+﻿# Auto Cửu Âm Chân Kinh Việt Nam
+Mọi thắc mắc vui lòng liên hệ
+Fb.com/lucvanhau
+Ingame sv quỳ hoa
+Dan_Bach_Phong 
+
+phát triển từ code của tác giả hoaquynhtim99
+https://github.com/hoaquynhtim99/
+và 1 số auto khác
+
+hướng dẫn tạo auto
+
+code auto dung notepad++
+https://notepad-plus-plus.org/download/v7.4.2.html
+
+
+### Cách giải nén file .package
+
+
+### Cách nén lại file .package
+
+
+
+> Chú ý: Phần mềm này chạy trên XP, window khác sẽ báo lỗi có virut, cần cài máy ảo để chạy.
+
+
+Hướng dẫn + link phần mềm xem: 
+https://www.youtube.com/watch?v=pUCpXrNDrJM
+
+
+
+ giải nén 3 file mặc định của game ( nhớ copy lưu lại bản sao )
+lua.package
+skin.package
+text.package
+
+copy đè các file auto vào file mặc định
+riêng file text interface.idres khá nặng nên mình không đính kèm
+các bạn dùng notepad++ thêm các dòng trong file text/edit.txt vào là được
+
+Nếu vào game lỗi giao diện thì mở thư mục skin đọc hướng dẫn
+
+dùng phần mềm unpack nén lại và dùng auto
+
+thư mục autofree copy vào thư mục res ( cùng nơi với file lua.package ) để có auto thư sinh
++++++++++++++++++++
+cách giải mã file .lua mặc định của game để so sánh cũng như chỉnh sửa cho 1 số bạn thích
+cài đặt java
+tải file unluac 
+link https://sourceforge.net/projects/unluac/
+về đổi tên thành unluac.jar
+
+dùng notepadd tạo file unluaall.bat với nội dung
+
+for /f "TOKENS=*"  %%s IN ('dir /b /o /s *.lua') do java -jar unluac.jar "%%s" > "%%s.txt"
+
+bây giờ muốn giải mã file lua nào chỉ cần copy 2 file 
+unluac.jar + unluaall.bat 
+vào thư mục chứa file lua chạy file .bat để giải mã toàn bộ các file .lua có trong thư mục
+
+các file chỉnh sửa ở vị trí nào, khác gì với file mặc định mình đã ghi chú khá rõ, mọi người có thể tìm kiếm dòng ghi chú ( -- ) 2 dấu trừ
+
+
+các file chỉnh sửa 
+
+
+
+main.lua                                           	Mở khóa MAX CLIENT, sửa để nhận auto thư sinh
+gui.lua												phím tắt f12 mở auto
+
+form_stage_main\form_wuxue\form_wuxue_faculty.lua								Tự nhấn tiếp tục tu luyện khi lên lv
+
+form_stage_main\form_give_item.lua                          	   	Sửa lỗi khi auto nhận ITEM (ví dụ bán cóc xong nhận sửa công cụ)
+
+
+form_stage_main\form_talk_movie.lua                       		Ghi log MESSAGE ID và tên NPC khi nói chuyện (nhằm lấy mã để auto nhận kỳ ngộ, auto đối thoại ....) Log ghi vào C:/log.txt
+
+
+form_stage_main\form_bag_func.lua                        		Sửa khi CTRL+Click vào Item để đưa vào auto chat
+
+
+form_stage_main\form_main\form_main.lua                    	 	Sửa để thêm nút công cụ vào 3 nút Giang hồ, chiến đấu, cuộc sống
+
+
+form_stage_main\form_main\form_main_request.lua     	Sửa để xác nhận có REQUSET ví dụ mời tổ đội, mời giao dịch...
+
+form_stage_main\form_main\form_main_chat.lua  			thêm lệnh gõ tắt /auto /thth ......
+
+form_stage_main\form_map\form_map_scene.lua                    	Mở khóa
+
+
+form_stage_main\form_pick\form_droppick.lua                 	Sửa để auto nhận vật phẩm ví dụ khi trồng cây, nhấp vào nhận
+
+
+form_stage_main\form_school_dance\form_school_dance_key.lua  	Auto thụ nghiệp
+
+
+form_stage_main\form_small_game\form_forgegame.lua              Auto game
+
+
+form_stage_main\form_small_game\form_game_balance.lua     	    Không nhớ game gì
+
+
+form_stage_main\form_small_game\form_game_bee.lua               Không nhớ game gì
+
+
+form_stage_main\form_small_game\form_game_pick.lua               Không nhớ game gì
+
+
+form_stage_main\form_small_game\form_game_question.lua       Không nhớ game gì
+
+
+form_stage_main\form_small_game\form_game_rope_swing.lua  Auto game đu dây Cổ Mộ
+
+
+form_stage_main\form_small_game\form_game_weiqi.lua              Không nhớ game gì
+
+form_stage_main\form_small_game\form_jia_huo_game.lua           Auto đánh cờ
+
+
+form_stage_main\form_small_game\form_qingame.lua                 	Auto đàn kỹ nghệ nhận tâm đắc
+
+
+form_stage_main\form_small_game\form_mini_qingame.lua           Auto đàn buff đội
+
+form_stage_main\form_small_game\form_game_picture.lua	Auto họa sư
+
+
+form_stage_main\form_wuxue\form_team_faculty_dance.lua          Auto luyện nhóm
+
+
+form_stage_main\form_wuxue\form_faculty_team.lua             	Gỡ bỏ auto chat khi mở thụ nghiệp
+
+
+Liên hệ
+Fb.com/lucvanhau
+Ingame sv quỳ hoa
+Dan_Bach_Phong 

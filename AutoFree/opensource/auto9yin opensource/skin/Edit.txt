@@ -1,0 +1,74 @@
+   skill/from_stage_main/form_main/form_main.xml
+
+--thêm nút bấm
+
+        <control name="groupbox_4" entity="GroupBox" script="" init="">
+            <prop Transparent="true" Top="344" Width="419" Height="406" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+            <control name="rbtn_tools" entity="Button" script="" init="">
+                <prop BoxSize="12" NormalImage="skin\auto_images\btn_tool.png" FocusImage="skin\auto_images\btn_tool_hover.png" PushImage="skin\auto_images\btn_tool.png"  FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-147" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" TabStop="true" AutoSize="true" />
+                <event on_lost_capture="on_rbtn_tools_lost_capture" on_get_capture="on_rbtn_tools_get_capture" />
+            </control>
+            <control name="rbtn_life" entity="RadioButton" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_life_out.png" FocusImage="gui\mainform\btn_life_on.png" CheckedImage="gui\mainform\btn_life_on.png" DisableImage="gui\mainform\btn_life_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-110" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_rbtn_life_checked_changed" on_lost_capture="on_rbtn_life_lost_capture" on_get_capture="on_rbtn_life_get_capture" />
+            </control>
+            <control name="rbtn_jianghu" entity="RadioButton" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_sns_out.png" FocusImage="gui\mainform\btn_sns_on.png" CheckedImage="gui\mainform\btn_sns_on.png" DisableImage="gui\mainform\btn_turn_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-73" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" Font="font_money" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_rbtn_jianghu_checked_changed" on_lost_capture="on_rbtn_jianghu_lost_capture" on_get_capture="on_rbtn_jianghu_get_capture" />
+            </control>
+            <control name="rbtn_fight" entity="RadioButton" script="" init="">
+                <prop ClickEvent="true" BoxSize="12" NormalImage="gui\mainform\btn_fight_out.png" FocusImage="gui\mainform\btn_fight_on.png" CheckedImage="gui\mainform\btn_fight_on.png" DisableImage="gui\mainform\btn_turn_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="-36" Width="145" Height="36" BackColor="255,192,192,192" ShadowColor="0,0,0,0" VAnchor="Bottom" Font="font_money" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_rbtn_fight_checked_changed" on_lost_capture="on_rbtn_fight_lost_capture" on_get_capture="on_rbtn_fight_get_capture" />
+            </control>
+            <control name="lbl_1" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="194" Top="456" Width="20" Height="20" ShadowColor="0,0,0,0" DrawMode="FitWindow" BackImage="gui\special\btn_main\btn_friend_out_36.png" />
+            </control>
+            <control name="lbl_2" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="130" Top="456" Width="62" Height="16" ForeColor="255,147,123,99" ShadowColor="0,20,0,0" Text="ҵս" Font="font_money" />
+            </control>
+            <control name="lbl_3" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="130" Top="448" Width="61" Height="16" ForeColor="255,147,123,99" ShadowColor="0,20,0,0" Text="ҵĽ" Font="font_money" />
+            </control>
+            <control name="lbl_4" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="138" Top="448" Width="20" Height="20" ShadowColor="0,0,0,0" DrawMode="FitWindow" BackImage="gui\special\btn_main\btn_life_out_36.png" />
+            </control>
+            <control name="lbl_life_tip" entity="Label" script="" init="">
+                <prop Align="Center" RefCursor="WIN_HELP" TextOffsetX="10" TextOffsetY="25" Left="226" Top="408" Width="174" Height="46" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="@ui_mylife_1" Font="font_tip" DrawMode="ExpandH" BackImage="gui\common\form_back\bg_tips.png" />
+            </control>
+            <control name="lbl_flag" entity="Label" script="" init="">
+                <prop Align="Center" RefCursor="WIN_HELP" TextOffsetX="8" Left="101" Top="-118" Width="22" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" VAnchor="Bottom" Font="font_main" AutoSize="true" BackImage="gui\mainform\bg_tips.png" />
+            </control>
+            <control name="lbl_bf_png" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="130" Top="456" Width="20" Height="20" ShadowColor="0,0,0,0" DrawMode="FitWindow" BackImage="gui\special\btn_main\battle_out.png" />
+            </control>
+            <control name="lbl_bf_text" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="138" Top="464" Width="62" Height="16" ForeColor="255,147,123,99" ShadowColor="0,20,0,0" Text="ҵ" Font="font_money" />
+            </control>
+            <control name="lbl_sns_news" entity="Label" script="" init="">
+                <prop Align="Center" RefCursor="WIN_HELP" Left="101" Top="328" Width="22" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_sns_event" AutoSize="true" DrawMode="Center" BackImage="gui\mainform\bg_tips.png" />
+            </control>
+            <control name="lbl_6" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="130" Top="464" Width="20" Height="20" ShadowColor="0,0,0,0" AutoSize="true" BackImage="gui\special\btn_main\yipinge.png" />
+            </control>
+            <control name="lbl_7" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="430" Top="128" Width="62" Height="16" ForeColor="255,147,123,99" ShadowColor="0,20,0,0" Text="@ui_yipinge" Font="font_money" />
+            </control>
+            <control name="lbl_animation_0" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="-1" Top="-124" Width="158" Height="44" ForeColor="255,255,180,40" ShadowColor="0,0,0,0" VAnchor="Bottom" TestTrans="true" Font="font_money" DrawMode="ExpandV" BackImage="danshua" />
+            </control>
+            <control name="lbl_animation_1" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="-1" Top="-124" Width="158" Height="44" ForeColor="255,255,180,40" ShadowColor="0,0,0,0" VAnchor="Bottom" TestTrans="true" Font="font_tip" DrawMode="ExpandV" BackImage="danshua" />
+            </control>
+            <control name="lbl_animation_2" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="-1" Top="-124" Width="158" Height="44" ForeColor="255,255,180,40" ShadowColor="0,0,0,0" VAnchor="Bottom" TestTrans="true" Font="font_money" DrawMode="ExpandV" BackImage="danshua" />
+            </control>
+            <control name="lbl_text_0" entity="MultiTextBox" script="" init="">
+                <prop TextColor="255,255,180,40" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="8,2,184,40" HtmlText="@ui_funcbtn_yindao" ScrollSize="17" Left="112" Top="-166" Width="190" Height="45" ShadowColor="0,0,0,0" VAnchor="Bottom" TestTrans="true" Font="font_tip" NoFrame="true" DrawMode="ExpandH" BackImage="gui\special\gaiming\kuang.png" />
+            </control>
+            <control name="lbl_text_1" entity="MultiTextBox" script="" init="">
+                <prop TextColor="255,255,180,40" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="8,2,182,40" HtmlText="@ui_funcbtn_yindao" ScrollSize="17" Left="112" Top="-166" Width="190" Height="45" ShadowColor="0,0,0,0" VAnchor="Bottom" TestTrans="true" Font="font_tip" NoFrame="true" DrawMode="ExpandH" BackImage="gui\special\gaiming\kuang.png" />
+            </control>
+            <control name="lbl_text_2" entity="MultiTextBox" script="" init="">
+                <prop TextColor="255,255,180,40" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="8,2,182,40" HtmlText="@ui_funcbtn_yindao" ScrollSize="17" Left="112" Top="-166" Width="190" Height="45" ShadowColor="0,0,0,0" VAnchor="Bottom" TestTrans="true" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\special\gaiming\kuang.png" />
+            </control>
+        </control>

@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+
+	     <control name="main_form" entity="Form" script="auto_tools\tools_hailuom" init="on_form_main_init">
+        <prop LimitInScreen="true" Left="77" Top="120" Width="590" Height="350" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />	
+		
+		
+		
+        <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="560" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="145" Top="10" Width="300" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Auto thu thập" Font="font_title" />
+        </control>
+
+	        <control name="toado1" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="10" Top="60" Width="50" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Điểm 1" Font="font_text_figure" />
+        </control>	
+		        <control name="toado2" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="10" Top="95" Width="50" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Điểm 2" Font="font_text_figure" />
+        </control>	
+	        <control name="toado3" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="10" Top="130" Width="50" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Điểm 3" Font="font_text_figure" />
+        </control>			
+
+
+	        <control name="x" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="100" Top="35" Width="10" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="X" Font="font_text_figure" />
+        </control>			
+			        <control name="y" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="190" Top="35" Width="10" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Y" Font="font_text_figure" />
+        </control>	
+			        <control name="z" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="280" Top="35" Width="10" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Z" Font="font_text_figure" />
+        </control>	
+
+		        <control name="laytoado1" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="330" Top="60" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Lấy tọa độ" Font="font_text_figure" AutoSize="true" />
+            <event on_click="click_toado1" />
+        </control>
+				        <control name="laytoado2" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="330" Top="95" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Lấy tọa độ" Font="font_text_figure" AutoSize="true" />
+            <event on_click="click_toado2" />
+        </control>
+				        <control name="laytoado3" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="330" Top="130" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Lấy tọa độ" Font="font_text_figure" AutoSize="true" />
+            <event on_click="click_toado3" />
+        </control>
+		
+					        <control name="chonnghe" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="426" Top="35" Width="90" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chọn vật thu thập" Font="font_text_figure" />
+        </control>	
+		
+	  <control name="toado_x1" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="60" Top="60" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+	<control name="toado_y1" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="150" Top="60" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+		<control name="toado_z1" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="240" Top="60" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>		
+		
+	  <control name="toado_x2" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="60" Top="95" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+	<control name="toado_y2" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="150" Top="95" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+		<control name="toado_z2" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="240" Top="95" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+		
+	  <control name="toado_x3" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="60" Top="130" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+	<control name="toado_y3" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="150" Top="130" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+		<control name="toado_z3" entity="Edit" script="" init="">
+     <prop OnlyDigit="true" MaxDigit="9999" MaxLength="8" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="240" Top="130" Width="80" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="0" />
+        </control>	
+		
+					        <control name="btn_control" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="246" Top="170" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Bắt đầu" Font="font_text_figure" AutoSize="true" />
+            <event on_click="on_btn_control_click" />
+        </control>	
+		
+		
+	        <control name="combobox1" entity="ComboBox" script="" init="">
+            <prop ButtonWidth="20" DropDownHeight="200" OnlySelect="true" Left="425" Top="60" Width="150" Height="30" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+            <event on_selected="combobox1" />
+            <subor name="InputEdit">
+                <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <subor name="DropButton">
+                <prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down2_on.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <subor name="DropListBox">
+                <prop MouseSelect="true" ItemHeight="18" TextOffsetX="5" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                <subor name="VScrollBar">
+                    <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,0,0,0" ShadowColor="0,0,0,0" />
+                    <subor name="DecButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_up_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="IncButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_down_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="TrackButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\bg_scrollbar.png" Width="17" Height="10" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                </subor>
+            </subor>
+        </control>	
+		
+		  <control name="combobox2" entity="ComboBox" script="" init="">
+            <prop ButtonWidth="20" DropDownHeight="200" OnlySelect="true" Left="425" Top="95" Width="150" Height="30" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+            <event on_selected="combobox2" />
+            <subor name="InputEdit">
+                <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <subor name="DropButton">
+                <prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down2_on.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <subor name="DropListBox">
+                <prop MouseSelect="true" ItemHeight="18" TextOffsetX="5" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                <subor name="VScrollBar">
+                    <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,0,0,0" ShadowColor="0,0,0,0" />
+                    <subor name="DecButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_up_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="IncButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_down_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="TrackButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\bg_scrollbar.png" Width="17" Height="10" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                </subor>
+            </subor>
+        </control>	
+		
+		  <control name="combobox3" entity="ComboBox" script="" init="">
+            <prop ButtonWidth="20" DropDownHeight="200" OnlySelect="true" Left="425" Top="130" Width="150" Height="30" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+            <event on_selected="combobox3" />
+            <subor name="InputEdit">
+                <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <subor name="DropButton">
+                <prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down2_on.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <subor name="DropListBox">
+                <prop MouseSelect="true" ItemHeight="18" TextOffsetX="5" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                <subor name="VScrollBar">
+                    <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,0,0,0" ShadowColor="0,0,0,0" />
+                    <subor name="DecButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_up_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="IncButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_down_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="TrackButton">
+                        <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\bg_scrollbar.png" Width="17" Height="10" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                </subor>
+            </subor>
+        </control>	
+		
+		
+		
+		        <control name="mltbox_1" entity="MultiTextBox" script="" init="">
+            <prop HAlign="Center" VAlign="Center" TextColor="255,255,255,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,570,300" LineHeight="20" HtmlText="Hướng dẫn:<br>1. Chuẩn bị công cụ đầy đủ <br>2. Ghi tọa độ thủ công vào ô ( chỉ ghi tọa độ X và Z ) hoặc để chính xác hơn thì dùng nút &lt;font color=&apos;#46fd15&apos;&gt;Lấy tọa độ &lt;/font&gt; để lấy tọa độ đang đứng <br>3. Lưu ý: chặt cây thì phải đứng đúng vị trí có thể chặt, còn khoáng, dược, độc thì vị trí ở gần là được <br>4. Bấm &lt;font color=&apos;#46fd15&apos;&gt;Bắt đầu&lt;/font&gt; để chạy" ScrollSize="17" HasVScroll="true" Left="10" Top="200" Width="480" Height="180" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure" />
+        </control>
+		
+    </control>
+</form>
