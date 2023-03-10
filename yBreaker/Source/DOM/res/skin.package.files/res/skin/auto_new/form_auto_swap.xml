@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_swap" init="main_form_init">
+  <prop Transparent="false" LimitInScreen="true" ShowGrid="true" Left="300" Top="250" Width="160" Height="180" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />       
+  <event on_open="on_main_form_open" on_close="on_main_form_close" />
+     <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="7" Top="5" Width="150" Height="254" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+          <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="" >
+			<control name="lbl_3" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="4" Top="27" Width="252" Height="9" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_line\line_horizontal.png" />
+			</control>
+            <prop Left="6" Top="15" Width="140" Height="240" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+			<control name="lbl_pr_title" entity="Label" script="" init="">
+			  <prop RefCursor="WIN_HELP" Left="50" Top="8" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Auto" Font="font_title" />
+			</control>
+				<control name="btn_close" entity="Button" script="" init="">
+				  <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="115" Top="2" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
+				  <event on_click="on_btn_close_click" />
+				</control>
+			<control name="lbl_swap_vk" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="10" Top="40" Width="40" Height="16" ForeColor="255,255,0,0" ShadowColor="0,0,0,0" Text="Swap Vũ Khí" Font="font_text_title1" />
+			</control>  
+			<control name="swap_vk" entity="CheckButton" script="" init="">
+				<prop BoxSize="12" Left="120" Top="40" Width="16" Height="16" HintText="" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<event on_checked_changed="on_cbtn_swap_vk_click" />
+			</control>	
+			<control name="lbl_swap_oan" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="10" Top="60" Width="40" Height="16" ForeColor="255,255,0,0" ShadowColor="0,0,0,0" Text="Swap Hộ Oản" Font="font_text_title1" />
+			</control>  
+			<control name="swap_oan" entity="CheckButton" script="" init="">
+				<prop BoxSize="12" Left="120" Top="60" Width="16" Height="16" HintText="" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<event on_checked_changed="on_cbtn_swap_oan_click" />
+			</control>	
+			<control name="lbl_swap_binhthu" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="10" Top="80" Width="40" Height="16" ForeColor="255,255,0,0" ShadowColor="0,0,0,0" Text="Swap Bình Thư" Font="font_text_title1" />
+			</control>  
+			<control name="swap_binhthu" entity="CheckButton" script="" init="">
+				<prop BoxSize="12" Left="120" Top="80" Width="16" Height="16" HintText="" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<event on_checked_changed="on_cbtn_swap_binhthu_click" />
+			</control>	
+			<control name="lbl_swap_vk_ct" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="10" Top="100" Width="40" Height="16" ForeColor="255,255,0,0" ShadowColor="0,0,0,0" Text="Bình Thư %HPMP" Font="font_text_title1" />
+			</control>  
+			<control name="swap_vk_ct" entity="CheckButton" script="" init="">
+				<prop BoxSize="12" Left="120" Top="100" Width="16" Height="16" HintText="" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<event on_checked_changed="on_cbtn_swap_vk_ct_click" />
+			</control>	
+		 <control name="btn_ok" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="35" Top="130" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Bắt đầu" Font="font_text_figure" AutoSize="true" />
+            <event on_click="on_off_start_btn" />
+        </control>   	
+        </control>
+     </control>
+ </control>
+</form>

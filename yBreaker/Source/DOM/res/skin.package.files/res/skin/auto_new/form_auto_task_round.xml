@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<form>
+    <control name="main_form" entity="Form" script="auto_new/form_auto_task_round" init="main_form_init">
+        <prop LimitInScreen="true" ShowGrid="true" Left="69" Top="77" Width="400" Height="474" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" />
+        <event on_open="main_form_open" on_close="main_form_close" />
+
+        <control name="lbl_form" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Top="2" Width="396" Height="470" ShadowColor="0,0,0,0" Font="font_sns_title_hual_2" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        </control>
+
+        <control name="lbl_bg" entity="Label" script="" init="">
+            <prop Solid="true" Transparent="false" RefCursor="WIN_HELP" Left="4" Top="36" Width="386" Height="390" BackColor="180,0,0,0" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+        </control>
+
+        <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="368" Top="7" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+            <event on_click="on_btn_close_click" />
+        </control>
+
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="105" Top="9" Width="190" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="title" Font="font_title" />
+        </control>
+
+        
+
+        <control name="textgrid_task" entity="Grid" script="" init="">
+            <prop ShowComment="true" HeaderRowHeight="20" HeaderBackColor="0,255,255,255" SelectForeColor="255,78,63,47" SelectBackColor="0,147,123,99" CanSelectRow="true" ColWidth="40" ColWidths="64,150,140" RowHeight="30" ColCount="3" ScrollSize="18" HasHScroll="true" AlwaysVScroll="true" AlwaysHScroll="false" Solid="true" Left="8" Top="38" Width="380" Height="380" ForeColor="255,128,101,74" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" Font="font_name_guild" TabStop="true" NoFrame="true" DrawMode="Expand" />
+            <subor name="VScrollBar">
+                <prop FullBarBack="false" SmallChange="2" LargeChange="10" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" />
+                <subor name="TrackButton">
+                    <prop NormalImage="gui\common\scrollbar\button_1\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_1\btn_trace_on.png" PushImage="gui\common\scrollbar\button_1\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="357" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+                </subor>
+                <subor name="DecButton">
+                        <prop NormalImage="gui\common\scrollbar\button_1\btn_up_out.png" FocusImage="gui\common\scrollbar\button_1\btn_up_on.png" PushImage="gui\common\scrollbar\button_1\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="18" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Expand" />
+                    </subor>
+                    <subor name="IncButton">
+                        <prop NormalImage="gui\common\scrollbar\button_1\btn_down_out.png" FocusImage="gui\common\scrollbar\button_1\btn_down_on.png" PushImage="gui\common\scrollbar\button_1\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="18" Height="18" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="FitWindow" />
+                    </subor>
+            </subor>
+            <subor name="CornerLabel">
+                <prop Solid="true" RefCursor="WIN_HELP" ShadowColor="0,0,0,0" NoFrame="false" DrawMode="FitWindow" BackImage="gui\common\form_back\bg_form.png" />
+            </subor>
+        </control>
+        <control name="btn_turn_on" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="680" Top="600" Width="60" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Enabled="false" Text="ON" Font="font_system_world" DrawMode="ExpandH" />
+            <event on_click="on_btn_turn_on_click" />
+        </control>
+
+        <control name="btn_start" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="32" Top="429" Width="96" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Start" Font="font_btn" HintText="" DrawMode="ExpandH" />
+            <event on_click="on_btn_start_click" />
+        </control>
+
+        <control name="btn_get_skill" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="132" Top="429" Width="96" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Set Skill" Font="font_btn" HintText="" DrawMode="ExpandH" />
+            <event on_click="on_btn_get_skill_click" />
+        </control>
+
+    </control>
+</form>

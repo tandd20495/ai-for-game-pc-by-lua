@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_set_skill" init="main_form_init">
+  <prop Transparent="true" LimitInScreen="true" ShowGrid="true" Left="350" Top="250" Width="550" Height="250" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />     
+    <event on_open="on_main_form_open" on_close="on_main_form_close" />
+     <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="7" Top="5" Width="535" Height="220" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="4" Top="11" Width="525" Height="210" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+          <control name="lbl_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="200" Top="5" Width="70" Height="16" ForeColor="255,155,50,50" ShadowColor="0,0,0,0" Text="Setting Skill" Font="font_title" />
+        </control>
+		 <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="500" Top="4" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Không Dùng Skill này" />
+            <event on_click="on_btn_close_click" />
+        </control> 
+	<control name="groupbox_Skill_Autodef" entity="GroupBox" script="" init="">            
+			<prop Left="4" Top="25" Width="515" Height="180" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png" />	
+            <control name="picture_skill_1" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="10" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_2" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="65" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_3" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="120" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_4" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="175" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_5" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="230" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_6" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="285" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_7" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="340" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_8" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="395" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>
+            <control name="picture_skill_9" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="450" Top="10" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_click" on_right_up= "on_right_click" />
+            </control>  
+			<control entity="Label" script="" init="">
+                <prop Align="Center" RefCursor="WIN_HELP" Left="11" Top="117" Width="50" Height="16" ForeColor="255,128,101,74" ShadowColor="0,255,0,0" Text="Vũ khí" Font="font_main" />
+            </control>	
+			<control name="picture_item" entity="Picture" script="" init="">
+                <prop Image="" ZoomWidth="0.232420" ZoomHeight="0.193359" CenterX="-1" CenterY="-1" Left="10" Top="100" Width="50" Height="50" LineColor="255,128,101,74" ShadowColor="0,0,0,0" HintText=""  />
+                <event on_left_up="on_left_item_click" on_right_up= "on_right_item_click" />
+            </control>   	
+        </control>
+		<!-- CBNT Jump -->
+		<control name="cbtn_jump_skill_1" entity="CheckButton" script="" init="">
+            <prop Left="45" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" Visible="true" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Chọn Để Dùng skill trên Không"  />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_2" entity="CheckButton" script="" init="">
+            <prop Left="100" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" Visible="true" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_3" entity="CheckButton" script="" init="">
+            <prop Left="155" Top="90" Width="16" Height="20" Visible="true" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_4" entity="CheckButton" script="" init="">
+            <prop Left="215" Top="90" Width="16" Height="20" Visible="true" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_5" entity="CheckButton" script="" init="">
+            <prop Left="265" Top="90" Width="16" Height="20" Visible="true" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_6" entity="CheckButton" script="" init="">
+            <prop Left="320" Top="90" Width="16" Height="20" Visible="true" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_7" entity="CheckButton" script="" init="">
+            <prop Left="375" Top="90" Width="16" Height="20" Visible="true"  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_8" entity="CheckButton" script="" init="">
+            <prop Left="430" Top="90" Width="16" Height="20" Visible="true" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>
+		<control name="cbtn_jump_skill_9" entity="CheckButton" script="" init="">
+            <prop Left="485" Top="90" Width="16" Height="20" Visible="true" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng skill trên Không" />
+            <event on_checked_changed="on_cbtn_change_1" />
+        </control>	
+		<!--Skill Đặt Biệt-->
+		<control name="cbtn_dacbiet_skill_1" entity="CheckButton" script="" init="">
+            <prop Left="15" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_2" entity="CheckButton" script="" init="">
+            <prop Left="75" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_3" entity="CheckButton" script="" init="">
+            <prop Left="130" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_4" entity="CheckButton" script="" init="">
+            <prop Left="190" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_5" entity="CheckButton" script="" init="">
+            <prop Left="240" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_6" entity="CheckButton" script="" init="">
+            <prop Left="295" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_7" entity="CheckButton" script="" init="">
+            <prop Left="350" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_8" entity="CheckButton" script="" init="">
+            <prop Left="405" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="cbtn_dacbiet_skill_9" entity="CheckButton" script="" init="">
+            <prop Left="460" Top="90" Width="16" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Check Để Dùng Với những skill đặt biệt"  />
+            <event on_checked_changed="on_cbtn_change" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="150" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Đặt tên bộ skill:" Font="font_main" />
+		</control>	
+		<control name="edt_name_taolu" entity="Edit" script="" init="">
+				<prop TextOffsetX="2" Text="Tên Bộ Skill" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="140" Top="170" Width="100" Height="22" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
+		</control>
+        <control name="on_btn_save_click" entity="Button" script="" init="">
+			    <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="420" Top="160" AutoSize="true" Width="50"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" Text="Save" TabStop="true"  InSound="MouseOn_20" ClickSound="ok_7"  />
+			       <event on_click="on_btn_save_click" />
+		</control>
+      </control>  
+     </control>
+ </control>
+</form>

@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_ai_set" init="main_form_init">
+  <prop Transparent="false" LimitInScreen="true" ShowGrid="true" Left="450" Top="200" Width="230" Height="230" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />    
+     <event on_open="on_main_form_open" on_close="on_main_form_close" />
+		<!-- Giao Diện phần ảnh nền - tiêu đề - phím thoát và hướng dẩn -->
+		  <control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP"  Width="225" Height="225" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+		</control>	
+		 <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\close_out.png" FocusImage="gui\special\wuxue\button\close_on.png" PushImage="gui\special\wuxue\button\close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="192" Top="3" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_click="on_btn_close_click" />
+        </control> 
+		<control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\help_out.png" FocusImage="gui\special\wuxue\button\help_on.png" PushImage="gui\special\wuxue\button\help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="0" Top="0" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ff0040&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● &lt;font color=&apos;#c3dbd0&apos;&gt; Hãy chọn auto và chỉnh sữa thời gian sau đó Ấn save&lt;/font&gt;" />
+        </control>	
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="70" Top="5" Width="100" Height="16" ForeColor="255,155,50,50" DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Cài Đặt" Font="font_title" />
+        </control>
+	<!-- END Giao Diện phần ảnh nền - tiêu đề - phím thoát và hướng dẩn -->
+	
+	<!-- Khung Hiển Thị Phím Ấn Vào -->
+	 <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="0" Top="20" Width="220" Height="220" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" /> 
+		  <!-- Khung Hiển Thị AUTO  -->
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="5" Top="10" Width="215" Height="150" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png"  />
+			<control name="lbl_auto_time" entity="Label" script="" init="">
+					<prop RefCursor="WIN_HELP" Left="20" Top="20" Width="70" Height="16" ForeColor="255,204,0,102" ShadowColor="0,0,0,0" Text="Danh sách auto" Font="font_text_title" />
+			</control>
+			<control name="lbl_list_auto_select" entity="Label" script="" init="">
+			<prop RefCursor="WIN_HELP" Left="20" Top="36" Width="172" Height="30" ShadowColor="0,0,0,0" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
+		</control>		
+		<control name="cbx_list_auto_select" entity="ComboBox" script="" init="">
+            <prop ButtonWidth="20" DropDownWidth="172" DropDownHeight="150" OnlySelect="true" Left="20" Top="40" Width="170" Height="26" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_text_figure" NoFrame="true" DrawMode="Expand" />
+			<event on_selected="on_cbx_item_pick_selected" />
+            <subor name="InputEdit">
+                <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,76,61,44" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" DrawMode="ExpandH" />
+            </subor>
+            <subor name="DropButton">
+                <prop NormalImage="gui\common\combobox\btn_down2_out.png" FocusImage="gui\common\combobox\btn_down2_on.png" PushImage="gui\common\combobox\btn_down2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="22" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="FitWindow" />
+            </subor>
+            <subor name="DropListBox">
+                <prop MouseSelect="true" ItemHeight="16" TextOffsetX="2" SelectBackImage="gui\common\combobox\bg_select2.png" ScrollSize="14" ForeColor="255,255,255,255" BackColor="176,0,0,0" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_combox_text" NoFrame="true" DrawMode="Expand" BackImage="gui\common\combobox\bg_list2.png" />
+                <subor name="VScrollBar">
+                    <prop ButtonSize="14" FullBarBack="false" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="ExpandV" BackImage="gui\common\scrollbar\bg_scrollbar2.png" />
+                    <subor name="DecButton">
+                        <prop NormalImage="gui\common\scrollbar\button_2\btn_up_out.png" FocusImage="gui\common\scrollbar\button_2\btn_up_on.png" PushImage="gui\common\scrollbar\button_2\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+                    </subor>
+                    <subor name="IncButton">
+                        <prop NormalImage="gui\common\scrollbar\button_2\btn_down_out.png" FocusImage="gui\common\scrollbar\button_2\btn_down_on.png" PushImage="gui\common\scrollbar\button_2\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" />
+                    </subor>
+                    <subor name="TrackButton">
+                        <prop NormalImage="gui\common\scrollbar\button_2\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_2\btn_trace_on.png" PushImage="gui\common\scrollbar\button_2\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="81" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+                    </subor>
+                </subor>
+            </subor>
+        </control>	
+			<control name="lbl_auto_time" entity="Label" script="" init="">
+					<prop RefCursor="WIN_HELP" Left="20" Top="70" Width="70" Height="16" ForeColor="255,204,0,102" ShadowColor="0,0,0,0" Text="Thời gian thực hiện" Font="font_text_title" />
+			</control>
+			<control name="edt_start_time" entity="Edit" script="" init="">
+				<prop TextOffsetX="15" Text="00:00" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="20" Top="90" Width="70" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text_title" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
+		  </control>
+		  <control name="lbl_auto_time" entity="Label" script="" init="">
+					<prop RefCursor="WIN_HELP" Left="95" Top="100" Width="70" Height="16" ForeColor="255,204,0,102" ShadowColor="0,0,0,0" Text="Đến" Font="font_text_title" />
+			</control>
+		  <control name="edt_end_time" entity="Edit" script="" init="">
+				<prop TextOffsetX="15" Text="23:59" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="120" Top="90" Width="70" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text_title" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
+		  </control>		
+       </control>
+	    <!-- END -- Khung Hiển Thị AUTO  -->
+			
+	     <!-- Khung Hiển Thị nút bắt đầu AUTO  -->
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="5" Top="160" Width="215" Height="40" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png"  />
+			<control name="btn_start_save" entity="Button" script="" init="">
+				<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="2" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Thêm" ClickSound="ok_7" />
+				<event on_click="btn_start_save" />
+			</control>	
+			<control name="btn_start_use" entity="Button" script="" init="">
+				<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="2" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Cài Đặt" ClickSound="ok_7" />
+				<event on_click="btn_start_use" />
+			</control>		
+       </control>
+	    <!-- END -- Khung Hiển Thị nút bắt đầu AUTO  -->
+		 
+     </control>	 
+	 <!-- END Giao Diện Hiện Phím Ấn -->
+ </control>
+</form>
