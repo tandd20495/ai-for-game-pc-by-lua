@@ -1,0 +1,45 @@
+﻿
+DialogID_72001=<font face="Default" color="#ffffff" >Đại hiệp thật tốt bụng, ngươi nhìn xem ta đã mấy ngày không ăn gì, thân thể tiều tụy, cảm giác cả người nhẹ như không...</font>
+DialogID_72002=<font face="Default" color="#ffffff" >Thiếu hiệp mặt mày tuấn tú, phong thái hiên ngang, vừa nhìn đã biết người quý phái, có thể thưởng cho ta chút đồ ăn không, ta </font><font face="Default" color="#ffffff" >sắp</font><font face="Default" color="#ffffff" > đói rã rời rồi, trước mắt một màu đen xịt...</font>
+DialogID_72003=<font face="Default" color="#ffffff" >Xem ra lần này đúng là đói xanh mặt rồi, ta thấy nơi đây nguy nga tráng lệ, phong thủy hữu tình, nhất định là chốn giàu sang, có thể thưởng chút thức ăn cho ta không, ta đã đói đến hoa mắt rồi...</font>
+SubmitNpcEx_72001=Đã hoàn thành nhiệm vụ, nhanh tìm Phong Thủy Đại Sư nhận thưởng đi.
+SubmitNpcEx_72003=Đã thành công đuổi những kẻ đến ăn trộm đó, mau tìm Gia Viên Phong Thủy Đại Sư nhận thưởng đi.
+SubmitNpcEx_72004=Đã thành công cứu những kẻ chán nản đó, mau tìm Gia Viên Phong Thủy Đại Sư nhận thưởng đi.
+collectinfo_72001=Tặng thức ăn cho những Hành Khất Lang Thang trong Gia Viên đó.
+hunterinfo_72001=Đánh bại đám kẻ trộm xâm nhập Gia Viên, bảo vệ Gia Viên. <font color="#EE0000">(Nếu tìm hảo hữu đến giúp, hảo hữu cũng phải nhận nhiệm vụ, nhớ phải tổ đội cùng, nếu không sẽ không thể hoàn thành nhiệm vụ, mỗi ngày có thể hoàn thành 3 lần.)</font>
+hunterinfo_72005=Trong Gia Viên hình như có người bị thương, đến cứu họ đi.
+interactinfo_72001=Phân phát thức ăn cho những Hành Khất Lang Thang trong Gia Viên đó, giúp họ vượt qua khó khăn.
+interactinfo_72002=Phân phát thức ăn cho những Hành Khất Lang Thang trong Gia Viên đó, giúp họ vượt qua khó khăn.
+interactinfo_72003=Phân phát thức ăn cho những Hành Khất Lang Thang trong Gia Viên đó, giúp họ vượt qua khó khăn.
+okmenu_72001=<font face="Default" color="#ffffff" >Giang hồ hỗn loạn, việc gì phải buồn chán vậy, chỗ ta có ít thức ăn tặng ngươi đây.</font>
+okmenu_72002=<font face="Default" color="#ffffff" >Ngươi có thể đến trước cổng nhà ta cũng xem như có duyên, ta sẽ làm ít thức ăn tặng ngươi.</font>
+okmenu_72003=<font face="Default" color="#ffffff" >Ta vốn thích làm việc thiện, </font><font face="Default" color="#ffffff" >hiếm khi</font><font face="Default" color="#ffffff" > ngươi lưu lạc đến đây, ta sẽ tặng ngươi ít đồ ăn.</font>
+SubmitNpcEx_72002=Đã thành công xua đuổi đám thỏ con chạy loạn khắp nơi đó, mau tìm Gia Viên Phong Thủy Đại Sư nhận thưởng nhé
+hunterinfo_72002=Bắt đám Tiểu Bạch Thố chạy loạn khắp gia viên đó.
+hunterinfo_72003=Bắt đám Tiểu Kim Thố chạy loạn khắp gia viên đó.
+DialogID_72004=<font face="Default" color="#ffffff" >Vũ Yến Thảo</font>
+DialogID_72005=<font face="Default" color="#ffffff" >Mộng Linh Hoa</font>
+DialogID_72006=<font face="Default" color="#ffffff" >Bồ Đề Quả</font>
+DialogID_72007=<font face="Default" color="#ffffff" >Tử Phương Lan</font>
+QiecuoMenu_72006=<font face="Default" color="#ffffff" >Mời!</font><font face="Default" color="#ffffff" >Mời!</font>
+QiecuoTitle_72006=<font face="Default" color="#ffffff" >Mời!</font><font face="Default" color="#ffffff" >Mời!</font>
+SubmitNpcEx_72005=Giao Kỳ Hoa Dị Thảo cho <a href="findnpc,adv155,-1799,23,345" style="HLStype1">Mục Hương</a> tiểu thư
+SubmitNpcEx_72006=Trả lại tín vật của <a href="findnpc,adv155,-1799,23,345" style="HLStype1">Mục Dịch</a>
+SubmitNpcEx_72007=Trò chuyện với <a href="findnpc,adv155,-1799,23,345" style="HLStype1">Mục Võ</a>
+SubmitNpcEx_72008=<a href="findnpc_new,city02,npc_1912_dy_qy01" style="HLStype1">npc_1912_dy_qy01</a>
+collectinfo_72002=Thu thập <a href="findnpc,adv155,-1920,23,190" style="HLStype1">Vũ Yến Thảo</a>
+collectinfo_72003=Thu thập <a href="findnpc,adv155,-1971,36,142" style="HLStype1">Mộng Linh Hoa</a>
+collectinfo_72004=Thu thập <a href="findnpc,adv155,-1860,23,248" style="HLStype1">Bồ Đề Quả</a>
+collectinfo_72005=Thu thập <a href="findnpc,adv155,-1835,23,271" style="HLStype1">Tử Phương Lan</a>
+collectinfo_72006=Chiến thắng <a href="findnpc,adv155,-1840,24,255" style="HLStype1">Mục Dịch</a> và lấy được tín vật
+hunterinfo_72006=Tỉ thí võ nghệ với <a href="findnpc,adv155,-1799,23,345" style="HLStype1">Mục Võ</a>
+interactinfo_72004=Thu thập <a href="findnpc,adv155,-1920,23,190" style="HLStype1">Vũ Yến Thảo</a>
+interactinfo_72005=Thu thập <a href="findnpc,adv155,-1971,36,142" style="HLStype1">Mộng Linh Hoa</a>
+interactinfo_72006=Thu thập <a href="findnpc,adv155,-1860,23,248" style="HLStype1">Bồ Đề Quả</a>
+interactinfo_72007=Thu thập <a href="findnpc,adv155,-1835,23,271" style="HLStype1">Tử Phương Lan</a>
+okmenu_72004=<font face="Default" color="#ffffff" >Thu thập</font>
+okmenu_72005=<font face="Default" color="#ffffff" >Thu thập</font>
+okmenu_72006=<font face="Default" color="#ffffff" >Thu thập</font>
+okmenu_72007=<font face="Default" color="#ffffff" >Thu thập</font>
+hunterinfo_72004=Trò chuyện cùng những kẻ lén lút trong Gia Viên đó, biết rõ thân phận kẻ trộm và tiêu diệt chúng.
+
