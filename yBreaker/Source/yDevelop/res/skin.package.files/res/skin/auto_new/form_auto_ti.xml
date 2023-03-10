@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+   <control name="main_form" entity="Form" script="auto_new\form_auto_ti" init="main_form_init">
+  <prop Transparent="false" LimitInScreen="true" ShowGrid="true" Left="250" Top="250" Width="550" Height="400" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />    
+     <event on_open="on_main_form_open" on_close="on_main_form_close" />
+	
+	 <control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP"  Width="540" Height="390" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\lead\bg_main_1.png" />
+        </control>	
+	<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\close_1_out.png" FocusImage="gui\special\wuxue\button\close_1_on.png" PushImage="gui\special\wuxue\button\close_1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0"  Left="500" Top="2" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>  
+	<control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\help_out.png" FocusImage="gui\special\wuxue\button\help_on.png" PushImage="gui\special\wuxue\button\help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="20" Top="5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ff0040&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● &lt;font color=&apos;#e3e310&apos;&gt;Gõ 3 ký tự đầu của vật phẩm muốn thêm vào ô điền để hiện danh sách vật phẩm và ấn vào tên vật phẩm trên danh sách xong ấn thêm để thêm vật phẩm&lt;/font&gt; <br>● &lt;font color=&apos;#c3dbd0&apos;&gt;Điền số ải tung hoành tứ hải sẽ vượt. &lt;/font&gt;<br>● &lt;font color=&apos;#c3dbd0&apos;&gt;Điền số boss sẽ đánh trong mỗi ải.Ãi cuối cùng của số ãi vượt vd như bạn đi điền đi hết 4 ải thì ải cuối cùng auto sẽ tự mở full boss&lt;/font&gt; <br>● &lt;font color=&apos;#ff0000&apos;&gt;Nhập số ải để chọn boss đỏ sẽ đi nếu điền 3 auto sẽ mở boss đỏ ở ải 3/4 điền 0 nếu không muốn mở boss đỏ &lt;/font&gt; <br>● &lt;font color=&apos;#ff0000&apos;&gt;Nếu có lãm có thể chọn sử dụng lãm auto sẽ tự dùng lãm để bug đầy máu khi máu thấp hơn 20% &lt;/font&gt;" />
+        </control>	
+		 <control name="lbl_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="160" Top="7" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="50,50,50,50" Text="Auto Tung Hoành" Font="font_title" />
+        </control>	
+	<control name="groupbox_main_2" entity="GroupBox" script="" init="">        
+		<prop Left="250" Top="40" Width="270" Height="335" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png" />
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="220" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Đánh tại vị trí boss " Font="font_main" />
+		</control>
+		<control name="check_box_10" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="218" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Nếu chọn auto sẽ đánh boss tại vị trí boss không di chuyển ra xa(có tỉ lệ bị lag vị trí nếu bị hắt văng hay đánh dính vào tường)" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_1" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="60" Top="185" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Số ải chọn boss đỏ" Font="font_main" />
+		</control>
+		
+		<control name="tab_5_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="0" Top="180" Width="56" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" HintText="Nhập số ải sẽ nhận boss đỏ nếu nhập 3 thì sẽ nhận boss đỏ ở ải 3 và 4 (sẽ dùng chọn miễn phí khi không chọn khiêu chiến lệnh)" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="4" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="160" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Dùng Khiêu Chiến Lệnh " Font="font_main" />
+		</control>
+		<control name="check_box_1" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="158" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Nếu chọn auto sẽ sử dụng khiêu chiến lệnh để mở boss đỏ" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_1" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="140" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Dừng lại ải cuối theo lượt chỉ định" Font="font_main" />
+		</control>
+		<control name="check_box_9" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="138" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Nếu tích chọn thì auto sẽ dừng lại ải cuối và theo Số lượt chỉ định ở 4 ải phía trên Không áp dụng với tự reset auto sẽ tự động dừng nếu chọn" TabIndex="9" />
+            <event on_checked_changed="on_cbtn_auto_box_9" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="120" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Sử dụng bug lãm khi HP dưới 20% " Font="font_main" />
+		</control>
+		<control name="check_box_2" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="118" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Nếu tích chọn auto sẽ tự động bug lãm full hp khi máu dưới 20%" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_2" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="100" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Tự Cắn Cá Sốt Canh Xương" Font="font_main" />
+		</control>
+		<control name="check_box_3" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="98" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Auto sẽ tự cá sốt canh xương khi vào ải nếu không có buff" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_3" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="80" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Tự Dùng Buff MP Khi MP Dưới 30%" Font="font_main" />
+		</control>
+		<control name="check_box_4" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="78" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Auto sẽ tự dùng buff 1L để tăng MP" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_4" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="60" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Tự Dùng Buff HP Khi HP Dưới 30%" Font="font_main" />
+		</control>
+		<control name="check_box_5" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="58" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Auto sẽ tự dùng buff 1L để tăng HP" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_5" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="20" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Không Nhặt Rương" Font="font_main" />
+		</control>
+		<control name="check_box_7" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="18" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Auto sẽ bỏ qua quá trình nhặt rương" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_7" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="40" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Tự thiết lập lại khi hoàn thành số ải " Font="font_main" />
+		</control>
+		<control name="check_box_8" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="38" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Auto sẽ tự reset lại lượt tung hoành khi đã hết số ải chỉ định" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_8" />
+        </control>	
+		<control name="btn_add_pick" entity="Button" script="" init="">
+				<prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="290" Width="120" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Cài Đặt Nhặt Đồ" Font="font_btn" HintText="" DrawMode="ExpandH" />
+				<event on_click="btn_add_pick" />
+		</control>
+	</control>	
+	 <control name="groupbox_main" entity="GroupBox" script="" init="">        
+		<prop Left="20" Top="40" Width="230" Height="335" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png" />
+		
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="47" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Số ải bạn sẽ đi" Font="font_main" />
+		</control>
+		<control name="tab_0_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="10" Top="40" Width="56" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM" HintText="Số ải mà bạn muốn đi nếu điền 3 auto sẽ đi tới ải thứ 3 và xem ải này là ải cuối" BackImage="gui\common\form_line\ibox_2.png" Text="4" />
+        </control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="72" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="@ui_tiguan_difficult_1" Font="font_main" />
+		</control>
+		<control name="tab_1_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="10" Top="65" Width="56" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM" HintText="Số lượt tiểu hửu danh khí muốn đi" BackImage="gui\common\form_line\ibox_2.png" Text="1" />
+        </control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="100" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="@ui_tiguan_difficult_2" Font="font_main" />
+		</control>
+		<control name="tab_2_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="10" Top="95" Width="56" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM" HintText="Số lượt Hùng cứ nhất phương muốn đi" BackImage="gui\common\form_line\ibox_2.png" Text="1" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="127" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="@ui_tiguan_difficult_3" Font="font_main" />
+		</control>	
+		<control name="tab_3_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="10" Top="120" Width="56" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM" HintText="Số lượt Vân du thế gia muốn đi" BackImage="gui\common\form_line\ibox_2.png" Text="4" />
+        </control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="70" Top="150" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="@ui_tiguan_difficult_4" Font="font_main" />
+		</control>
+		<control name="tab_4_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="10" Top="145" Width="56" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM" HintText="Số lượt Danh môn đại gia muốn đi" BackImage="gui\common\form_line\ibox_2.png" Text="4" />
+        </control>	
+		
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="25" Top="220" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Dùng Bá Thể + x2 Khi Gặp Boss" Font="font_main" />
+		</control>	
+		<control name="check_box_6" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="0" Top="220" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Auto sẽ tự buff bá thể + x2 dame theo Số lượt hoặc danh sách boss" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box_6" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="20" Top="240" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text=" - Nhập số ải dùng: " Font="font_main" />
+		</control>
+		<control name="tab_6_input" entity="Edit" script="" init="">
+            <prop OnlyDigit="true" MaxDigit="6" MaxLength="1" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="130" Top="235" Width="30" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Font="font_money" HintText="Nhập số ải sẽ xài bá thể và x2 nếu nhập số 0 thì auto sẽ theo tên boss ở ô dưới." Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_2.png" Text="4" />
+        </control>		
+		<control name="edt_item_boss" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="20" Top="275" Width="150" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Tên boss khi bạn gặp sẽ dùng bá thể" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>	
+		<control name="btn_add_save" entity="Button" script="" init="">
+				<prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="20" Top="10" Width="80" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Save" Font="font_btn" HintText="Save setting auto Tiguan" DrawMode="ExpandH" />
+				<event on_click="btn_add_save" />
+		</control>
+			<control name="btn_add_start" entity="Button" script="" init="">
+				<prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="100" Top="10" Width="80" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Start" Font="font_btn" HintText="Bắt đầu auto thth" DrawMode="ExpandH" />
+				<event on_click="btn_add_start" />
+			</control>
+		</control>		
+    </control>
+</form>

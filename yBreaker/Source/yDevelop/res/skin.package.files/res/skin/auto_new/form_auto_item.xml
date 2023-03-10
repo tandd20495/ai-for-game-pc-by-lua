@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="auto_new\form_auto_item" init="main_form_init">
+        <prop LimitInScreen="true" Left="69" Top="38" Width="270" Height="120" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="main_form_open" on_close="on_main_form_close" /> 
+		<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="240" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20"  />
+            <event on_click="closeBtnClick" />
+        </control>	
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="60" Top="6" Width="150" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự Dùng Vật Phẩm" Font="font_title_Mojia" />
+        </control>
+		
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Right" RefCursor="WIN_HELP" Left="20" Top="51" Width="50" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Vật phẩm:" Font="font_main" />
+        </control>
+        <control name="combobox_mode" entity="ComboBox" script="" init="">
+            <prop ButtonWidth="20" DropDownHeight="200" OnlySelect="true" Left="80" Top="50" Width="180" Height="22" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+            <event on_selected="on_combobox_mode_selected" />
+            <subor name="InputEdit">
+                <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
+            </subor>
+            <!-- Nút sổ xuống:-->
+			<subor name="DropButton">
+                <prop NormalImage="gui\common\combobox\btn_down1_out_6.png" FocusImage="gui\common\combobox\btn_down1_on_6.png" PushImage="gui\common\combobox\btn_down1_down_6.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down1_on_6.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+            </subor>
+			<subor name="DropListBox">
+                <prop MouseSelect="true" ItemHeight="16" TextOffsetX="2" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\special\battlefield\info.png" />
+                <subor name="VScrollBar">
+                    <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="255,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="FitWindow" BackImage="gui\common\scrollbar\bg_scrollbar.png" />
+                    <!-- Nút lên:-->
+					<subor name="DecButton">
+                        <prop NormalImage="gui\common\scrollbar\button_1\btn_up_out.png" FocusImage="gui\common\scrollbar\button_1\btn_up_on.png" PushImage="gui\common\scrollbar\button_1\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="17" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="FitWindow" />
+                    </subor>
+					<!-- Nút xuống:-->
+                    <subor name="IncButton">
+                        <prop NormalImage="gui\common\scrollbar\button_1\btn_down_out.png" FocusImage="gui\common\scrollbar\button_1\btn_down_on.png" PushImage="gui\common\scrollbar\button_1\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="17" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="FitWindow" />
+                    </subor>
+					<!-- Nút trượt:-->
+                    <subor name="TrackButton">
+                        <prop NormalImage="gui\common\scrollbar\button_1\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_1\btn_trace_on.png" PushImage="gui\common\scrollbar\button_1\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="17" Height="30" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="Expand" />
+                    </subor>
+                </subor>
+             </subor>
+        </control>
+		
+		<control name="btn_control" entity="Button" script="" init="">
+			<prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="91" Top="80" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" DrawMode="ExpandH" Enabled="false"/>
+			<event on_click="auto_item" />
+		</control>
+    </control>
+</form>

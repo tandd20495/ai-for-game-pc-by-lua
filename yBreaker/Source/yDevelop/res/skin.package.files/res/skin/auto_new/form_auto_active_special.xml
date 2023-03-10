@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_active_special" init="main_form_init">
+  <prop Transparent="true" LimitInScreen="true" ShowGrid="true" Left="400" Top="300" Width="450" Height="500" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />       
+    <event on_open="on_main_form_open" on_close="on_main_form_close" />
+     <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="7" Top="5" Width="445" Height="490" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+		 
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="4" Top="10" Width="440" Height="485" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+          <control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="150" Top="5" Width="100" Height="16" ForeColor="255,155,50,50" DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Active Auto Cack" Font="font_title" />
+        </control>
+		 <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\close_out.png" FocusImage="gui\special\wuxue\button\close_on.png" PushImage="gui\special\wuxue\button\close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="410" Top="3" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_click="on_btn_close_click" />
+        </control> 
+		<control name="groupbox_highest_priority" entity="GroupBox" script="" init="">
+    		    <prop Left="4" Top="30" Width="433" Height="450" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png" />
+		
+		<control name="lbl_cur_task_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="120" Top="150" Width="72" Height="16" ForeColor="255,0,0,255" ShadowColor="0,0,0,0" Text="" Font="font_main" />
+        </control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="5" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Target" Font="font_main" />
+        </control>	
+		<control name="edt_key_target" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default"  Left="13" Top="18" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key full vào" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="48" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto THBB: " Font="font_main" />
+        </control>
+		<control name="edt_key_thbb" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="65" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>		
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="98" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Nhả Def Pro : " Font="font_main" />
+        </control>
+		<control name="edt_key_undef_pro" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="115" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="148" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Tìm Nhân Vật : " Font="font_main" />
+        </control>
+		<control name="edt_key_search_player" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="165" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="198" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Swap Plus : " Font="font_main" />
+        </control>
+		<control name="edt_key_swap" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="215" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="248" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Ping Pro : " Font="font_main" />
+        </control>
+		<control name="edt_key_ping_pro" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="265" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="298" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Ping Classic : " Font="font_main" />
+        </control>
+		<control name="edt_key_ping_classic" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="315" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>		
+		<control name="lbl_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="10" Top="345" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Speed : " Font="font_main" />
+        </control>
+		<control name="edt_key_auto_speed" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="14" Top="360" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Speed" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>
+		
+		<!-- Left -->
+		
+		<control name="lbl_1_1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="5" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto nhả def" Font="font_main" />
+        </control>	
+		<control name="edt_key_undef" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default"  Left="223" Top="18" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key full vào" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>
+		<control name="lbl_1_2" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="48" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Bug Quạt: " Font="font_main" />
+        </control>
+		<control name="edt_key_bug_quat" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="65" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>		
+		<control name="lbl_1_3" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="98" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Buff HPMP : " Font="font_main" />
+        </control>
+		<control name="edt_key_bug_hpmp" entity="Edit" script="" init="">
+			<prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="115" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			
+		</control>	
+		<!-- <control name="lbl_1" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="148" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Tìm Nhân Vật : " Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="edt_key_search_player" entity="Edit" script="" init=""> -->
+			<!-- <prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="165" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			 -->
+		<!-- </control>	 -->
+		<!-- <control name="lbl_1" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="198" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Swap Plus : " Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="edt_key_swap" entity="Edit" script="" init=""> -->
+			<!-- <prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="215" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			 -->
+		<!-- </control>	 -->
+		<!-- <control name="lbl_1" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="248" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Bug Plus : " Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="edt_key_bug_plus" entity="Edit" script="" init=""> -->
+			<!-- <prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="265" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			 -->
+		<!-- </control> -->
+		<!-- <control name="lbl_1" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="298" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Bug Nhạn hành công : " Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="edt_key_nhc" entity="Edit" script="" init=""> -->
+			<!-- <prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="315" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Điền key auto cóc" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			 -->
+		<!-- </control> -->
+		<!-- <control name="lbl_1" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="225" Top="345" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Key Auto Speed : " Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="edt_key_auto_speed" entity="Edit" script="" init=""> -->
+			<!-- <prop ChangedEvent="true" TextOffsetX="2" Text="" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="223" Top="360" Width="200" Height="30" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" HintText="Speed" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>			 -->
+		<!-- </control> -->
+		<control name="btn_add_start" entity="Button" script="" init="">
+			    <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="175" Top="400" AutoSize="true" Width="80"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" Text="Lưu Key" HintText="Lưu Key" TabStop="true"  InSound="MouseOn_20" ClickSound="ok_7" />
+			    <event on_click="btn_add_start" />
+		</control>
+		</control>	
+      </control>  
+     </control>
+ </control>
+</form>
+

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_ct" init="main_form_init">
+  <prop Transparent="true" LimitInScreen="true" ShowGrid="true" Left="480" Top="250" Width="250" Height="300" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />  
+    <event on_open="on_main_form_open" on_close="on_main_form_close" />
+     <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="7" Top="5" Width="250" Height="300" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="4" Top="10" Width="230" Height="280" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_main.png" />
+        
+		 <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="200" Top="8" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_click="on_btn_close_click" />
+        </control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="20" Top="5" Width="100" Height="16" ForeColor="255,155,50,50" DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="AUTO Chiến Trường" Font="font_title" />
+        </control>	
+		<control name="groupbox_highest_priority" entity="GroupBox" script="" init="">
+    		<prop Left="4" Top="30" Width="220" Height="245" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png" />	
+		<control name="checked_change_map" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="215" Visible="false" Top="123" Width="16" Height="16" HintText="Chọn để chuyển từ map 30/30 sang 60/60" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+		</control>
+	  
+		<control name="lbl_check_ct" entity="Label" script="" init="">
+		  <prop RefCursor="WIN_HELP" Visible="false" Left="240" Top="125" Width="70" Height="16" ForeColor="255,204,0,102" ShadowColor="0,0,0,0" Text="Change" Font="font_text_title1" />
+		</control> 
+		<control name="lbl_check_tn_100" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="20" Width="70" Height="16" ForeColor="255,95,0,220" ShadowColor="0,0,0,0" Text="Số Lượt Chiến Trường:" Font="font_text_title1" />
+		</control>  		
+		<control name="lbl_turn_ct" entity="Label" script="" init="">
+			<prop RefCursor="WIN_HELP" Left="150" Top="20" Width="70" Height="16" ForeColor="255,200,0,220" ShadowColor="0,0,0,0" Text="0" Font="font_main" />
+		</control>
+		<control name="lbl_check_turn_vt" entity="Label" script="" init="">
+         <prop RefCursor="WIN_HELP" Left="160" Top="20" Width="70" Height="16" ForeColor="255,200,0,220" ShadowColor="0,0,0,0" Text="\" Font="font_title" />
+		</control>
+		<control name="edt_turn_end_ct" entity="Edit" script="" init="">
+        <prop TextOffsetX="2" Text="20" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="170" Top="17" Width="22" Height="22" ForeColor="255,128,101,74" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
+		</control>
+		<control name="lbl_check_turn_ct" entity="Label" script="" init="">
+         <prop RefCursor="WIN_HELP" Left="195" Top="20" Width="70" Height="16" ForeColor="255,95,0,220" ShadowColor="0,0,0,0" Text="Lần" Font="font_text_title1" />
+		</control>	
+	   <control name="cb_can_dcd" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="115" Width="16" Height="16" HintText="Chọn để auto tự Dịch Cân Đan" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>        
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="113" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Dùng Dịch Cân Đan :" Font="font_main" />
+		</control>
+		<control name="cb_can_tld" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="135" Width="16" Height="16" HintText="Chọn để auto tự Tử Linh Đan" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>        
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="133" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Dùng Tử Linh Đan :" Font="font_main" />
+		</control>
+		<control name="cb_can_tnd" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="155" Width="16" Height="16" HintText="Chọn để auto tự Thanh Nguyên Đan" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>        
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="153" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Dùng Thanh Nguyên Đan :" Font="font_main" />
+		</control>
+		<control name="cb_change_hp" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="175" Width="16" Height="16" HintText="Chọn để auto sẽ lựa chọn mục tiêu dưới 10% hp" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>        
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="173" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Chọn Địch dưới 10% hp :" Font="font_main" />
+		</control>
+		<control name="cb_can_hop_ct" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="55" Width="16" Height="16" HintText="Chọn sử dụng auto tự mở hộp chiến trường" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="53" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="- Cắn Hộp CT" Font="font_main" />
+		</control>
+		<control name="cb_rut_thu" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="75" Width="16" Height="16" HintText="Chọn sử dụng auto tự rút thư chiến trường" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="73" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="- Rút Thư CT" Font="font_main" />
+		</control>
+		<control name="cb_delete_dcd" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="160" Top="95" Width="16" Height="16" HintText="Tự xóa Dịch cân đang Chiến trường khi đủ 200 viên" Checked="false" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+	  </control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="10" Top="93" Width="70" Height="25" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="- Xóa DCD" Font="font_main" />
+		</control>
+		<control name="btn_save_setting" entity="Button" script="" init="">
+			<prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="20" Top="210" Width="87" Text="Save AI" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="btn_save_setting" />
+		</control>	
+		<control name="btn_auto_start" entity="Button" script="" init="">
+			<prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="210" Width="87" Text="Start" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			 <event on_click="btn_auto_start" />
+		</control>
+		</control>			
+      </control>  
+     </control>
+ </control>
+</form>

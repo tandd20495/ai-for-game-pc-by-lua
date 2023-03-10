@@ -1,0 +1,50 @@
+﻿
+DialogID_74401=<font face="Default" color="#ffffff" >Ta sẽ gửi Bái Thiếp đến chỗ chưởng môn!</font>
+DialogID_74403=<font face="Default" color="#ffffff" >Ta sẽ gửi Bái Thiếp đến chỗ chưởng môn!</font>
+SubmitNpcEx_74407=Đến Kinh Huệ Quyên Tô Châu (432 812) nhận 1 phần Quà Mừng Phiên Bản.
+SubmitNpcEx_74408=Đến Kinh Huệ Quyên Tô Châu (432 812) nhận Quà Chúc Tết x1
+SubmitNpcEx_74409=Đến <a href="findnpc_new,city02,hd_wyhd_001" style="HLStype1"> Thượng Võ (Đại Sứ Sự Kiện)</a> Tô Châu nhận Quà Tu Hành x1
+SubmitNpcEx_74410=Tìm Tô Châu (423.794) hoặc Thành Đô (923.551) Ninh Cửu Huy (Giang Hồ Khách) trả nhiệm vụ nhận thưởng
+SubmitNpcEx_74411=Trả lời <a href="findnpc_new,city02,WorldNpc01194" style="HLStype1">Lâm Thiên Nam</a> về việc đưa Bái Thiếp
+SubmitNpcEx_74412=Đến Đại Sứ Sự Kiện Lâm Lương ở các thành chính nhận thưởng nhiệm vụ
+SubmitNpcEx_74413=Đến Đại Sứ Sự Kiện Lâm Lương ở các thành chính nhận thưởng nhiệm vụ
+SubmitNpcEx_74415=Trả lời <a href="findnpc_new,city02,WorldNpc01194" style="HLStype1">Lâm Thiên Nam</a> về việc đưa Bái Thiếp
+interactinfo_74401=Đến trò chuyện với <a href="findnpc_new,city02,Transcity02A" style="HLStype1">Tương Quân</a>, dặn hắn đưa Bái Thiếp đến chỗ các chưởng môn
+interactinfo_74402=Đến (Gia Viên hảo hữu) hoàn thành 1 lần quét dọn.
+interactinfo_74403=Đến trò chuyện với <a href="findnpc_new,city02,Transcity02A" style="HLStype1">Tương Quân</a>, dặn hắn đưa Bái Thiếp đến chỗ các chưởng môn
+okmenu_74401=<font face="Default" color="#ffffff" >Ừm</font>
+okmenu_74403=<font face="Default" color="#ffffff" >Ừm</font>
+specialinfo_1404=Vượt ải Mộ Sắc Thôn
+specialinfo_1405=Vượt ải Thanh Vân Bảo
+specialinfo_1406=Vượt ải Khổng Tước Sơn Trang
+specialinfo_1407=Vượt ải Biên Bức Động
+specialinfo_1408=Vượt ải Vô Tranh Bí Cảnh
+specialinfo_1409=Vượt ải Đại Mạc Quỷ Thành
+useiteminfo_74416=Ném <a href="TASK_ITEM,item_shp_190702_1" style="HLStype1">Vỏ Dưa Hấu</a> vào người chơi khác
+DialogID_74404=<font face="Default" color="#ffffff" >Ta sẽ gửi Bái Thiếp đến chỗ chưởng môn!</font>
+DialogID_74405=<font face="Default" color="#ffffff" >Ta sẽ gửi Bái Thiếp đến chỗ chưởng môn!</font>
+DialogID_74406=<font face="Default" color="#ffffff" >Ta sẽ gửi Bái Thiếp đến chỗ chưởng môn!</font>
+SubmitNpcEx_74418=Trả lời <a href="findnpc_new,city02,WorldNpc01194" style="HLStype1">Lâm Thiên Nam</a> về việc đưa Bái Thiếp
+SubmitNpcEx_74421=Trả lời <a href="findnpc_new,city02,WorldNpc01194" style="HLStype1">Lâm Thiên Nam</a> về việc đưa Bái Thiếp
+SubmitNpcEx_74425=Trả lời <a href="findnpc_new,city02,WorldNpc01194" style="HLStype1">Lâm Thiên Nam</a> về việc đưa Bái Thiếp
+SubmitNpcEx_74426=Trả lời <a href="findnpc_new,city02,WorldNpc01097" style="HLStype1">Nghiêm Luận</a>
+interactinfo_74404=Đến trò chuyện với <a href="findnpc_new,city02,Transcity02A" style="HLStype1">Tương Quân</a>, dặn hắn đưa Bái Thiếp đến chỗ các chưởng môn
+interactinfo_74405=Đến trò chuyện với <a href="findnpc_new,city02,Transcity02A" style="HLStype1">Tương Quân</a>, dặn hắn đưa Bái Thiếp đến chỗ các chưởng môn
+interactinfo_74406=Đến trò chuyện với <a href="findnpc_new,city02,Transcity02A" style="HLStype1">Tương Quân</a>, dặn hắn đưa Bái Thiếp đến chỗ các chưởng môn
+okmenu_74404=<font face="Default" color="#ffffff" >Ừm</font>
+okmenu_74405=<font face="Default" color="#ffffff" >Ừm</font>
+okmenu_74406=<font face="Default" color="#ffffff" >Ừm</font>
+SubmitNpcEx_74419=<a href="findnpc_new,city02,hd_dw_001" style="HLStype1">Lâm Lương</a>
+useiteminfo_74420=Ném vào người chơi khác 5 lần <a href="TASK_ITEM,item_shp_20191108_1" style="HLStype1">Bóng Bùn</a>
+interactinfo_74422=Giúp hảo hữu dọn dẹp gia viên
+SubmitNpcEx_74423=Sau khi bái tế kết thúc báo cho <a href="findnpc_new,city03,npc_sworn002" style="HLStype1">Quan Chí (Người chỉ dẫn kết nghĩa Đế Miếu))</a>
+interactinfo_74423=Đến nơi của <a href="findnpc_new,city03,Gather_wsqfguj_001" style="HLStype1">Đệm Cói</a>, bấm vào Đệm Cói để tế bái.
+SubmitNpcEx_74424=<a href="findnpc_new,city02,hd_wyhd_001" style="HLStype1"> Thượng Võ (Đại Sứ Sự Kiện)</a>
+SubmitNpcEx_74401=Tìm <a href="findnpc_new,city04,FunnpcPet001002" style="HLStype1">Điêu Long</a> cung cấp manh mối, nhận thưởng.
+SubmitNpcEx_74402=Tìm <a href="findnpc_new,city04,FunnpcPet001002" style="HLStype1">Điêu Long</a> cung cấp manh mối, nhận thưởng.
+SubmitNpcEx_74403=Tìm <a href="findnpc_new,city04,FunnpcPet001002" style="HLStype1">Điêu Long</a> cung cấp manh mối, nhận thưởng.
+SubmitNpcEx_74404=Tìm <a href="findnpc_new,city04,FunnpcPet001002" style="HLStype1">Điêu Long</a> cung cấp manh mối, nhận thưởng.
+SubmitNpcEx_74405=Tìm <a href="findnpc_new,city04,FunnpcPet001002" style="HLStype1">Điêu Long</a> cung cấp manh mối, nhận thưởng.
+SubmitNpcEx_74406=Tìm <a href="findnpc_new,city04,FunnpcPet001002" style="HLStype1">Điêu Long</a> cung cấp manh mối, nhận thưởng.
+specialinfo_1410=Tiêu diệt 1 huyết thù bất kỳ
+

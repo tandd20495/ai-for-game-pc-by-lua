@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+   <control name="main_form" entity="Form" script="auto_new\form_auto_train" init="main_form_init">
+  <prop Transparent="false" LimitInScreen="true" ShowGrid="true" Left="250" Top="250" Width="450" Height="250" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />    
+     <event on_open="on_main_form_open" on_close="on_main_form_close" />
+	
+	 <control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP"  Width="440" Height="240" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\lead\bg_main_1.png" />
+        </control>	
+	<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\close_1_out.png" FocusImage="gui\special\wuxue\button\close_1_on.png" PushImage="gui\special\wuxue\button\close_1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0"  Left="380" Top="2" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>  
+	<control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\special\wuxue\button\help_out.png" FocusImage="gui\special\wuxue\button\help_on.png" PushImage="gui\special\wuxue\button\help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="20" Top="5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ff0040&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● &lt;font color=&apos;#e3e310&apos;&gt;Thoát PT nếu muốn theo vị trí chỉ định Và sử dụng tính năng đánh theo tọa độ. Gõ 3 ký tự đầu của vật phẩm muốn thêm vào ô điền để hiện danh sách vật phẩm và ấn vào tên vật phẩm trên danh sách xong ấn thêm để thêm vật phẩm Hoặc bạn có thể kéo vật phẩm từ túi đồ vào danh sách để tự thêm.&lt;/font&gt; <br>● &lt;font color=&apos;#c3dbd0&apos;&gt;Đến vị trí bạn muốn train quái chọn vị trí đứng rồi ấn Thêm ở cạnh nút Xóa ghi tên gợi nhớ và khoảng cách farm.Sau đó ấn chọn ở khung chọn chọn vị trí đánh để auto lưu vị trí. &lt;/font&gt;<br>● &lt;font color=&apos;#c3dbd0&apos;&gt;Chọn theo đội trưởng auto sẽ tự chạy tới gần đội trưởng và đánh theo quái&lt;/font&gt; <br>● &lt;font color=&apos;#ff0000&apos;&gt;Nếu đội trưởng tele map khác hoặc mất mạng auto sẽ lấy vị trí hiện tại và tự chuyển sang chế độ đánh theo tọa độ &lt;/font&gt; <br>● &lt;font color=&apos;#ff0000&apos;&gt;Ad có thêm code về Sương mù môn phái để nhặt đồ và farm bạn có thể kiểm tra giúp ad mình vẫn chưa kiểm tra được &lt;/font&gt; <br>● &lt;font color=&apos;#ff0000&apos;&gt;Nếu các bạn muốn ở vị trí chỉ định hãy thoát pt và chọn vị trí chỉ định nếu muốn ở vị trí hiện tại thì chỉ cần tạo pt nhỏ thì auto sẽ đánh theo vị trí bạn đứng hiện tại. &lt;/font&gt;" />
+        </control>	
+		 <control name="lbl_title" entity="Label" script="" init="">
+              <prop RefCursor="WIN_HELP" Left="160" Top="7" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="50,50,50,50" Text="Auto Train" Font="font_title" />
+        </control>
+			
+	 <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="0" Top="25" Width="430" Height="230" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" />  
+		  <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+			<prop Left="20" Top="60" Width="170" Height="140" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\special\wuxue\form_back\bg4.png"  /> 
+		</control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="50" Top="70" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Đánh Quái Và Nhặt Đồ" Font="font_main" />
+		</control>
+		<control name="check_box_4" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="30" Top="68" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="" TabIndex="1" />
+            <event on_checked_changed="check_box_4" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="50" Top="100" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Chỉ Nhặt Đồ" Font="font_main" />
+		</control>
+		<control name="check_box_5" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="30" Top="98" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="" TabIndex="1" />
+            <event on_checked_changed="check_box_5" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="50" Top="130" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Chỉ Đánh Quái" Font="font_main" />
+		</control>
+		<control name="check_box_6" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="30" Top="128" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="" TabIndex="1" />
+            <event on_checked_changed="check_box_6" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="50" Top="160" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Đánh Tại Vị Trí" Font="font_main" />
+		</control>
+		<control name="check_box_7" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="30" Top="158" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="" TabIndex="1" />
+            <event on_checked_changed="check_box_7" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="220" Top="90" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Đánh Theo Tọa Độ" Font="font_main" />
+		</control>
+		<control name="check_box_1" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="200" Top="88" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="" TabIndex="1" />
+            <event on_checked_changed="on_cbtn_auto_box" />
+        </control>
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="220" Top="110" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Cài Tọa Độ" Font="font_main" />
+		</control>	
+		<control name="lbl_box_vt_map" entity="Label" script="" init="">
+			<prop RefCursor="WIN_HELP" Left="220" Top="125" Width="133" Height="30" ShadowColor="0,0,0,0" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
+		</control>
+		<control name="cbx_map_train" entity="ComboBox" script="" init="">
+		  <prop ButtonWidth="22" DropDownHeight="100" DropDownWidth="129" OnlySelect="true" Left="224" Top="129" Width="129" Height="22" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_text_figure" HintText="Chọn map train" NoFrame="true" DrawMode="Expand" />
+		  <event on_selected="on_cbx_train_selected" />
+		  <subor name="InputEdit">
+			<prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,76,61,44" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" DrawMode="ExpandH" />
+		  </subor>
+		  <subor name="DropButton">
+			<prop NormalImage="gui\common\combobox\btn_down2_out.png" FocusImage="gui\common\combobox\btn_down2_on.png" PushImage="gui\common\combobox\btn_down2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="FitWindow" />
+		  </subor>
+		  <subor name="DropListBox">
+			<prop MouseSelect="true" ItemHeight="16" TextOffsetX="10" SelectBackImage="gui\common\combobox\bg_select2.png" ScrollSize="14" ForeColor="255,255,255,255" BackColor="176,0,0,0" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_combox_text" NoFrame="true" DrawMode="Expand" BackImage="gui\common\combobox\bg_list2.png" />
+			<subor name="VScrollBar">
+			  <prop ButtonSize="14" FullBarBack="false" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="ExpandV" BackImage="gui\common\scrollbar\bg_scrollbar2.png" />
+			  <subor name="DecButton">
+				<prop NormalImage="gui\common\scrollbar\button_2\btn_up_out.png" FocusImage="gui\common\scrollbar\button_2\btn_up_on.png" PushImage="gui\common\scrollbar\button_2\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+			  </subor>
+			  <subor name="IncButton">
+				<prop NormalImage="gui\common\scrollbar\button_2\btn_down_out.png" FocusImage="gui\common\scrollbar\button_2\btn_down_on.png" PushImage="gui\common\scrollbar\button_2\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" />
+			  </subor>
+			  <subor name="TrackButton">
+				<prop NormalImage="gui\common\scrollbar\button_2\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_2\btn_trace_on.png" PushImage="gui\common\scrollbar\button_2\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="81" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+			  </subor>
+			</subor>
+		  </subor>
+		</control>	
+		<control name="btn_add_pos" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="224" Top="165" Width="50" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Thêm" Font="font_btn" HintText="" DrawMode="ExpandH" />
+            <event on_click="btn_add_pos" />
+        </control>	
+		<control name="btn_del_pos" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="284" Top="165" Width="50" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Xóa" Font="font_btn" HintText="" DrawMode="ExpandH" />
+            <event on_click="btn_del_pos" />
+        </control>	
+		<control name="lbl_1" entity="Label" script="" init="">
+				<prop Align="Left" RefCursor="WIN_HELP" Left="220" Top="60" Width="72" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Đánh Theo Đội Trưởng" Font="font_main" />
+		</control>
+		<control name="check_box_2" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" NormalImage="gui\special\war_scuffle\choose_out.png" FocusImage="gui\special\war_scuffle\choose_on.png" CheckedImage="gui\special\war_scuffle\choose_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="200" Top="58" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="" TabIndex="2" />
+            <event on_checked_changed="on_cbtn_auto_box" />
+        </control>		
+		<control name="btn_add_mon_hk" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="250" Top="10" Width="80" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Thêm" Font="font_btn" HintText="" DrawMode="ExpandH" />
+            <event on_click="btn_add_mon_hk" />
+        </control>
+		<control name="btn_add_start" entity="Button" script="" init="">
+				<prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="330" Top="10" Width="80" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Start" Font="font_btn" HintText="Bắt Đầu/Kết Thúc" DrawMode="ExpandH" />
+				<event on_click="btn_add_start" />
+		</control>	
+		<control name="btn_add_pick" entity="Button" script="" init="">
+				<prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="20" Top="10" Width="120" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Cài Đặt Nhặt Đồ" Font="font_btn" HintText="" DrawMode="ExpandH" />
+				<event on_click="btn_add_pick" />
+		</control>		
+		</control>		
+    </control>
+</form>

@@ -1,0 +1,229 @@
+﻿
+DialogID_73701=<font face="Default" color="#ffffff" >Gần đây một số người võ lâm thường đến tiệm, đến và đi một cách vội vàng. </font><font face="Default" color="#ffffff" >Khách quan </font> <font face="Default" color="#ffffff" >có thể tìm những nhân sỹ giang hồ trong tiệm để hỏi thăm.</font>
+DialogID_73702=<font face="Default" color="#ffffff" >Lời đồn nổi lên khắp giang hồ, rằng triều đình ngấm ngầm chia rẽ các thế lực có liên quan đến võ lâm khiến họ phải kìm hãm lẫn nhau trong nhiều năm, võ lâm Trung Nguyên đã bất mãn từ lâu, hào kiệt giang hồ do Lâm Thiên Nam đứng đầu đã âm thầm lên kế hoạch tạo phản.</font>
+DialogID_73703=<font face="Default" color="#ffffff" >Người giang hồ đều bàn luận như thế.</font>
+DialogID_73704=<font face="Default" color="#ffffff" >Tuy lời đồn được lan truyền thầm kín nhưng hầu như được biết đến rộng rãi.</font>
+DialogID_73705=<font face="Default" color="#ffffff" >Lâm minh chủ xuất thân thế gia, một đời bôn ba vì võ lâm Trung Nguyên để được người đời phong thành minh chủ, nhưng trước giờ chưa bao giờ kết bè kết cánh, càng chưa từng nâng đỡ thế lực của mình, từ đầu đến cuối lại bị một đám tiểu nhân vô danh nghi ngờ tung tin đồn.</font>
+DialogID_73706=<font face="Default" color="#ffffff" >Thiếu hiệp có điều chưa biết, yêu bài lộ ra của người vừa rồi là của võ sư Tần Vương Phủ, mà Tần Vương Phủ là thế lực võ lâm lớn nhất xung quanh Lạc Dương, trong phủ đều tập hợp cao thủ, nhìn tổng thể giang hồ cũng thuộc hạng nhất, tuyệt không ở dưới tứ đại thế gia võ lâm, vì vậy đám đạo chích giang hồ nhìn thấy yêu bài đâu dám lên tiếng nữa.</font>
+DialogID_73707=<font face="Default" color="#ffffff" >Tại hạ là hộ vệ của Tần Vương Phủ Lư Tín, vừa rồi may nhờ thiếu hiệp giải vây, thân thủ thiếu hiệp thật lợi hại. Tần Vương Chu Tịnh tính tình hào sảng, luôn quan tâm chuyện võ lâm, trong nhiều năm đã kết nạp không ít nghĩa hiệp giang hồ, đối với Lâm minh chủ là yêu quý người tài. Vì vậy ta nghe được tin đồn bôi nhọ Lâm Thiên Nam thì không thể không tức giận</font><font face="Default" color="#ffffff" >.</font>
+DialogID_73708=<font face="Default" color="#ffffff" >Khách quan</font><font face="Default" color="#ffffff" > cần 1 vò rượu ngon ư.</font>
+DialogID_73709=<font face="Default" color="#ffffff" >Ta phải về vương phủ để nhận nhiệm vụ, nếu không có việc gì thiếu hiệp có thể đến Tần Vương Phủ, đối với những hào kiệt giang hồ như thiếu hiệp Tần Vương nhất định sẽ tiếp đãi nồng hậu.</font>
+DialogID_73711=<font face="Default" color="#ffffff" >Nếu thiếu hiệp đến ta sẽ giới thiệu ngươi đến gặp Tần Vương.</font>
+DialogID_73712=<font face="Default" color="#ffffff" >Trước đây các hạ đã từng xuất hiện ở quán rượu Lạc Dương chưa? </font><font face="Default" color="#ffffff" >Ngươi còn </font><font face="Default" color="#ffffff" >giằng co với thủ hạ của ta nữa.</font>
+DialogID_73713=<font face="Default" color="#ffffff" >Không sai, ngươi chính là người đã bôi nhọ ta ở quán rượu trong thành Lạc Dương trước đây. </font><font face="Default" color="#ffffff" >Hôm nay lại tự tìm đến cửa, không phải là muốn đánh nhau sao.</font>
+DialogID_73714=<font face="Default" color="#ffffff" >Hoan nghênh các vị thiếu hiệp đến Địa Thử Môn của ta.</font>
+DialogID_73716=<font face="Default" color="#ffffff" >Chuyện này không thể coi thường, ta đã phái một vài võ sư trong phủ đến trợ giúp Lư Tín, thiếu hiệp hãy nhanh đi xem đi.</font>
+DialogID_73717=<font face="Default" color="#ffffff" >Thi thể lạnh băng...</font>
+QiecuoMenu_73702=<font face="Default" color="#ffffff" >Mong Lư đại ca hạ thủ lưu tình.</font>
+QiecuoTitle_73702=<font face="Default" color="#ffffff" >Khó có dịp Tần Vương có nhã hứng, ta sẽ tiếp vài chiêu với thiếu hiệp.</font>
+SubmitNpcEx_73707=Báo cáo chuyện gặp Hắc Y Nhân giữa đường cho <a href="findnpc_new,adv140,npc_xjqrw_008" style="HLStype1">Chu Tịnh (Tần Vương)</a>
+SubmitNpcEx_73708=Nghe <a href="findnpc_new,adv140,npc_xjqrw_008" style="HLStype1">Chu Tịnh (Tần Vương)</a> bố trí chuyện sau này.
+hunterinfo_73701=Giúp khách nhân quán rượu đánh bại những nhân sỹ giang hồ. (Thông qua cuộc đối thoại với <a href="findnpc_new,adv140,npc_xjqrw_006" style="HLStype1">Lư Tín</a> để tìm hiểu cuộc xung đột)
+hunterinfo_73702=Tỷ thí với <a href="findnpc_new,adv140,npc_xjqrw_007" style="HLStype1">Lư Tín</a>.
+hunterinfo_73703=Đám Thiên Tinh Bang bang chúng kia muốn động thủ, đến ngăn cản chúng. (Thông qua cuộc trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_010" style="HLStype1">Thiên Tinh Bang bang chúng</a> để tìm hiểu tình hình.)
+hunterinfo_73704=Đánh bại Hắc Y Nhân xuất hiện giữa đường. (Nếu chưa đánh bại được Hắc Y Nhân, có thể lại đến <a href="findnpc_new,adv140,EventNpc_xjqrw_004" style="HLStype1">thành Lạc Dương</a> gần đó để thăm dò tình hình.)
+hunterinfo_73705=Đánh bại Thiên Tinh Bang bang chúng.
+hunterinfo_73706=Đánh bại Thiên Tinh Bang bang chúng.
+interactinfo_73701=Đến Lạc Dương (Tần Vương Phủ) tìm <a href="findnpc_new,adv140,npc_xjqrw_005" style="HLStype1">tiểu nhị quán rượu</a> để tìm hiểu chuyện võ lâm gần đây. (Thông qua <a href="findnpc_new,city04,WorldNpc10008" style="HLStype1">Thái Bình</a> ở Lạc Dương (ông chủ quán rượu Lạc Dương) chuyển vào map Lạc Dương (Tần Vương Phủ) mới để bắt đầu nhiệm vụ)
+interactinfo_73702=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_001" style="HLStype1">nhân sỹ giang hồ</a> để tìm hiểu chuyên võ lâm.
+interactinfo_73703=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_002" style="HLStype1">nhân sỹ giang hồ</a> để tìm hiểu chuyên võ lâm.
+interactinfo_73704=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_003" style="HLStype1">nhân sỹ giang hồ</a> để tìm hiểu chuyên võ lâm.
+interactinfo_73705=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_006" style="HLStype1">Lư Tín</a>, hỏi y vì sao lại cười.
+interactinfo_73706=Đến <a href="findnpc_new,adv140,npc_xjqrw_005" style="HLStype1">tiểu nhị quán rượu</a> hỏi lai lịch của người để lộ yêu bài.
+interactinfo_73707=<a href="findnpc_new,adv140,npc_xjqrw_006" style="HLStype1">Lư Tín</a> hình như đang chào hỏi ngươi, đến tìm y xem xem có thể tìm hiểu chút chuyện võ lâm không.
+interactinfo_73708=Tìm <a href="findnpc_new,adv140,npc_xjqrw_005" style="HLStype1">tiểu nhị quán rượu</a> lấy 1 vò rượu ngon.
+interactinfo_73709=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_006" style="HLStype1">Lư Tín</a>, hỏi thăm chuyện giang hồ.
+interactinfo_73710=Đến <a href="findnpc_new,adv140,EventNpc_xjqrw_002" style="HLStype1">Tần Vương Phủ</a> ngao du 1 chuyến.
+interactinfo_73711=<a href="findnpc_new,adv140,npc_xjqrw_007" style="HLStype1">Lư Tín</a> đang đứng hầu ở cửa, đến trò chuyện với y.
+interactinfo_73712=Đến Thiên Tinh Bang trong thành Lạc Dương bái phỏng <a href="findnpc_new,adv140,npc_xjqrw_009" style="HLStype1">Lôi Hổ (Thiên Tinh Bang Bang Chủ)</a>, xem có thể tìm hiểu được chút manh mối nào không.
+interactinfo_73713=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_010" style="HLStype1">Thiên Tinh Bang bang chúng</a> để tìm hiểu tình hình.
+interactinfo_73714=Đến Địa Thử Môn bái phỏng <a href="findnpc_new,adv140,npc_xjqrw_014" style="HLStype1">Hướng Phi (Địa Thử Môn Môn Chủ)</a>
+interactinfo_73715=Đến <a href="findnpc_new,adv140,EventNpc_xjqrw_004" style="HLStype1">thành Lạc Dương</a> điều tra thêm lần nữa.
+interactinfo_73716=Nhanh về Tần Vương Phủ, báo cáo lại việc bị Hắc Y Nhân tập kích cho <a href="findnpc_new,adv140,npc_xjqrw_008" style="HLStype1">Chu Tịnh (Tần Vương)</a>.
+interactinfo_73717=Đuổi theo <a href="findnpc_new,adv140,npc_xjqrw_019" style="HLStype1">Lư Tín</a>, xem việc này điều tra thế nào rồi.
+okmenu_73701=<font face="Default" color="#ffffff" >Nói như vậy, chẳng lẽ chúng có hành động gì lớn ư. </font><font face="Default" color="#ffffff" >Ta đi hỏi thăm xem.</font>
+okmenu_73702=<font face="Default" color="#ffffff" >Lại có chuyện này ư.</font>
+okmenu_73703=<font face="Default" color="#ffffff" >Đây...</font>
+okmenu_73704=<font face="Default" color="#ffffff" >Đa tạ cho biết.</font><font face="Default" color="#ffffff" >Đa tạ cho biết.</font>
+okmenu_73705=<font face="Default" color="#ffffff" >Lời của vị hiệp sỹ này rất đúng, tất cả hình như chỉ là lời đồn.</font>
+okmenu_73706=<font face="Default" color="#ffffff" >Thì ra người này là người của Tần Vương Phủ, chẳng trách </font><font face="Default" color="#ffffff" >lại </font><font face="Default" color="#ffffff" > quyết đoán như vậy.</font>
+okmenu_73707=<font face="Default" color="#ffffff" >Thì ra là hộ vệ của Tần Vương Phủ, thảo nào diện mạo bất phàm, Lư đại ca quá khen rồi, ngươi cũng là người có nghĩa khí. </font><font face="Default" color="#ffffff" >Ta muốn uống sảng khoái với Lư đại ca 1 bữa.</font>
+okmenu_73708=<font face="Default" color="#ffffff" >Cho 1 vò rượu ngon nhất ở đây.</font>
+okmenu_73709=<font face="Default" color="#ffffff" >Như vậy thì đa tạ, nếu tại hạ rảnh nhất định sẽ đến.</font>
+okmenu_73711=<font face="Default" color="#ffffff" >Cảm tạ Lư đại ca.</font>
+okmenu_73712=<font face="Default" color="#ffffff" >Đây là vì cái gì?</font>
+okmenu_73713=<font face="Default" color="#ffffff" >Ách? Thì ra người ở quán rượu là Thiên Bang Tinh các ngươi. </font><font face="Default" color="#ffffff" >Chỉ dựa vào các ngươi?</font>
+okmenu_73714=<font face="Default" color="#ffffff" >Hướng môn chủ khách khí rồi.</font>
+okmenu_73716=<font face="Default" color="#ffffff" >Ta sẽ đi ngay.</font>
+okmenu_73717=<font face="Default" color="#ffffff" >Lư…Lư đại ca.</font>
+story_73701_1=<font face="Default" color="#ffffff" >Ta đã nghe Lư Tín nói chuyện thiếu hiệp giao chiến ở quán rượu rồi, thiếu hiệp thân thủ bất phàm, quả thực là chuyện vui của võ lâm.</font>
+story_73701_2=<font face="Default" color="#ffffff" >Tuy ta không quan tâm tin đồn liên quan đến việc Lâm minh chủ mưu phản, nhưng những tin đồn này truyền đến triều đình sẽ không có lợi cho Lâm minh chủ, thậm chí là cả võ lâm Trung Nguyên.</font>
+story_73701_3=<font face="Default" color="#ffffff" >Thiếu hiệp đừng sốt ruột. Trước đây Lư Tín khen ngợi không ngớt về thân thủ của thiếu hiệp, tuy ta biết một chút võ nghệ nhưng do trở ngại thân phận mà không thể tùy ý hành tẩu giang hồ, </font><font face="Default" color="#ffffff" >thiếu hiệp có thể tỷ thí với </font><font face="Default" color="#ffffff" > Lư Tín </font><font face="Default" color="#ffffff" >để ta</font><font face="Default" color="#ffffff" > quan sát được không.</font>
+story_73702_1=<font face="Default" color="#ffffff" >Thiếu hiệp khiêm tốn rồi. </font><font face="Default" color="#ffffff" >Lần tỷ thí này thật là đặc sắc. Ha ha ha, võ lâm Trung Nguyên quả nhiên là nơi tọa hổ tàng long, thiếu hiệp có nguyện ý giúp ta 1 việc không.</font>
+story_73702_2=<font face="Default" color="#ffffff" >Ta thân là hoàng thân, tuy qua lại mật thiết với nhân sỹ võ lâm nhưng cũng không tiện trực tiếp nhúng tay vào chuyện của giang hồ. Mà gần đây Tần Vương Phủ điều tra được một số manh mối về tin đồn minh chủ mưu phản, dù rất quan tâm đến việc này, nhưng bề ngoài chuyện này không liên quan đến ta, vì vậy ta không dễ trực tiếp phái hộ vệ vương phủ đi điều tra, chỉ có thể phó thác chuyện này cho nhân sỹ giang hồ như </font><font face="Default" color="#ffffff" >thiếu hiệp</font><font face="Default" color="#ffffff" > mà thôi.</font>
+story_73703_1=<font face="Default" color="#ffffff" >Thiếu hiệp tha mạng, xin thủ hạ lưu tình.</font>
+story_73703_2=<font face="Default" color="#ffffff" >Thiên Tinh Bang tuyệt đối không có gan vô cớ bội nhọ Lâm minh chủ, chỉ là chúng thường bị giang hồ đồng đạo xem như 1 thế lực nhỏ vì vậy sớm đã bất mãn với những đại nhân vật kia, gần đây vừa khéo nghe được tin đồn bèn nhân cơ hội phát tán đi mà thôi.</font>
+story_73704_1=<font face="Default" color="#ffffff" >Bởi vì chí hướng của đệ tử Địa Thử Môn ta đặc thù nên rất để ý đến các loại tin đồn trên giang hồ, và sẽ dùng các tin đồn này đổi tin tình báo với người khác.</font>
+story_73705_1=<font face="Default" color="#ffffff" >Tần Vương thấy </font><font face="Default" color="#ffffff" >thiếu hiệp </font><font face="Default" color="#ffffff" > đi đã lâu, lo </font><font face="Default" color="#ffffff" >thiếu hiệp </font><font face="Default" color="#ffffff" > gặp phải rắc rối, liền bảo </font><font face="Default" color="#ffffff" >ta </font><font face="Default" color="#ffffff" > ra đây xem xem, võ nghệ của Hắc Y Nhân này không yếu, có thể có liên quan đến tin đồn, </font><font face="Default" color="#ffffff" >ta </font><font face="Default" color="#ffffff" > quyết định tự truy kích, </font><font face="Default" color="#ffffff" >thiếu hiệp hãy </font><font face="Default" color="#ffffff" >nhanh về vương phủ báo cáo với Tần Vương.</font>
+story_73706_1=<font face="Default" color="#ffffff" >Trong vương phủ thân thủ của Lư Tín cũng tiếng tăm lẫy lừng, lấy địa vị của Thiên Tinh Bang trên giang hồ thì tuyệt đối không thể mời được cao thủ như vậy.</font>
+story_73707_1=<font face="Default" color="#ffffff" >Ôi, thân thủ Lư Tín ở vương phủ cũng được xem là người nổi bật, không ngờ lại gặp phải kiếp nạn này. Xem ra chuyện này càng ngày càng phức tạp rồi, bây giờ không thể vì bị chọc tức mà hành động thiếu suy nghĩ, cần phải tính kế lâu dài. Đợi ta nghĩ kỹ xong sẽ nói cho ngươi hành động tiếp theo.</font>
+story_menu_73701=<font face="Default" color="#ffffff" >Tại hạ quen Lư đại ca ở quán rượu Lạc Dương, </font><font face="Default" color="#ffffff" >chính</font><font face="Default" color="#ffffff" > Lư đại ca đã giới thiệu ta đến bái kiến ngươi.</font>
+story_menu_73702=<font face="Default" color="#ffffff" >Tại hạ không giỏi võ, vừa rồi tỷ thí may mắn được Lư đại ca hạ thủ lưu tình.</font>
+story_menu_73703=<font face="Default" color="#ffffff" >Chỉ mấy kẻ lâu la Thiên Tinh Bang các ngươi mà muốn vây khốn ta? </font><font face="Default" color="#ffffff" >Có tin giây tiếp theo ta sẽ khiến các ngươi đầu rơi xuống đất không.</font>
+story_menu_73704=<font face="Default" color="#ffffff" >Hướng môn chủ có biết những tin đồn về Lâm minh chủ trên giang hồ gần đây không?</font>
+story_menu_73705=<font face="Default" color="#ffffff" >Lư đại ca, thân thủ của đám Hắc Y Nhân </font><font face="Default" color="#ffffff" >đến tập kích kia </font><font face="Default" color="#ffffff" > thật là lợi hại, không biết có lai lịch thế nào.</font>
+story_menu_73706=<font face="Default" color="#ffffff" >Lư…Lư đại ca lại không may bị hại, Hắc Y Nhân này chẳng lẽ là do Thiên Tinh Bang có khúc mắc với ta và Lư đại ca phái đến ư.</font>
+story_menu_73707=<font face="Default" color="#ffffff" >Lư đại ca không may bị hại, chúng tôi phát hiện thi thể của y ở gần bên ngoài vương phủ.</font>
+storyinfo_73701=Đến bái kiến <a href="findnpc_new,adv140,npc_xjqrw_008" style="HLStype1">Chu Tịnh (Tần Vương)</a>
+storyinfo_73702=Trò chuyện với <a href="findnpc_new,adv140,npc_xjqrw_008" style="HLStype1">Chu Tịnh (Tần Vương)</a>, hãy để Tần Vương bình phẩm về cuộc tỷ thí này.
+storyinfo_73703=Đến tìm <a href="findnpc_new,adv140,npc_xjqrw_009" style="HLStype1">Lôi Hổ (Thiên Tinh Bang Bang Chủ)</a>, xem hắn còn gì để nói.
+storyinfo_73704=Hỏi <a href="findnpc_new,adv140,npc_xjqrw_014" style="HLStype1">Hướng Phi (Địa Thử Môn Môn Chủ)</a> việc liên quan đến lời đồn.
+storyinfo_73705=Cùng <a href="findnpc_new,adv140,npc_xjqrw_007" style="HLStype1">Lư Tín</a> bàn luận về tình hình liên quan đến Hắc Y Nhân.
+storyinfo_73706=Hỏi xung quanh <a href="findnpc_new,adv140,npc_xjqrw_015" style="HLStype1">võ sư Tần Vương Phủ</a> về tình hình gặp nạn của Lư Tín.
+storyinfo_73707=Nhanh về Tần Vương Phủ báo cáo chuyện Lư Tín gặp nạn cho <a href="findnpc_new,adv140,npc_xjqrw_008" style="HLStype1">Chu Tịnh (Tần Vương)</a>.
+storymenu_73701_1=<font face="Default" color="#ffffff" >Tần Vương quá khen rồi, tại hạ chỉ là góp chút sức mọn.</font>
+storymenu_73701_2=<font face="Default" color="#ffffff" >Vậy không biết Tần Vương có diệu kế gì?</font>
+storymenu_73701_3=<font face="Default" color="#ffffff" >Như vậy thì cuộc tỷ thí của ta và Lư đại ca đến đây là dừng.</font>
+storymenu_73702_1=<font face="Default" color="#ffffff" >Tần Vương</font> <font face="Default" color="#ffffff" >nặng</font> <font face="Default" color="#ffffff" > lời rồi, cứ việc căn dặn.</font>
+storymenu_73702_2=<font face="Default" color="#ffffff" >Việc này rõ ràng là âm mưu của những kẻ có ý đồ khiêu khích mối quan hệ giữa triều đình và võ lâm, là việc lớn của cả võ lâm Trung Nguyên, tại hạ tuyệt đối sẽ không khoanh tay đứng nhìn, nếu cần thì Tần Vương cứ việc căn dặn. Ta đã biết được xung quanh Lạc Dương hình như đang có thế lực đang thúc đẩy quá trình truyền tin đồn đi, </font><font face="Default" color="#ffffff" >nên</font><font face="Default" color="#ffffff" > sẽ đi điều tra ngay.</font>
+storymenu_73703_1=<font face="Default" color="#ffffff" >Tha cho ngươi cũng được, vậy tại sao ngươi lại dung túng bang chúng truyền tin đồn về Lâm minh chủ?</font>
+storymenu_73703_2=<font face="Default" color="#ffffff" >Thiên Tinh Bang này quả thật không ra trò trống gì, chúng quả thật cũng không dám làm chuyện bất lợi với Lâm minh chủ, </font><font face="Default" color="#ffffff" >vẫn nên đi Địa Thử Môn tìm hiểu thêm tình hình</font><font face="Default" color="#ffffff" >.</font>
+storymenu_73704_1=<font face="Default" color="#ffffff" >Chuyện này quả thực như vậy, tiếp tục hỏi cũng sẽ không có thu hoạch gì đâu, vẫn nên </font><font face="Default" color="#ffffff" >đến thành Lạc Dương thăm dò lần nữa.</font>
+storymenu_73705_1=<font face="Default" color="#ffffff" >Lư đại ca hãy cẩn thận, ta sẽ đi </font><font face="Default" color="#ffffff" >báo xáo chuyện này </font><font face="Default" color="#ffffff" >cho Tần Vương.</font>
+storymenu_73706_1=<font face="Default" color="#ffffff" >Xem ra Hắc Y Nhân không phải do Thiên Tinh Bang tìm đến để báo thù ta. Việc này vẫn nên về Tần Vương Phủ báo cáo cho Tần Vương rồi tính tiếp.</font>
+storymenu_73707_1=<font face="Default" color="#ffffff" >Tại hạ đã hiểu rồi</font><font face="Default" color="#ffffff" >, cẩn thận ghi nhớ trong lòng</font><font face="Default" color="#ffffff" >.</font>
+useiteminfo_73701=Cùng <a href="findnpc_new,adv140,npc_xjqrw_006" style="HLStype1">Lư Tín</a> uống <a href="TASK_ITEM,item_xjqrw_001" style="HLStype1">rượu ngon</a>.
+DialogID_73718=
+DialogID_73719=<font face="Default" color="#f4092d" >(Tế phẩm dùng trong tế tự)</font>
+DialogID_73720=<font face="Default" color="#ff021b" >(Đệm Cói)</font>
+DialogID_73721=<font face="Default" color="#ffffff" >Vạn ca, ngài gan dạ dũng cảm, vì sự an nguy của bách tính nhà Hán mà không ngần ngại đến sa mạc để diệt trừ tàn dư nhà Nguyên, chỉ tiếc rằng gặp phải đám tham sống sợ chết, khiến ngài bỏ mạng nơi xứ người. May rằng Vương Bảo Bảo đã bị tiêu diệt, quốc gia mới thành lập, ngài trên trời có linh, cuối cùng cũng có thể yên nghỉ rồi.</font>
+DialogID_73724=<font face="Default" color="#ffffff" >Nghĩa muội</font><font face="Default" color="#ffffff" >, cuối cùng muội cũng đến… Đây là Thiên Tình nhỉ? Lâu rồi không gặp, cao lên không ít đấy.</font>
+DialogID_73725=<font face="Default" color="#ffffff" >Thiên Nhi, mẹ phải đến một nơi rất rất xa. Trước khi đi, mẹ có vài lời muốn dặn con. Danh môn chính phái đều là đám mưu danh cầu lợi, con không được bái sư, bôi nhọ bản thân! Sau khi mẹ đi, nghĩa phụ là người duy nhất con có thể nương tựa, ông ấy khiêm nhường tốt bụng, sẽ đối xử tốt với con. Con phải làm tròn đạo hiếu, không được vong ân bội nghĩa!</font>
+DialogID_73729=<font face="Default" color="#ffffff" >Thiếu gia, xin cố nén đau thương,</font> <font face="Default" color="#ffffff" >lão trang chủ</font> <font face="Default" color="#ffffff" >đã lên Tây Thiên rồi. Tang sự của lão gia và mọi việc lớn nhỏ trong sơn trang đều cần thiếu gia sắp xếp. Để lão nô thay tang phục cho người.</font>
+DialogID_73730=<font face="Default" color="#ff001d" >(Đệm Cói)</font>
+DialogID_73731=<font face="Default" color="#ffffff" >Lão trang chủ đã không còn, từ hôm nay, thiếu gia đã là chủ nhân</font> <font face="Default" color="#ffffff" >mới</font> <font face="Default" color="#ffffff" >của Vạn Tô Sơn Trang.</font>
+DialogID_73733=<font face="Default" color="#ffffff" >Thuyền hoa Hương Hạnh có tam bảo, hoa tiên khách lai quý hiếm, điệu múa kiếm của hoa khôi Tương Nương, và rượu Thái Dịch Phù Dung chỉ được mang ra vào lễ hội Hoa Triều mỗi năm. Thưởng thức làn điệu du dương của mỹ nữ trong thuyền hoa, lắc lư theo dòng nước, tuyệt đối là một chuyện tao nhã và rất có ý cảnh.</font> <font face="Default" color="#ffffff" >Công tử có muốn đến xem náo nhiệt không?</font>
+DialogID_73736=<font face="Default" color="#ffffff" >Tiểu nữ tử thất lễ rồi, hôm nay gặp được công tử, quả là chuyện vui đời người, nếu có duyên xin hẹn gặp lại trên giang hồ.</font>
+DialogID_73737=<font face="Default" color="#ffffff" >Nghe nói Ma Đao Lão Tổ khi sắp đạt đến đỉnh cao của tà công, đã tẩu hỏa nhập ma rồi. Nay hắn lại tái xuất giang hồ, đại khai sát giới mỗi ngày, dùng huyết dưỡng đao! Tiểu huynh đệ, còn ngây ra đó làm gì? Mau chạy đi...</font>
+DialogID_73738=<font face="Default" color="#ffffff" >Gặp thần thí thần, gặp phật thí phật, tiểu tử nhà ngươi mà cũng muốn cản ta? </font><font face="Default" color="#ffffff" >Trong vòng</font><font face="Default" color="#ffffff" > bảy chiêu, lão phu sẽ lấy mạng nhỏ của nhà ngươi!</font>
+DialogID_73739=<font face="Default" color="#ffffff" >(Ánh mắt lóe lên một tia kinh ngạc) Không ngờ giang hồ vẫn còn tên tiểu tử thâm tàng bất lộ như vậy!</font>
+DialogID_73741=<font face="Default" color="#ffffff" >Vừa rồi ta thấy điệu múa kiếm của Tương Nương uyển chuyển thước tha, thật không nên giam mình trong thuyền hoa này. Hôm nay ta muốn chuộc thân cho Tương Nương, đưa cô ấy rời khỏi đây. Vị công tử này, nếu buông tay sớm,</font> <font face="Default" color="#ffffff" >bổn cô nương</font> <font face="Default" color="#ffffff" >cũng sẽ không làm khó. Tên của ta ắt hẳn công tử cũng đã từng nghe thấy trên giang hồ rồi, Thủy Vô Tâm.</font>
+DialogID_73742=<font face="Default" color="#ff0000" >(Linh Thảo được ghi chép trong Y Điển)</font>
+DialogID_73743=<font face="Default" color="#ff0000" >(Cây hoa quế hương thơm bay khắp)</font>
+DialogID_73744=<font face="Default" color="#f7020a" >(Siêu Thuốc đang được làm nóng nhanh)</font>
+DialogID_73745=<font face="Default" color="#ffffff" >Không biết tại sao, gần đây cứ mơ thấy cảnh tương phùng với Hồng Vạn ca, nghĩa muội ở Tùng Hạc Lâu. Hội ngộ trong lúc loạn lạc này là điều khó khăn nhất. Nghĩa muội từng nói, lần gặp gỡ sau là khi thiên hạ đã thái bình, ta và Hồng Vạn huynh chèo thuyền câu cá trên hồ, muội ấy nấu bánh trôi hoa quế cho chúng ta...</font>
+DialogID_73746=<font face="Default" color="#ff0000" >(Bếp lò được làm nóng)</font>
+DialogID_73747=<font face="Default" color="#ffffff" >Khụ khụ...,</font> <font face="Default" color="#ffffff" >Thiên Nhi,</font> <font face="Default" color="#ffffff" >con luyện đàn ra sao rồi</font><font face="Default" color="#ffffff" >?</font> <font face="Default" color="#ffffff" >Đừng vì cha</font> <font face="Default" color="#ffffff" >-</font><font face="Default" color="#ffffff" >bệnh</font> <font face="Default" color="#ffffff" >, mà làm lỡ việc luyện tập.</font>
+QiecuoMenu_73707=<font face="Default" color="#ffffff" >Tùng tình sơn thủy, chiết hoa nhập tửu, chính là ưu điểm của Tiêu mỗ, sao có thể sẵn sàng đầu hàng?</font>
+QiecuoMenu_73708=<font face="Default" color="#ffffff" >Vãn bối bất tài, mong tiền bối dạy bảo!</font>
+QiecuoTitle_73707=<font face="Default" color="#ffffff" >Vị công tử này, </font><font face="Default" color="#ffffff" >ta khuyên ngươi đừng ra mặt!</font>
+QiecuoTitle_73708=<font face="Default" color="#ffffff" >Một đám vô dụng, không chịu nổi một chiêu của lão phu, các ngươi cũng chỉ xứng dùng để tế Ma Đao của ta! (Ánh mắt hướng về bạn) Lại thêm một tiểu tử đến nạp mạng, tâm trạng lão phu bây giờ không được tốt, trừ phi ngươi có thể tiếp 7 chiêu, nếu không, kết cục sẽ giống như những người kia!</font>
+collectinfo_73703=Hái <a href="findnpc_new,adv146,GatherNpc_2019jq_dignzw_005" style="HLStype1">hoa quế</a>
+collectinfo_73742=Thu thập <a href="findnpc_new,adv146,GatherNpc_2019jq_dignzw_004" style="HLStype1">Linh Thảo</a>
+hunterinfo_73707=Ngăn cản <a href="findnpc_new,adv146,npc_2019jq_dingzw_022" style="HLStype1">Thần Bí Cao Thủ</a>
+hunterinfo_73708=Ngăn cản <a href="findnpc_new,adv146,npc_2019jq_dingzw_026" style="HLStype1">Ma Đao Lão Tổ</a>
+interactinfo_73718=<a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_001" style="HLStype1">Đến Bích Loa Thôn</a>, bái tế người cha đã mất
+interactinfo_73719=Phụ mẫu thân quét dọn <a href="findnpc_new,adv146,GatherNpc_2019jq_dignzw_006" style="HLStype1">bia mộ của phụ thân</a>
+interactinfo_73720=Dùng <a href="findnpc_new,adv146,GatherNpc_2019jq_dignzw_001" style="HLStype1">Đệm Cói</a> bái tế phụ thân
+interactinfo_73721=An ủi mẫu thân (<a href="findnpc_new,adv146,npc_2019jq_dingzw_001" style="HLStype1">Đinh Hoàn Phụng</a>) đang khóc
+interactinfo_73722=Đến <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_002" style="HLStype1">bến đò Bích Loa Thôn</a>, ngồi thuyền đến Vạn Tô Sơn Trang (trò chuyện với <a href="findnpc_new,adv146,npc_2019jq_dingzw_005" style="HLStype1">thuyền phu</a>)
+interactinfo_73723=<a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_003" style="HLStype1">Đến Vạn Tô Sơn Trang</a> (trò chuyện với <a href="findnpc_new,adv146,npc_2019jq_dingzw_005" style="HLStype1">thuyền phu</a> và đến Vạn Tô Sơn Trang)
+interactinfo_73724=Tiến lên bái kiến <a href="findnpc_new,adv146,npc_2019jq_dingzw_006" style="HLStype1">Tiêu Thiên Thu</a>
+interactinfo_73725=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_002" style="HLStype1">Đinh Hoàn Phụng</a> dặn dò
+interactinfo_73726=<a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_004" style="HLStype1">Vào Vạn Tô Sơn Trang</a>
+interactinfo_73727=Vào vườn <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_005" style="HLStype1">suy nghĩ cho kỹ</a>
+interactinfo_73728=Dùng <a href="findnpc_new,adv146,GatherNpc_2019jq_dignzw_003" style="HLStype1">Cổ Cầm</a> gảy khúc nhớ cố nhân cho nghĩa phụ nghe
+interactinfo_73729=Nghĩa phụ cũng đã đi, <a href="findnpc_new,adv146,npc_2019jq_dingzw_018" style="HLStype1">quản gia</a> bày biện ở nghĩa trang, đến giúp đỡ
+interactinfo_73730=Dùng <a href="findnpc_new,adv146,GatherNpc_2019jq_dignzw_002" style="HLStype1">Đệm Cói</a>, quỳ bái nghĩa phụ
+interactinfo_73731=Trò chuyện cùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_018" style="HLStype1">quản gia</a>
+interactinfo_73732=<a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_008" style="HLStype1">Giải sầu trong thành</a> Tô Châu
+interactinfo_73733=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_019" style="HLStype1">Dương Kiến</a> kể chuyện thuyền hoa Hương Hạnh
+interactinfo_73734=Thật thú vị, <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_009" style="HLStype1">đến thuyền hoa Hương Hạnh</a>
+interactinfo_73735=<a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_011" style="HLStype1">Lắng nghe 1 khúc</a> diễn tấu của Thủy Vô Tâm
+interactinfo_73736=Trò chuyện cùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_024" style="HLStype1">Thủy Vô Tâm</a>
+interactinfo_73737=Hỏi <a href="findnpc_new,adv146,npc_2019jq_dingzw_021" style="HLStype1">người đi đường</a>
+interactinfo_73738=Ra ngoài thành <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_012" style="HLStype1">ngăn cản Ma Đao Lão Tổ</a>
+interactinfo_73739=Khuyên nhủ <a href="findnpc_new,adv146,npc_2019jq_dingzw_026" style="HLStype1">Ma Đao Lão Tổ</a>
+interactinfo_73740=Tỉ thí với người thần bí ở <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_010" style="HLStype1">cuộc thi Ném Bình</a>
+interactinfo_73741=Một <a href="findnpc_new,adv146,npc_2019jq_dingzw_024" style="HLStype1">cô nương</a> bất ngờ chặn đường, hỏi thăm chuyện gì đó
+interactinfo_73742=Nghĩa phụ ốm nặng, đi hái một ít <a href="findnpc_new,adv146,npc_2019jq_dingzw_012" style="HLStype1">Linh Thảo</a>
+interactinfo_73743=Hái một ít cánh hoa quế trên <a href="findnpc_new,adv146,npc_2019jq_dingzw_013" style="HLStype1">cây hoa quế</a>
+interactinfo_73744=Dùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_014" style="HLStype1">Siêu Thuốc</a> nấu một ít thảo dược
+interactinfo_73745=Mang thuốc đã nấu xong vào <a href="findnpc,adv146,754.583,77.131,187.950" style="HLStype1">phòng</a> cho <a href="findnpc_new,adv146,npc_2019jq_dingzw_011" style="HLStype1">Tiêu Thiên Thu</a> uống
+interactinfo_73746=Dùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_015" style="HLStype1">bếp lò</a> nấu bánh trôi hoa quế
+interactinfo_73747=Mang bánh trôi hoa quế đã nấu xong vào <a href="findnpc,adv146,754.583,77.131,187.950" style="HLStype1">phòng</a> cho <a href="findnpc_new,adv146,npc_2019jq_dingzw_011" style="HLStype1">Tiêu Thiên Thu</a> ăn
+interactinfo_73748=Lặng lẽ hồi tưởng ở <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_007" style="HLStype1">bên cạnh</a>
+interactinfo_73749=Để cha nghỉ ngơi, <a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_006" style="HLStype1">ra ngoài</a> đợi
+interactinfo_73750=<a href="findnpc_new,adv146,EventNpc_2019jq_dingzw_014" style="HLStype1">Rời</a> thuyền hoa Hương Hạnh
+okmenu_73719=<font face="Default" color="#ffffff" >Chuẩn bị tế phẩm.</font>
+okmenu_73720=<font face="Default" color="#ffffff" >Quỳ bái.</font>
+okmenu_73721=<font face="Default" color="#ffffff" >Mẹ, giang hồ hào kiệt vì muốn cha được về quê nhà để an táng mà không màng tính mạng để lấy lại thi hài của ông.</font>
+okmenu_73724=<font face="Default" color="#ffffff" >Thiên Tinh bái kiến</font> <font face="Default" color="#ffffff" >nghĩa phụ</font><font face="Default" color="#ffffff" >.</font>
+okmenu_73725=<font face="Default" color="#ffffff" >Biết rồi, mẹ, con sẽ nghe lời nghĩa phụ. Mẹ… mẹ sao vậy?</font>
+okmenu_73729=<font face="Default" color="#ffffff" >Lúc này, tang lễ của nghĩa phụ là quan trọng </font> <font face="Default" color="#ffffff" >nhất</font><font face="Default" color="#ffffff" >.</font>
+okmenu_73730=<font face="Default" color="#ffffff" >Tế bái</font><font face="Default" color="#ffffff" >.</font>
+okmenu_73731=<font face="Default" color="#ffffff" >Quay đầu nhìn lại chốn tiêu sắt, về thôi, cũng không mưa gió cũng không hanh. Cha, mẹ, nghĩa phụ đều bỏ ta mà đi. Kể từ hôm nay, ta không còn gọi là Thiên Tinh nữa, sau này hãy gọi ta là Biệt</font> <font face="Default" color="#ffffff" >Tình</font> <font face="Default" color="#ffffff" >đi.</font>
+okmenu_73733=<font face="Default" color="#ffffff" >Người đẹp rượu ngon hoa thơm, đúng là một nơi thú vị.</font> <font face="Default" color="#ffffff" >Không đi không phải là quá đáng tiếc rồi à?</font>
+okmenu_73736=<font face="Default" color="#ffffff" >Khúc nhạc của Thủy cô nương lạnh lẽo như dòng suối trên núi tuyết, ắt hẳn người viết ra khúc này là một nhã sĩ cao quý. Hôm nay từ biệt tại đây, sau này lại gặp lại.</font>
+okmenu_73737=<font face="Default" color="#ffffff" >Đại khai sát giới, dùng huyết dưỡng đao... (Lẩm bẩm một mình, tâm niệm khẽ động, thi triển khinh công bay về phía cổng thành)</font>
+okmenu_73738=<font face="Default" color="#ffffff" >Lão tổ, cứ quyết như vậy, 7 chiêu phân định thắng thua. Nếu may mắn đỡ được 7 chiêu, lão tổ sẽ tha cho người vô tội.</font>
+okmenu_73739=<font face="Default" color="#ffffff" >(Bị nội lực của đối phương bức lui mấy bước, nhấc tay lau vết máu trên khóe miệng) Tiền bối đã nhường rồi, không biết tiền bối có tha cho mấy người này không...</font>
+okmenu_73741=<font face="Default" color="#ffffff" >Thủy cô nương hiểu lầm tại hạ rồi,</font> <font face="Default" color="#ffffff" >tại hạ là Tiêu Biệt Tình của Vạn Tô Sơn Trang,</font> <font face="Default" color="#ffffff" >vừa rồi</font> <font face="Default" color="#ffffff" >tại hạ</font> <font face="Default" color="#ffffff" >chỉ ngăn cản vị khách đó đưa Tương Nương đi, nên đành bất đắc dĩ tỉ thí một phen</font> <font face="Default" color="#ffffff" >.</font> <font face="Default" color="#ffffff" >Tại hạ không có suy nghĩ không an phận gì với Tương Nương. Từ lâu đã nghe danh Thủy cô nương là danh gia đàn Không ở Giang Nam, không biết tại hạ có diễm phúc được rửa tai nghe một khúc đàn?</font>
+okmenu_73742=<font face="Default" color="#ffffff" >Bệnh của nghĩa phụ chuyển biến rất nhanh, nghe nói số Linh Thảo này có tác dụng bồi bổ kỳ diệu</font><font face="Default" color="#ffffff" >,</font> <font face="Default" color="#ffffff" >hái một ít mang về nào.</font>
+okmenu_73743=<font face="Default" color="#ffffff" >Hái một ít hoa quế</font>
+okmenu_73744=<font face="Default" color="#ffffff" >Thêm linh thảo vào.</font>
+okmenu_73745=<font face="Default" color="#ffffff" >Nghĩa phụ,</font> <font face="Default" color="#ffffff" >trước tiên</font> <font face="Default" color="#ffffff" >hãy uống thuốc đã.</font>
+okmenu_73746=<font face="Default" color="#ffffff" >Làm bánh trôi hoa quế</font>
+okmenu_73747=<font face="Default" color="#ffffff" >Nghĩa phụ, hãy ăn thử</font> <font face="Default" color="#ffffff" >bánh trôi hoa quế</font> <font face="Default" color="#ffffff" >Thiên Nhi làm cho người đi</font><font face="Default" color="#ffffff" >.</font>
+quest_menu_73701=<font face="Default" color="#ffffff" >(Mỉm cười nhã nhặn) Mời.</font>
+questioninfo_73701=Vấn đề của <a href="findnpc_new,adv146,npc_2019jq_dingzw_022" style="HLStype1">Thần Bí Cao Thủ</a>
+story_73708_2=<font face="Default" color="#ffffff" >Thiên Nhi, từ biệt cha con đi, chúng ta phải đến một nơi khác.</font>
+story_73709_1=<font face="Default" color="#ffffff" >Thiên Nhi, nghĩa phụ biết con rất thích cầm kỳ thi họa, lần này ta đã mời vài vị đại sư đến, con có muốn đến gặp không?</font>
+story_73709_2=<font face="Default" color="#ffffff" >Nghĩa phụ</font> <font face="Default" color="#ffffff" >tìm cho con vài người thầy, họ đang ở trong viện, con đến gặp họ trước đi</font>
+story_73710_1=<font face="Default" color="#ffffff" >Nghe nói chữ viết của ngươi cũng không tệ. (Kéo tay bạn viết chữ "Vĩnh') Nếu ngươi có thể lĩnh ngộ được chữ này, sau này ắt sẽ có ích.</font>
+story_73711_1=<font face="Default" color="#ffffff" >Dĩ lý kiến đạo, dĩ đạo thống lý. Thống nhất đạo này, đạo này là tối đa. Đạo lý của họa là gì? Là vì đạo, họa dùng để truyền tải đạo. Hội họa chủ yếu thể hiện ý nghĩa sâu kín và đạo ý tại ngôn ngoại. Đây chính là đạo.</font>
+story_73712_1=<font face="Default" color="#ffffff" >Cổ cầm là loại nhạc cụ có âm thanh cổ xưa, gợi cho người ta nhớ về thời xa xưa; bồi âm như âm thanh của tự nhiên, có cảm giác mát mẻ như tiến vào cõi tiên; dựa theo dư âm, nhẹ nhàng kéo dài, khi thì như giọng nói, có thể trò chuyện, khi thì như nỗi lòng của ai đó, biến hóa ảo diệu. Đây là 3 âm thanh của trời đất và con người, có thể như tâm tư nhân tình, cũng có thể đạt đến đạo lý của trời đất.</font>
+story_73713_1=<font face="Default" color="#ffffff" >(</font><font face="Default" color="#ffffff" >Lấy ra cái tráp cổ và đưa cho bạn) Thiên Nhi, cả đời nghĩa phụ chán ghét tranh đấu, vì vậy đã cất võ học của tổ tiên lên giá cao, những năm này cũng chỉ để con nắm một ít kỹ năng phòng thân. Tuy nhiên trong thời buổi hỗn loạn, ta chưa từng làm gì cho người Hán, trái lại mấy người Hồng Vạn sư huynh lại thân mang trọng trách, cứu vớt lê dân bách tính. Con đường võ học tự có lý do tồn tại của nó. Hôm nay, nghĩa phụ truyền lại võ học gia truyền cho con, muốn chọn thế nào thì con tự mình quyết định.</font>
+story_73714_1=<font face="Default" color="#ffffff" >Đây là rượu Thái Dịch Phù Dung mỗi năm chỉ có 1 chai, quy củ của thuyền hoa Hương Hạnh là ai thắng cuộc thi thơ từ mới có thể mang rượu ngon đi. Nay có vị khách thần bí không những muốn Thái Dịch Phù Dung, mà còn cưỡng ép đưa hoa khôi Tương Nương đi. Nếu hai đại tài tử thiếu trang chủ Thạch Nghiên Băng của Lục Ý Sơn Trang và thiếu trang chủ Du Hoài Băng của Du Gia Trang ở đây, chắc chắn sẽ không để tên kia đắc ý. Chỉ tiếc là hai vị này tháng trước đã cùng di du ngoạn...</font> <font face="Default" color="#ffffff" >Giờ chỉ e không có ai có thể tiếp được trận đấu này.</font>
+story_73715_1=<font face="Default" color="#ffffff" >Các hạ không những văn thao võ lược, mà ngay cả với trò trong yến tiệc này mà cũng có thể ném vào chai từ khoảng cách xa như vậy, bội phục bội phục! Tại hạ họ Mộc, tên một chữ Diên. Xin hỏi đại danh quý tính của các hạ là?</font>
+story_73715_2=<font face="Default" color="#ffffff" >Tiêu lão đệ khiêm tốn rồi. Cuộc tỉ thí này là tại hạ tài không bằng người, cam bái hạ phong, hoa khôi là của đệ. Tại hạ còn có việc bận, xin phép đi trước, hẹn sau này gặp lại!</font>
+story_73716_1=<font face="Default" color="#ffffff" >Tiêu Công Tử, tiểu nữ họ Thủy, tên Vô Tâm, hôm nay tình cờ đi qua đây, thấy kiếm pháp của Tương Nương kiều nhược du long, phiên nhược kinh hồng, thật không nên giam mình trong thuyền hoa. Ta muốn chuộc thân cho cô ấy, không biết công tử có nguyện từ bỏ thứ yêu thích, để ta đưa cô ấy rời đi?</font>
+story_73716_2=<font face="Default" color="#ffffff" >Đa tạ Tiêu Công Tử thành toàn, tiểu nữ còn có 1 chuyện muốn nhờ. Vừa rôi nghe công tử bàn về âm luật, khiến tiểu nữ nhất thời ngứa nghề, nguyện tặng một khúc, không biết có được công tử chỉ điểm đôi chút không.</font>
+story_menu_73708=<font face="Default" color="#ffffff" >Người</font> <font face="Default" color="#ffffff" >nói vậy khó tránh khỏi có chút không công bằng...</font>
+story_menu_73709=<font face="Default" color="#ffffff" >Nghĩa phụ, hài nhi trở về rồi.</font>
+story_menu_73710=<font face="Default" color="#ffffff" >Thiên Tinh tham kiến tiên sinh.</font>
+story_menu_73711=<font face="Default" color="#ffffff" >Thiên Tinh tham kiến tiên sinh.</font>
+story_menu_73712=<font face="Default" color="#ffffff" >Thiên Tinh tham kiến tiên sinh.</font>
+story_menu_73713=<font face="Default" color="#ffffff" >Quá khứ Tiêu gia</font>
+story_menu_73714=<font face="Default" color="#ffffff" >Trên thuyền</font> <font face="Default" color="#ffffff" >thật náo nhiệt.</font>
+story_menu_73715=<font face="Default" color="#ffffff" >Tại hạ thất lễ rồi.</font>
+story_menu_73716=<font face="Default" color="#ffffff" >Xin hỏi, cô nương ngăn tại hạ lại vì chuyện gì?</font>
+storyinfo_73708=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_001" style="HLStype1">Đinh Hoàn Phụng</a> kể quá trình phụ thân bị sát hại
+storyinfo_73709=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_007" style="HLStype1">Tiêu Thiên Thu</a> dạy cách làm việc
+storyinfo_73710=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_008" style="HLStype1">thầy thư pháp</a> kể về thư pháp
+storyinfo_73711=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_009" style="HLStype1">thầy hội họa</a> kể về con đường hội họa
+storyinfo_73712=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_010" style="HLStype1">thầy cổ cầm</a> kể về con đường cầm đạo
+storyinfo_73713=<a href="findnpc_new,adv146,npc_2019jq_dingzw_011" style="HLStype1">Tiêu Thiên Thu</a> có việc gọi ngươi vào <a href="findnpc,adv146,754.583,77.131,187.950" style="HLStype1">trong phòng</a>
+storyinfo_73714=Nghe <a href="findnpc_new,adv146,npc_2019jq_dingzw_020" style="HLStype1">Liễu Chí Thành</a> kể chuyện
+storyinfo_73715=Trò chuyện cùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_022" style="HLStype1">Thần Bí Cao Thủ</a>
+storyinfo_73716=Một <a href="findnpc_new,adv146,npc_2019jq_dingzw_024" style="HLStype1">cô nương</a> bất ngờ chặn đường, hỏi thăm chuyện gì đó
+storymenu_73708_1=<font face="Default" color="#ffffff" >Mẹ, đừng buồn nữa, con sai rồi.</font>
+storymenu_73708_2=<font face="Default" color="#ffffff" >Thiên Nhi đã biết</font><font face="Default" color="#ffffff" >, mẹ!</font>
+storymenu_73709_1=<font face="Default" color="#ffffff" >Cảm ơn nghĩa phụ, con đi ngay đây.</font>
+storymenu_73709_2=<font face="Default" color="#ffffff" >Con đi ngay đây</font>
+storymenu_73710_1=<font face="Default" color="#ffffff" >Nét móc ngang dọc, các dấu chấm, thì ra cấu trúc nét bút đều được thể hiện trên chữ "Vĩnh", đa tạ tiên sinh chỉ điểm!</font>
+storymenu_73711_1=<font face="Default" color="#ffffff" >Nghe lời của tiên sinh xong như được khai sáng.</font>
+storymenu_73712_1=<font face="Default" color="#ffffff" >Lời của tiên sinh khiến vãn bối bỗng nhiên sáng tỏ.</font>
+storymenu_73713_1=<font face="Default" color="#ffffff" >(Trịnh trọng đáp) Hài nhi ghi nhớ phải hiếu thuận với nghĩa phụ, có trái tim khoan dung, không bị mắc kẹt trong thù cũ.</font>
+storymenu_73714_1=<font face="Default" color="#ffffff" >Điều đó không nhất thiết</font><font face="Default" color="#ffffff" >,</font> <font face="Default" color="#ffffff" >chi bằng để tại hạ thử một lần.</font>
+storymenu_73715_1=<font face="Default" color="#ffffff" >Mộc huynh coi trọng rồi, tại hạ họ Tiêu, tên Biệt Tình, là tiểu bối vô danh mà thôi.</font>
+storymenu_73715_2=<font face="Default" color="#ffffff" >Cung tiễn Mộc huynh, sau này gặp lại.</font>
+storymenu_73716_1=<font face="Default" color="#ffffff" >(Lông mày cong lên, môi khẽ nhếch) Cô nương hiểu lầm rồi, tại hạ chỉ muốn giải vây giúp cô nương hoa khôi thôi, không hề có ý gì khác. Việc đi hay ở do nàng ấy làm chủ, Tiêu mỗ không có quyền can dự.</font>
+storymenu_73716_2=<font face="Default" color="#ffffff" >Nguyện rửa tai lắng nghe.</font>
+useiteminfo_73702=Dùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_014" style="HLStype1">Siêu Thuốc</a> nấu <a href="TASK_ITEM,item_2019jq_dignzw_001" style="HLStype1">Linh Thảo</a>
+useiteminfo_73703=Dùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_015" style="HLStype1">Bếp lò</a> nấu <a href="TASK_ITEM,item_2019jq_dignzw_003" style="HLStype1">cánh hoa quế</a>
+useiteminfo_73704=Đút thuốc cho <a href="findnpc_new,adv146,npc_2019jq_dingzw_011" style="HLStype1">Tiêu Thiên Thu</a><a href="TASK_ITEM," style="HLStype1"></a>
+useiteminfo_73705=Dùng <a href="findnpc_new,adv146,npc_2019jq_dingzw_015" style="HLStype1">Bếp lò</a> làm <a href="TASK_ITEM," style="HLStype1"></a>bánh trôi bột củ sen hoa quế
+useiteminfo_73706=Đút bánh trôi bột củ sen hoa quế cho <a href="findnpc_new,adv146,npc_2019jq_dingzw_011" style="HLStype1">Tiêu Thiên Thu</a><a href="TASK_ITEM," style="HLStype1"></a>
+story_73708_1=<font face="Default" color="#ffffff" >Im đi! Đừng nhắc đến đám ngụy quân tử làm bộ làm tịch đó. Năm đó anh hùng hào kiệt gặp gỡ, đến Mạc bắc ám sát vị tướng giỏi nhất của Bắc Nguyên Vương Bảo Bảo, sau khi thành công, chỉ mình cha con ở lại, cha con vì để yểm hộ cho mọi người rút lui, nên đã mất vì trúng mai phục. Họ quả thực đã mang thi thể ông ấy về đây, nhưng điều ta muốn không phải là một cỗ thi thể lạnh ngắt, ta muốn một người còn sống!</font>
+

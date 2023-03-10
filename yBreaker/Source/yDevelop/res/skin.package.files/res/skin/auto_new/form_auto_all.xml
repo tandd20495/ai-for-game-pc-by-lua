@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+<control name="main_form" entity="Form" script="auto_new\form_auto_all" init="main_form_init">
+  <prop Transparent="false" LimitInScreen="true" ShowGrid="true" Left="450" Top="200" Width="600" Height="500" BackColor="0,255,255,255" ShadowColor="0,0,0,0" TestTrans="true" NoFrame="true" />    
+     <event on_open="on_main_form_open" on_close="on_main_form_close" />
+
+	 <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="380" Top="30" Width="250" Height="500" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand"  />        
+			<control name="main_bg" entity="GroupBox" script="" init="">
+				<prop Left="0" Top="0" Width="220" Height="470" BackColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_menu_3.png" />
+			</control>
+			 <control name="mltbox_content" entity="MultiTextBox" script="" init="">
+				<prop HAlign="Center" VAlign="Center" TextColor="255,255,255,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="10,0,306,360" LineHeight="20" ScrollSize="14" HasVScroll="true" Left="0" Top="0" Width="220" Height="500" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text" />
+				<!--  -->
+				<subor name="VScrollBar">
+					<prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" />
+					<subor name="DecButton">
+						<prop NormalImage="gui\common\scrollbar\button_1\btn_up_out.png" FocusImage="gui\common\scrollbar\button_1\btn_up_on.png" PushImage="gui\common\scrollbar\button_1\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="FitWindow" />
+					</subor>
+					<subor name="IncButton">
+						<prop NormalImage="gui\common\scrollbar\button_1\btn_down_out.png" FocusImage="gui\common\scrollbar\button_1\btn_down_on.png" PushImage="gui\common\scrollbar\button_1\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="15" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="FitWindow" />
+					</subor>
+					<subor name="TrackButton">
+						<prop NormalImage="gui\common\scrollbar\button_1\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_1\btn_trace_on.png" PushImage="gui\common\scrollbar\button_1\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="10" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+					</subor>
+				</subor>
+			</control>
+		</control>
+	 <control name="groupbox_main" entity="GroupBox" script="" init="">
+          <prop Left="15" Top="5" Width="370" Height="500" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" /> 
+		<control name="lbl_main" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Top="0" Width="370" Height="500" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\special\home\jiayuan\jy_2_bg.png" />
+        </control>	
+		<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0"  Left="345" Top="4" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>		
+      <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
+        <prop Left="20" Top="30" Width="375" Height="240" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand"  />        
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+                       <prop RefCursor="WIN_HELP" Left="7" Top="5" Width="70" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Auto Có giao diện hiển thị" Font="font_text_title1" />
+                </control>
+		<control name="btn_start_1" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="20" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto AI" ClickSound="ok_7" />
+			<event on_click="btn_start_1" />
+        </control>
+		<control name="btn_start_6" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="20" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Cóc" ClickSound="ok_7" />
+			<event on_click="btn_start_6" />
+        </control>
+		<control name="btn_start_11" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="20" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Train" ClickSound="ok_7" />
+			<event on_click="btn_start_11" />
+        </control>
+		<control name="btn_start_2" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Khoái Hoạt Đảo" ClickSound="ok_7" />
+			<event on_click="btn_start_2" />
+        </control>
+		<control name="btn_start_7" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Đại Mạt" ClickSound="ok_7" />
+			<event on_click="btn_start_7" />
+        </control>
+		<control name="btn_start_12" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Tình Dao Cung" ClickSound="ok_7" />
+			<event on_click="btn_start_12" />
+        </control>
+		<control name="btn_start_3" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="100" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Thần hành" ClickSound="ok_7" />
+			<event on_click="btn_start_3" />
+        </control>
+		<control name="btn_start_8" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="100" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Rao" ClickSound="ok_7" />
+			<event on_click="btn_start_8" />
+        </control>
+		<control name="btn_start_13" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="100" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Shop" ClickSound="ok_7" />
+			<event on_click="btn_start_13" />
+        </control>
+		<control name="btn_start_4" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="140" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Item" ClickSound="ok_7" />
+			<event on_click="btn_start_4" />
+        </control>
+		<control name="btn_start_9" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="140" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Skill" ClickSound="ok_7" />
+			<event on_click="btn_start_9" />
+        </control>
+			<control name="btn_start_14" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="140" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Kỳ Ngộ" ClickSound="ok_7" />
+			<event on_click="btn_start_14" />
+        </control>
+		<control name="btn_start_5" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="180" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Mã Hoá" ClickSound="ok_7" />
+			<event on_click="btn_start_5" />
+        </control>
+			
+		<control name="btn_start_10" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="180" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Lăng Tiêu" ClickSound="ok_7" />
+			<event on_click="btn_start_10" />
+        </control>
+		<!-- 2 -->
+		
+	
+		<control name="btn_start_15" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="180" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Nội Công 6" ClickSound="ok_7" />
+			<event on_click="btn_start_15" />
+        </control>
+       </control>
+   
+		<control name="groupbox_highest_priority2" entity="GroupBox" script="" init="">
+        <prop Left="20" Top="250" Width="375" Height="240" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand"  />        
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+                       <prop RefCursor="WIN_HELP" Left="7" Top="5" Width="70" Height="16" ForeColor="255,255,0,255" ShadowColor="0,0,0,0" Text="Auto Chạy không có giao diện" Font="font_text_title1" />
+                </control>
+		<control name="btn_start_21" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="20" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Farm Kỳ" ClickSound="ok_7" />
+			<event on_click="btn_start_21" />
+        </control>
+		<control name="btn_start_22" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Farm Tửu" ClickSound="ok_7" />
+			<event on_click="btn_start_22" />
+        </control>
+		<control name="btn_start_23" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="100" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Bắt Thỏ - Key" ClickSound="ok_7" />
+			<event on_click="btn_start_23" />
+        </control>
+		<control name="btn_start_24" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="140" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Xa Phu Nhanh" ClickSound="ok_7" />
+			<event on_click="btn_start_24" />
+        </control>
+		<control name="btn_start_25" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="10" Top="180" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Tìm Sách" ClickSound="ok_7" />
+			<event on_click="btn_start_25" />
+        </control>
+		<!-- 1 -->
+		<control name="btn_start_26" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="20" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Tìm Cây" ClickSound="ok_7" />
+			<event on_click="btn_start_26" />
+        </control>
+	<!-- k -->
+		<control name="btn_start_27" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Blink" ClickSound="ok_7" />
+			<event on_click="btn_start_27" />
+        </control>
+		<control name="btn_start_28" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="100" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Swap" ClickSound="ok_7" />
+			<event on_click="btn_start_28" />
+        </control>
+		<control name="btn_start_29" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="140" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Auto Sữa Đồ" ClickSound="ok_7" />
+			<event on_click="btn_start_29" />
+        </control>
+		<control name="btn_start_30" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="120" Top="180" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Tự Sát" ClickSound="ok_7" />
+			<event on_click="btn_start_30" />
+        </control>
+		<!-- 2 -->
+		<control name="btn_start_31" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="20" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Skill Theo Thanh Skill" ClickSound="ok_7" />
+			<event on_click="btn_start_31" />
+        </control>
+		<control name="btn_start_32" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Bổ Khoái" ClickSound="ok_7" />
+			<event on_click="btn_start_32" />
+        </control>
+		<control name="btn_start_33" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="100" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Hải Bố" ClickSound="ok_7" />
+			<event on_click="btn_start_33" />
+        </control>
+		<control name="btn_start_34" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="140" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Tele Di Hoa" ClickSound="ok_7" />
+			<event on_click="btn_start_34" />
+        </control>
+		<control name="btn_start_35" entity="Button" script="" init="">
+			<prop NormalImage="gui\special\avatar\btn_on.png" FocusImage="gui\special\avatar\btn_out.png" PushImage="gui\special\avatar\btn_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0"  PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="230" Top="180" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" Text="Tele Thanh Hải" ClickSound="ok_7" />
+			<event on_click="btn_start_35" />
+        </control>
+	
+       </control> 
+     </control>	 
+ </control>
+</form>

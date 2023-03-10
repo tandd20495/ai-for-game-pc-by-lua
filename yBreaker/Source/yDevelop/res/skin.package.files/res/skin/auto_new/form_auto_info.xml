@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="auto_new\form_auto_info" init="on_script_init">
+        <prop Fixed="true" LimitInScreen="true" ShowGrid="true" Left="825" Top="150" Width="170" Height="100" BackColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" />
+        <event on_open="on_script_open" on_close="on_script_close" />
+		<!--Main Background IMG-->
+		<control name="main_bg" entity="GroupBox" script="" init="">
+		<prop Left="0" Top="0" Width="170" Height="100" BackColor="0,0,0,0" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_menu_3.png" />
+		</control>
+		<!--Sign-->
+		<control name="t_hp" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="2" Top="2" Width="35" Height="18" ForeColor="255,238,0,0 " ShadowColor="0,0,0,0" Text="*HP :" DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_hp_txt" entity="Label" script="" init="">
+            <prop Left="50" Top="3" Width="30" Height="16" RefCursor="WIN_HELP" ForeColor="255,238,0,0" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>
+		<control name="t_hp_txt_per" entity="Label" script="" init="">
+            <prop Left="70" Top="3" Width="30" Height="16" RefCursor="WIN_HELP" ForeColor="255,238,0,0" ShadowColor="0,0,0,0" Text="%" Font="font_text_figure" />
+        </control>		
+		<control name="t_mp" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="2" Top="20" Width="35" Height="18" ForeColor="255,0,0,238" ShadowColor="0,0,0,0" Text="*MP :" DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_mp_txt" entity="Label" script="" init="">
+            <prop Left="50" Top="21" Width="30" Height="16" RefCursor="WIN_HELP" ForeColor="255,0,0,238" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>	
+		<control name="t_mp_txt_per" entity="Label" script="" init="">
+            <prop Left="70" Top="21" Width="30" Height="16" RefCursor="WIN_HELP" ForeColor="255,0,0,238" ShadowColor="0,0,0,0" Text="%" Font="font_text_figure" />
+        </control>
+		<control name="t_dis" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="2" Top="2" Width="200" Height="18" ForeColor="255,245,245,245" ShadowColor="0,0,0,0" Text="*R :" DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_dis_txt" entity="Label" script="" init="">
+            <prop Format="%.2f" DragStep="0.010000" Min="-7000.000000" Max="7000.000000"  Left="120" Top="3" Width="30" Height="16" RefCursor="WIN_HELP" ForeColor="255,245,245,245" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>	
+		<control name="t_dis_txt_m" entity="Label" script="" init="">
+            <prop Format="%.2f" DragStep="0.010000" Min="-7000.000000" Max="7000.000000"  Left="140" Top="3" Width="30" Height="16" Text="mét" RefCursor="WIN_HELP" ForeColor="255,245,245,245" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>	
+		<control name="t_sp" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="2" Top="41" Width="120" Height="18" ForeColor="255,224,102,255" ShadowColor="0,0,0,0" Text="*Nộ :" DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_sp_txt" entity="Label" script="" init="">
+            <prop Left="80" Top="30" Width="40" Height="40" RefCursor="WIN_HELP" ForeColor="255,224,102,255" ShadowColor="0,0,0,0"  Font="font_sns_title_huali_1" />
+        </control>	
+		<control name="t_team_name" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="2" Top="55" Width="35" Height="18" ForeColor="255,224,102,255" ShadowColor="0,0,0,0" Text="Tên :" DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_team_txt" entity="Label" script="" init="">
+            <prop Left="50" Top="40" Width="40" Height="50" RefCursor="WIN_HELP" ForeColor="255,224,102,255" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>	
+		<control name="t_team_num" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="2" Top="72" Width="35" Height="18" ForeColor="255,224,102,255" ShadowColor="0,0,0,0" Text="Số TV :" DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_team_num_txt" entity="Label" script="" init="">
+            <prop Left="70" Top="60" Width="40" Height="40" RefCursor="WIN_HELP" ForeColor="255,224,102,255" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>	
+    </control>
+</form>
