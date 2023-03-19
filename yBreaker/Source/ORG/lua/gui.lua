@@ -1,3 +1,4 @@
+--[[DO: Phím tắt F12 mở yBreaker --]]
 require("const_define")
 require("util_gui")
 require("define\\define")
@@ -323,6 +324,12 @@ function gui_key_down(gui, key, shift, ctrl)
     nx_execute("custom_sender", "custom_use_qinggong", "qinggong_2")
   elseif key == "F8" then
     nx_execute("custom_sender", "custom_use_qinggong", "qinggong_11")
+
+--[ADD: Press F12 to show form for yBreaker
+  elseif key == "F12" then
+    util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
+--]
+
   end
   local form = nx_value("form_stage_main\\form_small_game\\form_game_ride")
   if nx_is_valid(form) then

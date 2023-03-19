@@ -1,3 +1,4 @@
+--[[DO: Tự động nội tu khi lên cấp --]]
 require("util_gui")
 require("util_vip")
 require("util_functions")
@@ -570,7 +571,19 @@ end
 function on_btn_lilian_help_click(btn)
   nx_execute("form_stage_main\\form_helper\\form_main_helper_manager", "next_helper_form")
 end
+
+--[ADD: Auto continue level up for yBreaker
+-- Perform continue levelup
+function continue_levelup()
+  nx_pause(5)
+  nx_execute("custom_sender", "custom_send_faculty_msg", 11)
+end
+-- Show message level up
 function on_msg_level_up(is_max_level)
+  nx_execute("form_stage_main\\form_wuxue\\form_wuxue_faculty", "continue_levelup")
+  nx_execute("custom_sender", "custom_send_faculty_msg", 11)
+--]
+
   if is_max_level == nil then
     is_max_level = nx_int(0)
   end

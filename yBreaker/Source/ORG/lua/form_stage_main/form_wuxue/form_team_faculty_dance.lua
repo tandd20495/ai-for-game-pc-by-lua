@@ -1,3 +1,4 @@
+--[[DO: Luyện công nhóm --]]
 require("util_gui")
 require("util_functions")
 local SUB_CLIENT_PLAY_SUCCESS = 20
@@ -30,7 +31,14 @@ function on_main_form_open(self)
   if nx_is_valid(form_chat) then
     nx_execute("form_stage_main\\form_main\\form_main_chat", "hide_chat_edit", form_chat)
   end
-  on_refresh_picture(self)
+--[ADD: Auto pressing for yBreaker
+  nx_execute("custom_sender", "custom_team_faculty", SUB_CLIENT_PLAY_SUCCESS)
+  nx_execute("custom_sender", "custom_send_transQte_result", SUB_CLIENT_PLAY_SUCCESS)
+  nx_execute("custom_sender", "custom_send_jumpgame_result", SUB_CLIENT_PLAY_SUCCESS)
+  nx_execute("custom_sender", "custom_send_skill_general_result", SUB_CLIENT_PLAY_SUCCESS)
+--REM:
+ -- on_refresh_picture(self)
+ --]
 end
 function on_main_form_close(self)
   nx_destroy(self)
