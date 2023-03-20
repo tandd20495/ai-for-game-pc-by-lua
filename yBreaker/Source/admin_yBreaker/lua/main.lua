@@ -853,10 +853,9 @@ function main(world, login_addr, login_port, server_name, area_addr, area_port, 
   if nx_function("ext_is_instance_overflow") then
 
 --[REM: Unlimit client game for yBreaker
---wait_user_exit_game()
+--    wait_user_exit_game()
+--    return 0
 --]
-
-    return 0
   end
   local GameInfoCollector = nx_value("GameInfoCollector")
   if not nx_is_valid(GameInfoCollector) then
