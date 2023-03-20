@@ -2,7 +2,7 @@ require("util_gui")
 require("util_move")
 require("util_functions")
 
--- Init skin path for form
+-- Initialize skin path for form
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_main"
 
 -- Set value default
