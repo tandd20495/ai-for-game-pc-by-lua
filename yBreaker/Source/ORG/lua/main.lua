@@ -1,3 +1,4 @@
+--[[DO: Unlimit client game --]]
 require("const_define")
 require("util_functions")
 require("share\\client_custom_define")
@@ -850,7 +851,11 @@ function main(world, login_addr, login_port, server_name, area_addr, area_port, 
   end
   world:ClearWorkingSet()
   if nx_function("ext_is_instance_overflow") then
-    wait_user_exit_game()
+
+--[REM: Unlimit client game for yBreaker
+--wait_user_exit_game()
+--]
+
     return 0
   end
   local GameInfoCollector = nx_value("GameInfoCollector")
