@@ -19,12 +19,12 @@
 		
     <control name="tab_1_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_pvc" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="1: Mod PVC" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_form_pvc" />
+            <event on_click="show_hide_form_pvc" />
         </control>
 
-        <control name="tab_2_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_debug_test" init="">
+        <control name="tab_2_btn" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_debug_test" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="2: Debug" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_hide_form_debug_test" />
+            <event on_click="show_hide_form_debug_test_yBreaker" />
         </control>
 
         <control name="tab_3_btn" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_codenew" init="">
@@ -32,83 +32,83 @@
             <event on_click="new_function_admin_yBreaker" />
         </control>
 
-        <control name="tab_4_btn" entity="Button" script="auto\escort" init="">
+        <control name="tab_4_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="4: AI" Font="font_text_figure" AutoSize="true" />
-            <event on_click="EscortClose" />
+            <event on_click="..." />
         </control>
 
-        <control name="tab_5_btn" entity="Button" script="auto\tiguan" init="">
+        <control name="tab_5_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="5: PVP" Font="font_text_figure" AutoSize="true" />
-            <event on_click="TiguanClose" />
+            <event on_click="..." />
         </control>
-        <control name="tab_6_btn" entity="Button" script="auto\tiguan_today" init="">
+        <control name="tab_6_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="6: PVE" Font="font_text_figure" AutoSize="true" />
-            <event on_click="TiguanClose" />
+            <event on_click="...." />
         </control>
-        <control name="tab_7_btn" entity="Button" script="auto_tools\tools_captureqt" init="">
+        <control name="tab_7_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_teleport" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="7: Thần hành" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="on_close_click" />
         </control>
-        <control name="tab_8_btn" entity="Button" script="auto_tools\tools_crop" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="8: Luyện công" Font="font_text_figure" AutoSize="true" />
-            <event on_click="tools_show_form" />
-        </control>
-
-        <control name="tab_9_btn" entity="Button" script="auto_tools\tools_chat" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="9: Thụ nghiệp" Font="font_text_figure" AutoSize="true" />
-            <event on_click="tools_show_form" />
+        <control name="tab_8_btn" entity="Button" script="..." init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="8: Đàn đội" Font="font_text_figure" AutoSize="true" />
+            <event on_click="..." />
         </control>
 
-        <control name="tab_10_btn" entity="Button" script="auto_tools\tools_thunghiep" init="">
+        <control name="tab_9_btn" entity="Button" script="..." init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="9: Tự sát" Font="font_text_figure" AutoSize="true" />
+            <event on_click="...." />
+        </control>
+
+        <control name="tab_10_btn" entity="Button" script="admin_yBreaker\yBreaker_scripts_funcyBreaker_scripts_grocery" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="10: Tạp hóa" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="show_hide_grocery" />
         </control>
-        <control name="tab_11_btn" entity="Button" script="auto_tools\tools_luyencong" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="11: Treo shop" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+        <control name="tab_11_btn" entity="Button" script="..." init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="11: Tự rao" Font="font_text_figure" AutoSize="true" />
+            <event on_click="...." />
         </control>
 
-        <control name="tab_12_btn" entity="Button" script="auto_tools\tools_stallonline" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="12: Tự rao" Font="font_text_figure" AutoSize="true" />
-            <event on_click="tools_show_form" />
+        <control name="tab_12_btn" entity="Button" script="..." init="">
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="12: Treo shop" Font="font_text_figure" AutoSize="true" />
+            <event on_click="..." />
         </control>
         <control name="tab_13_btn" entity="Button" script="auto_tools\tools_homepoint" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="13: Auto Swap" Font="font_text_figure" AutoSize="true" />
             <event on_click="on_close_click" />
         </control>
-        <control name="tab_14_btn" entity="Button" script="auto_tools\tools_grocery" init="">
+        <control name="tab_14_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="14: Auto Skill" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="..." />
         </control>
-        <control name="tab_15_btn" entity="Button" script="auto\donghai" init="">
+        <control name="tab_15_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="15: Auto THBB" Font="font_text_figure" AutoSize="true" />
-            <event on_click="on_close_click" />
+            <event on_click="..." />
         </control>
 		
-		        <control name="tab_16_btn" entity="Button" script="auto_tools\tools_skill" init="">
+		        <control name="tab_16_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="255" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="16: Tìm đàn" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="..." />
         </control>
 		
-		        <control name="tab_17_btn" entity="Button" script="auto_tools\tools_test" init="">
+		        <control name="tab_17_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="255" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="17: Tìm cây" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="..." />
         </control>
-		        <control name="tab_18_btn" entity="Button" script="auto_tools\noitudan" init="">
+		        <control name="tab_18_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="255" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="18: Tìm cóc" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="..." />
         </control>
-		        <control name="tab_19_btn" entity="Button" script="auto_tools\tools_khddetect" init="">
+		        <control name="tab_19_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="19: Trồng trọt" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_init" />
+            <event on_click="..." />
         </control>
-				        <control name="tab_20_btn" entity="Button" script="auto_tools\code" init="">
+				        <control name="tab_20_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="20: Săn bắt" Font="font_text_figure" AutoSize="true" />
-            <event on_click="auto_test" />
+            <event on_click="..." />
         </control>
-			<control name="tab_21_btn" entity="Button" script="auto_tools\tools_hailuom" init="">
+			<control name="tab_21_btn" entity="Button" script="..." init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="21: Hái lượm" Font="font_text_figure" AutoSize="true" />
-            <event on_click="tools_show_form" />
+            <event on_click="...." />
         </control>
     </control>
 </form>
