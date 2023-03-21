@@ -15,4 +15,19 @@ function yBreaker_show_notice(info, noticetype)
 	nx_value("SystemCenterInfo"):ShowSystemCenterInfo(info, noticetype)
 end
 
+-- Function to write log
+function console(str, isdebug)
+	local file = io.open("D:\\log_yBreaker.txt", "a")
+	if file == nil then
+		nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_widestr("Can't open file D:\\log_yBreaker.txt, please check this file!"), 3)
+	else
+		file:write(inspect(str))
+		if isdebug ~= nil then
+			file:write("\n")
+			file:write(inspect(getmetatable(str)))
+			file:write("\n--------------------------------------")
+		end
+		file:write("\n")
+		file:close()
+	end
 end
