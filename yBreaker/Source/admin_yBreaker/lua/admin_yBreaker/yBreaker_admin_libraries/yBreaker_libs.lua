@@ -7,13 +7,23 @@ require("define\\request_type")
 
 local inspect = require("admin_yBreaker\\yBreaker_admin_libraries\\inspect")
 
---Function to show notice
-function yBreaker_show_notice(info, noticetype)
+-- Function to show WideString Text
+function yBreaker_show_WstrText(info, noticetype)
 	if noticetype == nil then
 		noticetype = 3
 	end
 	nx_value("SystemCenterInfo"):ShowSystemCenterInfo(info, noticetype)
 end
+
+-- Function to show UTF-8 Text
+function yBreaker_show_Utf8Text(str, mode)
+	if not str then return end
+	local SystemCenterInfo = nx_value('SystemCenterInfo')
+	if nx_is_valid(SystemCenterInfo) then
+		if not mode then mode = 3 end
+		SystemCenterInfo:ShowSystemCenterInfo(utf8ToWstr(str), mode)
+	end
+end 
 
 -- Function to write log
 function yBreaker_console(str, isdebug)

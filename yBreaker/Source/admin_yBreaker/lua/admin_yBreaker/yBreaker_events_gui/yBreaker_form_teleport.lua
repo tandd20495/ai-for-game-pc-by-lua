@@ -5,7 +5,7 @@ require("share\\server_custom_define")
 require("share\\client_custom_define")
 require("share\\chat_define")
 require("util_gui")
-require("util_move") -- Detected here position
+require("util_move") -- Detected here position distance 3D
 require("util_functions")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
@@ -22,6 +22,20 @@ function send_homepoint_msg_to_server(...)
     game_visual:CustomSend(nx_int(CLIENT_CUSTOMMSG_SET_HOMEPOINT), unpack(arg))
 end
 
+function get_type_homepoint(type_name)
+    local ini = nx_execute("util_functions", "get_ini", HOMEPOINT_INI_FILE)
+    if not nx_is_valid(ini) then
+        return "", ""
+    end
+    local index = ini:FindSectionIndex(nx_string(type_name))
+    if index < 0 then
+        return "", ""
+    end
+    local hp = ini:ReadString(index, "Type", "")
+    local htext = ini:ReadString(index, "Name", "")
+    return hp, htext
+end
+
 function on_form_main_init(form)
 	form.Fixed = false
 	form.is_minimize = false
@@ -30,7 +44,7 @@ end
 function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
-    
+      
     local iniHP = nx_execute("util_functions", "get_ini", HOMEPOINT_INI_FILE)
     if not nx_is_valid(iniHP) then
         return false
@@ -55,7 +69,7 @@ function on_main_form_open(form)
         local Type = iniHP:ReadInteger(i, "Type", 0)
         local SceneID = iniHP:ReadInteger(i, "SceneID", 0)
         
-        if (Type == 0 or Type == 1) and SceneID ~= 0 and Name ~= "" then
+        if (Type == 0 or Type == 1 or Type ==3) and SceneID ~= 0 and Name ~= "" then
             if HomePointLists[SceneID] == nil then
                 HomePointLists[SceneID] = {}
                 HomePointScene[HomePointSceneCount] = SceneID
@@ -161,6 +175,7 @@ function on_tree_hp_select_changed(self)
         local game_client = nx_value("game_client")
         local client_player = game_client:GetPlayer()
         if not nx_is_valid(client_player) then
+            IsBusy = false
             return false
         end
 
@@ -173,28 +188,43 @@ function on_tree_hp_select_changed(self)
             end
         end
 
+        on_btn_close_click(nil)
+
         -- Nếu chưa thêm điểm dừng chân
         if not IsExists then
             -- Xác định số điểm dừng chân đã mở
             local Max1 = client_player:QueryProp("JiangHuHomePointCount")
+            if Max1 < 2 then
+				yBreaker_show_Utf8Text("Hãy mở tối thiểu 2 điểm dừng chân", 2)
+                IsBusy = false
+                return false
+            end
             local Max2 = client_player:QueryProp("SchoolHomePointCount")
             local Max = Max1 + Max2
-            -- Xác định điểm dừng chân cuối cùng
-            local LastHomePoint = client_player:QueryRecord("HomePointList", (Max), 0)
-            if LastHomePoint ~= 0 then
+            -- Xác định điểm dừng chân giang hồ cuối cùng
+            local LastHomePoint = ""
+            local LastHomePointText = nx_widestr("")
+            local CountJiangHuHomePoint = 0
+            for i = 0, Max do
+            local _hp = client_player:QueryRecord("HomePointList", i, 0)
+                if _hp == 0 then
+                    break
+                end
+                local typename, htext = get_type_homepoint(_hp)
+                if nx_string(typename) == nx_string("0") or nx_string(typename) == nx_string("1") then
+                    LastHomePoint = _hp
+                    LastHomePointText = util_text(nx_string(htext))
+                    CountJiangHuHomePoint = CountJiangHuHomePoint + 1
+                end
+            end
+            -- Xóa cái điểm dừng chân cuối cùng đi
+            if CountJiangHuHomePoint > 1 and LastHomePoint ~= "" then
                 send_homepoint_msg_to_server(3, LastHomePoint) -- 3: Xóa điểm dừng chân
                 nx_pause(0.5)
             end
+            local typename, htext = get_type_homepoint(hp)
             send_homepoint_msg_to_server(2, hp) -- 2: Thêm điểm dừng chân
             nx_pause(0.5)
-								---------
-			 local LastHomePoint2 = client_player:QueryRecord("HomePointList", (Max), 0)
-			if LastHomePoint2 == 0 then
-			send_homepoint_msg_to_server(2, LastHomePoint)
-			nx_pause(0.5)
-			AutoSendNotice("Lỗi không thêm được")
-			end
-			----------
         end
 
         send_homepoint_msg_to_server(1, hp, 4) -- 1: Trở về điểm dừng chân 4: Điểm dừng chân giang hồ
@@ -208,7 +238,7 @@ function change_form_size()
 		return
 	end
 	local gui = nx_value("gui")
-	form.Left = (gui.Width - form.Width) / 2
+	form.Left = (gui.Width - form.Width) / 3
 	form.Top = 100
 end
 
