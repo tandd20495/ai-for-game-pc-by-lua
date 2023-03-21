@@ -9,5 +9,6 @@ function show_hide_grocery()
 		nx_execute("custom_sender", "custom_open_mount_shop", 1)
     end
 end
--- Exceute function
-show_hide_grocery()
+-- Exceute function 
+-- Call function by event of xml
+--show_hide_grocery()
