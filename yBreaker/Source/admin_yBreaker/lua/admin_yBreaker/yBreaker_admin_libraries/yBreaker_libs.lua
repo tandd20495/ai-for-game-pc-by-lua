@@ -43,7 +43,7 @@ function yBreaker_console(str, isdebug)
 end
 
 -- Function get buff exist on player
-function yBreaker_get_id_buff_info(buff_id)
+function yBreaker_get_buff_id_info(buff_id)
 	-- Nếu tồn tại buff_id thì trả về thời gian của buff đó, nếu buff không có thời gian thì trả về -1
 	-- Nếu không tồn tại buff thì thả về nil
 	local form = nx_value("form_stage_main\\form_main\\form_main_buff")

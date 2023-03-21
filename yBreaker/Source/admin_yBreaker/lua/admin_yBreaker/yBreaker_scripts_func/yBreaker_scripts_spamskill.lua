@@ -18,9 +18,9 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
  	if not isRunning then
 		isRunning = true
 		
-		yBreaker_show_notice(util_text("Start"))
+		yBreaker_show_WstrText(util_text("Start"))
 			while isRunning == true do
-				local isBuff = yBreaker_get_id_buff_info("buf_CS_jl_shuangci07")
+				local isBuff = yBreaker_get_buff_id_info("buf_CS_jl_shuangci07")
 				if (isBuff == nil or isBuff < 5) then
 				-- Buff ôn thần còn 5s thì nộ ( phím số 5 )
 					game_shortcut:on_main_shortcut_useitem(grid, 4, true)
@@ -35,6 +35,6 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 			end
 	else
 		isRunning = false
-		yBreaker_show_notice(util_text("Stop"))
+		yBreaker_show_WstrText(util_text("Stop"))
 	end
 end
