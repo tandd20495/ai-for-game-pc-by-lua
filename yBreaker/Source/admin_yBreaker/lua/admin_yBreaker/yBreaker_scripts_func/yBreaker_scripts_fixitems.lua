@@ -16,7 +16,7 @@ end
 -- Function fix equipped 
 local timer_fix_equipped_item = 0
 function fix_equipped_items_durability()
-    if TimerDiff(timer_fix_equipped_item) < 5 then
+    if yBreaker_time_diff(timer_fix_equipped_item) < 5 then
         yBreaker_show_WstrText(util_text("Slow down"))
         return
     end
@@ -32,7 +32,7 @@ function fix_equipped_items_durability()
         return
     end
 	
-    local timer_fix_equipped_item = TimerInit()
+    local timer_fix_equipped_item = yBreaker_time_init()
     for i = 1, 100 do
         local item = equip:GetViewObj(nx_string(i))
         if nx_is_valid(item) and nx_number(item:QueryProp("Hardiness")) <= threshhold then

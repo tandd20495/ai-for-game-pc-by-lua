@@ -18,6 +18,7 @@ end
 
 -- Function to show UTF-8 Text all system
 -- Use: yBreaker_show_Utf8Text("Text")
+-- Use: yBreaker_show_Utf8Text("Text" ..(variable))
 function yBreaker_show_Utf8Text(info, noticetype)
     local info = nx_function("ext_utf8_to_widestr", info)
        if noticetype == nil then
@@ -65,12 +66,12 @@ function yBreaker_get_buff_id_info(buff_id)
 	return nil
 end
 
--- Function timmer for ..._fixitem.lua
-function TimerInit()
+-- Function timme for ..._fixitem.lua
+function yBreaker_time_init()
     return os.clock()
 end
 
-function TimerDiff(t)
+function yBreaker_time_diff(t)
     if t == 0 or t == nil then
       return 999999
     end

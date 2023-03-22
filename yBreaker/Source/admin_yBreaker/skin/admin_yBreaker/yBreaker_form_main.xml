@@ -16,12 +16,12 @@
         </control>
 		
 
-    <control name="tab_1_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_pvc" init="">
+    <control name="tab_1_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_modpvc" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="1: Mod PVC" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_hide_form_pvc" />
+            <event on_click="on_close_click" />
         </control>
 
-        <control name="tab_2_btn" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_debug_test" init="">
+        <control name="tab_2_btn" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_debugtest" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="2: Debug" Font="font_text_figure" AutoSize="true" />
             <event on_click="show_hide_form_debug_test_yBreaker" />
         </control>
@@ -67,9 +67,9 @@
             <event on_click="fix_equipped_items_durability" />
         </control>
 
-        <control name="tab_12_btn" entity="Button" script="" init="">
+        <control name="tab_12_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_chat" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="12: Tự rao" Font="font_text_figure" AutoSize="true" />
-            <event on_click="" />
+            <event on_click="show_hide_form_chat" />
         </control>
         <control name="tab_13_btn" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="13: Auto Swap" Font="font_text_figure" AutoSize="true" />
