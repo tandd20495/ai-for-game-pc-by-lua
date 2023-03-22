@@ -53,7 +53,7 @@ local data_stat_count = {}
 local data_last_chat = {}
 local chat_step = 0
 
-function auto_run()
+function loop_chat()
 	while is_running == true do
 		local is_vaild_data = true
 		local game_client
@@ -185,7 +185,7 @@ function on_btn_control_click(btn)
 	else
 		is_running = true
 		btn.Text = util_text("Stop")
-		auto_run()
+		loop_chat()
 	end
 end
 function change_form_size()
@@ -194,7 +194,7 @@ function change_form_size()
 		return
 	end
 	local gui = nx_value("gui")
-	form.Left = (gui.Width - form.Width) / 3 - 60
+	form.Left = (gui.Width - form.Width) / 3 - 100
 	form.Top = 100
 end
 function get_current_map()
