@@ -109,7 +109,7 @@ function getCurrentSuitInfo()
             return false
         end
         local noConfigSuit = true
-        ini.FileName = nx_function("ext_get_current_exe_path") .. account .. "\\modpvc_config.ini"
+        ini.FileName = nx_function("ext_get_current_exe_path") .. account .. "\\tools_config.ini"
         if ini:LoadFromFile() then
             local sactive = ini:ReadInteger(nx_string("suitset"), nx_string("Active"), 1)
             if sactive == 1 then
