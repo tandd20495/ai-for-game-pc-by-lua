@@ -8,6 +8,7 @@ require("define\\request_type")
 local inspect = require("admin_yBreaker\\yBreaker_admin_libraries\\inspect")
 
 -- Function to show WideString Text all system
+-- Use: yBreaker_show_WstrText(util_text("Text"))
 function yBreaker_show_WstrText(info, noticetype)
 	if noticetype == nil then
 		noticetype = 3
@@ -15,15 +16,15 @@ function yBreaker_show_WstrText(info, noticetype)
 	nx_value("SystemCenterInfo"):ShowSystemCenterInfo(info, noticetype)
 end
 
--- Function to show UTF-8 Text in .lua
-function yBreaker_show_Utf8Text(str, mode)
-	if not str then return end
-	local SystemCenterInfo = nx_value('SystemCenterInfo')
-	if nx_is_valid(SystemCenterInfo) then
-		if not mode then mode = 3 end
-		SystemCenterInfo:ShowSystemCenterInfo(utf8ToWstr(str), mode)
-	end
-end 
+-- Function to show UTF-8 Text all system
+-- Use: yBreaker_show_Utf8Text("Text")
+function yBreaker_show_Utf8Text(info, noticetype)
+    local info = nx_function("ext_utf8_to_widestr", info)
+       if noticetype == nil then
+           noticetype = 3
+       end
+       nx_value("SystemCenterInfo"):ShowSystemCenterInfo(info, noticetype)
+end
 
 -- Function to write log
 function yBreaker_console(str, isdebug)
@@ -77,7 +78,7 @@ function TimerDiff(t)
 end
 
 -- Function find item index from bag for ..._fixitem.lua
-function find_item_index_from_bag(viewPort, configId)
+function find_item_index_from_luggage(viewPort, configId)
     local client = nx_value("game_client")
     local view = client:GetView(nx_string(viewPort))
     if not nx_is_valid(view) then
@@ -94,7 +95,7 @@ function find_item_index_from_bag(viewPort, configId)
     return 0
 end
 
--- Function find item index from VatPham for ..._fixitem.lua
-function find_item_index_from_VatPham(configId)
-    return find_item_index_from_bag(2, configId)
+-- Function find item index from ItemBag for ..._fixitem.lua
+function find_item_index_from_ItemBag(configId)
+    return find_item_index_from_luggage(2, configId)
 end
