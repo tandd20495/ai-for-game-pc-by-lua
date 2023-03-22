@@ -158,7 +158,7 @@ function btn_start_zither(cbtn)
 end
 
 function show_hide_form_zither()
-	util_show_form("admin_yBreaker\\yBreaker_form_zither", true)
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_zither")
 end
 
 function on_btn_close_click(btn)
