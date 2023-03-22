@@ -79,7 +79,7 @@ function yBreaker_time_diff(t)
 end
 
 -- Function find item index from bag for ..._fixitem.lua
-function find_item_index_from_luggage(viewPort, configId)
+function yBreaker_find_item_index_from_luggage(viewPort, configId)
     local client = nx_value("game_client")
     local view = client:GetView(nx_string(viewPort))
     if not nx_is_valid(view) then
@@ -97,6 +97,31 @@ function find_item_index_from_luggage(viewPort, configId)
 end
 
 -- Function find item index from ItemBag for ..._fixitem.lua
-function find_item_index_from_ItemBag(configId)
-    return find_item_index_from_luggage(2, configId)
+function yBreaker_find_item_index_from_ItemBag(configId)
+    return yBreaker_find_item_index_from_luggage(2, configId)
+end
+
+-- Function get powerlevel for search zither/herb
+function yBreaker_get_powerlevel(powerlevel)
+  local pl = nx_number(powerlevel)
+  if pl < 6 then
+    return "tips_title_0"
+  elseif pl >= 151 then
+    return "tips_title_151"
+  elseif pl >= 136 then
+    return "tips_title_136"
+  elseif pl >= 121 then
+    return "tips_title_121"
+  end
+  local s = powerlevel / 10
+  local y = powerlevel % 10
+  if y >= 6 then
+    y = 6
+  elseif y == 0 then
+    s = s - 1
+    y = 6
+  else
+    y = 1
+  end
+  return "tips_title_" .. nx_string(nx_int(s) * 10 + y)
 end

@@ -2,15 +2,15 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 -- Funciton to get fix item index
 function get_fixitem_index()
-    local i = find_item_index_from_ItemBag("fixitem_004")
+    local i = yBreaker_find_item_index_from_ItemBag("fixitem_004")
     if i > 0 then
         return i
     end
-    i = find_item_index_from_ItemBag("fixitem_003")
+    i = yBreaker_find_item_index_from_ItemBag("fixitem_003")
     if i > 0 then
         return i
     end
-    return find_item_index_from_ItemBag("fixitem_002")
+    return yBreaker_find_item_index_from_ItemBag("fixitem_002")
 end
 
 -- Function fix equipped 
