@@ -36,12 +36,12 @@
             <event on_click="" />
         </control>
 
-        <control name="tab_5_btn" entity="Button" script="" init="">
+        <control name="tab_5_btn" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_pvp" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="5: PVP" Font="font_text_figure" AutoSize="true" />
-            <event on_click="" />
+            <event on_click="yBreaker_pvp" />
         </control>
         <control name="tab_6_btn" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="6: PVE" Font="font_text_figure" AutoSize="true" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="6: PLUS" Font="font_text_figure" AutoSize="true" />
             <event on_click="" />
         </control>
         <control name="tab_7_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_teleport" init="">
@@ -54,7 +54,7 @@
         </control>
 
         <control name="tab_9_btn" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="9: Tự sát" Font="font_text_figure" AutoSize="true" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="9: Buff đội" Font="font_text_figure" AutoSize="true" />
             <event on_click="" />
         </control>
 
@@ -94,19 +94,19 @@
             <event on_click="" />
         </control>
 		        <control name="tab_18_btn" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="255" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="18: Tìm cóc" Font="font_text_figure" AutoSize="true" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="255" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="18: Quét map" Font="font_text_figure" AutoSize="true" />
             <event on_click="" />
         </control>
 		        <control name="tab_19_btn" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="19: Trồng trọt" Font="font_text_figure" AutoSize="true" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="19: Nhảy xa" Font="font_text_figure" AutoSize="true" />
             <event on_click="" />
         </control>
 				        <control name="tab_20_btn" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="20: Săn bắt" Font="font_text_figure" AutoSize="true" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="117" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="20: Bất tử" Font="font_text_figure" AutoSize="true" />
             <event on_click="" />
         </control>
 			<control name="tab_21_btn" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="21: Hái lượm" Font="font_text_figure" AutoSize="true" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="295" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="21: Tự tử" Font="font_text_figure" AutoSize="true" />
             <event on_click="" />
         </control>
     </control>
