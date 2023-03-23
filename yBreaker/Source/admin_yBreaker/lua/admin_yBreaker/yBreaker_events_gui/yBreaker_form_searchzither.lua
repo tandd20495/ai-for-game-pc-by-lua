@@ -57,17 +57,17 @@ function auto_run()
 		            obj_type = game_scence_objs[i]:QueryProp("Type")
 		        end
 		        if obj_type == 2 and game_scence_objs[i]:FindProp("GameState") and  game_scence_objs[i]:QueryProp("GameState") == "QinGameModule" then
-					local dan_name = game_scence_objs[i]:QueryProp("Name")
-					local dan_ident = game_scence_objs[i]:QueryProp("Ident")
-					local dan_bang = game_scence_objs[i]:QueryProp("GuildName")
-					local dan_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
-					local dan_posX = string.format("%.0f", game_scence_objs[i].PosiX)
-					local dan_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
+					local zither_name = game_scence_objs[i]:QueryProp("Name")
+					local zither_ident = game_scence_objs[i]:QueryProp("Ident")
+					local zither_bang = game_scence_objs[i]:QueryProp("GuildName")
+					local zither_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
+					local zither_posX = string.format("%.0f", game_scence_objs[i].PosiX)
+					local zither_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
 
 					local pathX = game_scence_objs[i].DestX
 					local pathY = game_scence_objs[i].DestY
 					local pathZ = game_scence_objs[i].DestZ
-					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<img src=\"skin\\admin_yBreaker\\yBreaker_sign_dt.png\" valign=\"bottom\" />: <font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>)<font color="#17FC0B">{@9:guildname}</font> - {@8:name}'), nx_widestr(dan_name), nx_widestr(dan_posX), nx_widestr(dan_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(dan_ident), dan_tl, nx_widestr(dan_bang)), -1)
+					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>)<font color="#17FC0B">{@9:guildname}</font> - {@8:name}'), nx_widestr(zither_name), nx_widestr(zither_posX), nx_widestr(zither_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(zither_ident), zither_tl, nx_widestr(zither_bang)), -1)
 		        end
 		    end
 		end
@@ -83,10 +83,10 @@ function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
 	auto_is_running = false
-	local map = get_current_map()
+	local map = yBreaker_get_current_map()
 	form.lbl_2.Text = util_text(map)
 	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
-	form.btn_control.ForeColor = "255,0,255,0"
+--	form.btn_control.ForeColor = "255,0,255,0"
 end
 function on_main_form_close(form)
 	auto_is_running = false
@@ -107,11 +107,11 @@ function on_btn_control_click(btn)
 	if auto_is_running then
 		auto_is_running = false
 		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
-		form.btn_control.ForeColor = "255,0,255,0"
+		--form.btn_control.ForeColor = "255,0,255,0"
 	else
 		auto_is_running = true
 		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
-		form.btn_control.ForeColor = "255,255,0,0"
+		--form.btn_control.ForeColor = "255,255,0,0"
 		auto_run()
 	end
 end
@@ -124,9 +124,6 @@ function change_form_size()
 	form.Left = (gui.Width - form.Width) / 4
 	--form.Top = (gui.Height - form.Height) / 2
 	form.Top = 100
-end
-function get_current_map()
-	return nx_value("form_stage_main\\form_map\\form_map_scene").current_map
 end
 
 function show_hide_search_zither()

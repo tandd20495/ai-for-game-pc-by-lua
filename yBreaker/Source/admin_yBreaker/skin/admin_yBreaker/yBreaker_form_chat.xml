@@ -8,7 +8,7 @@
             <event on_click="on_btn_close_click" />
         </control>
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="50" Top="10" Width="246" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Sư tử hống" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="50" Top="10" Width="246" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Sư Tử Hống" Font="font_title" />
         </control>
         <control name="groupbox_search" entity="GroupBox" script="" init="">
             <prop Left="10" Top="40" Width="326" Height="38" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
@@ -129,7 +129,7 @@
                 <prop Align="Left" RefCursor="WIN_HELP" Left="140" Top="0" Width="30" Height="26" ForeColor="255,255,255,255" DrawMode="Expand" Text="0" Font="font_main"/>
             </control>
             <control name="lbl_chat_team" entity="Label" script="" init="">
-                <prop Align="Left" RefCursor="WIN_HELP" Left="180" Top="0" Width="136" Height="26" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Nhóm Đội" Font="font_main" />
+                <prop Align="Left" RefCursor="WIN_HELP" Left="180" Top="0" Width="136" Height="26" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Nhóm" Font="font_main" />
             </control>
         </control>
         <control name="groupbox_chat_guild" entity="GroupBox" script="" init="">

@@ -10,15 +10,19 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_searchherb"
 local auto_is_running = false
-local sound_before = nil -- Am thanh truoc
-local volume_before = nil -- Am luong truoc
+--REM: PLAY SOUND
+-- local sound_before = nil -- Am thanh truoc
+-- local volume_before = nil -- Am luong truoc
 
 function auto_run()
 	if sound_before == nil then
 		local game_config = nx_value("game_config")
-		sound_before = game_config.music_enable
-		volume_before = game_config.music_volume
+		-- sound_before = game_config.music_enable
+		-- volume_before = game_config.music_volume
 	end
+	
+	-- Trigger of music default is False
+	-- local trigger_music = false
 	while auto_is_running == true do
 		local is_vaild_data = true
 		local game_client
@@ -56,7 +60,6 @@ function auto_run()
 		if is_vaild_data == true then
 			local game_scence_objs = game_scence:GetSceneObjList()
 		    local num_objs = table.getn(game_scence_objs)
-			local trigger_music = false
 			form.mltbox_content:Clear()
 		    for i = 1, num_objs do
 		        local obj_type = 0
@@ -64,25 +67,30 @@ function auto_run()
 		            obj_type = game_scence_objs[i]:QueryProp("Type")
 		        end
 		        if obj_type == 4 and not isempty(string.find(game_scence_objs[i]:QueryProp("ConfigID"), "Box_jzsj")) then
-					local coc_ident = game_scence_objs[i]:QueryProp("Ident")
-					local coc_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
-					local coc_posX = string.format("%.0f", game_scence_objs[i].PosiX)
-					local coc_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
+					local herb_ident = game_scence_objs[i]:QueryProp("Ident")
+					local herb_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
+					local herb_posX = string.format("%.0f", game_scence_objs[i].PosiX)
+					local herb_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
 
 					local pathX = game_scence_objs[i].DestX
 					local pathY = game_scence_objs[i].DestY
 					local pathZ = game_scence_objs[i].DestZ
-					trigger_music = true
-					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<img src=\"skin\\admin_yBreaker\\yBreaker_sign_dt.png\" valign=\"bottom\" />: <font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>) - {@8:text}'), util_text(game_scence_objs[i]:QueryProp("ConfigID")), nx_widestr(coc_posX), nx_widestr(coc_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(coc_ident), nx_widestr(nx_function("ext_utf8_to_widestr","Hốt nhanh!"))), -1)
+					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>) - {@8:text}'), util_text(game_scence_objs[i]:QueryProp("ConfigID")), nx_widestr(herb_posX), nx_widestr(herb_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(herb_ident), nx_widestr(nx_function("ext_utf8_to_widestr","Lụm lúa!"))), -1)
+					-- trigger_music = true
 		        end
 		    end
-			if trigger_music then
-				local timer = nx_value(GAME_TIMER)
-				if nx_is_valid(timer) then
-					timer:UnRegister(nx_current(), "tools_resume_scene_music", nx_value("game_config"))
-				end
-				nx_function("ext_flash_window")
-				tools_play_sound()
+			
+			-- True is play music
+			-- if trigger_music then
+			-- 	local timer = nx_value(GAME_TIMER)
+			-- 	if nx_is_valid(timer) then
+			-- 		timer:UnRegister(nx_current(), "tools_resume_scene_music", nx_value("game_config"))
+			-- 	end
+			-- 	nx_function("ext_flash_window")
+			-- 	tools_play_sound()
+				
+			-- 	-- Turn off music
+			-- 	trigger_music = false
 			end
 		end
 		nx_pause(1)
@@ -100,10 +108,11 @@ function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
 	auto_is_running = false
-	local map = get_current_map()
+	local map = yBreaker_get_current_map()
 	form.lbl_2.Text = util_text(map)
 	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
-	form.btn_control.ForeColor = "255,0,255,0"
+	-- Change Text color green of button
+	--form.btn_control.ForeColor = "255,0,255,0"
 end
 function on_main_form_close(form)
 	auto_is_running = false
@@ -124,11 +133,12 @@ function on_btn_control_click(btn)
 	if auto_is_running then
 		auto_is_running = false
 		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
-		form.btn_control.ForeColor = "255,0,255,0"
+		--form.btn_control.ForeColor = "255,0,255,0"
 	else
 		auto_is_running = true
 		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
-		form.btn_control.ForeColor = "255,255,0,0"
+		-- Change Text color red of button
+		--form.btn_control.ForeColor = "255,255,0,0"
 		auto_run()
 	end
 end
@@ -188,9 +198,6 @@ function tools_resume_scene_music(cfg)
 	end
 	local scene_music = client_scene:QueryProp("Resource")
 	nx_execute("util_functions", "play_scene_random_music", scene, "scene", scene_music)	
-end
-function get_current_map()
-	return nx_value("form_stage_main\\form_map\\form_map_scene").current_map
 end
 
 function show_hide_search_herb()
