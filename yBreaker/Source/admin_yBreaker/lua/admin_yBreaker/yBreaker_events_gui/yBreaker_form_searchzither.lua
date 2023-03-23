@@ -107,6 +107,7 @@ function on_btn_control_click(btn)
 	if auto_is_running then
 		auto_is_running = false
 		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
+		form.mltbox_content:Clear()
 		--form.btn_control.ForeColor = "255,0,255,0"
 	else
 		auto_is_running = true
