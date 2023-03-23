@@ -133,3 +133,8 @@ function yBreaker_get_current_map()
 	return nx_value("form_stage_main\\form_map\\form_map_scene").current_map
 end
 
+function yBreaker_get_player()
+  local client = nx_value("game_client")
+  local client_player = client:GetPlayer()
+  return client_player
+end

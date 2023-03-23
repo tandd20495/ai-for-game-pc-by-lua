@@ -1,6 +1,6 @@
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
--- Đè ping
+-- Đè ping (Vừa ra skill vừa di chuyển or thao tác khác)
 function super_run_lock()
 	if not test then
 		test = true
