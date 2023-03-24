@@ -1,0 +1,36 @@
+tiguanInitNPC = {}
+--tiguanInitNPC[7] = "" -- Diêm Bang
+--tiguanInitNPC[28] = "" -- Bão Độc Trại
+--tiguanInitNPC[27] = "" -- Ác Hổ Sơn Trại
+--tiguanInitNPC[29] = "" -- Thiên Bảo Trại
+tiguanInitNPC[2] = {"TGnpc004", 841000128, 840001280} -- Thiên Hương Trà  Lâm
+tiguanInitNPC[3] = {"TGnpc007", 841000155, 840001550} -- Kim Châm Thẩm Gia
+tiguanInitNPC[4] = {"TGnpc012", 841000158, 840001580} -- Từ Gia Trang
+--tiguanInitNPC[30] = "" -- Hổ Tiếu Sơn Trang
+tiguanInitNPC[1] = {"TGnpc001", 841000158, 840001580} -- Cán Hoa Kiếm Phái
+--tiguanInitNPC[12] = "" -- Tung Sơn Kiếm Phái
+tiguanInitNPC[5] = {"TGnpc017", 841000158, 840001580} -- Vạn Thú Sơn Trang
+tiguanInitNPC[6] = {"TGnpc025", 841000158, 840001580}
+tiguanInitNPC[7] = {"TGnpc022", 841000158, 840001580}
+tiguanInitNPC[11] = {"TGnpc037", 841000158, 840001580}
+tiguanInitNPC[12] = {"TGnpc040", 841000158, 840001580}
+tiguanInitNPC[13] = {"TGnpc052", 841000158, 840001580}
+tiguanInitNPC[15] = {"TGnpc034", 841000158, 840001580}
+tiguanInitNPC[16] = {"TGnpc046", 841000158, 840001580}
+tiguanInitNPC[17] = {"TGnpc055", 841000158, 840001580}
+tiguanInitNPC[18] = {"TGnpc058", 841000158, 840001580}
+tiguanInitNPC[19] = {"TGnpc061", 841000158, 840001580}
+tiguanInitNPC[20] = {"TGnpc064", 841000158, 840001580}
+tiguanInitNPC[21] = {"TGnpc067", 841000158, 840001580}
+tiguanInitNPC[23] = {"TGnpc073", 841000158, 840001580}
+tiguanInitNPC[24] = {"TGnpc076", 841000158, 840001580}
+tiguanInitNPC[25] = {"TGnpc079", 841000158, 840001580}
+tiguanInitNPC[26] = {"TGnpc082", 841000158, 840001580}
+tiguanInitNPC[27] = {"TGnpc085", 841000158, 840001580}
+tiguanInitNPC[28] = {"TGnpc088", 841000158, 840001580}
+tiguanInitNPC[29] = {"TGnpc091", 841000158, 840001580}
+tiguanInitNPC[30] = {"TGnpc094", 841000158, 840001580}
+tiguanInitNPC[31] = {"TGnpc097", 841000158, 840001580}
+tiguanInitNPC[32] = {"TGnpc100", 841000158, 840001580}
+	
+
