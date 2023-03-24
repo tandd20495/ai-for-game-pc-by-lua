@@ -55,7 +55,7 @@ function yBreaker_get_buff_id_info(buff_id)
 	
 	for i = 1, 24 do
 		if nx_string(form["lbl_photo" .. tostring(i)].buffer_id) == buff_id then
-			local buff_time = get_second_from_text(form["lbl_time" .. tostring(i)].Text)
+			local buff_time = yBreaker_get_second_from_text(form["lbl_time" .. tostring(i)].Text)
 			if buff_time == nil then
 				return -1
 			else
@@ -63,6 +63,34 @@ function yBreaker_get_buff_id_info(buff_id)
 			end
 		end
 	end
+	return nil
+end
+
+-- Function for time use in _spamskill.lua
+function yBreaker_get_second_from_text(text)
+	local num
+	local texttime
+	--ui_minute=phút
+	--ui_hour=Giờ
+	--ui_day=Ngày
+	--ui_second=s
+	num = string.match(nx_string(text), "(%d+)")
+	if num ~= nil then
+		local cstart = string.len(num) + 1
+		texttime = string.sub(nx_string(text), cstart, cstart)
+		num = tonumber(num)
+
+		if texttime == "N" or texttime == "n" then
+			num = num * 86400
+		elseif texttime == "G" or texttime == "g" then
+			num = num * 3600
+		elseif texttime == "P" or texttime == "p" then
+			num = num * 60
+		end
+
+		return num
+	end
+
 	return nil
 end
 

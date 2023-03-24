@@ -572,7 +572,6 @@ if autoswap then
  end
 end
 function auto_swap_vk()
-yBreaker_show_Utf8Text("Swap function", 3)
 if autoswapvk then
       autoswapvk = false
       yBreaker_show_Utf8Text("Stop", 3)

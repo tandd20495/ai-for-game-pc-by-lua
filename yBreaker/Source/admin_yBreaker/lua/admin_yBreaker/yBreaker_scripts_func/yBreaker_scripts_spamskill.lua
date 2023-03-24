@@ -19,6 +19,11 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 		isRunning = true
 		
 		yBreaker_show_WstrText(util_text("Start"))
+		-- Xuống ngựa trước khi đánh
+		if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
+			nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+			nx_pause(0.2)
+		end
 			while isRunning == true do
 				local isBuff = yBreaker_get_buff_id_info("buf_CS_jl_shuangci07")
 				if (isBuff == nil or isBuff < 5) then
