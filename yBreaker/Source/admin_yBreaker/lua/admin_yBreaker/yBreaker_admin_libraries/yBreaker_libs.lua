@@ -133,8 +133,92 @@ function yBreaker_get_current_map()
 	return nx_value("form_stage_main\\form_map\\form_map_scene").current_map
 end
 
+-- Function get info player for swap function
 function yBreaker_get_player()
   local client = nx_value("game_client")
   local client_player = client:GetPlayer()
   return client_player
+end
+
+-- DEMO chưa dùng
+-- Get map ID by name
+function yBreaker_get_map_id(name)
+	if name == "cyv" then
+		return "school01"
+	elseif name == "cb" then
+		return "school02"
+	elseif name == "qtd" then
+		return "school03"
+	elseif name == "clc" then
+		return "school04"
+	elseif name == "dm" then
+		return "school05"
+	elseif name == "nm" then
+		return "school06"
+	elseif name == "vd" then
+		return "school07"
+	elseif name == "tl" then
+		return "school08"
+	elseif name == "dhd" then
+		return "school10"
+	elseif name == "vcm" then
+		return "school11"
+	elseif name == "hdm" then
+		return "school13"
+	elseif name == "cm" then
+		return "school14"
+	elseif name == "nlb" then
+		return "school15"
+	elseif name == "hs" then
+		return "school17"
+	elseif name == "ttc" then
+		return "school19"
+	elseif name == "yk" then
+		return "city01"
+	elseif name == "tc" then
+		return "city02"
+	elseif name == "kl" then
+		return "city03"
+	elseif name == "ld" then
+		return "city04"
+	elseif name == "td" then
+		return "city05"
+	end
+end
+
+-- Lấy Hành trang ID trả về config ID
+function yBreaker_get_bag_id_by_config_id(configId)
+	local form = nx_value("form_stage_main\\form_bag")
+	if not nx_is_valid(form) then
+		return nil
+	end
+	local item_query = nx_value("ItemQuery")
+	if not nx_is_valid(item_query) then
+		return nil
+	end
+	local goods_grid = nx_value("GoodsGrid")
+	if not nx_is_valid(goods_grid) then
+	return nil
+	end
+	local bExist = item_query:FindItemByConfigID(nx_string(configId))
+	if not bExist then
+		return nil
+	end
+  -- local count = goods_grid:GetItemCount(configid)
+  -- if count == 0 then
+  --   return nil
+	-- end
+	--ItemQuery:GetItemPropByConfigID(nx_string(item_config), nx_string("IsMarketItem"))
+	local bag_no = item_query:GetItemPropByConfigID(nx_string(configId), nx_string("ViewID"))
+		bag_no = tonumber(bag_no)
+	local rbtn
+	if bag_no == 1 then
+		return 2 	-- Túi vật phẩm
+	elseif bag_no == 2 then
+		return 121	-- Túi trang bị
+	elseif bag_no == 3 then
+		return 123 	-- Túi nguyên liệu
+	elseif bag_no == 4 then
+		return 125 	-- Túi nhiệm vụ
+	end
 end
