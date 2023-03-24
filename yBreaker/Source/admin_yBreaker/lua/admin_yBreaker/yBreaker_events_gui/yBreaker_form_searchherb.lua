@@ -22,7 +22,8 @@ function auto_run()
 	end
 	
 	-- Trigger of music default is False
-	-- local trigger_music = false
+	local trigger_music = false
+	
 	while auto_is_running == true do
 		local is_vaild_data = true
 		local game_client
@@ -76,25 +77,26 @@ function auto_run()
 					local pathY = game_scence_objs[i].DestY
 					local pathZ = game_scence_objs[i].DestZ
 					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>) - {@8:text}'), util_text(game_scence_objs[i]:QueryProp("ConfigID")), nx_widestr(herb_posX), nx_widestr(herb_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(herb_ident), nx_widestr(nx_function("ext_utf8_to_widestr","Lụm lúa!"))), -1)
-					-- trigger_music = true
+					-- Turn on flag of effect
+					trigger_music = true
 		        end
 		    end
 			
 			-- True is play music
-			-- if trigger_music then
+			if trigger_music then
 			-- 	local timer = nx_value(GAME_TIMER)
 			-- 	if nx_is_valid(timer) then
 			-- 		timer:UnRegister(nx_current(), "tools_resume_scene_music", nx_value("game_config"))
 			-- 	end
-			-- 	nx_function("ext_flash_window")
-			-- 	tools_play_sound()
-				
-			-- 	-- Turn off music
-			-- 	trigger_music = false
-			--  end
 			
 			-- Flash game window
 			nx_function("ext_flash_window")
+			
+			-- 	tools_play_sound()
+				
+			-- Turn off music
+			trigger_music = false
+			end
 		end
 		nx_pause(1)
 	end
