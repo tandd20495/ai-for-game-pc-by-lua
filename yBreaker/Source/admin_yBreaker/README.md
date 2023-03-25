@@ -102,9 +102,9 @@ GUI MAIN: /admin
 --12: Tự rao	 /chat
 --13: Auto Swap	 /swap  	Swap cả đồ 30% + bình thư/ Lỗi: Chưa swap oản bộ trịch bút: Lỗi line 526 AutoGetCurSelect2
 --14: Auto Skill /skill		
---15: Đổi mạch	 /mach		OK.
+--15: Đổi mạch	 /mach		
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
---17: Tìm cây	 /timcay 	Đã fix: Chưa tìm được cây trên người chơi (Có code trong desktop)
+--17: Tìm cây	 /timcay 	
 18: Lĩnh vực	 /mat		Gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info, 
 --19: Blink		 /blink 	Lỗi: 218 khi chưa chọn điểm đến trên maps. / Set được khoảng cách blink
 --20: Lãm		 /buff 		

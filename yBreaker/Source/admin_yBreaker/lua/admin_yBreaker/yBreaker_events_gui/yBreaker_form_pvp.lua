@@ -1,4 +1,10 @@
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+	-- Swap(có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo)
+	-- Bắt Target
+	-- Auto Def
+	-- Bug Speed
+	-- Swap Mạch/đồ
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_pvp"
 local auto_is_running = false
@@ -146,6 +152,8 @@ local binhthuText = {
 local taolu = ""
 -- Tự đỡ đòn hay người đỡ
 local isAutoActiveParry = false
+-- Ping OFF
+local isPing = false
 -- Bình thư dùng trong trạng thái phòng ngự
 local binhthu = ""
 
@@ -541,6 +549,14 @@ function on_main_form_close(form)
     nx_execute("admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_log", "on_btn_close_click", true)
 end
 
+function on_btn_close_click(form)
+	local form = nx_value(THIS_FORM)
+	if not nx_is_valid(form) then
+		return
+	end
+	on_main_form_close(form)
+end
+
 function on_btn_control_click(btn)
     local form = btn.ParentForm
     if not nx_is_valid(form) then
@@ -572,6 +588,30 @@ function on_btn_parry_click(btn)
         btn.Text = nx_function("ext_utf8_to_widestr", "Bỏ Đỡ")
         isAutoActiveParry = true
     end
+end
+
+-- Đè ping (Vừa ra skill vừa di chuyển or thao tác khác)
+function on_btn_ping_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+
+	if not isPing then
+		isPing = true
+		btn.Text = nx_function("ext_utf8_to_widestr", "PingOFF")
+		while isPing == true do
+		nx_pause(0)
+		local game_client = nx_value("game_client")
+		local client_scene_obj = game_client:GetPlayer()
+		local game_visual = nx_value("game_visual")
+		local visual_scene_obj = game_visual:GetSceneObj(client_scene_obj.Ident)
+		game_visual:EmitPlayerInput(visual_scene_obj, 21, 12)
+		end
+	else
+		isPing = false
+		btn.Text = nx_function("ext_utf8_to_widestr", "PingON")
+	end
 end
 
 function change_form_size()
