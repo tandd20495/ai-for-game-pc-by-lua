@@ -96,7 +96,7 @@ function auto_run()
 					local pathZ = player_target.PositionZ
 					if player_herb_name == player_name then
 					else
-						form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#ff2bdf\">{@0:name}</font> (<a href=\"findObj,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_herb_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_herb_ident), player_herb_bang), -1)
+						form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#ff2bdf\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_herb_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_herb_ident), player_herb_bang), -1)
 						-- Turn on flag of effect
 						trigger_music = true
 					end

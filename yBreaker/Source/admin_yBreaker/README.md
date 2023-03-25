@@ -104,8 +104,8 @@ GUI MAIN: /admin
 --14: Auto Skill /skill		
 --15: Đổi mạch	 /mach		OK.
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
---17: Tìm cây	 /timcay 	Chưa tìm được cây trên người chơi (Có code trong desktop)
-18: Mắt thần	 /mat		Gồm: Tìm đàn, Tìm cây, Quét map, tìm cóc, Info, 
+--17: Tìm cây	 /timcay 	Đã fix: Chưa tìm được cây trên người chơi (Có code trong desktop)
+18: Lĩnh vực	 /mat		Gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info, 
 --19: Blink		 /blink 	Lỗi: 218 khi chưa chọn điểm đến trên maps. / Set được khoảng cách blink
 --20: Lãm		 /buff 		
 --21: Tự sát	 /die
