@@ -8,7 +8,7 @@
             <event on_click="on_btn_close_click" />
         </control>
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="10" Top="10" Width="300" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thiết lập theo nhân vật" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="10" Top="10" Width="400" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thiết lập theo nhân vật" Font="font_title" />
         </control>
 
         <control name="btn_neigong" entity="Button" script="" init="">

@@ -14,7 +14,7 @@ require("share\\view_define")
 require("form_stage_main\\form_tvt\\define")
 require("form_stage_main\\form_task\\task_define")
 
-local THIS_FORM = "admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_godseyes"
+local THIS_FORM = "admin_yBreaker\\yBreaker_form_godseyes"
 local WINEXEC_PATH = "autodata\\tools.exe"
 
 local auto_is_running = false -- Quét cóc
@@ -4146,6 +4146,11 @@ function on_btn_close_click(btn)
         return
     end
     on_main_form_close(form)
+end
+
+-- Show hide form godseyes
+function show_hide_form_godseyes()
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes")
 end
 
 function on_btn_control_click(btn)

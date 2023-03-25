@@ -3,6 +3,175 @@ require("util_gui")
 require("util_functions")
 require("tips_data")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+
+-- Initialize skin path for form
+local THIS_FORM = "admin_yBreaker\\yBreaker_form_swap"
+
+function on_form_main_init(form)
+    form.Fixed = false
+    form.is_minimize = false
+end
+
+function on_main_form_open(form)
+    change_form_size()
+    form.is_minimize = false
+	-- Variable for swap 30%
+    local autoswapvk = false
+	-- Variable for swap book
+	local autoswap = false
+
+end
+
+function on_main_form_close(form)
+    autoswapvk = false
+	autoswap = false
+    nx_destroy(form)
+end
+
+function change_form_size()
+    local form = nx_value(THIS_FORM)
+    if not nx_is_valid(form) then
+        return
+    end
+    local gui = nx_value("gui")
+    form.Left = (gui.Width / 3)
+    form.Top = (gui.Height / 2)
+end
+
+function on_btn_close_click(btn)
+	local form = nx_value(THIS_FORM)
+	if not nx_is_valid(form) then
+		return
+	end
+	on_main_form_close(form)
+end
+
+-- Function swap 30%
+function on_btn_swap_30_per_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+	
+	if autoswapvk then
+		autoswapvk = false
+		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+    else
+		autoswapvk = true
+		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")	  
+    end
+	
+    local form = util_get_form("form_stage_main\\form_bag")
+    if nx_is_valid(form) then
+      local ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
+      if nx_is_valid(ini) then
+        while autoswapvk do
+          nx_pause(0.1)
+		  
+          local player = yBreaker_get_player()
+          if nx_is_valid(player) then
+            if player:FindProp("CurSkillID") then
+              local fight = nx_value("fight")
+              if player:QueryProp("CurSkillID") ~= "" then				
+                EquipItemProp(form, ini, player:QueryProp("CurSkillID"), 1)
+                nx_pause(0.0001)
+              end
+            end
+          end
+        end
+      end
+    end
+end
+
+-- Function swap book
+function on_btn_swap_book_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+	
+	if autoswap then
+		autoswap = false
+		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+	else
+		autoswap = true
+		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
+	end
+	
+	local form = util_get_form("form_stage_main\\form_bag")
+	if nx_is_valid(form) then
+		local ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
+		
+		if nx_is_valid(ini) then
+			while autoswap do
+				LoadItemInBag()
+				nx_pause(0.1)
+				
+				local player = yBreaker_get_player()
+				if nx_is_valid(player) then
+					if player:FindProp("CurSkillID") then
+						local fight = nx_value("fight")
+						if player:QueryProp("CurSkillID") ~= "" then
+							SwapTrangBi(ini,player:QueryProp("CurSkillID"))
+							nx_pause(0.0001)
+						else
+
+							local role = util_get_role_model()
+							local target_role = util_get_target_role_model()
+							local target = AutoGetCurSelect2()
+							if nx_is_valid(role) and nx_is_valid(target_role) then
+								if role.state ~= "locked" then
+									-- 1% máu mana
+									local curSkillDamage, curCPDamage, curSTDamage, binhthuName = getCurrentWeapon(ini,ItemType, "")
+									if nx_string(binhthuName) ~= nx_string("ng_ss_5_3") then
+										showUtf8Text("1%", 3)
+										local form = util_get_form("form_stage_main\\form_bag")
+										if nx_is_valid(form) then
+											for i=1,table.getn(bagItem) do
+												if bagItem[i]["ItemEquipType"] == "FacultyPaint" or bagItem[i]["ItemEquipType"] == "FacultyBook" then
+													if bagItem[i]["ConfigID"] == "ng_ss_5_3" then
+														nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(bagItem[i]["ItemID"]) - 1)
+														break
+													end
+												end
+											end
+										end
+										nx_pause(0.5)
+									end
+								elseif role.state == "locked" and target_role.state == "locked" and target:QueryProp("CurSkillTaolu") ~= "" and role.state == "locked" then
+									-- giảm damage 3%
+									local curSkillDamage, curCPDamage, curSTDamage, binhthuName = getCurrentWeapon(ini,ItemType, "")
+									if nx_string(binhthuName) ~= nx_string("ng_ss_5_2") then
+										local form = util_get_form("form_stage_main\\form_bag")
+										if nx_is_valid(form) then
+											for i=1,table.getn(bagItem) do
+												if bagItem[i]["ItemEquipType"] == "FacultyPaint" or bagItem[i]["ItemEquipType"] == "FacultyBook" then
+													if bagItem[i]["ConfigID"] == "ng_ss_5_2" then
+														nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(bagItem[i]["ItemID"]) - 1)
+														break
+													end
+												end
+											end
+										end
+										nx_pause(0.5)
+									end
+									-- end giảm damage
+								end
+							end
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+-- Show hide form swap
+function show_hide_form_swap(btn)
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap")
+end
+
+
 local bagItem = {}
 function getCurWeapon(ini, skill_prop)
 	local game_client = nx_value("game_client")
@@ -498,108 +667,5 @@ function checkSkill(skillId, object, type)
 	return false
 end
 function auto_swap_binhthu()
-if autoswap then
-   autoswap = false
-   yBreaker_show_Utf8Text("Stop BTH", 3)
- else
-   autoswap = true
-   yBreaker_show_Utf8Text("Start BTH", 3)
- end
- local form = util_get_form("form_stage_main\\form_bag")
- if nx_is_valid(form) then
-   local ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
-   if nx_is_valid(ini) then
-     while autoswap do
-	 LoadItemInBag()
-       nx_pause(0.1)
-       local player = yBreaker_get_player()
-       if nx_is_valid(player) then
-         if player:FindProp("CurSkillID") then
-           local fight = nx_value("fight")
-           if player:QueryProp("CurSkillID") ~= "" then
-            SwapTrangBi(ini,player:QueryProp("CurSkillID"))
-             nx_pause(0.0001)
-           else
-		  
-        local role = util_get_role_model()
-        local target_role = util_get_target_role_model()
-        local target = AutoGetCurSelect2()
-        if nx_is_valid(role) and nx_is_valid(target_role) then
-          if role.state ~= "locked" then
-            -- 1% máu mana
-            local curSkillDamage, curCPDamage, curSTDamage, binhthuName = getCurrentWeapon(ini,ItemType, "")
-            if nx_string(binhthuName) ~= nx_string("ng_ss_5_3") then
-			showUtf8Text("1%", 3)
-              local form = util_get_form("form_stage_main\\form_bag")
-              if nx_is_valid(form) then
-                for i=1,table.getn(bagItem) do
-                  if bagItem[i]["ItemEquipType"] == "FacultyPaint" or bagItem[i]["ItemEquipType"] == "FacultyBook" then
-                    if bagItem[i]["ConfigID"] == "ng_ss_5_3" then
-                      nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(bagItem[i]["ItemID"]) - 1)
-                      break
-                    end
-                  end
-                end
-              end
-              nx_pause(0.5)
-            end
-          elseif role.state == "locked" and target_role.state == "locked" and target:QueryProp("CurSkillTaolu") ~= "" and role.state == "locked" then
-            -- giảm damage 3%
-            local curSkillDamage, curCPDamage, curSTDamage, binhthuName = getCurrentWeapon(ini,ItemType, "")
-            if nx_string(binhthuName) ~= nx_string("ng_ss_5_2") then
-              local form = util_get_form("form_stage_main\\form_bag")
-              if nx_is_valid(form) then
-                for i=1,table.getn(bagItem) do
-                  if bagItem[i]["ItemEquipType"] == "FacultyPaint" or bagItem[i]["ItemEquipType"] == "FacultyBook" then
-                    if bagItem[i]["ConfigID"] == "ng_ss_5_2" then
-                      nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(bagItem[i]["ItemID"]) - 1)
-                      break
-                    end
-                  end
-                end
-              end
-              nx_pause(0.5)
-            end
 
-            -- end giảm damage
-          end
-        end
-      end
-         end
-       end
-     end
-   end
- end
-end
-function auto_swap_vk()
-if autoswapvk then
-      autoswapvk = false
-      yBreaker_show_Utf8Text("Stop", 3)
-    else
-      autoswapvk = true
-      yBreaker_show_Utf8Text("Start", 3)
-	  
-	  -- Swap binh thu
-	  auto_swap_binhthu()
-    end
-    local form = util_get_form("form_stage_main\\form_bag")
-    if nx_is_valid(form) then
-      local ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
-      if nx_is_valid(ini) then
-        while autoswapvk do
-          nx_pause(0.1)
-		  
-          local player = yBreaker_get_player()
-          if nx_is_valid(player) then
-            if player:FindProp("CurSkillID") then
-              local fight = nx_value("fight")
-              if player:QueryProp("CurSkillID") ~= "" then				
-                EquipItemProp(form, ini, player:QueryProp("CurSkillID"), 1)
-                nx_pause(0.0001)
-              end
-            end
-          end
-        end
-      end
-    end
 end

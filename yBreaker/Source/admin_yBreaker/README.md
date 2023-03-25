@@ -100,22 +100,25 @@ GUI MAIN: /admin
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
 --12: Tự rao	 /chat
---13: Auto Swap	 /swap  	Swap cả đồ 30% + bình thư/ Lỗi: Chưa swap oản bộ trịch bút: Lỗi line 526 AutoGetCurSelect2
+--13: Auto Swap	 /swap  	Swap cả đồ 30% + bình thư/ Lỗi: Chưa swap oản bộ trịch bút/ Lỗi line 526 AutoGetCurSelect2 khi swap bình thư
 --14: Auto Skill /skill		
 --15: Đổi mạch	 /mach		
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
 --17: Tìm cây	 /timcay 	
-18: Lĩnh vực	 /mat		Gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info, 
+--18: Mắt thần	 /mat		Demo OK. Làm tiếp gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info (Key PT, Nộ, Khoảng cách) 
 --19: Blink		 /blink 	Lỗi: 218 khi chưa chọn điểm đến trên maps. / Set được khoảng cách blink
 --20: Lãm		 /buff 		
 --21: Tự sát	 /die
 
 TODO:
+- Mở form log: /log
 - Tự mở pass rương khi đăng nhập
 - Soi HP
 - Soi nộ + khoảng cách + KeyPT + SL 
 - Soi người đang target mình
 - Auto tích THBB
+
+
 
 Buff đội	/buff		Thêm chế độ: tìm tên nhân vật chỉ định spam skill theo id (Chết thì hồi sinh lân cận nhanh rồi chạy ra tọa độ cũ)
 Luyện đàn: /luyendan
