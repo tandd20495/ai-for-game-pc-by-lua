@@ -18,7 +18,6 @@ function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
     local findPathBusy = false
-	btn.Text = nx_function("ext_utf8_to_widestr", "Blink")
 
 end
 
@@ -51,13 +50,14 @@ function on_btn_blink_click(btn)
         return
     end
     if findPathBusy then
+		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
 		-- Stop blink
-        Blink_Stop()
-        btn.Text = nx_function("ext_utf8_to_widestr", "Blink")
+        Blink_Stop()        
     else
+		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
 		-- Start blink
 		Blink_Start()
-        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+        
     end
 end
 
@@ -127,7 +127,7 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
         end
         if currentPos == nil then
             tools_show_notice(nx_function("ext_utf8_to_widestr", "Lỗi dữ liệu"), 2)
-			btn.Text = nx_function("ext_utf8_to_widestr", "Blink")
+			btn.Text = nx_function("ext_utf8_to_widestr", "Start")
             findPathBusy = false
             return false
         end
@@ -183,7 +183,7 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
             end
             if setPos == nil then
                 tools_show_notice(nx_function("ext_utf8_to_widestr", "Địa hình này không thể di chuyển giữa hai điểm, thử chọn điểm đến khác"), 2)
-				btn.Text = nx_function("ext_utf8_to_widestr", "Blink")
+				btn.Text = nx_function("ext_utf8_to_widestr", "Start")
                 findPathBusy = false
                 return false
             end
@@ -214,8 +214,8 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
     end
 
     findPathBusy = false
-	btn.Text = nx_function("ext_utf8_to_widestr", "Blink")
     tools_show_notice(nx_function("ext_utf8_to_widestr", "Đã đến nơi"))
+	btn.Text = nx_function("ext_utf8_to_widestr", "Start")
 end
 function xac_nhan_blink_khi_co_nguoi_o_gan()
 	if isHaveNearPlayer() then
