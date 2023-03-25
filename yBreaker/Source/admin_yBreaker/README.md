@@ -92,27 +92,32 @@ GUI MAIN: /admin
 --2: Debug    	 /debug
 --3: Codenew	 /code		Đổi thành lệnh /a filename.lua để code nháp nhiều file hơn
 4: AI			 /ai 		Gồm: LC,TN,VT,Q NC6,Cấm địa TDC/LTT,Trồng cây,Săn,Thu thập: Khoáng,Dược,Độc,...
--5: PVP			 /pvp 		Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.
-6: BUGS			 /bugs  	Gồm: Bảng bug speed + tele
+--5: PVP			 /pvp 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
+6: BUGS			 /bugs  	Gồm: Bảng bug speed + tele Đảo + DHC+ Blink + Lãm + Tự Tử + KC + Thêm/Xóa HC, Hải bố, Bộ khoái, 
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
 --8: Đàn đội	 /dan		Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
-9: Buff đội		 /buff		Thêm chế độ: tìm tên nhân vật chỉ định spam skill theo id (Chết thì hồi sinh lân cận nhanh rồi chạy ra tọa độ cũ)
+--9: Config	 	 /config    Setting theo nhân vật		
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
 --12: Tự rao	 /chat
---13: Auto Swap	 /swap  	Swap cả đồ 30% + bình thư/ Lỗi: Chưa swap oản bộ trịch bút
+--13: Auto Swap	 /swap  	Swap cả đồ 30% + bình thư/ Lỗi: Chưa swap oản bộ trịch bút: Lỗi line 526 AutoGetCurSelect2
 --14: Auto Skill /skill		
-15: Auto THBB	 /thbb
+--15: Đổi mạch	 /mach		OK.
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
---17: Tìm cây	 /timcay 	Chưa tìm được cây trên người chơi
-18: Mắt thần	 /mat    	Gồm: Info, Thêm HC, Hải bố, Bộ khoái, Tự sát, Quét map, Bug: lãm/speed/K mất KC/ Blink
--19: Blink		 /blink 	Chưa chạy đc
---20: Lãm		 /lam 		
+--17: Tìm cây	 /timcay 	Chưa tìm được cây trên người chơi (Có code trong desktop)
+18: Mắt thần	 /mat		Gồm: Tìm đàn, Tìm cây, Quét map, tìm cóc, Info, 
+--19: Blink		 /blink 	Lỗi: 218 khi chưa chọn điểm đến trên maps. / Set được khoảng cách blink
+--20: Lãm		 /buff 		
 --21: Tự sát	 /die
 
-Làm thêm tự mở pass rương khi đăng nhập
+TODO:
+- Tự mở pass rương khi đăng nhập
+- Soi HP
+- Soi nộ + khoảng cách + KeyPT + SL 
+- Soi người đang target mình
+- Auto tích THBB
 
-
+Buff đội	/buff		Thêm chế độ: tìm tên nhân vật chỉ định spam skill theo id (Chết thì hồi sinh lân cận nhanh rồi chạy ra tọa độ cũ)
 Luyện đàn: /luyendan
 Giới thiệu: /about
 Luyện công	/lc

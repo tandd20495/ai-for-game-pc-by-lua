@@ -57,7 +57,9 @@ function auto_run()
 		if not nx_is_valid(form) then
 			is_vaild_data = false
 		end
-
+		
+		local player_name = player_client:QueryProp("Name")
+		
 		if is_vaild_data == true then
 			local game_scence_objs = game_scence:GetSceneObjList()
 		    local num_objs = table.getn(game_scence_objs)
@@ -67,18 +69,37 @@ function auto_run()
 		        if game_scence_objs[i]:FindProp("Type") then
 		            obj_type = game_scence_objs[i]:QueryProp("Type")
 		        end
-		        if obj_type == 4 and not isempty(string.find(game_scence_objs[i]:QueryProp("ConfigID"), "Box_jzsj")) then
-					local herb_ident = game_scence_objs[i]:QueryProp("Ident")
-					local herb_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
-					local herb_posX = string.format("%.0f", game_scence_objs[i].PosiX)
-					local herb_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
+		        if obj_type == 4 and not isempty(string.find(game_scence_objs[i]:QueryProp("ConfigID"), "Box_jzsj")) then -- Box_jzsj_xxx: cây
+				local herb_ident = game_scence_objs[i]:QueryProp("Ident")
+				local herb_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
+				local herb_posX = string.format("%.0f", game_scence_objs[i].PosiX)
+				local herb_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
 
-					local pathX = game_scence_objs[i].DestX
-					local pathY = game_scence_objs[i].DestY
-					local pathZ = game_scence_objs[i].DestZ
-					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>) - {@8:text}'), util_text(game_scence_objs[i]:QueryProp("ConfigID")), nx_widestr(herb_posX), nx_widestr(herb_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(herb_ident), nx_widestr(nx_function("ext_utf8_to_widestr","Lụm lúa!"))), -1)
-					-- Turn on flag of effect
-					trigger_music = true
+				local pathX = game_scence_objs[i].DestX
+				local pathY = game_scence_objs[i].DestY
+				local pathZ = game_scence_objs[i].DestZ
+				form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>) - {@8:text}'), util_text(game_scence_objs[i]:QueryProp("ConfigID")), nx_widestr(herb_posX), nx_widestr(herb_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(herb_ident), nx_widestr(nx_function("ext_utf8_to_widestr","Lụm lúa!"))), -1)
+				-- Turn on flag of effect
+				trigger_music = true
+		        end
+			-- Type == 2: người
+				if obj_type == 2 and nx_function("find_buffer", game_scence_objs[i], "buf_jzsj_040") then -- desc_buf_jzsj_040_0: buff cầm cây
+					local player_herb_name = game_scence_objs[i]:QueryProp("Name")
+					local player_herb_ident = game_scence_objs[i].Ident
+					local player_herb_bang = game_scence_objs[i]:QueryProp("GuildName")
+					local player_target = game_visual:GetSceneObj(player_herb_ident)
+					local display_player_posX = string.format("%.0f", player_target.PositionX)
+					local display_player_posZ = string.format("%.0f", player_target.PositionZ)
+					
+					local pathX = player_target.PositionX
+					local pathY = player_target.PositionY
+					local pathZ = player_target.PositionZ
+					if player_herb_name == player_name then
+					else
+						form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#ff2bdf\">{@0:name}</font> (<a href=\"findObj,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_herb_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_herb_ident), player_herb_bang), -1)
+						-- Turn on flag of effect
+						trigger_music = true
+					end
 		        end
 		    end
 			

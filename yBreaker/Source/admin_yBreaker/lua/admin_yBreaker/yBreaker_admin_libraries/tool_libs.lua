@@ -1427,7 +1427,7 @@ end
 -- Xóa nội dung log trong form
 --
 function clearLogForm()
-    local formName = "auto_tools\\tools_logform"
+    local formName = "admin_yBreaker\\yBreaker_form_log"
     local form = util_show_form(formName, true)
     if nx_is_valid(form) then
         form.mltbox_content:Clear()
@@ -1446,7 +1446,7 @@ function logToForm(text, wided)
     else
         text = nx_widestr(text)
     end
-    local formName = "auto_tools\\tools_logform"
+    local formName = "admin_yBreaker\\yBreaker_form_log"
     local form = util_show_form(formName, true)
     if nx_is_valid(form) then
         --nx_value("gui").Desktop:ToFront(form)
@@ -1552,7 +1552,7 @@ function getMinAndMaxNeigong()
         if not nx_is_valid(ini) then
             return "", ""
         end
-        ini.FileName = account .. "\\tools_config.ini"
+        ini.FileName = account .. "\\yBreaker_config.ini"
         if ini:LoadFromFile() then
             max_neigong = ini:ReadString(nx_string("neigong"), nx_string("max"), "")
             if max_neigong ~= "" then
@@ -1580,7 +1580,7 @@ function getPvpTaolu()
     if not nx_is_valid(ini) then
         return ""
     end
-    ini.FileName = account .. "\\tools_config.ini"
+    ini.FileName = account .. "\\yBreaker_config.ini"
     if ini:LoadFromFile() then
         tool_pvptaolu = ini:ReadString(nx_string("pvp"), nx_string("taolu"), "")
     end
@@ -1601,7 +1601,7 @@ function getPvpBinhThu()
     if not nx_is_valid(ini) then
         return ""
     end
-    ini.FileName = account .. "\\tools_config.ini"
+    ini.FileName = account .. "\\yBreaker_config.ini"
     if ini:LoadFromFile() then
         tool_pvpbinhthu = ini:ReadString(nx_string("pvp"), nx_string("binhthu"), "")
     end
@@ -1867,7 +1867,7 @@ function getCurrentSuitInfo()
             return false
         end
         local noConfigSuit = true
-        ini.FileName = nx_function("ext_get_current_exe_path") .. account .. "\\tools_config.ini"
+        ini.FileName = nx_function("ext_get_current_exe_path") .. account .. "\\yBreaker_config.ini"
         if ini:LoadFromFile() then
             local sactive = ini:ReadInteger(nx_string("suitset"), nx_string("Active"), 1)
             if sactive == 1 then
@@ -1921,7 +1921,7 @@ function getCurrentWeaponSetInfo()
             return "", "", "", "", "", "", "", ""
         end
         local noConfigWeapon = true
-        ini.FileName = account .. "\\tools_config.ini"
+        ini.FileName = account .. "\\yBreaker_config.ini"
         if ini:LoadFromFile() then
             weaponCurrentData = {
                 [1] = ini:ReadString(nx_string("weaponset"), nx_string("WeaponSubType1"), ""),

@@ -109,7 +109,7 @@ function getCurrentSuitInfo()
             return false
         end
         local noConfigSuit = true
-        ini.FileName = nx_function("ext_get_current_exe_path") .. account .. "\\yBreaker_PVC_config.ini"
+        ini.FileName = nx_function("ext_get_current_exe_path") .. account .. "\\yBreaker_config.ini"
         if ini:LoadFromFile() then
             local sactive = ini:ReadInteger(nx_string("suitset"), nx_string("Active"), 1)
             if sactive == 1 then
@@ -158,7 +158,7 @@ function getCurrentWeaponSetInfo()
             return "", "", "", "", "", "", "", ""
         end
         local noConfigWeapon = true
-        ini.FileName = account .. "\\yBreaker_PVC_config.ini"
+        ini.FileName = account .. "\\yBreaker_config.ini"
         if ini:LoadFromFile() then
             weaponCurrentData = {
                 [1] = ini:ReadString(nx_string("weaponset"), nx_string("WeaponSubType1"), ""),
@@ -1548,7 +1548,7 @@ function on_btn_save_click(btn)
         return
     end    
     local type2 = "suitset"
-    ini.FileName = account .. "\\yBreaker_PVC_config.ini"
+    ini.FileName = account .. "\\yBreaker_config.ini"
 	if not nx_function("ext_is_file_exist", ini.FileName) then			
 		ini:SaveToFile()
 	end
