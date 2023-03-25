@@ -100,13 +100,21 @@ GUI MAIN: /admin
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
 --12: Tự rao	 /chat
---13: Auto Swap	 /swap  	Swap cả đồ 30% + bình thư/ Lỗi: Chưa swap oản bộ trịch bút/ Lỗi line 526 AutoGetCurSelect2 khi swap bình thư
+--13: Auto Swap	 /swap  	Đã swap cả đồ 30% + bình thư 10%  / Lỗi: Chưa swap oản bộ trịch bút/ Lỗi line 526 AutoGetCurSelect2 khi swap bình thư phòng ngự
+		***Nếu chưa swap oản 30% + bt 10% cùng 1 skill thì auto k lỗi, còn swap oản skill đó rồi nhưng vẫn ra skill đó tiếp theo sẽ bị giật bình thư 10% của skill đó
+		***Nếu swap bt10% của skill đó trước vẫn k bị giật bt, chỉ khi đang ra skill mà tự swap sang bth khác thì auto sẽ giật khi swap lại bth của skill đang ra
+		*** Ví dụ: Đang nộ Đạn chỉ
+		* Auto tự swap oản + bth đạn chỉ, đang trong trạng thái ra skill mà tự swap quá bình thư khác auto sẽ giật để swap 2 bth
+		* Còn swap oản + bth trước khi ra skill sẽ không giật
 --14: Auto Skill /skill		
 --15: Đổi mạch	 /mach		
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
 --17: Tìm cây	 /timcay 	
 --18: Mắt thần	 /mat		Demo OK. Làm tiếp gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info (Key PT, Nộ, Khoảng cách) 
---19: Blink		 /blink 	Lỗi: 218 khi chưa chọn điểm đến trên maps. / Set được khoảng cách blink
+--19: Blink	 /blink         Tạm thời để 1 nút Blink, Phải chọn điểm trên map trước khi ấn nút Blink	
+*** Text button hiển thị k đúng sau 1 lần blink tới nơi/ Set được khoảng cách blink
+*** Có thể set cờ global để check xem khi nào blink xong thì set lại text 
+*** Hoặc button để 1 trạng thái Blink -> User click chọn trên map rồi ấn nút blink tới. Không thể dừng khi đang blink
 --20: Lãm		 /buff 		
 --21: Tự sát	 /die
 

@@ -49,44 +49,37 @@ function on_btn_blink_click(btn)
     if not nx_is_valid(form) then
         return
     end
+	
     if findPathBusy then
-		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
-		-- Stop blink
-        Blink_Stop()        
+		-- Stop status
+		--btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+        findPathBusy = false   
+
     else
-		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
-		-- Start blink
-		Blink_Start()
-        
+		--btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
+		-- Check có người xung quanh không?
+		if not confirm_blink_nearPlayer(btn) then		
+			local FORM_MAP_SCENE = nx_value("form_stage_main\\form_map\\form_map_scene")
+			if nx_is_valid(FORM_MAP_SCENE) then
+				if FORM_MAP_SCENE.Visible then
+					local btn_trace = FORM_MAP_SCENE.btn_trace
+					if btn_trace.scene_id == map_id() and btn_trace.Visible then
+						local vi_tri_da_chon_x = btn_trace.x
+						local vi_tri_da_chon_y = btn_trace.y
+						local vi_tri_da_chon_z = btn_trace.z
+						jump_to_pos_new(vi_tri_da_chon_x, vi_tri_da_chon_y, vi_tri_da_chon_z, map_id())
+					end
+				end
+			end 
+		end
     end
 end
 
-function show_hide_blink_form(btn)
+-- Show hide form blink
+function show_hide_form_blink()
 	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink")
 end
 
-function Blink_Start()
-	-- Xác nhận có người ở gần vẫn blink?
---	if xac_nhan_blink_khi_co_nguoi_o_gan() then
-		findPathBusy = true
-		local FORM_MAP_SCENE = nx_value("form_stage_main\\form_map\\form_map_scene")
-		if nx_is_valid(FORM_MAP_SCENE) then
-			if FORM_MAP_SCENE.Visible then
-				local btn_trace = FORM_MAP_SCENE.btn_trace
-				if btn_trace.scene_id == map_id() and btn_trace.Visible then
-					local vi_tri_da_chon_x = btn_trace.x
-					local vi_tri_da_chon_y = btn_trace.y
-					local vi_tri_da_chon_z = btn_trace.z
-					jump_to_pos_new(vi_tri_da_chon_x, vi_tri_da_chon_y, vi_tri_da_chon_z, map_id())
-				end
-			end
-		end
---	end
-end
-
-function Blink_Stop()
-	findPathBusy = false
-end
 function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
     local lastArrivePos = {x, y, z}
     -- Xác định tọa độ Y của điểm đến cuối cùng
@@ -127,7 +120,6 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
         end
         if currentPos == nil then
             tools_show_notice(nx_function("ext_utf8_to_widestr", "Lỗi dữ liệu"), 2)
-			btn.Text = nx_function("ext_utf8_to_widestr", "Start")
             findPathBusy = false
             return false
         end
@@ -183,7 +175,6 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
             end
             if setPos == nil then
                 tools_show_notice(nx_function("ext_utf8_to_widestr", "Địa hình này không thể di chuyển giữa hai điểm, thử chọn điểm đến khác"), 2)
-				btn.Text = nx_function("ext_utf8_to_widestr", "Start")
                 findPathBusy = false
                 return false
             end
@@ -215,9 +206,16 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
 
     findPathBusy = false
     tools_show_notice(nx_function("ext_utf8_to_widestr", "Đã đến nơi"))
-	btn.Text = nx_function("ext_utf8_to_widestr", "Start")
 end
-function xac_nhan_blink_khi_co_nguoi_o_gan()
+
+-- Xác nhận vẫn blink khi có người ở gần
+function confirm_blink_nearPlayer(btn)
+	
+	local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+	
 	if isHaveNearPlayer() then
 		local dialog = nx_execute("util_gui", "util_get_form", "form_common\\form_confirm", true, false)
 		if nx_is_valid(dialog) then
@@ -225,8 +223,10 @@ function xac_nhan_blink_khi_co_nguoi_o_gan()
 			dialog:ShowModal()
 			local res = nx_wait_event(100000000, dialog, "confirm_return")
 			if res ~= "ok" then
+				findPathBusy = true
 				return true
 			else
+				findPathBusy = false
 				return false
 			end
 		else
@@ -234,6 +234,7 @@ function xac_nhan_blink_khi_co_nguoi_o_gan()
 		end
 	end
 end
+
 function isHaveNearPlayer()
     local game_visual = nx_value("game_visual")
     if not nx_is_valid(game_visual) then
