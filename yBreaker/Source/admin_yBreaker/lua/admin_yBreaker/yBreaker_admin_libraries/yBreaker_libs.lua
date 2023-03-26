@@ -160,7 +160,7 @@ function yBreaker_command_chat(str_chat)
 	end
 	
 	if (command == "/showhp") or (command == "/SHOWHP") then
-		nx_execute(current(),"yBreaker_show_HP_bar")
+		nx_execute(nx_current(),"yBreaker_show_HP_bar")
 		return true
 	end
 	
