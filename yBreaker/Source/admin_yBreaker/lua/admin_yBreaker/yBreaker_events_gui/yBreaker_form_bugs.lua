@@ -14,6 +14,12 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
+	
+	-- Get FPS current for edit text
+	--local scene = world.MainScene
+	--local game_control = scene.game_control
+	--local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
+	--form1.ipt_fps_value.Text = nx_widestr(game_control.MaxDisplayFPS)
 end
 
 function on_main_form_close(form)
@@ -82,7 +88,6 @@ function on_btn_speed_apply_click(btn)
     autoSpeed(nx_int(speed_int))
   end
   update_btn_start_speed()
-
 end
 
 -- Function add hate player
@@ -97,7 +102,7 @@ function on_btn_add_hate_player_click(btn)
     for str in string.gmatch(nx_function("ext_widestr_to_utf8", yBreaker_Utf8_to_Wstr(form1.ipt_char_name.Text)), "([^".."%s".."]+)") do
             table.insert(t, str)
     end	
-    nx_execute("custom_sender", "custom_del_relation", nx_function("ext_utf8_to_widestr",t))	
+    nx_execute("custom_sender", "custom_add_relation", nx_int(10), nx_function("ext_utf8_to_widestr",t[2]), nx_int(3), nx_int(-1))
 	
 	-- Thông báo
 	yBreaker_show_Utf8Text("Đã thêm vào danh sách thù")
@@ -117,7 +122,7 @@ function on_btn_del_hate_player_click(btn)
     end
 	
 	-- Thông báo
-    nx_execute("custom_sender", "custom_add_relation", nx_function("ext_utf8_to_widestr",t))	
+    nx_execute("custom_sender", "custom_add_relation", nx_int(6), nx_function("ext_utf8_to_widestr",t[2]), nx_int(3), nx_int(-1))
 	yBreaker_show_Utf8Text("Đã xóa khỏi danh sách thù")
 end
 
