@@ -55,9 +55,6 @@ function on_btn_fps_apply_click(btn)
 	-- Apply new FPS setting
 	fps_setting(nx_int(fps_int))
 	yBreaker_show_Utf8Text("Đã lưu setting FPS mới", 3)
-
-  end
-
 end
 
 -- Function apply Speed
