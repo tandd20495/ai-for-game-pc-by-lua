@@ -27,6 +27,127 @@ function yBreaker_show_Utf8Text(info, noticetype)
        nx_value("SystemCenterInfo"):ShowSystemCenterInfo(info, noticetype)
 end
 
+-- Function define command to execute function
+function yBreaker_command_chat(str)
+	local command = string.match(nx_string(str), '/(%a*)%s*(%a*%d*)')
+	
+	if command == "/yt" or "/YT" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main") 
+		return true
+	end
+	
+	if command == "/pvc" or "/PVC" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_modpvc") 
+		return true	
+	end
+	
+	if command == "/debug" or "/DEBUG" then
+		util_auto_show_hide_form("auto_form_chiendau")
+		return true
+	end	
+	
+	if command == "/code" or "/CODE" then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_codenew","new_function_admin_yBreaker")
+		return true
+	end
+	
+	if command == "/pvp" or "/PVP" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp") 
+		return true
+	end
+	
+	if command == "/bugs" or "/BUGS" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
+		return true
+	end
+	
+	if command == "/tele" or "/TELE" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_teleport") 
+		return true
+	end
+	
+	if command == "/dan" or "/DAN" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_zither") 
+		return true
+	end
+	
+	if command == "/config" or "/CONFIG" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_config") 
+		return true
+	end
+	
+	if command == "/shop" or "/SHOP" then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_grocery","show_hide_grocery")
+		return true
+	end
+	
+	if command == "/fix" or "/FIX" then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_fixitems","fix_equipped_items_durability")
+		return true
+	end
+	
+	if command == "/chat" or "/CHAT" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_chat") 
+		return true
+	end
+	
+	if command == "/swap" or "/SWAP" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_chat") 
+		return true
+	end
+	
+	if command == "/swap" or "/SWAP" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap") 
+		return true
+	end
+	
+	if command == "/skill" or "/SKILL" then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_spamskill","spam_Skill")
+		return true
+	end
+	
+	if command == "/mach" or "/MACH" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai") 
+		return true
+	end
+	
+	if command == "/timdan" or "/TIMDAN" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_searchzither") 
+		return true
+	end
+	
+	if command == "/timcay" or "/TIMCAY" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_searchherb") 
+		return true
+	end
+	
+	if command == "/mat" or "/MAT" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes") 
+		return true
+	end
+	
+	if command == "/blink" or "/BLINK" then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink") 
+		return true
+	end
+	
+	if command == "/buff" or "/BUFF" then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","buff_full_hpmp")
+		return true
+	end
+	
+	if command == "/die" or "/DIE" then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_suicide","auto_init")
+		return true
+	end
+	
+	--if command == 'reload' then
+	--	local world = nx_value("world")
+	--	world:ReloadAllScript()
+	--	return true
+	--end
+end
+
 -- Function to write log
 function yBreaker_console(str, isdebug)
 	local file = io.open("D:\\log_yBreaker.txt", "a")
@@ -163,9 +284,9 @@ end
 
 -- Function get info player for swap function
 function yBreaker_get_player()
-  local client = nx_value("game_client")
-  local client_player = client:GetPlayer()
-  return client_player
+	local client = nx_value("game_client")
+	local client_player = client:GetPlayer()
+	return client_player
 end
 
 -- DEMO chưa dùng

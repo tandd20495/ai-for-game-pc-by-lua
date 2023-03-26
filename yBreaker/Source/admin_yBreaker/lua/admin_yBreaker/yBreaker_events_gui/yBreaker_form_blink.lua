@@ -105,6 +105,7 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
 
     -- Tính khoảng cách 2D bởi lẽ cùng x,z mà thay đổi y thì là tự tử
     while not tools_move_isArrived2D(lastArrivePos[1], lastArrivePos[2], lastArrivePos[3], 0.5) and findPathBusy do
+	tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang tính toán để blink"), 2)
         local currentPos = nil
         if isPreCalculate then
             if virtualCalcPos == nil then

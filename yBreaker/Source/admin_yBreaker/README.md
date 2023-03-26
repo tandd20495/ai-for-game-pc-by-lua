@@ -86,7 +86,7 @@ Block comment:
 --]]
 
 
-GUI MAIN: /admin
+GUI MAIN: /yt or /YT
 
 --1: Mod PVC   	 /pvc		Chưa tự lưu PVC để apply cho lần sau đổi vũ khí
 --2: Debug    	 /debug

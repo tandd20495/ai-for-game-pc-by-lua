@@ -2463,3 +2463,14 @@ function getDistanceWithObj(pos, vobj)
 
     return math.sqrt(pxd * pxd + pzd * pzd)
 end
+
+-- Function swap button 2 cần sử dụng
+function AutoGetCurSelect2()
+  if not nx_is_valid((nx_value(GAME_SELECT_OBJECT))) then
+    return nil
+  end
+  if nx_is_valid((nx_value("game_visual"))) then
+    return (nx_value(GAME_SELECT_OBJECT))
+  end
+  return nil
+end
