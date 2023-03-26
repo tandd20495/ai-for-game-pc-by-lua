@@ -940,7 +940,7 @@ function reset_all_btns(skip)
     end
     if skip ~= "offfree" then
         auto_is_running_offfree = false
-        form.btn_control_offfree.Text = nx_function("ext_utf8_to_widestr", "Giải cứu cóc")
+        form.btn_control_offfree.Text = nx_function("ext_utf8_to_widestr", "Quét Hết")
     end
 end
 
