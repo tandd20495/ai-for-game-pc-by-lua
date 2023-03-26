@@ -90,7 +90,8 @@ GUI MAIN: /yt or /YT
 
 --1: Mod PVC   	 /pvc		Chưa tự lưu PVC để apply cho lần sau đổi vũ khí
 --2: Debug    	 /debug
---3: Codenew	 /code		Đổi thành lệnh /a filename.lua để code nháp nhiều file hơn
+--3: Codenew	 /codenew	Chạy file codenew.lua tại folder yBreaker\scripts
+Có thể thực hiện lệnh /code _filename để chạy file code nháp yBreaker\scripts
 4: AI			 /ai 		Gồm: LC,TN,VT,Q NC6,Cấm địa TDC/LTT,Trồng cây,Săn,Thu thập: Khoáng,Dược,Độc,...
 --5: PVP			 /pvp 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
 6: BUGS			 /bugs  	Gồm: Bảng bug speed + tele Đảo + DHC+ Blink + Lãm + Tự Tử + KC + Thêm/Xóa HC, Hải bố, Bộ khoái, 
@@ -111,11 +112,11 @@ GUI MAIN: /yt or /YT
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
 --17: Tìm cây	 /timcay 	
 --18: Mắt thần	 /mat		Demo OK. Làm tiếp gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info (Key PT, Nộ, Khoảng cách) 
---19: Blink	 /blink         Tạm thời để 1 nút Blink, Phải chọn điểm trên map trước khi ấn nút Blink	
-*** Text button hiển thị k đúng sau 1 lần blink tới nơi/ Set được khoảng cách blink
-*** Có thể set cờ global để check xem khi nào blink xong thì set lại text 
-*** Hoặc button để 1 trạng thái Blink -> User click chọn trên map rồi ấn nút blink tới. Không thể dừng khi đang blink
---20: Lãm		 /buff 		
+--19: Blink	 /blink         Add thêm text cho user nhập bước nhảy
+*** Lưu ý: 
+Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nhảy.
+Dừng blink bằng cách tắt form
+--20: Lãm	 /buff 		
 --21: Tự sát	 /die
 
 TODO:

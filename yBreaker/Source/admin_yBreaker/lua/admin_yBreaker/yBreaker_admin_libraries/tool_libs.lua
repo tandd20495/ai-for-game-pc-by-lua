@@ -2464,7 +2464,7 @@ function getDistanceWithObj(pos, vobj)
     return math.sqrt(pxd * pxd + pzd * pzd)
 end
 
--- Function swap button 2 cần sử dụng
+-- Function swap button 2 trong form swap cần sử dụng
 function AutoGetCurSelect2()
   if not nx_is_valid((nx_value(GAME_SELECT_OBJECT))) then
     return nil

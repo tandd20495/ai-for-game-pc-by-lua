@@ -67,10 +67,13 @@ function on_btn_blink_click(btn)
 						local vi_tri_da_chon_x = btn_trace.x
 						local vi_tri_da_chon_y = btn_trace.y
 						local vi_tri_da_chon_z = btn_trace.z
+						tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang nhảy..."))
 						jump_to_pos_new(vi_tri_da_chon_x, vi_tri_da_chon_y, vi_tri_da_chon_z, map_id())
 					end
+				else
+					tools_show_notice(nx_function("ext_utf8_to_widestr", "Bật MAP lên và chọn điểm đến mới ấn nút Blink"))
 				end
-			end 
+			end 			
 		end
     end
 end
@@ -105,7 +108,6 @@ function jump_to_pos_new(x, y, z, map, fixedY, dissMisscheck)
 
     -- Tính khoảng cách 2D bởi lẽ cùng x,z mà thay đổi y thì là tự tử
     while not tools_move_isArrived2D(lastArrivePos[1], lastArrivePos[2], lastArrivePos[3], 0.5) and findPathBusy do
-	tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang tính toán để blink"), 2)
         local currentPos = nil
         if isPreCalculate then
             if virtualCalcPos == nil then

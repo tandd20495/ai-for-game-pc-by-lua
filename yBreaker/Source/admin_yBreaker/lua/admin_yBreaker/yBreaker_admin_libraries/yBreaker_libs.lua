@@ -28,115 +28,123 @@ function yBreaker_show_Utf8Text(info, noticetype)
 end
 
 -- Function define command to execute function
-function yBreaker_command_chat(str)
-	local command = string.match(nx_string(str), '/(%a*)%s*(%a*%d*)')
+function yBreaker_command_chat(str_chat)
+	local command = nx_string(str_chat)
+	-- Split string for /code
+	local split_str = util_split_string(nx_string(str_chat), " ") -- " " là khoảng trắng để tách chuỗi chat
 	
-	if command == "/yt" or "/YT" then
+	if (command == "/yt") or (command == "/YT") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main") 
 		return true
 	end
 	
-	if command == "/pvc" or "/PVC" then
+	if (command == "/pvc") or (command == "/PVC") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_modpvc") 
 		return true	
 	end
 	
-	if command == "/debug" or "/DEBUG" then
-		util_auto_show_hide_form("auto_form_chiendau")
+	if (command == "/debug") or (command == "/DEBUG") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_debugtest","show_hide_form_debug_test_yBreaker")
 		return true
 	end	
 	
-	if command == "/code" or "/CODE" then
+	-- Function split string chat to run script is define at yBreaker\scripts folder
+	if (split_str[1] == "/code") or (split_str[1] == "/CODE") then
+		if split_str[2] == "" then
+			yBreaker_show_Utf8Text("Nhập thêm tên file để chạy lệnh này. Ví dụ: /code filename")
+		else
+			local file = assert(loadfile(nx_resource_path() .. "yBreaker\\scripts\\" .. split_str[2] .. ".lua"))
+			file()
+		end
+		return true
+	end
+	
+	if (command == "/codenew") or (command == "/CODENEW") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_codenew","new_function_admin_yBreaker")
 		return true
 	end
 	
-	if command == "/pvp" or "/PVP" then
+	if (command == "/pvp") or (command == "/PVP") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp") 
 		return true
 	end
 	
-	if command == "/bugs" or "/BUGS" then
+	if (command == "/bugs") or (command == "/BUGS") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
 		return true
 	end
 	
-	if command == "/tele" or "/TELE" then
+	if (command == "/tele") or (command == "/TELE") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_teleport") 
 		return true
 	end
 	
-	if command == "/dan" or "/DAN" then
+	if (command == "/dan") or (command == "/DAN") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_zither") 
 		return true
 	end
 	
-	if command == "/config" or "/CONFIG" then
+	if (command == "/config") or (command == "/CONFIG") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_config") 
 		return true
 	end
 	
-	if command == "/shop" or "/SHOP" then
+	if (command == "/shop") or (command == "/SHOP") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_grocery","show_hide_grocery")
 		return true
 	end
 	
-	if command == "/fix" or "/FIX" then
+	if (command == "/fix") or (command == "/FIX") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_fixitems","fix_equipped_items_durability")
 		return true
 	end
 	
-	if command == "/chat" or "/CHAT" then
+	if (command == "/chat") or (command == "/CHAT") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_chat") 
 		return true
 	end
 	
-	if command == "/swap" or "/SWAP" then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_chat") 
-		return true
-	end
-	
-	if command == "/swap" or "/SWAP" then
+	if (command == "/swap") or (command == "/SWAP") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap") 
 		return true
 	end
 	
-	if command == "/skill" or "/SKILL" then
+	if (command == "/skill") or (command == "/SKILL") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_spamskill","spam_Skill")
 		return true
 	end
 	
-	if command == "/mach" or "/MACH" then
+	if (command == "/mach") or (command == "/MACH") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai") 
 		return true
 	end
 	
-	if command == "/timdan" or "/TIMDAN" then
+	if (command == "/timdan") or (command == "/TIMDAN") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_searchzither") 
 		return true
 	end
 	
-	if command == "/timcay" or "/TIMCAY" then
+	if (command == "/timcay") or (command == "/TIMCAY") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_searchherb") 
 		return true
 	end
 	
-	if command == "/mat" or "/MAT" then
+	if (command == "/mat") or (command == "/MAT") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes") 
 		return true
 	end
 	
-	if command == "/blink" or "/BLINK" then
+	if (command == "/blink") or (command == "/BLINK") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink") 
 		return true
 	end
 	
-	if command == "/buff" or "/BUFF" then
+	if (command == "/buff") or (command == "/BUFF") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","buff_full_hpmp")
 		return true
 	end
 	
-	if command == "/die" or "/DIE" then
+	if (command == "/die") or (command == "/DIE") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_suicide","auto_init")
 		return true
 	end

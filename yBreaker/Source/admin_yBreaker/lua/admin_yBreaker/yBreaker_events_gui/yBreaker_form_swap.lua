@@ -3,6 +3,7 @@ require("util_gui")
 require("util_functions")
 require("tips_data")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
 
 -- Initialize skin path for form
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_swap"

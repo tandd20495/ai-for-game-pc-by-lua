@@ -654,7 +654,7 @@ function on_chat_edit_enter(rich_inputbox)
   info = nx_function("ext_ws_replace", nx_widestr(info), nx_widestr("<br/>"), nx_widestr(""))
 
 --[ADD: Add command chat for yBreaker
-	local cmd_chat = nx_execute('"admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_command_chat", nx_widestr(info))
+	local cmd_chat = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_command_chat", nx_widestr(info))
 	if cmd_chat then
 		clear_input(form)
 		return 1
