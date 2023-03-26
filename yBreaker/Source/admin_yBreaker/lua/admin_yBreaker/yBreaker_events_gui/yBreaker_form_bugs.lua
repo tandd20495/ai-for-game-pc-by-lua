@@ -159,11 +159,11 @@ function on_btn_jump_hight_click(btn)
 	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
 	if autoStartJump then
 		autoStartJump = false
-		btn.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Lên")
+		form1.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Lên")
 	else
 	
 		autoStartJump = true
-		btn.btn_jump_hight.Text =  nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		form1.btn_jump_hight.Text =  nx_function("ext_utf8_to_widestr", "Dừng Lại")
 		yBreaker_show_Utf8Text("Ít sữ dụng tránh bị report chỉ nên dùng cho đàn", 3)
 		jumpjump()
 	end
