@@ -119,7 +119,7 @@ Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nh
 Dừng blink bằng cách tắt form
 --20: Lãm	 /buff 		
 --21: Tự sát	 /die
-
+-- Show máu  /showhp
 TODO:
 - /help: Cách sử dụng và các lệnh trong yBreaker
 - Mở form log: /log

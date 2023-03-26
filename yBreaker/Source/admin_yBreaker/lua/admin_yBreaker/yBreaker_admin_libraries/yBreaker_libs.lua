@@ -159,6 +159,11 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/showhp") or (command == "/SHOWHP") then
+		nx_execute(current(),"yBreaker_show_HP_bar")
+		return true
+	end
+	
 	--if command == 'reload' then
 	--	local world = nx_value("world")
 	--	world:ReloadAllScript()
@@ -305,6 +310,23 @@ function yBreaker_get_player()
 	local client = nx_value("game_client")
 	local client_player = client:GetPlayer()
 	return client_player
+end
+
+-- Function show HP
+local isStart = false
+function yBreaker_show_HP_bar()
+	nx_pause(1)
+	FORM_MAIN_SELECT = "form_stage_main\\form_main\\form_main_select"
+	local form = nx_value(FORM_MAIN_SELECT)
+	if nx_is_valid(form) then
+		if not isStart then
+			isStart = true
+			form.prog_hp.TextVisible = true
+		else
+			form.prog_hp.TextVisible = false
+			isStart = false
+		end
+	end
 end
 
 -- DEMO chưa dùng
