@@ -329,6 +329,14 @@ function yBreaker_show_HP_bar()
 	end
 end
 
+-- Function to setting FPS
+function fps_setting(fps_int)
+	local world = nx_value("world")
+	local scene = world.MainScene
+	local game_control = scene.game_control
+	game_control.MaxDisplayFPS = nx_int(fps_int)
+end
+
 -- DEMO chưa dùng
 -- Get map ID by name
 function yBreaker_get_map_id(name)
