@@ -97,16 +97,17 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 6: BUGS			 /bugs  	Gồm: Bảng bug speed + tele Đảo + DHC+ Blink + Lãm + Tự Tử + KC + Thêm/Xóa HC, Hải bố, Bộ khoái, 
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
 --8: Đàn đội	 /dan		Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
---9: Config	 	 /config    Setting theo nhân vật		
+--9: Config	 	 /config    Lưu cache trước khi dùng tính năng PVP
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
 --12: Tự rao	 /chat
---13: Auto Swap	 /swap  	Đã swap cả đồ 30% + bình thư 10%  / Lỗi: Chưa swap oản bộ trịch bút/ Lỗi line 526 AutoGetCurSelect2 khi swap bình thư phòng ngự
+--13: Auto Swap	 /swap  	Nút 1: swap cả đồ 30% + bình thư 10% , Nút 2 swap bình thư phòng ngự đã lưu cache
 		***Nếu chưa swap oản 30% + bt 10% cùng 1 skill thì auto k lỗi, còn swap oản skill đó rồi nhưng vẫn ra skill đó tiếp theo sẽ bị giật bình thư 10% của skill đó
 		***Nếu swap bt10% của skill đó trước vẫn k bị giật bt, chỉ khi đang ra skill mà tự swap sang bth khác thì auto sẽ giật khi swap lại bth của skill đang ra
 		*** Ví dụ: Đang nộ Đạn chỉ
 		* Auto tự swap oản + bth đạn chỉ, đang trong trạng thái ra skill mà tự swap quá bình thư khác auto sẽ giật để swap 2 bth
 		* Còn swap oản + bth trước khi ra skill sẽ không giật
+		
 --14: Auto Skill /skill		
 --15: Đổi mạch	 /mach		
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
@@ -126,6 +127,8 @@ TODO:
 - Soi nộ + khoảng cách + KeyPT + SL 
 - Soi người đang target mình
 - Auto tích THBB
+- Thêm tính năng FPS
+- Thêm khảo đoạn code trong form_main_chat của SUM có đoạn split string command chat
 
 
 

@@ -16,9 +16,9 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
-	-- Variable for swap 30%
+	-- Variable for swap 30% + book 10%
     local autoswapvk = false
-	-- Variable for swap book
+	-- Variable for swap book defense
 	local autoswap = false
 
 end
@@ -47,7 +47,7 @@ function on_btn_close_click(btn)
 	on_main_form_close(form)
 end
 
--- Function swap 30%
+-- Function swap 30% + book 10% damage
 function on_btn_swap_30_per_click(btn)
     local form = btn.ParentForm
     if not nx_is_valid(form) then
@@ -84,7 +84,7 @@ function on_btn_swap_30_per_click(btn)
     end
 end
 
--- Function swap book
+-- Function swap book defense
 function on_btn_swap_book_click(btn)
     local form = btn.ParentForm
     if not nx_is_valid(form) then
