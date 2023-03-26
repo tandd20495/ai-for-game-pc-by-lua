@@ -122,9 +122,8 @@ function change_form_size()
 		return
 	end
 	local gui = nx_value("gui")
-	form.Left = (gui.Width - form.Width) / 4
-	--form.Top = (gui.Height - form.Height) / 2
-	form.Top = 100
+	form.Left = 100
+	form.Top = 140
 end
 
 function show_hide_search_zither()

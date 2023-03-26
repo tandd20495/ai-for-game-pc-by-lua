@@ -31,7 +31,7 @@ function change_form_size()
     --form.Left = (gui.Width - form.Width) / 2
     --form.Top = (gui.Height - form.Height) / 2
     form.Left = 100
-    form.Top = gui.Height - form.Height - 300
+    form.Top = 140
 end
 
 function updateTextValue(form)

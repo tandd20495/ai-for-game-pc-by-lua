@@ -35,7 +35,7 @@ function change_form_size()
         return
     end
     local gui = nx_value("gui")
-    form.Left = (gui.Width / 3)
+    form.Left = 100
     form.Top = (gui.Height / 2)
 end
 

@@ -194,8 +194,8 @@ function change_form_size()
 		return
 	end
 	local gui = nx_value("gui")
-	form.Left = (gui.Width - form.Width) / 3 - 100
-	form.Top = 100
+	form.Left = 100
+	form.Top = 140
 end
 function get_current_map()
 	return nx_value("form_stage_main\\form_map\\form_map_scene").current_map

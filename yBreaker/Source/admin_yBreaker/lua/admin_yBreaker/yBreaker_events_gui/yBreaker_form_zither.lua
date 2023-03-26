@@ -7,6 +7,8 @@ function main_form_init(form)
   form.select_item = ""
   form.num_repeated = 0
   form.auto_start = false
+  form.Left = 100
+  form.Top = (gui.Height / 2)
 end
 function on_main_form_open(form)
   init_ui_content(form)
