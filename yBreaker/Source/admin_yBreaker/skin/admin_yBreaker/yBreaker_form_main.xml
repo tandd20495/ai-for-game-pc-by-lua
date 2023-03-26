@@ -42,7 +42,7 @@
         </control>
         <control name="tab_6_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_bugs" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="233" Top="95" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="6: BUGS" Font="font_text_figure" AutoSize="true" />
-            <event on_click="" />
+            <event on_click="show_hide_form_bugs" />
         </control>
         <control name="tab_7_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_teleport" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="7: Thần hành" Font="font_text_figure" AutoSize="true" />

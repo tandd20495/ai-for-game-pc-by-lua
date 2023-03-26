@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_bugs" init="on_form_main_init">
+        <prop LimitInScreen="true" Left="230" Top="150" Width="230" Height="300" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />
+        <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="195" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="50" Top="10" Width="120" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="BUGs" Font="font_title" />
+        </control>
+              
+        <control name="group_box" entity="GroupBox" script="" init="">
+            <prop Left="10" Top="36" Width="205" Height="370" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+			
+			<control name="lbl_fps_value" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="0" Top="0" Width="40" Height="30" ShadowColor="0,0,0,0" ForeColor="255,255,255,255" DrawMode="Expand" Text="FPS:"/>
+            </control>			
+			<control name="ipt_fps_value" entity="Edit" script="" init="">
+                <prop Left="55" Top="0" Width="46" Height="30" ChangedEvent="true" MaxLength="5" TextOffsetX="2" Caret="Default" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="60" />
+            </control>
+		    <control name="lbl_fps_backgrd" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="50" Top="0" Width="50" Height="30" ShadowColor="0,0,0,0" ForeColor="255,255,255,255" DrawMode="Expand" BackImage="gui\special\battlefield\info.png"/>
+            </control>
+            <control name="btn_fps_apply" entity="Button" script="" init="">
+                <prop Left="105" Top="0" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Apply FPS" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_fps_apply_click" />
+            </control>
+			
+			<control name="lbl_speed_value" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="0" Top="35" Width="40" Height="30" ShadowColor="0,0,0,0" ForeColor="255,255,255,255" DrawMode="Expand" Text="Speed:"/>
+            </control>	
+			
+			<control name="ipt_speed_value" entity="Edit" script="" init="">
+                <prop Left="55" Top="35" Width="46" Height="30" ChangedEvent="true" MaxLength="2" TextOffsetX="2" Caret="Default" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="20" />
+            </control>
+		    <control name="lbl_speed_backgrd" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="50" Top="35" Width="50" Height="30" ShadowColor="0,0,0,0" ForeColor="255,255,255,255" DrawMode="Expand" BackImage="gui\special\battlefield\info.png"/>
+            </control>
+            <control name="btn_speed_apply" entity="Button" script="" init="">
+                <prop Left="105" Top="35" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Start Speed" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_speed_apply_click" />
+            </control>
+			
+			<control name="ipt_char_name" entity="Edit" script="" init="">
+                <prop Left="2" Top="70" Width="201" Height="30" ChangedEvent="true" MaxLength="95" TextOffsetX="2" Caret="Default" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="Tên Nhân Vật" />
+            </control>			
+			<control name="lbl_char_name_backgrd" entity="Label" script="" init="">
+                <prop RefCursor="WIN_HELP" Left="0" Top="70" Width="205" Height="30" ShadowColor="0,0,0,0" ForeColor="255,255,255,255" DrawMode="Expand" BackImage="gui\special\battlefield\info.png"/>
+            </control>
+
+            <control name="btn_add_hate_player" entity="Button" script="" init="">
+                <prop Left="0" Top="105" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Thêm Thù" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_add_hate_player_click" />
+            </control>			
+            <control name="btn_del_hate_player" entity="Button" script="" init="">
+                <prop Left="105" Top="105" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Xóa Thù" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_del_hate_player_click" />
+            </control>
+			
+		    <control name="btn_hai_bo" entity="Button" script="" init="">
+                <prop Left="0" Top="140" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Hải Bố" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_hai_bo_click" />
+            </control>			
+            <control name="btn_bo_khoai" entity="Button" script="" init="">
+                <prop Left="105" Top="140" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Bộ Khoái" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_bo_khoai_click" />
+            </control>
+			
+			<control name="btn_tele_DHC" entity="Button" script="" init="">
+                <prop Left="0" Top="175" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tele DHC" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_tele_DHC_click" />
+            </control>			
+            <control name="btn_tele_DAO" entity="Button" script="" init="">
+                <prop Left="105" Top="175" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tele Đảo" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_tele_DAO_click" />
+            </control>
+			
+			<control name="btn_jump_hight" entity="Button" script="" init="">
+                <prop Left="0" Top="210" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhảy Cao" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_jump_hight_click" />
+            </control>			
+            <control name="btn_jetsu" entity="Button" script="" init="">
+                <prop Left="105" Top="210" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhẫn Thuật" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_jetsu_click" />
+            </control>
+           
+
+        </control>
+    </control>
+</form>

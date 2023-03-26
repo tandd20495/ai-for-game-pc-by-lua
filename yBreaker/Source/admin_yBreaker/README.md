@@ -94,7 +94,7 @@ GUI MAIN: /yt or /YT
 Có thể thực hiện lệnh /code _filename để chạy file code nháp yBreaker\scripts
 4: AI			 /ai 		Gồm: LC,TN,VT,Q NC6,Cấm địa TDC/LTT,Trồng cây,Săn,Thu thập: Khoáng,Dược,Độc,...
 --5: PVP			 /pvp 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
-6: BUGS			 /bugs  	Gồm: Bảng bug speed + tele Đảo + DHC+ Blink + Lãm + Tự Tử + KC + Thêm/Xóa HC, Hải bố, Bộ khoái, 
+6: BUGS			 /bugs  	Gồm: Bảng FPS/ speed + tele Đảo + DHC + Blink + Lãm + Tự Tử + Tự nhảy k tốn KC(Làm /jump để nhảy liên tục) + Thêm/Xóa HC, Hải bố, Bộ khoái, 
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
 --8: Đàn đội	 /dan		Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
 --9: Config	 	 /config    Lưu cache trước khi dùng tính năng PVP
@@ -121,6 +121,7 @@ Dừng blink bằng cách tắt form
 --21: Tự sát	 /die
 
 TODO:
+- /help: Cách sử dụng và các lệnh trong yBreaker
 - Mở form log: /log
 - Tự mở pass rương khi đăng nhập
 - Soi HP

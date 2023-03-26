@@ -27,6 +27,16 @@ function yBreaker_show_Utf8Text(info, noticetype)
        nx_value("SystemCenterInfo"):ShowSystemCenterInfo(info, noticetype)
 end
 
+-- Function convert UTF-8 to WideString
+function yBreaker_Utf8_to_Wstr(content)
+	return nx_function("ext_utf8_to_widestr", content)
+end
+
+-- Function convert WideString to UTF-8
+function yBreaker_Wstr_to_Utf8(content)
+	return nx_function("ext_widestr_to_utf8", content)
+end
+
 -- Function define command to execute function
 function yBreaker_command_chat(str_chat)
 	local command = nx_string(str_chat)
