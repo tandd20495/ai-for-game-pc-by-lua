@@ -108,17 +108,17 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 		* Auto tự swap oản + bth đạn chỉ, đang trong trạng thái ra skill mà tự swap quá bình thư khác auto sẽ giật để swap 2 bth
 		* Còn swap oản + bth trước khi ra skill sẽ không giật
 		
---14: Auto Skill /skill		
+--14: Auto Skill /skill		CÓ thể dùng ném phi tiêu, có buff đội
 --15: Đổi mạch	 /mach		
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
 --17: Tìm cây	 /timcay 	
 --18: Mắt thần	 /mat		Demo OK. Làm tiếp gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info (Key PT, Nộ, Khoảng cách) 
---19: Blink	 /blink         Add thêm text cho user nhập bước nhảy
+--19: Blink	 	 /blink     Add thêm text cho user nhập bước nhảy
 *** Lưu ý: 
 Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nhảy.
 Dừng blink bằng cách tắt form
 --20: Lãm	 /buff 		
---21: Tự sát	 /die
+--21: Tự sát /die
 -- Show máu  /showhp
 TODO:
 - /help: Cách sử dụng và các lệnh trong yBreaker

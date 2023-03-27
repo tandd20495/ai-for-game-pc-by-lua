@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_bugs" init="on_form_main_init">
-        <prop LimitInScreen="true" Left="230" Top="150" Width="230" Height="300" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <prop LimitInScreen="true" Left="230" Top="150" Width="230" Height="360" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
         <control name="btn_close" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="195" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
@@ -44,7 +44,7 @@
             </control>
 			
 			<control name="ipt_char_name" entity="Edit" script="" init="">
-                <prop Left="2" Top="70" Width="201" Height="30" ChangedEvent="true" MaxLength="95" TextOffsetX="2" Caret="Default" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="Tên Nhân Vật" />
+                <prop Left="2" Top="70" Width="201" Height="30" ChangedEvent="true" MaxLength="95" TextOffsetX="2" Caret="Default" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_text" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" Text="TênNhânVật" />
             </control>			
 			<control name="lbl_char_name_backgrd" entity="Label" script="" init="">
                 <prop RefCursor="WIN_HELP" Left="0" Top="70" Width="205" Height="30" ShadowColor="0,0,0,0" ForeColor="255,255,255,255" DrawMode="Expand" BackImage="gui\special\battlefield\info.png"/>
@@ -81,11 +81,28 @@
                 <prop Left="0" Top="210" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhảy Cao" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
                 <event on_click="on_btn_jump_hight_click" />
             </control>			
-            <control name="btn_jetsu" entity="Button" script="" init="">
-                <prop Left="105" Top="210" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhẫn Thuật" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
-                <event on_click="on_btn_jetsu_click" />
+            <control name="btn_fast_jump_hight" entity="Button" script="" init="">
+                <prop Left="105" Top="210" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhảy Nhanh" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="" />
             </control>
-           
+			
+			<control name="btn_jetsu" entity="Button" script="" init="">
+                <prop Left="0" Top="245" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhẫn Thuật" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="on_btn_jetsu_click" />
+            </control>			
+            <control name="btn_jump_blink" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_blink" init="">
+                <prop Left="105" Top="245" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Nhảy Xa" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="show_hide_form_blink" />
+            </control>
+			
+			<control name="btn_buff_hpmp" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_bughpmp" init="">
+                <prop Left="0" Top="280" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Bất Tử" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="auto_init" />
+            </control>			
+            <control name="btn_suicide_player" entity="Button" script="admin_yBreaker\yBreaker_scripts_func\yBreaker_scripts_suicide" init="">
+                <prop Left="105" Top="280" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tự Tử" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <event on_click="auto_init" />
+            </control>           
 
         </control>
     </control>

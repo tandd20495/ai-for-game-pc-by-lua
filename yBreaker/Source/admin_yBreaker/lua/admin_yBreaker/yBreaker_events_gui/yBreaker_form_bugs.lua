@@ -31,6 +31,7 @@ function on_btn_close_click(btn)
     if not nx_is_valid(form) then
         return
     end
+    autoStartJump = false
     on_main_form_close(form)
 end
 
@@ -168,7 +169,7 @@ function on_btn_jump_hight_click(btn)
 	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
 	if autoStartJump then
 		autoStartJump = false
-		form1.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Lên")
+		form1.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Cao")
 	else
 	
 		autoStartJump = true
@@ -255,14 +256,16 @@ end
 -- Function update start jump
 function update_btn_start_jump()
 	local form = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
+	
 	if form.Visible == false then
-	autoStartJump = false
+		autoStartJump = false
 	end
+	
 	if nx_running(nx_current(),"jumpjump") then
-	form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Lên")
-	autoStartJump = true
+		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		autoStartJump = true
 	else
-	form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
-	autoStartJump = false
+		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Lên")
+		autoStartJump = false
 	end
 end
