@@ -2,8 +2,8 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_bugs"
 -- Declare variable
-local autoStartJump = false
-local autoJutsu = false
+local isStartJump = false
+local isJetsu = false
 
 function on_form_main_init(form)
     form.Fixed = false
@@ -16,10 +16,11 @@ function on_main_form_open(form)
     form.is_minimize = false
 	
 	-- Get FPS current for edit text
-	--local scene = world.MainScene
-	--local game_control = scene.game_control
-	--local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
-	--form1.ipt_fps_value.Text = nx_widestr(game_control.MaxDisplayFPS)
+	local world = nx_value("world")
+	local scene = world.MainScene
+	local game_control = scene.game_control
+	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
+	form1.ipt_fps_value.Text = nx_widestr(game_control.MaxDisplayFPS)
 end
 
 function on_main_form_close(form)
@@ -31,7 +32,7 @@ function on_btn_close_click(btn)
     if not nx_is_valid(form) then
         return
     end
-    autoStartJump = false
+    isStartJump = false
     on_main_form_close(form)
 end
 
@@ -61,7 +62,7 @@ function on_btn_fps_apply_click(btn)
     
 	-- Apply new FPS setting
 	fps_setting(nx_int(fps_int))
-	yBreaker_show_Utf8Text("Đã lưu setting FPS mới", 3)
+	yBreaker_show_Utf8Text("Đã áp dụng FPS mới", 3)
 end
 
 -- Function apply Speed
@@ -99,14 +100,22 @@ function on_btn_add_hate_player_click(btn)
     end
 	
 	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
-	local t = {}
-    for str in string.gmatch(nx_function("ext_widestr_to_utf8", yBreaker_Utf8_to_Wstr(form1.ipt_char_name.Text)), "([^".."%s".."]+)") do
-            table.insert(t, str)
-    end	
-    nx_execute("custom_sender", "custom_add_relation", nx_int(10), nx_function("ext_utf8_to_widestr",t[2]), nx_int(3), nx_int(-1))
+--	local hate_player_name = string.match(nx_string(form1.ipt_char_name.Text), "/(%a*)%s*(%a*%d*)")
+--    for str in string.gmatch(nx_function("ext_widestr_to_utf8", ), "([^".."%s".."]+)") do
+ --           table.insert(hate_player_name, str)
+ --   end	
+	local player_name = form1.ipt_char_name.Text
+    nx_execute("custom_sender", "custom_add_relation", nx_int(10), nx_function("ext_utf8_to_widestr", player_name), nx_int(3), nx_int(-1))
 	
-	-- Thông báo
-	yBreaker_show_Utf8Text("Đã thêm vào danh sách thù")
+	--//Add danh sách đen
+	--nx_execute("custom_sender", "custom_add_relation", 4, nx_widestr("Fanta.Sarsi"), 8, nx_int(-1))	
+	--// Remove chí hữu
+	--nx_execute("custom_sender", "custom_add_relation", 7, nx_widestr("Fanta.Sarsi"), 1, nx_int(-1))	
+	--// Thêm túc địch
+	--nx_execute("custom_sender", "custom_add_relation", 4, nx_widestr("Fanta.Sarsi"), 3, 4)	
+	--// Thêm huyết cừu
+	--nx_execute("custom_sender", "custom_add_relation", 10, nx_widestr("Fanta.Sarsi"), 3, nx_int(-1))
+	--nx_execute("custom_sender", "custom_add_relation", 4, nx_widestr("Fanta.Sarsi"), 4, 3)
 end
 
 -- Function delete hate player
@@ -116,15 +125,9 @@ function on_btn_del_hate_player_click(btn)
         return
     end
 	
-	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
-	local t = {}
-    for str in string.gmatch(nx_function("ext_widestr_to_utf8", yBreaker_Utf8_to_Wstr(form1.ipt_char_name.Text)), "([^".."%s".."]+)") do
-            table.insert(t, str)
-    end
-	
-	-- Thông báo
-    nx_execute("custom_sender", "custom_add_relation", nx_int(6), nx_function("ext_utf8_to_widestr",t[2]), nx_int(3), nx_int(-1))
-	yBreaker_show_Utf8Text("Đã xóa khỏi danh sách thù")
+	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)	
+	local player_name = form1.ipt_char_name.Text
+	nx_execute("custom_sender", "custom_add_relation", nx_int(6), nx_function("ext_utf8_to_widestr", player_name), nx_int(3), nx_int(-1))
 end
 
 -- Function Hải bố
@@ -167,12 +170,12 @@ function on_btn_jump_hight_click(btn)
     end
 
 	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
-	if autoStartJump then
-		autoStartJump = false
+	if isStartJump then
+		isStartJump = false
 		form1.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Cao")
 	else
 	
-		autoStartJump = true
+		isStartJump = true
 		form1.btn_jump_hight.Text =  nx_function("ext_utf8_to_widestr", "Dừng Lại")
 		yBreaker_show_Utf8Text("Ít sữ dụng tránh bị report chỉ nên dùng cho đàn", 3)
 		jumpjump()
@@ -190,14 +193,14 @@ function on_btn_jetsu_click(btn)
         return
     end
 
-	if autoJutsu then
-		autoJutsu = false
+	if isJetsu then
+		isJetsu = false
 		-- Execute special.lua in lua
 		nx_execute("special", "switch_mode")
 		
 		form.btn_jetsu.Text = nx_function("ext_utf8_to_widestr", "Nhẫn Thuật")
 	else
-		autoJutsu = true
+		isJetsu = true
 		-- Execute special.lua in lua
 		nx_execute("special", "switch_mode")
 		
@@ -206,6 +209,24 @@ function on_btn_jetsu_click(btn)
 		nx_execute("special", "custom_btn_mode", "mode_3")
 		yBreaker_show_Utf8Text("Bấm Space để trở lại bình thương")
 		form.btn_jetsu.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+	end
+end
+
+-- Function Bay lên trời/ Độn thổ
+function on_btn_god_ping_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+	
+	-- Execute function đè ping
+	nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
+
+	if form.btn_god_ping.Text == nx_function("ext_utf8_to_widestr", "Dừng Lại") then
+		
+		form.btn_god_ping.Text = nx_function("ext_utf8_to_widestr", "Cấm Thuật")
+	else
+		form.btn_god_ping.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
 	end
 end
 
@@ -226,6 +247,7 @@ function autoSpeed(speed)
   end
 end
 
+-- Update speed
 function update_btn_start_speed()
   local form = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
   if form.Visible == false then
@@ -244,7 +266,7 @@ end
 function jumpjump()
 local game_visual = nx_value('game_visual')
 local role = util_get_role_model()
-  while autoStartJump == true do
+  while isStartJump == true do
     if nx_is_valid(role) and role.state ~= "locked" then
 	     local visual_player = game_visual:GetPlayer()
 	      game_visual:SwitchPlayerState(visual_player, 30000, 22)
@@ -258,14 +280,14 @@ function update_btn_start_jump()
 	local form = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)
 	
 	if form.Visible == false then
-		autoStartJump = false
+		isStartJump = false
 	end
 	
 	if nx_running(nx_current(),"jumpjump") then
 		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
-		autoStartJump = true
+		isStartJump = true
 	else
-		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Lên")
-		autoStartJump = false
+		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Cao")
+		isStartJump = false
 	end
 end

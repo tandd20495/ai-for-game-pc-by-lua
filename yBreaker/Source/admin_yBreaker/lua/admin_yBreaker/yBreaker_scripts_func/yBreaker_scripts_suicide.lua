@@ -1,4 +1,5 @@
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
-function auto_init()
+
+function yBreaker_suicide_player()
     suicidePlayer(true)
 end

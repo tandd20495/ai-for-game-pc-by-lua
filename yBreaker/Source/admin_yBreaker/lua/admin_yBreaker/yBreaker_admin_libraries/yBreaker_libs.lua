@@ -164,6 +164,11 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/ping") or (command == "/PING") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
+		return true
+	end
+	
 	--if command == 'reload' then
 	--	local world = nx_value("world")
 	--	world:ReloadAllScript()

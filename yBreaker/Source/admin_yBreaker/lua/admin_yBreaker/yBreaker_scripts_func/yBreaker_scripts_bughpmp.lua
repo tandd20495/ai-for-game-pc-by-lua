@@ -71,6 +71,7 @@ function buff_full_hpmp()
     end
 end
 
-function auto_init()
+-- Execute function buff hpmp
+function yBreaker_buff_hpmp()
     buff_full_hpmp()
 end

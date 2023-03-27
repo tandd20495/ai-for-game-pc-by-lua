@@ -120,6 +120,7 @@ Dừng blink bằng cách tắt form
 --20: Lãm	 /buff 		
 --21: Tự sát /die
 -- Show máu  /showhp
+-- Bug Ping  /ping
 TODO:
 - /help: Cách sử dụng và các lệnh trong yBreaker
 - Mở form log: /log
