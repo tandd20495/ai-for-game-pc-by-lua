@@ -49,7 +49,7 @@ function change_form_size()
     if not nx_is_valid(form) then
         return
     end
-    local gui = nx_value("gui")
+    --local gui = nx_value("gui")
     --form.Left = (gui.Width - form.Width) / 2
     --form.Top = (gui.Height - form.Height) / 2
     form.Left = 100

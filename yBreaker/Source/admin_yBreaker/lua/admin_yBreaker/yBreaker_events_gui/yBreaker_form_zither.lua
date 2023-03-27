@@ -7,6 +7,8 @@ function main_form_init(form)
   form.select_item = ""
   form.num_repeated = 0
   form.auto_start = false
+  
+  local gui = nx_value("gui")
   form.Left = 100
   form.Top = (gui.Height / 2)
 end
