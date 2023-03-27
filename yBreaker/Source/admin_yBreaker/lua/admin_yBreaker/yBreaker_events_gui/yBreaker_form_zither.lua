@@ -130,10 +130,18 @@ function btn_start_zither(cbtn)
 	local form = cbtn.ParentForm
 	local goods_grid = nx_value("GoodsGrid")	
 	if goods_grid:GetItemCount("tool_qs_06") == 0 then
-		if not is_password_locked() then
-			yBreaker_show_Utf8Text("Mở khóa rương và mua đàn", 3)
-			return
-		end
+	
+		-- Check pass rương và tự mua đàn
+		local game_client=nx_value("game_client")
+		local player_client=game_client:GetPlayer()
+		if not player_client:FindProp("IsCheckPass") or player_client:QueryProp("IsCheckPass") ~= 1 then
+			yBreaker_show_Utf8Text("Mở khóa rương để tự mua đàn", 3)
+			return 
+		else 		
+			nx_execute("custom_sender", "custom_open_mount_shop", 1)
+			nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,11,1)
+			nx_execute("custom_sender", "custom_open_mount_shop", 0)
+		end 
 	end		
 	update_btn_start_stop()
 	while form.auto_start do
