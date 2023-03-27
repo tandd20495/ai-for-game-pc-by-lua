@@ -1,10 +1,7 @@
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
--- Ping is OFF
-local isPing = false
 -- Đè ping (Vừa ra skill vừa di chuyển or thao tác khác)
 function yBreaker_god_ping()  
-	
 	if not isPing then
 		isPing = true
 		yBreaker_show_Utf8Text("Đè ping chi thuật")

@@ -5,9 +5,10 @@ require("share\\server_custom_define")
 require("define\\sysinfo_define")
 require("share\\chat_define")
 require("define\\request_type")
-require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_stackthbb"
+local isStartTHBB = false
 
 function on_form_main_init(form)
     form.Fixed = false
@@ -17,8 +18,6 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
-    local isStartTHBB = false
-
 end
 
 function on_main_form_close(form)
@@ -52,12 +51,22 @@ function on_btn_thbb_click(btn)
 	
     if isStartTHBB then
 		-- Stop status
+		isStartTHBB = false
+		
+		--5. Chuyển về nội VV chính
+		nx_execute("custom_sender", "custom_use_neigong", nx_string("ng_jh_201"))
+		nx_pause(0.5)
+		
+		local fight = nx_value("fight")
+		--Use skill Tọa Thiền Điều Tức,zs_default_01  để đứng dậy
+		fight:TraceUseSkill("zs_default_01", false, false)
+		
 		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
-        isStartTHBB = false   
 
     else
+		isStartTHBB = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
-		
+		stack_THBB()
     end
 end
 
@@ -68,41 +77,40 @@ end
 
 -- Function để tích stack THBB
 function stack_THBB()
-	-- Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
-	-- Chuyển nội công 3 cái bang
-	set_neigong_byID("ID NOI 3 CB")
-	-- Gọi PET
-	-- Check buff THBB nếu chưa full 10 thì vòng lặp
-		-- Xài skill THBB tích stack
-		-- Xài skill ngồi thiền 
-		-- Delay tầm vài giây 
-		-- Quay lại vòng lặp trên
-	-- Nếu full 10 stack thì chuyển nội VV
-	-- Ngồi thiền vài giây
 	
-	-- Check buff LHQ nếu chưa full 10 thì vòng lặp
-		-- Check xem có buff niêm hoa k? Nếu k thì xài niêm hoa
-			-- Xài skill Liên hoàn nếu đã có buff niêm hoa
+	--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
+	if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
+		nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+		nx_pause(0.2)
+	end				
+	--2. Chuyển nội công 3 cái bang
+	nx_execute("custom_sender", "custom_use_neigong", nx_string("ng_gb_003"))
+	nx_pause(0.5)
+	
+	--3. Gọi PET (Hiện tại chưa gọi được npc_homepet_001=Chung Linh Điêu)
+	
+	while isStartTHBB == true do
+		nx_pause(0)		
+		local fight = nx_value("fight")
+		--Use skill Thần Hành Bách Biến,CS_jh_lbwb02
+		nx_pause(0.5)
+		fight:TraceUseSkill("CS_jh_lbwb02", false, false)
+		nx_pause(0.5)
 		
-	-- Check nếu 10stack THBB + 10stack buff LHQ thì dừng lại
-	
--- Nếu buff THBB + LHQ còn 10s thì lặp lại các bước trên
-	
-end
-
--- Chuyển sang nội 3 CB
-function set_neigong_byID(neigongID)
-    local game_client = nx_value("game_client")
-    if not nx_is_valid(game_client) then
-        return false
-    end
-    local player_client = game_client:GetPlayer()
-    if not nx_is_valid(player_client) then
-        return false
-    end
-    -- Chuyển xài nội 3
-    if player_client:QueryProp("CurNeiGong") == neigongID then
-        nx_execute("custom_sender", "custom_use_neigong", nx_string(neigongID))
-    end
-    nx_pause(0.5)
+		--Use skill Tọa Thiền Điều Tức,zs_default_01 
+		fight:TraceUseSkill("zs_default_01", false, false)
+		nx_pause(6)		
+		
+		--Use skill Tọa Thiền Điều Tức,zs_default_01  để đứng dậy
+		fight:TraceUseSkill("zs_default_01", false, false)
+		nx_pause(0.5)
+		
+		--Use skill Như Lai Niêm Hoa,CS_sl_lhq05
+		fight:TraceUseSkill("CS_sl_lhq05", false, false)
+		nx_pause(1)
+		
+		--Use skill  Liên Hoàn Tam Khiêu, CS_sl_lhq01
+		fight:TraceUseSkill("CS_sl_lhq01", false, false)
+		nx_pause(1)
+	end	
 end

@@ -170,7 +170,7 @@ function yBreaker_command_chat(str_chat)
 	end
 	
 	if (command == "/thbb") or (command == "/THBB") then
-		--TO DO
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_stackthbb") 
 		return true
 	end
 	
@@ -346,6 +346,20 @@ function fps_setting(fps_int)
 	local game_control = scene.game_control
 	game_control.MaxDisplayFPS = nx_int(fps_int)
 end
+
+-- Function find buff by ID
+function yBreaker_find_buffer(buff_id) -- tìm buff chỉ trả về có hoặc không
+	if nx_function("find_buffer", nx_value("game_client"):GetPlayer(), buff_id) then
+		return true
+	end
+	return false
+end
+
+function yBreaker_use_skill_id(skill_id)
+	local fight = nx_value("fight")
+	fight:TraceUseSkill(skill_id, false, false)
+end
+
 
 -- DEMO chưa dùng
 -- Get map ID by name
