@@ -35,7 +35,7 @@ function change_form_size()
         return
     end
     local gui = nx_value("gui")
-    form.Left = 100
+    form.Left = 240
     form.Top = (gui.Height / 2)
 end
 
@@ -56,10 +56,10 @@ function on_btn_swap_30_per_click(btn)
 	
 	if autoswapvk then
 		autoswapvk = false
-		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Công")
     else
 		autoswapvk = true
-		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")	  
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")	  
     end
 	
     local form = util_get_form("form_stage_main\\form_bag")
@@ -93,10 +93,10 @@ function on_btn_swap_book_click(btn)
 	
 	if autoswap then
 		autoswap = false
-		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Công")
 	else
 		autoswap = true
-		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
 	end
 	
 	local form = util_get_form("form_stage_main\\form_bag")

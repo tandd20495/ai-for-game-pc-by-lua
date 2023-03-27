@@ -96,7 +96,7 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 --5: PVP			 /pvp 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
 6: BUGS			 /bugs  	Gồm: Bảng FPS/ speed + tele Đảo + DHC + Blink + Lãm + Tự Tử + Tự nhảy k tốn KC(Làm /jump để nhảy liên tục) + Thêm/Xóa HC, Hải bố, Bộ khoái, 
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
---8: Đàn đội	 /dan		Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
+--8: Đàn đội	 /dan		K có đàn sẽ bị lỗi/ Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
 --9: Config	 	 /config    Lưu cache trước khi dùng tính năng PVP
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
@@ -133,13 +133,3 @@ TODO:
 - Thêm khảo đoạn code trong form_main_chat của SUM có đoạn split string command chat
 
 
-
-Buff đội	/buff		Thêm chế độ: tìm tên nhân vật chỉ định spam skill theo id (Chết thì hồi sinh lân cận nhanh rồi chạy ra tọa độ cũ)
-Luyện đàn: /luyendan
-Giới thiệu: /about
-Luyện công	/lc
-Thụ nghiệp	/tn
-
-19: Trồng trọt	/farm
-20: Săn bắt		/hunter
-21: Hái lượm	/gatherer
