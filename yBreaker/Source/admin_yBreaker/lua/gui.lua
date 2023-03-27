@@ -328,6 +328,11 @@ function gui_key_down(gui, key, shift, ctrl)
 --[ADD: Press F12 to show form for yBreaker
   elseif key == "F12" then
     util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
+--ADD: Press Ctrl + P to bug mode ON/OFF, and Space to jump continuously
+  elseif ctrl and key == "P" then
+    nx_execute("special", "switch_mode")
+  elseif key == "Space" then
+    nx_execute("special", "custom_btn_mode", "mode_1")
 --]
 
   end
