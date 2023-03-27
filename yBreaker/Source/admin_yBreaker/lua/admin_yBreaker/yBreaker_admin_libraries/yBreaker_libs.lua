@@ -149,13 +149,13 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/buff") or (command == "/BUFF") then
-		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","buff_full_hpmp")
+	if (command == "/buffhp") or (command == "/BUFFHP") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","yBreaker_buff_hpmp")
 		return true
 	end
 	
 	if (command == "/die") or (command == "/DIE") then
-		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_suicide","auto_init")
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_suicide","yBreaker_suicide_player")
 		return true
 	end
 	
@@ -166,6 +166,11 @@ function yBreaker_command_chat(str_chat)
 	
 	if (command == "/ping") or (command == "/PING") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
+		return true
+	end
+	
+	if (command == "/thbb") or (command == "/THBB") then
+		--TO DO
 		return true
 	end
 	

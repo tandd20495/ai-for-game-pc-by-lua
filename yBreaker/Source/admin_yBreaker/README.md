@@ -117,12 +117,14 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 *** Lưu ý: 
 Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nhảy.
 Dừng blink bằng cách tắt form
---20: Lãm	 /buff 		
+--20: Lãm	 /buffhp 		
 --21: Tự sát /die
 -- Show máu  /showhp
 -- Bug Ping  /ping
 TODO:
 - /help: Cách sử dụng và các lệnh trong yBreaker
+- Thêm phím Ctrl + P để bật
+	Caps để bug nhảy
 - Mở form log: /log
 - Tự mở pass rương khi đăng nhập
 - Soi HP

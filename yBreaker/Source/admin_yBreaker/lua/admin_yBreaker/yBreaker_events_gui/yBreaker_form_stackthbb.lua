@@ -70,6 +70,7 @@ end
 function stack_THBB()
 	-- Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
 	-- Chuyển nội công 3 cái bang
+	set_neigong_byID("ID NOI 3 CB")
 	-- Gọi PET
 	-- Check buff THBB nếu chưa full 10 thì vòng lặp
 		-- Xài skill THBB tích stack
@@ -87,4 +88,21 @@ function stack_THBB()
 	
 -- Nếu buff THBB + LHQ còn 10s thì lặp lại các bước trên
 	
+end
+
+-- Chuyển sang nội 3 CB
+function set_neigong_byID(neigongID)
+    local game_client = nx_value("game_client")
+    if not nx_is_valid(game_client) then
+        return false
+    end
+    local player_client = game_client:GetPlayer()
+    if not nx_is_valid(player_client) then
+        return false
+    end
+    -- Chuyển xài nội 3
+    if player_client:QueryProp("CurNeiGong") == neigongID then
+        nx_execute("custom_sender", "custom_use_neigong", nx_string(neigongID))
+    end
+    nx_pause(0.5)
 end
