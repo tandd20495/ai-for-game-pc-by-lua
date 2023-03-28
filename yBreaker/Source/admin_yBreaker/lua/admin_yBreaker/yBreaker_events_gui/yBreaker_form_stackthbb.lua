@@ -23,11 +23,6 @@ end
 
 function on_main_form_close(form)
     isStartTHBB = false
-	
-	--5. Chuyển về nội VV chính
-	nx_execute("custom_sender", "custom_use_neigong", nx_string("ng_jh_201"))
-	nx_pause(0.5)
-	
     nx_destroy(form)
 end
 

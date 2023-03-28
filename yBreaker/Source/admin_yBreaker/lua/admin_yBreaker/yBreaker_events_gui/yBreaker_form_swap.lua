@@ -93,7 +93,7 @@ function on_btn_swap_book_click(btn)
 	
 	if autoswap then
 		autoswap = false
-		btn.Text = nx_function("ext_utf8_to_widestr", "Công")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Thủ")
 	else
 		autoswap = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")

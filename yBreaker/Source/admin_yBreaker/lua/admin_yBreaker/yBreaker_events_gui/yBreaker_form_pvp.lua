@@ -119,9 +119,17 @@ local dataSkill = {
         ["sk2"] = {"CS_jh_jgjf05", 11689, 50254, 8}, -- Lục Bát Vi Túc - Dậm định thân 15 mét
         ["sk3"] = {"CS_jh_jgjf02", 11686, 50254, 4}, -- Thượng Hạ Đối Địch - Xung phong 3 mét
     },
+	
+	["thc"] = {
+        ["sk1"] = {"CS_jh_chz01", 12833, 50272, 4}, -- Chỉ Thỉ Thiên Nhật 	- Xung Phong 5m -> 20m
+		["sk2"] = {"CS_jh_chz02", 12833, 50272, 4}, -- Bàng Chỉ Khúc Dụ 	- Xung Phong 5m -> 20m
+		["sk3"] = {"CS_jh_chz03", 12839, 50272, 4}, -- Nhất Đạn Chỉ Khoảnh 	- Điểm huyệt mê
+		["sk4"] = {"CS_jh_chz04", 12833, 50272, 4}, -- Đạn Chỉ Thốc Sinh 	- Xung Phong 5m -> 20m
+    },
+	
     ["ptc"] = {
         ["sk1"] = {"CS_jh_xfz02", 12839, 50272, 4}, -- Không Tương Vô Tương - Đánh Mê
-        ["sk2"] = {"CS_jh_xfz01", 12833, 50272, 4} -- Phi Thường Vô Thường - Xung Phong
+        ["sk2"] = {"CS_jh_xfz01", 12833, 50272, 4} 	-- Phi Thường Vô Thường - Xung Phong
     },
     ["ltt"] = {
         ["sk1"] = {"CS_sl_lzs02", 8100, 50109, 4}, -- Bổ Phong (Cổ) - Xung Phong 20 mét
@@ -135,6 +143,7 @@ local taoluText = {
     ["cuchi"] = "Cù Chi",
     ["tuyettrai"] = "Tuyết Trai",
     ["cuucung"] = "Cửu Cung",
+	["thc"] = "Tham Hợp Chỉ",
     ["ptc"] = "Phật Tâm",
     ["ltt"] = "LTT (Cổ)"
 }
@@ -196,8 +205,8 @@ function useBinhThuByIDAndSkill(configID, SkillID)
             if SkillID == nil then
                 -- Không quan tâm skill thì kết thúc
                 goods_grid:ViewUseItem(grid.typeid, grid:GetBindIndex(index), grid, index)
-                logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
-                logToForm("Đang chờ trang bị bình thư xong")
+                --logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
+                --logToForm("Đang chờ trang bị bình thư xong")
                 checkItemIsEquipSuccess(configID)
                 return true
             end
@@ -208,8 +217,8 @@ function useBinhThuByIDAndSkill(configID, SkillID)
             local binhthuSkill = item:QueryRecord("SkillModifyPackRec", 0, 0)
             if nx_int(binhthuSkill) == nx_int(skillInt) then
                 goods_grid:ViewUseItem(grid.typeid, grid:GetBindIndex(index), grid, index)
-                logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
-                logToForm("Đang chờ trang bị bình thư xong")
+                --logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
+                --logToForm("Đang chờ trang bị bình thư xong")
                 checkItemIsEquipSuccess(configID)
                 return true
             end
@@ -266,12 +275,12 @@ function auto_run()
 
         -- Nếu dữ liệu ok hết
         if is_vaild_data == true then
-            clearLogForm()
-            logToForm(nx_function("ext_utf8_to_widestr", "Bộ võ: <font color=\"#FF0000\">") .. nx_function("ext_utf8_to_widestr", taoluText[taolu]) .. nx_widestr("</font>"), true)
+            --clearLogForm()
+            --logToForm(nx_function("ext_utf8_to_widestr", "Bộ võ: <font color=\"#FF0000\">") .. nx_function("ext_utf8_to_widestr", taoluText[taolu]) .. nx_widestr("</font>"), true)
             if binhthu == "" then
-                logToForm(nx_function("ext_utf8_to_widestr", "Bình thư phòng: <font color=\"#FF0000\">Không dùng (tự swap)</font>"), true)
+                --logToForm(nx_function("ext_utf8_to_widestr", "Bình thư phòng: <font color=\"#FF0000\">Không dùng (tự swap)</font>"), true)
             else
-                logToForm(nx_function("ext_utf8_to_widestr", "Bình thư phòng: <font color=\"#FF0000\">") .. util_text(binhthu) .. nx_widestr("</font>"), true)
+                --logToForm(nx_function("ext_utf8_to_widestr", "Bình thư phòng: <font color=\"#FF0000\">") .. util_text(binhthu) .. nx_widestr("</font>"), true)
             end
             local select_target_ident = player_client:QueryProp("LastObject")
             local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
@@ -389,6 +398,23 @@ function auto_run()
                                 fight:TraceUseSkill(dataSkill[taolu]["sk3"][1], false, false)
                                 isHitSkill = true
                             end
+						elseif taolu == "thc" then
+						    -- Điểm huyệt
+                            -- Đánh mê
+                            if distance < 20 and not isHitSkill and not gui.CoolManager:IsCooling(nx_int(dataSkill[taolu]["sk3"][2]), nx_int(dataSkill[taolu]["sk3"][3])) then
+                                fight:TraceUseSkill(dataSkill[taolu]["sk3"][1], false, false)
+                                isHitSkill = true
+                            end
+                            -- Đánh xung phong
+                            if distance < 20 and not isHitSkill and not gui.CoolManager:IsCooling(nx_int(dataSkill[taolu]["sk2"][2]), nx_int(dataSkill[taolu]["sk1"][3])) then
+                                fight:TraceUseSkill(dataSkill[taolu]["sk1"][1], false, false)
+                                isHitSkill = true
+                            end
+							-- Đánh xung phong
+                            if distance < 20 and not isHitSkill and not gui.CoolManager:IsCooling(nx_int(dataSkill[taolu]["sk2"][2]), nx_int(dataSkill[taolu]["sk2"][3])) then
+                                fight:TraceUseSkill(dataSkill[taolu]["sk2"][1], false, false)
+                                isHitSkill = true
+                            end
                         elseif taolu == "ptc" then
                             -- Phật Tâm Chưởng
                             -- Đánh mê
@@ -429,7 +455,7 @@ function auto_run()
                     -- Thiết lập lại thời gian ra chiêu phá def
                     -- Đỡ đòn nếu còn chiến đấu
                     timeStartSkill = 0
-                    logToForm("Đỡ đòn tự do")
+                    --logToForm("Đỡ đòn tự do")
                     if isAutoActiveParry and getPlayerPropInt("InParry") == nx_int(0) and game_player.state == "static" and getPlayerPropInt("LogicState") == nx_int(1) then
                         nx_execute("custom_sender", "custom_active_parry", nx_int(1), nx_int(0))
                     end
@@ -451,7 +477,7 @@ function auto_run()
                     end
                 end
             else
-                logToForm("Mời chọn đối thủ")
+                --logToForm("Mời chọn đối thủ")
             end
         end
         nx_pause(0)
@@ -506,10 +532,12 @@ function reloadSelectTaolu(setTaolu)
     if combobox_taolu.DroppedDown then
         combobox_taolu.DroppedDown = false
     end
-    combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["hsd"]))
-    combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["cuchi"]))
-    combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["tuyettrai"]))
-    combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["cuucung"]))
+	--REM võ chưa sử dụng
+    -- combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["hsd"]))
+    -- combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["cuchi"]))
+    -- combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["tuyettrai"]))
+    -- combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["cuucung"]))
+	combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["thc"]))
     combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["ptc"]))
     combobox_taolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", taoluText["ltt"]))
     if setTaolu == "" then
@@ -634,12 +662,14 @@ function on_combobox_taolu_selected(combobox)
     -- Xác định ra key bộ võ
     if nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["hsd"]) then
         setTaolu = "hsd"
-    elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["cuchi"]) then
-        setTaolu = "cuchi"
-    elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["tuyettrai"]) then
-        setTaolu = "tuyettrai"
-    elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["cuucung"]) then
-        setTaolu = "cuucung"
+    -- elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["cuchi"]) then
+    --     setTaolu = "cuchi"
+    -- elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["tuyettrai"]) then
+    --     setTaolu = "tuyettrai"
+    -- elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["cuucung"]) then
+    --     setTaolu = "cuucung"
+	elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["thc"]) then
+        setTaolu = "thc"
     elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["ptc"]) then
         setTaolu = "ptc"
     elseif nx_widestr(form.combobox_taolu.Text) == nx_function("ext_utf8_to_widestr", taoluText["ltt"]) then
