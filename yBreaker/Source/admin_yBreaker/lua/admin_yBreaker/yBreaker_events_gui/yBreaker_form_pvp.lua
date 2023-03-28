@@ -121,10 +121,10 @@ local dataSkill = {
     },
 	
 	["thc"] = {
-        ["sk1"] = {"CS_jh_chz01", 12833, 50272, 4}, -- Chỉ Thỉ Thiên Nhật 	- Xung Phong 5m -> 20m
-		["sk2"] = {"CS_jh_chz02", 12833, 50272, 4}, -- Bàng Chỉ Khúc Dụ 	- Xung Phong 5m -> 20m
-		["sk3"] = {"CS_jh_chz03", 12839, 50272, 4}, -- Nhất Đạn Chỉ Khoảnh 	- Điểm huyệt mê
-		["sk4"] = {"CS_jh_chz04", 12833, 50272, 4}, -- Đạn Chỉ Thốc Sinh 	- Xung Phong 5m -> 20m
+        ["sk1"] = {"CS_jh_chz01", 12221, 30000, 2}, -- Chỉ Thỉ Thiên Nhật 	- Xung Phong 5m -> 20m
+		["sk2"] = {"CS_jh_chz02", 12222, 30000, 2}, -- Bàng Chỉ Khúc Dụ 	- Xung Phong 5m -> 20m
+		["sk3"] = {"CS_jh_chz03", 12223, 30000, 2}, -- Nhất Đạn Chỉ Khoảnh 	- Điểm huyệt mê
+		["sk4"] = {"CS_jh_chz04", 12224, 30000, 2}, -- Đạn Chỉ Thốc Sinh 	- Xung Phong 5m -> 20m
     },
 	
     ["ptc"] = {
