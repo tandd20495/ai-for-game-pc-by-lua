@@ -186,7 +186,7 @@ function reload_form()
     if combobox_testfile.DroppedDown then
         combobox_testfile.DroppedDown = false
     end
-    local path = "D:\\Games\\auto-cack-vn\\tests\\";
+    local path = "D:\\yGame\\yCuuAmChanKinh2\\";
     local ext = "*.lua"
     local fs = nx_create("FileSearch")
     fs:SearchFile(path, ext)

@@ -468,6 +468,26 @@ function on_main_form_open(form)
     form.is_minimize = false
     auto_is_running = false
     isAutoActiveParry = false
+	
+	-- Khởi tạo file ini nếu chưa có
+	local game_config = nx_value("game_config")
+	local account = game_config.login_account
+	local ini = nx_create("IniDocument")
+	if not nx_is_valid(ini) then
+        return
+    end
+	local section_config = "pvp"
+    local taolu = ""
+    ini.FileName = account .. "\\yBreaker_config.ini"
+    ini:LoadFromFile()
+    -- Thêm cấu hình nếu chưa có
+    if not ini:FindSection(nx_string(section_config)) then
+        ini:AddSection(nx_string(section_config))
+    end
+	-- Write file ini
+    ini:WriteString(nx_string(section_config), "taolu", taolu)
+    ini:SaveToFile()
+    nx_destroy(ini)
 
     -- Build các bộ võ + Bình Thư
     taolu = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs", "getPvpTaolu")

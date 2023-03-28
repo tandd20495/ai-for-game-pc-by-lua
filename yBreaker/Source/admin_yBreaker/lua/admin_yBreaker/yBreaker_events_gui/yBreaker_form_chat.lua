@@ -193,7 +193,6 @@ function change_form_size()
 	if not nx_is_valid(form) then
 		return
 	end
-	local gui = nx_value("gui")
 	form.Left = 100
 	form.Top = 140
 end

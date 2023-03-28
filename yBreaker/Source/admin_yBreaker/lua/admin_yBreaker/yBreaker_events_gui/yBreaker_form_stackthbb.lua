@@ -18,10 +18,16 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
+	form.cbtn_lhq.Checked = true
 end
 
 function on_main_form_close(form)
     isStartTHBB = false
+	
+	--5. Chuyển về nội VV chính
+	nx_execute("custom_sender", "custom_use_neigong", nx_string("ng_jh_201"))
+	nx_pause(0.5)
+	
     nx_destroy(form)
 end
 
@@ -30,9 +36,10 @@ function change_form_size()
     if not nx_is_valid(form) then
         return
     end
-    local gui = nx_value("gui")
-    form.Left = 100
-    form.Top = (gui.Height / 2)
+	
+	local gui = nx_value("gui")
+	form.Left = 330
+	form.Top = (gui.Height /2)
 end
 
 function on_btn_close_click(btn)
@@ -93,24 +100,29 @@ function stack_THBB()
 		nx_pause(0)		
 		local fight = nx_value("fight")
 		--Use skill Thần Hành Bách Biến,CS_jh_lbwb02
-		nx_pause(0.5)
+		nx_pause(1)
 		fight:TraceUseSkill("CS_jh_lbwb02", false, false)
-		nx_pause(0.5)
+		nx_pause(1)
 		
-		--Use skill Tọa Thiền Điều Tức,zs_default_01 
+		--Use skill Tọa Thiền Điều Tức,zs_default_01 ngồi xuống
 		fight:TraceUseSkill("zs_default_01", false, false)
 		nx_pause(6)		
 		
 		--Use skill Tọa Thiền Điều Tức,zs_default_01  để đứng dậy
 		fight:TraceUseSkill("zs_default_01", false, false)
-		nx_pause(0.5)
-		
-		--Use skill Như Lai Niêm Hoa,CS_sl_lhq05
-		fight:TraceUseSkill("CS_sl_lhq05", false, false)
 		nx_pause(1)
 		
-		--Use skill  Liên Hoàn Tam Khiêu, CS_sl_lhq01
-		fight:TraceUseSkill("CS_sl_lhq01", false, false)
-		nx_pause(1)
+		local form1 = util_get_form("admin_yBreaker\\yBreaker_form_stackthbb", true, false)
+		if form1.cbtn_lhq.Checked == true then
+			--Use skill Như Lai Niêm Hoa,CS_sl_lhq05
+			fight:TraceUseSkill("CS_sl_lhq05", false, false)
+			nx_pause(1)
+			
+			--Use skill  Liên Hoàn Tam Khiêu, CS_sl_lhq01
+			fight:TraceUseSkill("CS_sl_lhq01", false, false)
+			nx_pause(1)
+		else
+			nx_pause(2)
+		end
 	end	
 end
