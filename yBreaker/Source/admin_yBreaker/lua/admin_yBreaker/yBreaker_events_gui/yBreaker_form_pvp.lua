@@ -16,7 +16,7 @@ local arrayActions = {
 	"xfz_07", 			-- Phật Tâm Chưởng
 	"jb_aq_08", 		-- Linh Lung Đầu
 	"wuji_CS_tm_ywt05", -- Diêm Vương Trịch Bút
-	"CS_yhwq_hsqs03" 	-- Hoa Thần (Vô Khuyết)
+	"CS_yhwq_hsqs03", 	-- Hoa Thần (Vô Khuyết)
 	"tjq03",			-- Thái Cực Quyền (Cổ)
 	"myjf05", 			-- Mị Ảnh Kiếm Pháp
 	"dgbf05",			-- Đả Cẩu Bổng (Cổ)
