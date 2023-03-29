@@ -32,7 +32,7 @@ Admin:
 + Done: Tiếp tục nội tu khi lên cấp
 + Done: Không bị connect ở màn hình login
 + Done: Skip cốt truyện
-+ DOne: Mở giới hạn client game
++ Done: Mở giới hạn client game
 + Nhận kỳ ngộ
 
 - Cần thiết:
@@ -86,6 +86,13 @@ Block comment:
 --]]
 
 
+- Hỗ trợ mặc định:
++ Done: Tự nhảy luyện công/ Thụ nghiệp
++ Done: Tiếp tục nội tu khi lên cấp
++ Done: Không bị connect ở màn hình login
++ Done: Skip cốt truyện
++ Done: Mở giới hạn client game
+
 GUI MAIN: /yt or /YT
 
 --1: Mod PVC   	 /pvc		Chưa tự lưu PVC để apply cho lần sau đổi vũ khí
@@ -96,7 +103,7 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 --5: PVP			 /pvp 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
 6: BUGS			 /bugs  	Gồm: Bảng FPS/ speed + tele Đảo + DHC + Blink + Lãm + Tự Tử + Tự nhảy k tốn KC(Làm /jump để nhảy liên tục) + Thêm/Xóa HC, Hải bố, Bộ khoái, 
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
---8: Đàn đội	 /dan		K có đàn sẽ bị lỗi/ Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
+--8: Đàn đội	 /dan		Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
 --9: Config	 	 /config    Lưu cache trước khi dùng tính năng PVP
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix

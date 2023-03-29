@@ -73,13 +73,13 @@
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="15" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tự Rao" Font="font_text_figure" AutoSize="true" />
             <event on_click="show_hide_form_chat" />
         </control>
-        <control name="tab_14_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_searchzither" init="">
+        <control name="tab_14_btn" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="127" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tìm Đàn" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_hide_search_zither" />
+            <event on_click="" />
         </control>
-        <control name="tab_15_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_searchherb" init="">
+        <control name="tab_15_btn" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="243" Top="215" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tìm Cây" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_hide_search_herb" />
+            <event on_click="" />
         </control>
     </control>
 </form>
