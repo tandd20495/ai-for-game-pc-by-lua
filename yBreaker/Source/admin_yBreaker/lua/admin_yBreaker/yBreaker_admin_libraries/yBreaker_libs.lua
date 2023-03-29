@@ -174,6 +174,11 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/tm") or (command == "/TM") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_tamma") 
+		return true
+	end
+	
 	--if command == 'reload' then
 	--	local world = nx_value("world")
 	--	world:ReloadAllScript()
@@ -355,11 +360,37 @@ function yBreaker_find_buffer(buff_id) -- tìm buff chỉ trả về có hoặc 
 	return false
 end
 
+-- Function use skill by skill ID
 function yBreaker_use_skill_id(skill_id)
 	local fight = nx_value("fight")
 	fight:TraceUseSkill(skill_id, false, false)
 end
 
+
+function add_file_user(inifile)
+	local game_client = nx_value('game_client')	
+	local client_player = game_client:GetPlayer()	
+	local game_config = nx_value('game_config')
+	local stage = nx_value('stage')
+	if not nx_is_valid(game_config) and not nx_is_valid(client_player) then return end	
+	if stage == 'main' then						
+		local account = game_config.login_account
+		local dir = nx_function('ext_get_current_exe_path') .. account 
+		local all_char = yBreaker_Wstr_to_Utf8(readIni(dir..'\\yBreaker_setting.ini',nx_string("Support"), "all_in_char", ""))		
+		if nx_string(all_char) == nx_string('true') then
+			dir = nx_resource_path() .. 'yBreaker\\data' 
+		end
+		if not nx_function('ext_is_exist_directory', nx_string(dir)) then
+		  nx_function('ext_create_directory', nx_string(dir))	 
+		end
+		local ini = nx_create('IniDocument')
+		if not nx_is_valid(ini) then
+			return
+		end
+		ini.FileName = dir .. '\\'..nx_string(1)..'.ini'
+		return ini.FileName
+	end
+end
 
 -- DEMO chưa dùng
 -- Get map ID by name

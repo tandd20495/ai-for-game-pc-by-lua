@@ -128,7 +128,9 @@ Dừng blink bằng cách tắt form
 --21: Tự sát /die
 -- Show máu  /showhp
 -- Bug Ping  /ping
+-- Diễn vỡ Tâm Ma		/tm
 TODO:
+
 - /help: Cách sử dụng và các lệnh trong yBreaker
 - Thêm phím Ctrl + P để bật
 	Caps để bug nhảy

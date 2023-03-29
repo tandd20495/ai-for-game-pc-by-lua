@@ -719,94 +719,6 @@ function auto_run_player()
     end
 end
 
--- Auto giải cứu cóc
-function auto_run_offfree()
-    local total_coc_free = 0
-    local total_money_used = nx_int64(0)
-    local array_coc_fred = {}
-
-    while auto_is_running_offfree == true do
-        local is_vaild_data = true
-        local game_client
-        local game_visual
-        local game_player
-        local player_client
-        local game_scence
-
-        game_client = nx_value("game_client")
-        if not nx_is_valid(game_client) then
-            is_vaild_data = false
-        end
-        game_visual = nx_value("game_visual")
-        if not nx_is_valid(game_visual) then
-            is_vaild_data = false
-        end
-        if is_vaild_data == true then
-            game_player = game_visual:GetPlayer()
-            if not nx_is_valid(game_player) then
-                is_vaild_data = false
-            end
-            player_client = game_client:GetPlayer()
-            if not nx_is_valid(player_client) then
-                is_vaild_data = false
-            end
-            game_scence = game_client:GetScene()
-            if not nx_is_valid(game_scence) then
-                is_vaild_data = false
-            end
-        end
-        local form = nx_value(THIS_FORM)
-        if not nx_is_valid(form) then
-            is_vaild_data = false
-        end
-
-        if is_vaild_data == true then
-            local game_scence_objs = game_scence:GetSceneObjList()
-            for i = 1, table.getn(game_scence_objs) do
-                local obj = game_scence_objs[i]
-                local coc_name = obj:QueryProp("Name")
-                local coc_ident = obj.Ident
-                if not in_array(coc_name, array_coc_fred) then
-                    -- Xác định Visual mới chính xác tọa độ
-                    local visualobj = game_visual:GetSceneObj(nx_string(coc_ident))
-                    if nx_is_valid(visualobj) then
-                        local distance = nx_float(string.format("%.0f", distance3d(game_player.PositionX, game_player.PositionY, game_player.PositionZ, visualobj.PositionX, visualobj.PositionY, visualobj.PositionZ)))
-
-                        if distance < nx_float(6) and obj:QueryProp("Type") == 2 and obj:QueryProp("OffLineState") == 1 and not obj:FindProp("OfflineTypeTvT") and obj:QueryProp("IsAbducted") == 1 then
-                            local money = nx_execute("form_stage_main\\form_offline\\offline_util", "get_setfree_money_by_level", obj)
-                            if nx_int64(money) < nx_int64(500) then
-                                -- Nhấp chọn con cóc
-                                nx_execute("custom_sender", "custom_select", coc_ident)
-                                nx_pause(0.1)
-
-                                -- Đợi một lát sau đó kiểm tra từ server last obj
-                                local select_target_ident = player_client:QueryProp("LastObject")
-                                local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
-                                if nx_is_valid(select_target) and nx_string(coc_ident) == nx_string(select_target_ident) then
-                                    table.insert(array_coc_fred, coc_name)
-                                    total_coc_free = total_coc_free + 1
-                                    total_money_used = total_money_used + nx_int64(money)
-                                    nx_execute("custom_sender", "custom_offline_setfree", nx_int(1))
-                                end
-                                break
-                            end
-                        end
-                    end
-                end
-            end
-        end
-        -- Xuất thông báo
-        form.mltbox_content:Clear()
-        form.mltbox_content:AddHtmlText(nx_function("ext_utf8_to_widestr", "Đi khắp các nơi, tìm cóc, tiến lại gần nó để tự giải cứu"), -1)
-        local text_money = nx_execute("util_functions", "trans_capital_string", total_money_used)
-        local text1 = nx_function("ext_utf8_to_widestr", "Số cóc giải cứu: <font color=\"#ff0061\">") .. nx_widestr(total_coc_free) .. nx_widestr("</font>")
-        form.mltbox_content:AddHtmlText(text1, -1)
-        local text2 = nx_function("ext_utf8_to_widestr", "Bạc vụn tốn: <font color=\"#ff0061\">") .. nx_widestr(text_money) .. nx_widestr("</font>")
-        form.mltbox_content:AddHtmlText(text2, -1)
-        nx_pause(0.2)
-    end
-end
-
 
 function on_form_main_init(form)
     form.Fixed = false
@@ -822,7 +734,6 @@ function on_main_form_close(form)
     auto_is_running = false
     auto_is_running_rsabduct = false
     auto_is_running_player = false
-    auto_is_running_offfree = false
     nx_destroy(form)
 end
 
@@ -937,10 +848,6 @@ function reset_all_btns(skip)
     if skip ~= "player" then
         auto_is_running_player = false
         form.btn_control_player.Text = nx_function("ext_utf8_to_widestr", "Quét Player")
-    end
-    if skip ~= "offfree" then
-        auto_is_running_offfree = false
-        form.btn_control_offfree.Text = nx_function("ext_utf8_to_widestr", "Quét Hết")
     end
 end
 
