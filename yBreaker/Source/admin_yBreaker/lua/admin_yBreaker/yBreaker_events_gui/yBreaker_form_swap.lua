@@ -528,11 +528,32 @@ function EquipItemProp(form, ini, skill_prop, active)
 			local item_cp = nil
 			local game_client = nx_value("game_client")
 			local client_player = game_client:GetPlayer()
+			
+			-- Trả về giá trị skill gốc khi là skill võ kỹ
+			-- ID: Trịch bút
+			if skill_prop == "wuji_CS_tm_ywt07" then 
+				skill_prop = CS_tm_ywt07
+			end
+			
+			-- Mạnh bà 
+			if skill_prop == "wuji_CS_tm_ywt05" then 
+				skill_prop = CS_tm_ywt05	
+			end
+			
+			-- Vô Thường
+			if skill_prop == "wuji_CS_tm_ywt03" then
+				skill_prop = CS_tm_ywt03
+			end
 
 			local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_prop, "UseLimit", "")
 			if LimitIndex == nil then
 				return
 			end
+			
+			if nx_number(LimitIndex) == nx_number(27) or nx_number(LimitIndex) == nx_number(25) or nx_number(LimitIndex) == nx_number(26) then
+				LimitIndex = 0
+			end
+			
 			local skill_query = nx_value("SkillQuery")
 			if not nx_is_valid(skill_query) then
 				return
