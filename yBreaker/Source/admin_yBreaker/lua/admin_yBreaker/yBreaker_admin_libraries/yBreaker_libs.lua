@@ -74,12 +74,12 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/pvp") or (command == "/PVP") then
+	if (command == "/p") or (command == "/P") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp") 
 		return true
 	end
 	
-	if (command == "/bugs") or (command == "/BUGS") then
+	if (command == "/b") or (command == "/B") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
 		return true
 	end
@@ -114,7 +114,7 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/swap") or (command == "/SWAP") then
+	if (command == "/s") or (command == "/S") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap") 
 		return true
 	end
@@ -124,7 +124,7 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/mach") or (command == "/MACH") then
+	if (command == "/m") or (command == "/M") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai") 
 		return true
 	end

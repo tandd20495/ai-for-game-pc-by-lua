@@ -10,7 +10,12 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_swap"
 
 function on_form_main_init(form)
     form.Fixed = false
-    form.is_minimize = false
+    form.is_minimize = true
+end
+
+function on_btn_minimize_click(btn)
+  local form = btn.ParentForm
+  form.Visible = false
 end
 
 function on_main_form_open(form)
