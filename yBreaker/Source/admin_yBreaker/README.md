@@ -100,15 +100,23 @@ GUI MAIN: /yt or /YT
 --3: Codenew	 /codenew	Chạy file codenew.lua tại folder yBreaker\scripts
 Có thể thực hiện lệnh /code _filename để chạy file code nháp yBreaker\scripts
 4: AI			 /ai 		Gồm: LC,TN,VT,Q NC6,Cấm địa TDC/LTT,Trồng cây,Săn,Thu thập: Khoáng,Dược,Độc,...
---5: PVP			 /p 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
-6: BUGS			 /b  	Gồm: Bảng FPS/ speed + tele Đảo + DHC + Blink + Lãm + Tự Tử + Tự nhảy k tốn KC(Làm /jump để nhảy liên tục) + Thêm/Xóa HC, Hải bố, Bộ khoái, 
+--5: PVP		 /a 		Pre: Cần config acc trước. Gồm: Swap (có tích chọn: VK theo skill đánh/vk+oản 30%/bình thư/áo), Mạch + đồ, target, def, Đè ping.					
+--13: Auto Swap	 /s  	Nút 1: swap cả đồ 30% + bình thư 10% , Nút 2 swap bình thư phòng ngự đã lưu cache
+--6: BUGS		 /d  	Gồm: Bảng FPS/ speed + tele Đảo + DHC + Blink + Lãm + Tự Tử + Tự nhảy k tốn KC(Làm /jump để nhảy liên tục) + Thêm/Xóa HC, Hải bố, Bộ khoái, 
+--18: Mắt thần	 /q		Demo OK. Làm tiếp gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info (Key PT, Nộ, Khoảng cách) 
+--15: Đổi mạch	 /w
+-- Bug Ping  	 /e
+-- Show máu  	 /z
+--19: Blink	 	 /b     Add thêm text cho user nhập bước nhảy
+-- Tự tích THBB  /th 	Tích THBB
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
 --8: Đàn đội	 /dan		Thêm chế độ: Đổi tên bài đàn dễ hiểu/ Chạy chỗ đàn
 --9: Config	 	 /config    Lưu cache trước khi dùng tính năng PVP
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
 --12: Tự rao	 /chat
---13: Auto Swap	 /s  	Nút 1: swap cả đồ 30% + bình thư 10% , Nút 2 swap bình thư phòng ngự đã lưu cache
+
+
 		***Nếu chưa swap oản 30% + bt 10% cùng 1 skill thì auto k lỗi, còn swap oản skill đó rồi nhưng vẫn ra skill đó tiếp theo sẽ bị giật bình thư 10% của skill đó
 		***Nếu swap bt10% của skill đó trước vẫn k bị giật bt, chỉ khi đang ra skill mà tự swap sang bth khác thì auto sẽ giật khi swap lại bth của skill đang ra
 		*** Ví dụ: Đang nộ Đạn chỉ
@@ -116,18 +124,18 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 		* Còn swap oản + bth trước khi ra skill sẽ không giật
 		
 --14: Auto Skill /skill		CÓ thể dùng ném phi tiêu, có buff đội
---15: Đổi mạch	 /m		
+	
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
 --17: Tìm cây	 /timcay 	
---18: Mắt thần	 /mat		Demo OK. Làm tiếp gồm: Tìm đàn, Tìm cây, Quét người xung quanh, Quét tên theo bang update tọa độ liên tục, tìm cóc, Info (Key PT, Nộ, Khoảng cách) 
---19: Blink	 	 /blink     Add thêm text cho user nhập bước nhảy
+
+
 *** Lưu ý: 
 Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nhảy.
 Dừng blink bằng cách tắt form
---20: Lãm	 /buffhp 		
+--20: Lãm	 /buff 		
 --21: Tự sát /die
--- Show máu  /showhp
--- Bug Ping  /ping
+
+
 -- Diễn vỡ Tâm Ma		/tm
 TODO:
 

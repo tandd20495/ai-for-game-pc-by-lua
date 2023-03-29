@@ -48,6 +48,56 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/a") or (command == "/A") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp") 
+		return true
+	end
+	
+	if (command == "/s") or (command == "/S") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap") 
+		return true
+	end
+	
+	if (command == "/d") or (command == "/D") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
+		return true
+	end
+	
+	if (command == "/w") or (command == "/W") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai") 
+		return true
+	end
+	
+	if (command == "/q") or (command == "/Q") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes") 
+		return true
+	end	
+	
+	if (command == "/e") or (command == "/E") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
+		return true
+	end
+	
+	if (command == "/z") or (command == "/Z") then
+		nx_execute(nx_current(),"yBreaker_show_HP_bar")
+		return true
+	end
+	
+	if (command == "/b") or (command == "/B") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink") 
+		return true
+	end
+	
+	if (command == "/buff") or (command == "/BUFF") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","yBreaker_buff_hpmp")
+		return true
+	end
+	
+	if (command == "/th") or (command == "/TH") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_stackthbb") 
+		return true
+	end
+	
 	if (command == "/pvc") or (command == "/PVC") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_modpvc") 
 		return true	
@@ -73,17 +123,7 @@ function yBreaker_command_chat(str_chat)
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_codenew","new_function_admin_yBreaker")
 		return true
 	end
-	
-	if (command == "/p") or (command == "/P") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp") 
-		return true
-	end
-	
-	if (command == "/b") or (command == "/B") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
-		return true
-	end
-	
+		
 	if (command == "/tele") or (command == "/TELE") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_teleport") 
 		return true
@@ -113,19 +153,9 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_chat") 
 		return true
 	end
-	
-	if (command == "/s") or (command == "/S") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap") 
-		return true
-	end
-	
+		
 	if (command == "/skill") or (command == "/SKILL") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_spamskill","spam_Skill")
-		return true
-	end
-	
-	if (command == "/m") or (command == "/M") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai") 
 		return true
 	end
 	
@@ -138,39 +168,9 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_searchherb") 
 		return true
 	end
-	
-	if (command == "/mat") or (command == "/MAT") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes") 
-		return true
-	end
-	
-	if (command == "/blink") or (command == "/BLINK") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink") 
-		return true
-	end
-	
-	if (command == "/buffhp") or (command == "/BUFFHP") then
-		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","yBreaker_buff_hpmp")
-		return true
-	end
-	
+			
 	if (command == "/die") or (command == "/DIE") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_suicide","yBreaker_suicide_player")
-		return true
-	end
-	
-	if (command == "/showhp") or (command == "/SHOWHP") then
-		nx_execute(nx_current(),"yBreaker_show_HP_bar")
-		return true
-	end
-	
-	if (command == "/ping") or (command == "/PING") then
-		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
-		return true
-	end
-	
-	if (command == "/thbb") or (command == "/THBB") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_stackthbb") 
 		return true
 	end
 	
