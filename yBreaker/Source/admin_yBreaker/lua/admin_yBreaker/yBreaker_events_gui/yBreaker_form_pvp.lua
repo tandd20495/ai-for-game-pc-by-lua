@@ -9,12 +9,24 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_pvp"
 local auto_is_running = false
 
 local arrayActions = {
+	-- Phá def của các bộ skill
     -- Các bộ hay sử dụng
-    "chz_07", -- Tham Hợp Chỉ
+    "chz_07", 			-- Tham Hợp Chỉ
+	"tdbj_05", 			-- Huyết Hải Ma Đao
+	"xfz_07", 			-- Phật Tâm Chưởng
+	"jb_aq_08", 		-- Linh Lung Đầu
+	"wuji_CS_tm_ywt05", -- Diêm Vương Trịch Bút
+	"CS_yhwq_hsqs03" 	-- Hoa Thần (Vô Khuyết)
+	"tjq03",			-- Thái Cực Quyền (Cổ)
+	"myjf05", 			-- Mị Ảnh Kiếm Pháp
+	"dgbf05",			-- Đả Cẩu Bổng (Cổ)
+	"wxq_04", 			-- Long Trảo Thủ cổ
+	"shl_03", 			-- Thánh Hỏa Lệnh
+	"xld_05", 			-- Tu La Đao
+	"lhq03", 			-- La Hán Quyền
+	"jdmz03",			-- Kim Đỉnh
     "qzjf_05", -- Cù Chi Kiếm Pháp
-    "wxq_04", -- Long Trảo Thủ cổ
     "tzcq_06", -- Thái Cực Quyền
-    "xfz_07", -- Phật Tâm Chưởng
     "xsd_01_01", -- Huyết Sát Đao
     "CS_hs_kfkj05", -- Cuồng Phong Khoái Kiếm
     "xyt_07", -- Thô Thiển
@@ -24,12 +36,9 @@ local arrayActions = {
     "jb_8h_06", -- Phong Ma Trượng Pháp
     "jb_2h_08", -- Ngọc Nữ Kiếm Pháp (Trấn phái Nga Mi)
     "bxjf_05", -- Tịch Tà Kiếm Pháp
-    "CS_jh_myjf05", -- Mị Ảnh Kiếm Pháp
-    "shl_03", -- Thánh Hỏa Lệnh
     "wlbgg_02", -- Ngũ Lang Bát Quái Côn
     "dgb_08", -- Đả Cẩu Bổng
-    "jb_aq_08", -- Linh Lung Đầu
-
+	
     -- Các bộ ít hay sử dụng hơn
     "ynsxj_06", -- Ngọc Nữ Tố Tâm Kiếm
     "jsjf_04", -- Kim Xà Kiếm
@@ -37,7 +46,6 @@ local arrayActions = {
     "yyd07", -- Uyên Ương Song Đao (không nộ)
     "sfj_03", -- Thần Phong Quyết
     "kfdf07", -- Cuồng Phong Đao
-    "xld_05", -- Tu La Đao
     "bwq_04", -- Nhạc Gia Thương Pháp
     "CS_jh_klsjj01", -- Húc Nhật Kiếm Pháp
     "jb_2h_05", -- Đoạt Mệnh Thập Tam Kiếm
@@ -52,7 +60,7 @@ local arrayActions = {
     "yxj_04", -- Thái Huyền Tương Hoa Kiếm Phổ
     "CS_jz_yydbf02", -- Âm Dương Đại Bi Phủ (Mật truyền QTĐ)
     "yywd_06", -- Viên Nguyệt Loan Đao
-    "tdbj_05", -- Huyết Hải Ma Đao
+
     "CS_jh_ahlj04", -- Ngạo Hàn Lục Quyết
     "CS_jh_yydld01", -- Âm Dương Đảo Loạn Đao
     "CS_jh_gwc05", -- Quỷ Vương Thích
