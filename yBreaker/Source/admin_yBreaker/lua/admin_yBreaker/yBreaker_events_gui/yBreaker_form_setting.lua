@@ -7,9 +7,8 @@ end
 
 function on_main_form_open(form)
 	init_ui_content(form)
-	local gui = nx_value("gui")
 	form.Left = 100
-	form.Top = (gui.Height /2)
+	form.Top = 140
 end
 
 function init_ui_content(form)	
