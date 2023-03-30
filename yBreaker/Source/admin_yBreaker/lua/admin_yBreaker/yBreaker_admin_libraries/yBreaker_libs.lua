@@ -179,6 +179,11 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/use") or (command == "/USE") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_useitems") 
+		return true
+	end
+	
 	--if command == 'reload' then
 	--	local world = nx_value("world")
 	--	world:ReloadAllScript()
