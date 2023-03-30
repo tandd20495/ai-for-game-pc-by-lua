@@ -138,6 +138,7 @@ function btn_start_zither(cbtn)
 			yBreaker_show_Utf8Text("Mở khóa rương để tự mua đàn", 3)
 			return 
 		else 		
+			-- Mua Đàn trong Tạp Hóa ------------- Shop Giang hồ ---- 1: Công Cụ, 11: số thứ tự Đàn, 1: Mua (Tương tự vậy thì 1,1,1: Tab Công Cụ, Mua Liệp Thú Đoản Kiếm)
 			nx_execute("custom_sender", "custom_open_mount_shop", 1)
 			nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,11,1)
 			nx_execute("custom_sender", "custom_open_mount_shop", 0)

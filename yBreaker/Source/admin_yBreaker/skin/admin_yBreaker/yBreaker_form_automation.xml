@@ -16,9 +16,9 @@
             <event on_click="show_hide_form_chat" />
         </control>
 
-        <control name="tab_2_btn" entity="Button" script="" init="">
+        <control name="tab_2_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_stallonline" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="127" Top="55" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Bày Bán" Font="font_text_figure" AutoSize="true" />
-            <event on_click="" />
+            <event on_click="show_hide_form_stallonline" />
         </control>
 
         <control name="tab_3_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_useitems" init="">
@@ -43,13 +43,13 @@
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="15" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Kỳ Ngộ" Font="font_text_figure" AutoSize="true" />
             <event on_click="get_miracle" />
         </control>
-        <control name="tab_8_btn" entity="Button" script="" init="">
+        <control name="tab_8_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_winepractice" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="127" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Luyện Tửu" Font="font_text_figure" AutoSize="true" />
-            <event on_click="" />
+            <event on_click="show_hide_form_winepractice" />
         </control>
-        <control name="tab_9_btn" entity="Button" script="" init="">
+        <control name="tab_9_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_spammail" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="243" Top="135" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Gửi Thư" Font="font_text_figure" AutoSize="true" />
-            <event on_click="" />
+            <event on_click="show_hide_form_spammail" />
         </control>
 
         <control name="tab_10_btn" entity="Button" script="" init="">
