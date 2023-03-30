@@ -464,9 +464,9 @@ function get_qt_data(npc_id)
         return {"841001121", "841001122", "841001123", "840011231"}
     end
     -- Từ Lão Hán (Nữ Nhi Hồng x4)
-    if npc_id == "npc_qygp_zy_xlh2" then
-        return {"841004884", "841004885", "100011213", "101011213"}
-    end
+    -- if npc_id == "npc_qygp_zy_xlh2" then
+    --     return {"841004884", "841004885", "100011213", "101011213"}
+    -- end
     -- Tiểu Mẫn (Thiết 1)
     if npc_id == "npc_qy_luxia_xiaomin_0" then
         return {"841005683", "100012257", "101012257"}
@@ -476,13 +476,13 @@ function get_qt_data(npc_id)
     --	return {"841001445", "840014451"}
     --end
     -- Ô Hạ (Nữ Nhi Hồng x4)
-    if npc_id == "npc_qygp_cc_wu" then
-        return {"841004886", "100018911", "101018911"}
-    end
+    -- if npc_id == "npc_qygp_cc_wu" then
+    --     return {"841004886", "100018911", "101018911"}
+    -- end
     -- Bốc Man Tài (Gà Nướng Trui)
-    if npc_id == "NPC_qygp_bybukuai" then
-        return {"841004952", "100018240", "101018240"}
-    end
+    -- if npc_id == "NPC_qygp_bybukuai" then
+    --     return {"841004952", "100018240", "101018240"}
+    -- end
     -- Trần Tiểu Thành (Nghịch Thiên Tà Công)
     if npc_id == "funnpcskill002001" then
         return {"841004298", "841004299", "841004300", "840043000"}
@@ -492,9 +492,9 @@ function get_qt_data(npc_id)
         return {"841006152", "100010345", "101010345"}
     end
     -- Ngô Quỳnh (Kim Ngân Hoa)
-    if npc_id == "Npc_qygp_chz_003" then
-        return {"841006740", "840067400"}
-    end
+    -- if npc_id == "Npc_qygp_chz_003" then
+    --     return {"841006740", "840067400"}
+    -- end
     -- Chồn con (Điêu nhung)
     --if npc_id == "npc_cwqy_cc_01" then
     --	return {"841004405", "100012222", "101012222"}
@@ -508,9 +508,9 @@ function get_qt_data(npc_id)
         return {"841003672", "840036720"}
     end
     -- La Sát Nữ (Tử Hà)
-    if npc_id == "qy_ng_cjbook_jh_204" then
-        return {"841003675", "840036750"}
-    end
+    -- if npc_id == "qy_ng_cjbook_jh_204" then
+    --     return {"841003675", "840036750"}
+    -- end
     -- Năng Chuyên Đô (Bệ Xảo 2)
     --if npc_id == "WorldNpc09727" then
     --	return {"841001239", "840012391"}
@@ -524,9 +524,9 @@ function get_qt_data(npc_id)
         return {"841001465", "841001466", "841001467", "841001517", "841001518", "841001519", "840015191"}
     end
     -- Lư Đại Thúc (Phệ Ma Tán)
-    if npc_id == "npc_qygp_dy_wle" then
-        return {"841004887", "100018763", "101018763"}
-    end
+    -- if npc_id == "npc_qygp_dy_wle" then
+    --     return {"841004887", "100018763", "101018763"}
+    -- end
     -- Võ tăng tuần tra (Long Trảo Thủ)
     if npc_id == "sl006" then
         return {"841000819", "841000820", "840008201"}
@@ -556,9 +556,9 @@ function get_qt_data(npc_id)
         return {"841000879", "841000936", "840009361"}
     end
     -- Kiếm Ngô Khu (Phệ Ma Tán)
-    if npc_id == "NPC_qygp_tjq_jmy001" then
-        return {"841004877", "841004878", "841004879", "841004880", "841004881", "841004882", "841004883", "100010930", "101010930"}
-    end
+    -- if npc_id == "NPC_qygp_tjq_jmy001" then
+    --     return {"841004877", "841004878", "841004879", "841004880", "841004881", "841004882", "841004883", "100010930", "101010930"}
+    -- end
     -- Bành Xương Quý (Đả Cẩu Bổng)
     if npc_id == "WorldNpc04349" then
         return {"841002465", "841002466", "841002467", "841002468", "841002470", "100017404", "101017404"}

@@ -193,7 +193,7 @@ end
 
 -- Function to write log
 function yBreaker_console(str, isdebug)
-	local file = io.open("D:\\log_yBreaker.txt", "a")
+	local file = io.open("D:\\yBreaker_log.txt", "a")
 	if file == nil then
 		nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_widestr("Can't open file D:\\log_yBreaker.txt, please check this file!"), 3)
 	else

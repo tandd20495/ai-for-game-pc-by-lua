@@ -115,20 +115,18 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 --10: Tạp hóa	 /shop
 --11: Sữa đồ	 /fix
 --12: Tự rao	 /chat
-
-
-		***Nếu chưa swap oản 30% + bt 10% cùng 1 skill thì auto k lỗi, còn swap oản skill đó rồi nhưng vẫn ra skill đó tiếp theo sẽ bị giật bình thư 10% của skill đó
-		***Nếu swap bt10% của skill đó trước vẫn k bị giật bt, chỉ khi đang ra skill mà tự swap sang bth khác thì auto sẽ giật khi swap lại bth của skill đang ra
-		*** Ví dụ: Đang nộ Đạn chỉ
-		* Auto tự swap oản + bth đạn chỉ, đang trong trạng thái ra skill mà tự swap quá bình thư khác auto sẽ giật để swap 2 bth
-		* Còn swap oản + bth trước khi ra skill sẽ không giật
 		
 --14: Auto Skill /skill		CÓ thể dùng ném phi tiêu, có buff đội
 	
 --16: Tìm đàn	 /timdan 	Chưa hiển thị được key pt của đàn
 --17: Tìm cây	 /timcay 	
 
-
+*** Lưu ý khi swap:
+***Nếu chưa swap oản 30% + bt 10% cùng 1 skill thì auto k lỗi, còn swap oản skill đó rồi nhưng vẫn ra skill đó tiếp theo sẽ bị giật bình thư 10% của skill đó
+***Nếu swap bt10% của skill đó trước vẫn k bị giật bt, chỉ khi đang ra skill mà tự swap sang bth khác thì auto sẽ giật khi swap lại bth của skill đang ra
+*** Ví dụ: Đang nộ Đạn chỉ
+* Auto tự swap oản + bth đạn chỉ, đang trong trạng thái ra skill mà tự swap quá bình thư khác auto sẽ giật để swap 2 bth
+* Còn swap oản + bth trước khi ra skill sẽ không giật
 *** Lưu ý: 
 Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nhảy.
 Dừng blink bằng cách tắt form
@@ -137,6 +135,8 @@ Dừng blink bằng cách tắt form
 
 
 -- Diễn vỡ Tâm Ma		/tm
+-- Use vật phẩm ô đầu tiên trong hành trang
+-- Tự nhận kỳ ngộ
 TODO:
 
 - /help: Cách sử dụng và các lệnh trong yBreaker
