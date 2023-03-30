@@ -90,7 +90,7 @@ function on_btn_speed_apply_click(btn)
     end
     autoStartSpeed = true
     btn.btn_speed_apply.Text = nx_widestr("Stop Speed")
-    yBreaker_show_Utf8Text("Tốc Độ tăng: "..nx_string(nx_int(speed_int)).." lần", 3)
+    yBreaker_show_Utf8Text("Tốc độ hiện tại tăng: "..nx_string(nx_int(speed_int)).." lần", 3)
     yBreaker_show_Utf8Text("Chỉ sử dụng khi khinh công.", 3)
     autoSpeed(nx_int(speed_int))
   end
