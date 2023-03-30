@@ -90,8 +90,8 @@ function on_btn_speed_apply_click(btn)
     end
     autoStartSpeed = true
     btn.btn_speed_apply.Text = nx_widestr("Stop Speed")
-    yBreaker_show_Utf8Text("Tốc Độ Là : "..nx_string(nx_int(speed_int)).." lần", 3)
-    yBreaker_show_Utf8Text("Auto chỉ sử dụng khi khinh công. Ít sữ dụng tránh bị report", 3)
+    yBreaker_show_Utf8Text("Tốc Độ tăng: "..nx_string(nx_int(speed_int)).." lần", 3)
+    yBreaker_show_Utf8Text("Chỉ sử dụng khi khinh công.", 3)
     autoSpeed(nx_int(speed_int))
   end
   update_btn_start_speed()
@@ -109,7 +109,7 @@ function on_btn_add_hate_player_click(btn)
 --    for str in string.gmatch(nx_function("ext_widestr_to_utf8", ), "([^".."%s".."]+)") do
  --           table.insert(hate_player_name, str)
  --   end	
-	local player_name = form1.ipt_char_name.Text
+	local player_name = nx_string(form1.ipt_char_name.Text)
     nx_execute("custom_sender", "custom_add_relation", nx_int(10), nx_function("ext_utf8_to_widestr", player_name), nx_int(3), nx_int(-1))
 	
 	--//Add danh sách đen
@@ -182,7 +182,7 @@ function on_btn_jump_hight_click(btn)
 	
 		isStartJump = true
 		form1.btn_jump_hight.Text =  nx_function("ext_utf8_to_widestr", "Dừng Lại")
-		yBreaker_show_Utf8Text("Ít sữ dụng tránh bị report chỉ nên dùng cho đàn", 3)
+		yBreaker_show_Utf8Text("Tự nhảy cao chỉ nên dùng cho clone đàn", 3)
 		jumpjump()
 	end
 	
