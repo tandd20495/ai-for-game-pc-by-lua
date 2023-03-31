@@ -428,7 +428,6 @@ function on_btn_jonner_click(btn)
 		-- Tự sang map TĐ và di chuyển tới vị trí chỉ định
 		if form.cbtn_tele.Checked then 
 			move_city_map_lc()
-		end
 		else
 			run_auto_jonner()
 		end
