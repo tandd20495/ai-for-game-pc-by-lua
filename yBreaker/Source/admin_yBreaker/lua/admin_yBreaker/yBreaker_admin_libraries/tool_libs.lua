@@ -5,6 +5,8 @@ require("share\\server_custom_define")
 require("define\\sysinfo_define")
 require("share\\chat_define")
 require("define\\request_type")
+require("form_stage_main\\form_homepoint\\form_home_point")
+require("form_stage_main\\form_homepoint\\home_point_data")
 
 local inspect = require("admin_yBreaker\\yBreaker_admin_libraries\\inspect")
 local md5 = require("admin_yBreaker\\yBreaker_admin_libraries\\md5")
@@ -2474,3 +2476,256 @@ function AutoGetCurSelect2()
   end
   return nil
 end
+
+-- Thụ nghiệp
+function X_DeadState(OBJ)
+	if nx_is_valid(nx_value("game_client")) and nx_is_valid(nx_value("game_client"):GetPlayer()) and nx_value("game_client"):GetPlayer():FindProp("LogicState") and nx_value("game_client"):GetPlayer():QueryProp("LogicState") == 120 then
+		return true
+	end
+	if nx_is_valid(nx_value("game_client")) and nx_is_valid(nx_value("game_client"):GetPlayer()) and nx_value("game_client"):GetPlayer():FindProp("Dead") and nx_value("game_client"):GetPlayer():QueryProp("Dead") == 1 then
+		return true
+	end
+	return false
+end
+
+function X_Relive(type,p_time)
+	if type == "near" then
+		nx_execute("custom_sender", "custom_relive", 2, 0)
+		nx_pause(p_time)
+	elseif type == "home" then
+		nx_execute("custom_sender", "custom_relive", 0, 0)
+		nx_pause(p_time)
+	elseif type == "chientruong" then
+		nx_execute("custom_sender", "custom_relive", 10)
+		nx_pause(p_time)
+	end
+end
+
+function X_GetHomeSchool()
+	local game_client = nx_value("game_client")
+	if not nx_is_valid(game_client) then
+		return nil
+	end
+	local client_player = game_client:GetPlayer()
+	local home_tele_id = nil
+	local maxhp = GetRecordHomePointCount()
+	for index = maxhp-1, 0, -1 do
+		if nx_is_valid(client_player) then
+			local home_tele_index = client_player:QueryRecord(HomePointList, index, 1)
+			if nx_string(home_tele_index) == "2" then
+				home_tele_id = nx_string(client_player:QueryRecord(HomePointList, index, 0))
+				break
+			end
+		end
+	end
+	return home_tele_id
+end
+
+function tele(hp_id)
+	local target_hp = nx_string(hp_id)
+	local is_exist = IsExistRecordHomePoint(nx_string(target_hp))
+	if is_exist then
+		send_homepoint_msg_to_server(Use_HomePoint,target_hp,4)
+		return true
+	else
+		local _ExTypecount = GetExistHomePointCount(JiangHu_HomePoint)
+		local _MaxTypeCount = GetTypeHomePointCount(JiangHu_HomePoint)
+		if _ExTypecount < _MaxTypeCount then
+			send_homepoint_msg_to_server(Add_HomePoint,target_hp)
+			--nx_execute("form_stage_main\\form_homepoint\\home_point_data","send_homepoint_msg_to_server",Add_HomePoint,target_hp)
+			nx_pause(0.5)
+			send_homepoint_msg_to_server(Use_HomePoint,target_hp,4)
+			--nx_execute("form_stage_main\\form_homepoint\\home_point_data","send_homepoint_msg_to_server",Use_HomePoint,target_hp,4)
+			return true
+		else
+			local game_client = nx_value("game_client")
+			local client_player = game_client:GetPlayer()
+			if nx_is_valid(client_player) then
+				local maxhp = GetRecordHomePointCount()
+				for index = maxhp-1, 0, -1 do
+					local last_hp_id = client_player:QueryRecord(HomePointList, index, 0)
+					local bRet, hp_info = GetHomePointFromHPid(last_hp_id)
+					if bRet == true then
+						local hp_type = get_hp_type(hp_info[HP_TYPE])
+						if hp_type == JiangHu_HomePoint then
+							send_homepoint_msg_to_server(Del_HomePoint,last_hp_id)
+							--nx_execute("form_stage_main\\form_homepoint\\home_point_data","send_homepoint_msg_to_server",Del_HomePoint,last_hp_id)
+							nx_pause(0.5)
+							send_homepoint_msg_to_server(Add_HomePoint,target_hp)
+							--nx_execute("form_stage_main\\form_homepoint\\home_point_data","send_homepoint_msg_to_server",Add_HomePoint,target_hp)
+							nx_pause(0.5)
+							send_homepoint_msg_to_server(Use_HomePoint,target_hp,4)
+							--nx_execute("form_stage_main\\form_homepoint\\home_point_data","send_homepoint_msg_to_server",Use_HomePoint,target_hp,4)
+							return true
+							--break
+						end
+					end
+				end
+			end
+		end
+	end
+end
+
+function tele_map(map)
+	local HPCount = GetSceneHomePointCount()
+	if HPCount >= 0 then
+		for i = 0, HPCount - 1 do
+			local bRet, hp_info = GetHomePointFromIndexNo(i)
+			if bRet == true then
+				--Trùng hàm get_scene_name nên phải gọi trực tiếp get_scene_name của home_point_data mới xử lý dc HP_SCENE_NO
+				local sceneID = nx_execute("form_stage_main\\form_homepoint\\home_point_data","get_scene_name",nx_int(hp_info[HP_SCENE_NO]))
+				--local sc_name = get_scene_name(sceneID)
+				local hpTYPE = hp_info[HP_TYPE]
+				if (map == sceneID or map == get_scene_name(sceneID)) and hpTYPE <= 1 then
+					local tele_id = nx_string(hp_info[HP_ID])
+					tele(tele_id)
+					return true
+				end
+			end
+		end
+	end
+end
+
+function map_id()
+	local client = nx_value("game_client")
+	if not nx_is_valid(client) then
+		return
+	end
+	local scene = client:GetScene()
+	if not nx_is_valid(scene) then
+		return
+	end
+	return scene:QueryProp("Resource")
+end
+
+function move_(scene, x, y, z, passtest)
+	if passtest == nil then
+		passtest = true
+	end
+	if passtest == true then
+		tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang chạy tới..."))
+		nx_value("path_finding"):FindPathScene(scene, x, y, z, 0)
+		return true
+	end
+end
+
+function be_finding(visual_player)
+	if nil == visual_player then
+		local game_visual = nx_value("game_visual")
+		if not nx_is_valid(game_visual) then
+			return false
+		end
+		visual_player = game_visual:GetPlayer()
+	end
+	if nx_find_custom(visual_player, "path_finding") then
+		if visual_player.path_finding and visual_player.path_finding ~= nil then
+			return true
+		end
+	end
+
+	return false
+end
+
+function X_StopFinding()
+	if nx_is_valid(nx_value("game_visual")) then
+		nx_value("path_finding"):StopPathFind(nx_value("game_visual"):GetPlayer())
+	end
+end
+
+function xuongngua()
+	if get_buff_info("buf_riding_01") ~= nil then
+		nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+		nx_pause(0.2)
+	end
+end
+
+function stop_finding()
+	if be_finding() then
+		local form_map = nx_value("form_stage_main\\form_map\\form_map_scene")
+		local start_x = form_map.pic_map.TerrainStartX
+		local start_z = form_map.pic_map.TerrainStartZ
+		move_(map_id(),start_x, 0, start_z,true)
+		--nx_value("path_finding"):StopPathFind(nx_value("game_visual"):GetPlayer())
+	end
+end
+
+-- Lấy data npc dịch chuyển ẩn thế về bát phái
+function atData(name)
+	-- Đạt Ma
+	if name == "newschool_damo" then
+		return {
+		telemap="school18",
+		related_map="school08",
+		npc_id = "offline_chuansong_dmp01",
+		--toa_do = {x = -375.869, y = 276.226, z = -573.367},
+		talk_code = {841007892, 840007892}
+		}
+	end
+	-- Huyết Đao
+	if name == "newschool_xuedao" then
+		return {
+		telemap="born02",
+		related_map="school01",
+		npc_id = "offline_chuansong_xd01",
+		--toa_do = {x = 557.210, y = 32.434, z = 918.891},
+		talk_code = {841007530, 840007530}
+		}
+	end
+	-- Hoa Sơn
+	if name == "newschool_huashan" then
+		return {
+		telemap="school17",
+		related_map="school03",
+		npc_id = "offline_chuansong_hsp01",
+		--toa_do = {x = 1566.037, y = 133.525, z = 693.222},
+		talk_code = {841007886, 840007886}
+		}
+	end
+	-- Thần Thủy Cung
+	if name == "newschool_shenshui" then
+		return {
+		telemap="school19",
+		related_map="school06",
+		npc_id = "offline_chuansong_ssg01",
+		talk_code = {841007890, 840007890}
+		}
+	end
+	-- Ngũ Tiên
+	if name == "newschool_wuxian" then
+		return {
+		telemap="school12",
+		related_map="school04",
+		npc_id = "offline_chuansong_wxj01",
+		talk_code = {841007888, 840007888}
+		}
+	end
+	-- Cổ Mộ
+	if name == "newschool_gumu" then
+		return {
+		telemap="school14",
+		related_map="school07",
+		npc_id = "offline_chuansong_gm01",
+		talk_code = {841007534, 840007534}
+		}
+	end
+	-- TPTC
+	if name == "newschool_changfeng" then
+		return {
+		telemap="city03",
+		related_map="school02",
+		npc_id = "offline_chuansong_cf01",
+		talk_code = {841007773, 840007773}
+		}
+	end
+	-- Niệm La
+	if name == "newschool_nianluo" then
+		return {
+		telemap="school15",
+		related_map="school05",
+		npc_id = "offline_chuansong_nl01",
+		talk_code = {841007775, 840007775}
+		}
+	end
+	return false
+end
+-----XData--End
