@@ -4,7 +4,12 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_winepractice"
 function DoDrinking(cbtn)
 	UpdateStatus()
 	local form = cbtn.ParentForm
-	while form.auto_start do
+	
+	if not nx_is_valid(form) then
+        return
+    end
+	
+	while form.auto_start do -- Văng exception khi đang uống rượu mà tắt form
 		nx_pause(0.1)
 		local game_client=nx_value("game_client")
 		local game_visual=nx_value("game_visual")
@@ -102,8 +107,9 @@ end
 function on_btn_close_click(btn)
 	local form = nx_value(THIS_FORM)
 	if not nx_is_valid(form) then
-		return nil
+		return
 	end
+	form.auto_start = false
 	on_main_form_close(form)
 end
 

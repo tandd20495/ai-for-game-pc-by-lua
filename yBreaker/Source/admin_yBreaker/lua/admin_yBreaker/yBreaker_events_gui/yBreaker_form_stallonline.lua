@@ -12,9 +12,9 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_stallonline"
 
 function run_stall_online()
 	-- Click 1 cai thi chay, click cai nua thi dung
-	if not auto_is_running then
-		auto_is_running = true
-		tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu bày hàng online"))
+	--if not auto_is_running then
+	--	auto_is_running = true
+	--	tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu bày hàng online"))
 
 		while auto_is_running == true do
 			local FORM_STALL_MAIN = "form_stage_main\\form_stall\\form_stall_main"
@@ -38,7 +38,7 @@ function run_stall_online()
 				local gui = nx_value("gui")
 				if form.lbl_stall_pos.Text == gui.TextManager:GetText("@ui_stall_null") then
 					-- Sẵn sàng bày hàng
-					tools_show_notice(util_text("ui_stall_null"))
+					tools_show_notice(nx_function("ext_utf8_to_widestr", "Sẵn sàng bày hàng"))
 
 					local btn = form.btn_online_stall
 					nx_execute(FORM_STALL_MAIN, "on_btn_online_stall_click", btn)
@@ -52,10 +52,10 @@ function run_stall_online()
 					end
 				elseif form.lbl_stall_pos.Text == gui.TextManager:GetText("@ui_stall_out") then
 					-- Khu không bày hàng
-					tools_show_notice(util_text("ui_stall_out"))
+					tools_show_notice(nx_function("ext_utf8_to_widestr", "Khu không bày hàng"))
 				else
 					-- Đang bày hàng
-					tools_show_notice(util_text("ui_stall_baitanzhong"))
+					tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang bày hàng"))
 				end
 
 				tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang bày hàng online"))
@@ -65,10 +65,10 @@ function run_stall_online()
 				nx_pause(0.2)
 			end
 		end
-	else
-		auto_is_running = false
-		tools_show_notice(nx_function("ext_utf8_to_widestr", "Kết thúc bày hàng online"))
-	end
+	--else
+		--auto_is_running = false
+		--tools_show_notice(nx_function("ext_utf8_to_widestr", "Kết thúc bày hàng online"))
+	--end
 end
 
 function on_form_main_init(form)
@@ -118,7 +118,14 @@ function on_btn_control_click(btn)
 		return
 	end
 	
-	-- Run stall online
-	run_stall_online()
-	btn.Text = nx_function("ext_utf8_to_widestr", "Bày Hàng")
+	if not auto_is_running then
+		auto_is_running = true
+		btn.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
+		run_stall_online()	
+	
+	else
+		auto_is_running = flase
+		btn.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")		
+	end
+
 end
