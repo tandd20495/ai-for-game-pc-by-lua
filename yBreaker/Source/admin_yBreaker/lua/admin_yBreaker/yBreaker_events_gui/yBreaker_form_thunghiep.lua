@@ -56,7 +56,8 @@ end
 
 function on_btn_thunghiep_click(btn)
 	local form = btn.ParentForm
-	if not nx_is_valid(getform) then
+	
+	if not nx_is_valid(form) then
 		return
 	end	
 	
@@ -65,9 +66,11 @@ function on_btn_thunghiep_click(btn)
 		if is_running then 
 			btn.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
 		    is_running = false
+			tools_show_notice(nx_function("ext_utf8_to_widestr", "Kết thúc treo thụ nghiệp"))
 		else
 			btn.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
 		    is_running = true
+			tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu treo thụ nghiệp"))
 			start_thu_nghiep()
 		end
 	end

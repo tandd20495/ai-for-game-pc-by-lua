@@ -81,7 +81,7 @@ function run_auto_leader()
             local cfg_stop_uturn = nx_int(form.combobox_stop2.Text)
 			
 			-- Tele qua map thành đô và chạy tới vị trí mở
-			move_city_map_lc()
+			--move_city_map_lc()
 
             -- Cho cái form lên đầu tiên
             local gui = nx_value("gui")
@@ -317,7 +317,7 @@ function on_main_form_open(form)
     end
     combobox.Text = nx_widestr(3)
 
-    local html = nx_function("ext_utf8_to_widestr", "LC 25 TGT nhanh nhanh m.n ơi!")
+    local html = nx_function("ext_utf8_to_widestr", "LC 25 TGT nhanh nào m.n ơi!")
     form.txt_content:Append(html, -1)
 end
 
@@ -398,15 +398,16 @@ function on_btn_leader_click(btn)
         form.btn_jonner.Visible = true
     else
         auto_is_running = true
-        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng mở luyện nhóm")
         form.btn_jonner.Visible = false
         last_chat = os.time() - 16
 		
 		-- Tự sang map TĐ và di chuyển tới vị trí chỉ định
 		if form.cbtn_tele.Checked then 
 			move_city_map_lc()
+		else
+			run_auto_leader()
 		end
-        run_auto_leader()
     end
 end
 
@@ -421,14 +422,16 @@ function on_btn_jonner_click(btn)
         form.btn_leader.Visible = true
     else
         auto_is_running = true
-        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng luyện nhóm")
         form.btn_leader.Visible = false
 		
 		-- Tự sang map TĐ và di chuyển tới vị trí chỉ định
 		if form.cbtn_tele.Checked then 
 			move_city_map_lc()
 		end
-        run_auto_jonner()
+		else
+			run_auto_jonner()
+		end
     end
 end
 
@@ -457,6 +460,7 @@ end
 -- Tự động dịch chuyển tới thành đô và chạy tới vị trí LC
 function move_city_map_lc()
 	local city = map_id()
+	local form = nx_value(THIS_FORM)
 	if city == "city05" then
 		if not tools_move_isArrived( x, y, z) and not nx_is_valid(view)  then
 			tools_move(city, x,y, z, direct_run)
@@ -464,7 +468,13 @@ function move_city_map_lc()
 			direct_run = false
 		end
 		if  tools_move_isArrived( x, y, z) then
-			xuongngua()
+			
+			if form.btn_leader.Visible then
+				run_auto_leader()
+			else
+				run_auto_jonner()
+			end
+			
 			nx_pause(0.2)
 		end
 	else
@@ -478,7 +488,13 @@ function move_city_map_lc()
 			direct_run = false
 		end
 		if  tools_move_isArrived( x, y, z) then
-			xuongngua()
+		
+			if form.btn_leader.Visible then
+				run_auto_leader()
+			else
+				run_auto_jonner()
+			end
+			
 			nx_pause(0.2)
 		end
 	end
