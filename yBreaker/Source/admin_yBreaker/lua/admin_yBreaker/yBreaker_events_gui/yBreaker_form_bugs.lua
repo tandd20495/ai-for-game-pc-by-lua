@@ -109,8 +109,7 @@ function on_btn_add_hate_player_click(btn)
 --    for str in string.gmatch(nx_function("ext_widestr_to_utf8", ), "([^".."%s".."]+)") do
  --           table.insert(hate_player_name, str)
  --   end	
-	local player_name = nx_string(form1.ipt_char_name.Text)
-    nx_execute("custom_sender", "custom_add_relation", nx_int(10), nx_function("ext_utf8_to_widestr", player_name), nx_int(3), nx_int(-1))
+    nx_execute("custom_sender", "custom_add_relation", nx_int(10), nx_widestr(form1.ipt_char_name.Text), nx_int(3), nx_int(-1))
 	
 	--//Add danh sách đen
 	--nx_execute("custom_sender", "custom_add_relation", 4, nx_widestr("Fanta.Sarsi"), 8, nx_int(-1))	
@@ -131,8 +130,7 @@ function on_btn_del_hate_player_click(btn)
     end
 	
 	local form1 = util_get_form("admin_yBreaker\\yBreaker_form_bugs", true, false)	
-	local player_name = form1.ipt_char_name.Text
-	nx_execute("custom_sender", "custom_add_relation", nx_int(6), nx_function("ext_utf8_to_widestr", player_name), nx_int(3), nx_int(-1))
+	nx_execute("custom_sender", "custom_add_relation", nx_int(6), nx_widestr(form1.ipt_char_name.Text), nx_int(3), nx_int(-1))
 end
 
 -- Function Hải bố
