@@ -135,8 +135,17 @@ Dừng blink bằng cách tắt form
 
 
 -- Diễn vỡ Tâm Ma		/tm
--- Use vật phẩm ô đầu tiên trong hành trang
--- Tự nhận kỳ ngộ
+-- Use vật phẩm ô đầu tiên trong hành trang /use
+-- Tự nhận kỳ ngộ 		/kn
+-- Automation form		/at
+-- Treo shop			/stall
+-- Luyện tửu			/lt
+-- Spam mail			/sm
+-- Luyện công			/lc
+-- Thụ nghiệp			/tn
+-- Vận tiêu			/vt
+-- Mã hóa + tự nhập pass rương	/pw 
+
 TODO:
 
 - /help: Cách sử dụng và các lệnh trong yBreaker

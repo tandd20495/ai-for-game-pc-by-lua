@@ -1,4 +1,5 @@
---[[DO: Skip story of quest --]]
+--[[DO: Skip story of quest/ Unlock password2 --]]
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("share\\server_custom_define")
 require("share\\client_custom_define")
 require("share\\view_define")
@@ -5211,7 +5212,17 @@ function on_check_second_word(self, arg_num, msg_type, ...)
     if 1 < table.getn(arg) then
       count = arg[2]
     end
-    nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))
+
+--[ADD: Logic auto unlock password 2 for yBreaker
+	if check_encrypted_pw2() == true then
+		unlock_my_pw2()
+		yBreaker_Wstr_to_Utf8("Khẩu lệnh xác nhận thành công, thành công gỡ bỏ bảo vệ")	
+	else
+		nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))			
+	end
+--REM:  nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))
+--]
+
   elseif sub_msg_index == SERVER_SUBMSG_QUERY_MOBILE_CODE then
     nx_execute("form_stage_main\\from_word_protect\\form_enthrall_secword", "on_server_msg", unpack(arg))
   elseif sub_msg_index == SERVER_SUBMSG_RESET_SECOND_WORD then

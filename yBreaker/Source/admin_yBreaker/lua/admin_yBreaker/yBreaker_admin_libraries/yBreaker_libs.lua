@@ -7,6 +7,43 @@ require("define\\request_type")
 
 local inspect = require("admin_yBreaker\\yBreaker_admin_libraries\\inspect")
 
+-- Character table string
+local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+-- encoding
+function yBreaker_enc_o_d_e(data)
+  return ((data:gsub('.', function(x) 
+    local r,b='',x:byte()
+    for i=8,1,-1 do r=r..(b%2^i-b%2^(i-1)>0 and '1' or '0') end
+    return r;
+  end)..'0000'):gsub('%d%d%d?%d?%d?%d?', function(x)
+    if (#x < 6) then return '' end
+    local c=0
+    for i=1,6 do c=c+(x:sub(i,i)=='1' and 2^(6-i) or 0) end
+    return b:sub(c+1,c+1)
+  end)..({ '', '==', '=' })[#data%3+1])
+end
+-- decoding
+function yBreaker_dec_o_d_e(data)
+  data = string.gsub(data, '[^'..b..'=]', '')
+  return (data:gsub('.', function(x)
+    if (x == '=') then return '' end
+    local r,f='',(b:find(x)-1)
+    for i=6,1,-1 do r=r..(f%2^i-f%2^(i-1)>0 and '1' or '0') end
+    return r;
+  end):gsub('%d%d%d?%d?%d?%d?%d?%d?', function(x)
+    if (#x ~= 8) then return '' end
+    local c=0
+    for i=1,8 do c=c+(x:sub(i,i)=='1' and 2^(8-i) or 0) end
+    return string.char(c)
+  end))
+end
+
+-- Show notice dialog to warning
+function yBreaker_send_notice_dialog(content)
+  local content = nx_function("ext_utf8_to_widestr", content)
+  ShowTipDialog(content)
+end
+
 -- Function to show WideString Text all system
 -- Use: yBreaker_show_WstrText(util_text("Text"))
 function yBreaker_show_WstrText(info, noticetype)
@@ -181,6 +218,51 @@ function yBreaker_command_chat(str_chat)
 	
 	if (command == "/use") or (command == "/USE") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_useitems") 
+		return true
+	end
+	
+	if (command == "/at") or (command == "/AT") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_automation") 
+		return true
+	end
+	
+	if (command == "/stall") or (command == "/STALL") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_stallonline") 
+		return true
+	end
+	
+	if (command == "/kn") or (command == "/KN") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle","get_miracle")
+		return true
+	end
+	
+	if (command == "/lt") or (command == "/LT") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_winepractice") 
+		return true
+	end
+	
+	if (command == "/sm") or (command == "/SM") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_spammail") 
+		return true
+	end
+	
+	if (command == "/lc") or (command == "/LC") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_luyencong") 
+		return true
+	end
+	
+	if (command == "/tn") or (command == "/TN") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_thunghiep") 
+		return true
+	end
+	
+	if (command == "/vt") or (command == "/VT") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_vantieu") 
+		return true
+	end
+	
+	if (command == "/pw") or (command == "/PW") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_password") 
 		return true
 	end
 	
@@ -369,6 +451,65 @@ end
 function yBreaker_use_skill_id(skill_id)
 	local fight = nx_value("fight")
 	fight:TraceUseSkill(skill_id, false, false)
+end
+
+-- Function to unlock password 2
+-- Function unlock pass 2
+function unlock_my_pw2()
+	local ini = nx_create("IniDocument")
+	local file = Get_Auto_ConfigDir("Password")
+  	ini.FileName = file
+  	if not ini:LoadFromFile() then
+		nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_function("ext_utf8_to_widestr"," Chưa lưu mật khẩu rương."), 2)
+  		return false
+  	end
+	local read_PR = nx_string(ini:ReadString("Pw2", "Pw2_Encrytped", ""))
+	if read_PR ~= nil and read_PR ~= "" and read_PR ~= " " then
+		local dec_d = yBreaker_dec_o_d_e(read_PR)
+		nx_execute("custom_sender", "check_second_word", nx_widestr(dec_d))
+	else
+		nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_function("ext_utf8_to_widestr","Chưa lưu mật khẩu rương."), 2)
+		return false
+	end
+end
+
+function check_encrypted_pw2()
+	local ini = nx_create("IniDocument")
+	local file = Get_Auto_ConfigDir("Password")
+  	ini.FileName = file
+  	if not ini:LoadFromFile() then
+  		return false
+  	end
+	local read_PR = nx_string(ini:ReadString("Pw2", "Pw2_Encrytped", ""))
+	if read_PR ~= nil and read_PR ~= "" and read_PR ~= " " then
+		return true
+	else
+		return false
+	end
+end
+
+function Get_Auto_ConfigDir(Auto_Type)
+	local game_config = nx_value("game_config")
+	local account = game_config.login_account
+    local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
+    local file = ""
+    if not nx_function("ext_is_exist_directory", nx_string(dir)) then
+		nx_function("ext_create_directory", nx_string(dir))
+    end
+	if Auto_Type == "Password" then
+		file = dir .. nx_string("\\Password.ini")
+	end
+	
+	
+    if not nx_function("ext_is_file_exist", file) then
+		if Auto_Type == "Password" then
+			local PR = nx_create("StringList")
+			PR:AddString("[Pw2]")
+			PR:AddString("Pw2_Encrytped=")
+			PR:SaveToFile(file)
+		end
+    end
+    return file
 end
 
 
