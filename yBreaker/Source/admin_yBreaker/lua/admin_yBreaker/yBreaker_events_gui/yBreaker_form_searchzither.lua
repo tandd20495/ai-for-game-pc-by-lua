@@ -57,17 +57,18 @@ function auto_run()
 		            obj_type = game_scence_objs[i]:QueryProp("Type")
 		        end
 		        if obj_type == 2 and game_scence_objs[i]:FindProp("GameState") and  game_scence_objs[i]:QueryProp("GameState") == "QinGameModule" then
-					local zither_name = game_scence_objs[i]:QueryProp("Name")
-					local zither_ident = game_scence_objs[i]:QueryProp("Ident")
-					local zither_bang = game_scence_objs[i]:QueryProp("GuildName")
-					local zither_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel")))
+					local zither_name = game_scence_objs[i]:QueryProp("Name") -- Lấy tên của mục tiêu
+					local zither_ident = game_scence_objs[i]:QueryProp("Ident") -- Tọa độ
+					local zither_bang = game_scence_objs[i]:QueryProp("GuildName") -- Lấy tên Bang của mục tiêu
+					local zither_keypt = game_scence_objs[i]:QueryProp("TeamCaptain") -- Lấy tên đội trưởng của mục tiêu
+					--local zither_tl = util_text(yBreaker_get_powerlevel(game_scence_objs[i]:QueryProp("PowerLevel"))) -- Tạm thời tìm đàn k cần show thực lực của đàn
 					local zither_posX = string.format("%.0f", game_scence_objs[i].PosiX)
 					local zither_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
 
 					local pathX = game_scence_objs[i].DestX
 					local pathY = game_scence_objs[i].DestY
 					local pathZ = game_scence_objs[i].DestZ
-					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>)<font color="#17FC0B">{@9:guildname}</font> - {@8:name}'), nx_widestr(zither_name), nx_widestr(zither_posX), nx_widestr(zither_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(zither_ident), zither_tl, nx_widestr(zither_bang)), -1)
+					form.mltbox_content:AddHtmlText(nx_value("gui").TextManager:GetFormatText(nx_string('<font color="#EE0606">{@0:name}</font>(<a href="findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}" style="HLStype1">{@1:x},{@2:z}</a>)<font color="#17FC0B">{@8:guildname}</font> - Key PT: <font color="#17FC0B">{@9:name}</font>'), nx_widestr(zither_name), nx_widestr(zither_posX), nx_widestr(zither_posZ), nx_widestr(yBreaker_get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(zither_ident), nx_widestr(zither_bang), nx_widestr(zither_keypt)), -1)
 		        end
 		    end
 		end
