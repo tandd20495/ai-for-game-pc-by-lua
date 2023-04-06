@@ -323,6 +323,7 @@ end
 
 function on_main_form_close(form)
     auto_is_running = false
+	isTele = false
     nx_destroy(form)
 end
 
@@ -394,8 +395,9 @@ function on_btn_leader_click(btn)
     end
     if auto_is_running then
         auto_is_running = false
+		isTele = false
         btn.Text = nx_function("ext_utf8_to_widestr", "Tự mở luyện nhóm")
-        form.btn_jonner.Visible = true
+        form.btn_jonner.Visible = true		
     else
         auto_is_running = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng mở luyện nhóm")
@@ -404,10 +406,13 @@ function on_btn_leader_click(btn)
 		
 		-- Tự sang map TĐ và di chuyển tới vị trí chỉ định
 		if form.cbtn_tele.Checked then 
+			isTele = true
 			move_city_map_lc()
-		else
-			run_auto_leader()
 		end
+		
+		isTele = false
+		run_auto_leader()
+
     end
 end
 
@@ -418,6 +423,7 @@ function on_btn_jonner_click(btn)
     end
     if auto_is_running then
         auto_is_running = false
+		isTele = false
         btn.Text = nx_function("ext_utf8_to_widestr", "Xin luyện nhóm")
         form.btn_leader.Visible = true
     else
@@ -427,10 +433,14 @@ function on_btn_jonner_click(btn)
 		
 		-- Tự sang map TĐ và di chuyển tới vị trí chỉ định
 		if form.cbtn_tele.Checked then 
+			isTele = true
 			move_city_map_lc()
-		else
-			run_auto_jonner()
+
 		end
+		
+		isTele = false
+		run_auto_jonner()
+
     end
 end
 
@@ -458,43 +468,31 @@ end
 
 -- Tự động dịch chuyển tới thành đô và chạy tới vị trí LC
 function move_city_map_lc()
-	local city = map_id()
-	local form = nx_value(THIS_FORM)
-	if city == "city05" then
-		if not tools_move_isArrived( x, y, z) and not nx_is_valid(view)  then
-			tools_move(city, x,y, z, direct_run)
-			tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang chạy tới TGT..."))
-			direct_run = false
-		end
-		if  tools_move_isArrived( x, y, z) then
-			
-			if form.btn_leader.Visible then
-				run_auto_leader()
-			else
-				run_auto_jonner()
+	
+	while isTele do 
+		nx_pause(0.2)
+		local city = map_id()		
+	
+		if city == "city05" then
+			if not tools_move_isArrived( x, y, z) and not nx_is_valid(view)  then
+				tools_move(city, x,y, z, direct_run)
+				nx_pause(5)
+				tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang chạy tới TGT ..."))
+				direct_run = false
 			end
-			
-			nx_pause(0.2)
-		end
-	else
-		tools_show_notice(nx_function("ext_utf8_to_widestr", "Về Thành Đô luyện công"))
-		tele("HomePointcity05C")
-		nx_pause(10)
-		
-		if not tools_move_isArrived( x, y, z) and not nx_is_valid(view)  then
-			tools_move(city, x,y, z, direct_run)
-			tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang chạy tới TGT..."))
-			direct_run = false
-		end
-		if  tools_move_isArrived( x, y, z) then
-		
-			if form.btn_leader.Visible then
-				run_auto_leader()
-			else
-				run_auto_jonner()
+			if  tools_move_isArrived( x, y, z) then
+				
+				tools_show_notice(nx_function("ext_utf8_to_widestr", "Đã tới TGT"))
+				isTele = false
+				
+				nx_pause(0.2)
 			end
-			
-			nx_pause(0.2)
+		else
+			tools_show_notice(nx_function("ext_utf8_to_widestr", "Về Thành Đô luyện công ..."))
+			tele("HomePointcity05C")
+			nx_pause(11)
+			isTele = true
 		end
 	end
+	
 end
