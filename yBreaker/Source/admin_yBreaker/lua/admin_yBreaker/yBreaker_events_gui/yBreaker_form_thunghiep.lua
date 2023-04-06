@@ -39,6 +39,7 @@ function change_form_size()
 	local gui = nx_value("gui")
 	form.Left = 100
 	form.Top = (gui.Height /2)
+	form.Height = 90
 end
 
 function on_btn_close_click(btn)
@@ -64,11 +65,11 @@ function on_btn_thunghiep_click(btn)
 	local form = util_get_form(THIS_FORM, false, false)
 	if nx_is_valid(form) then
 		if is_running then 
-			btn.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
+			btn.Text = nx_function("ext_utf8_to_widestr", "Start")
 		    is_running = false
 			tools_show_notice(nx_function("ext_utf8_to_widestr", "Kết thúc treo thụ nghiệp"))
 		else
-			btn.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
+			btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
 		    is_running = true
 			tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu treo thụ nghiệp"))
 			start_thu_nghiep()
