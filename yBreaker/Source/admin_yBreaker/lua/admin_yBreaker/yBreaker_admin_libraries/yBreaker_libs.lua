@@ -12,15 +12,17 @@ function yBreaker_check_user_guild()
 	local game_client = nx_value("game_client")
 	local player_client = game_client:GetPlayer()
 	local user_guild = player_client:QueryProp("GuildName")
-	if user_guild == nx_function("ext_utf8_to_widestr", "NhấtPhẩmCác") then     
+	if user_guild == nx_function("ext_utf8_to_widestr", "NhấtPhẩmCác") then  
+		-- Actived yBreaker
         return true
     else
 		yBreaker_Wstr_to_Utf8("Bang không hợp lệ")
+		-- Deactived yBreaker
 		return false
 	end
 	
-	-- Not check user guildname
-	return true
+	-- Deactived yBreaker_check_user_guild()
+	--return true
 end
 
 -- Function check name of user can use yBreaker
@@ -29,15 +31,19 @@ function yBreaker_check_name_user_name()
 	local player_client = game_client:GetPlayer()
 	local user_name = player_client:QueryProp("Name")
 	if user_name == nx_function("ext_utf8_to_widestr", "BạchYCầmSư") or
-	   user_name == nx_function("ext_utf8_to_widestr", ".ChủngHổ.")	 then     
+	   user_name == nx_function("ext_utf8_to_widestr", ".ChủngHổ.")	 then   
+		
+		-- Actived yBreaker
         return true
     else
 		yBreaker_Wstr_to_Utf8("Tên không hợp lệ")
+		
+		-- Deactived yBreaker
 		return false
 	end
 	
-	-- Not check user name
-	return true
+	-- Deactived yBreaker_check_user_name()
+	--return true
 end
 
 -- Character table string
