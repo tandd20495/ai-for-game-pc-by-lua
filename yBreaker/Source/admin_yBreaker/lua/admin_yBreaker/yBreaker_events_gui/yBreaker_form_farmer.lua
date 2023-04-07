@@ -140,7 +140,7 @@ function auto_run(form)
 							if nx_is_valid(form_bag) then
 								form_bag.rbtn_material.Checked = true
 							end
-							logmessage(nx_function("ext_utf8_to_widestr", "Đã trồng") .. nx_widestr(" ") .. util_text(data.seedid) .. nx_widestr(" ") .. nx_widestr(tostring(i)), true, true)
+							logmessage(nx_function("ext_utf8_to_widestr", "Đang trồng") .. nx_widestr(" ") .. util_text(data.seedid) .. nx_widestr(" ") .. nx_widestr(tostring(i)), true, true)
 							nx_execute("form_stage_main\\form_bag_func", "use_item_by_configid", data.seedid)
 							nx_pause(6.2)
 						end
@@ -165,7 +165,7 @@ function auto_run(form)
 							if nx_is_valid(form_bag) then
 								form_bag.rbtn_material.Checked = true
 							end
-							logmessage(nx_function("ext_utf8_to_widestr", "Đã trồng") .. nx_widestr(" ") .. util_text(data.seedid) .. nx_widestr(" ") .. nx_widestr(tostring(i)), true, true)
+							logmessage(nx_function("ext_utf8_to_widestr", "Đang trồng") .. nx_widestr(" ") .. util_text(data.seedid) .. nx_widestr(" ") .. nx_widestr(tostring(i)), true, true)
 							nx_execute("form_stage_main\\form_bag_func", "use_item_by_configid", data.seedid)
 							nx_pause(6.2)
 						end
@@ -189,7 +189,7 @@ function auto_run(form)
 							if nx_is_valid(form_bag) then
 								form_bag.rbtn_material.Checked = true
 							end
-							logmessage(nx_function("ext_utf8_to_widestr", "Đã trồng") .. nx_widestr(" ") .. util_text(data.seedid) .. nx_widestr(" ") .. nx_widestr(tostring(i)), true, true)
+							logmessage(nx_function("ext_utf8_to_widestr", "Đang trồng") .. nx_widestr(" ") .. util_text(data.seedid) .. nx_widestr(" ") .. nx_widestr(tostring(i)), true, true)
 							nx_execute("form_stage_main\\form_bag_func", "use_item_by_configid", data.seedid)
 							nx_pause(6.2)
 						end
