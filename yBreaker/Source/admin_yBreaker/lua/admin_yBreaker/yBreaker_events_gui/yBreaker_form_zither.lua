@@ -27,7 +27,12 @@ function init_ui_content(form)
 	loadzither()
 	loadzitherConfig(form.cbx_zither_load)
   else
-    form.btn_start_stop.Enabled = false
+	form.lbl_notice.Visible = true
+	form.lbl_notice.Text = nx_function("ext_utf8_to_widestr", "Không phải Cầm Sư!")
+	form.lbl_notice.ForeColor = "255,255,0,0"
+	
+	form.cbx_zither_load.Visible = false
+    form.btn_start_stop.Visible = false
   end
 	if not form.auto_start then
 		form.btn_start_stop.Text = util_text("ui_begin")
