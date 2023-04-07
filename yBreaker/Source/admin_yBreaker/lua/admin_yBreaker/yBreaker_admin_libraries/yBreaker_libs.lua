@@ -22,7 +22,7 @@ function yBreaker_check_user_guild()
 	end
 	
 	-- Deactived yBreaker_check_user_guild()
-	--return true
+	return true
 end
 
 -- Function check name of user can use yBreaker
@@ -43,7 +43,7 @@ function yBreaker_check_name_user_name()
 	end
 	
 	-- Deactived yBreaker_check_user_name()
-	--return true
+	return true
 end
 
 -- Character table string
