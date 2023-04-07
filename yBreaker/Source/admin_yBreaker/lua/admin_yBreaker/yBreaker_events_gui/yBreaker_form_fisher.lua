@@ -83,6 +83,7 @@ function RemoveSetting(form)
 	end
 	
 	tools_show_notice(nx_function("ext_utf8_to_widestr", "Xóa tọa độ thành công!"))
+	form.combobox1.InputEdit.Text = ""
 	gm_list:SaveToFile(file)
 	LoadSetting(form)
 
