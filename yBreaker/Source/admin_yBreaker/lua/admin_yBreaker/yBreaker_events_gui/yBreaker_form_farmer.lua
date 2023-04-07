@@ -124,6 +124,23 @@ function auto_run(form)
 
 			-- Trồng cây
 			if data.croptype == 0 then
+				-- Check dụng cụ trồng cây
+				local goods_grid = nx_value('GoodsGrid')
+				if goods_grid:GetItemCount("tool_nf_06") == 0 then
+					-- Check pass rương và tự mua cuốc
+					local game_client=nx_value("game_client")
+					local player_client=game_client:GetPlayer()
+					if not player_client:FindProp("IsCheckPass") or player_client:QueryProp("IsCheckPass") ~= 1 then
+						yBreaker_show_Utf8Text("Mở khóa rương để tự mua cuốc", 3)
+						return 
+					else 		
+						-- Mua Cần câu trong Tạp Hóa ------------- Shop Giang hồ ---- 1: Công Cụ, 16: số thứ tự cuốc, 1: Mua (Tương tự vậy thì 1,1,1: Tab Công Cụ, Mua Liệp Thú Đoản Kiếm)
+						nx_execute("custom_sender", "custom_open_mount_shop", 1)
+						nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,16,1)
+						nx_execute("custom_sender", "custom_open_mount_shop", 0)
+					end 
+				end	
+				
 				-- Đến điểm thứ 1
 				if step == 1 then
 					if not tools_move_isArrived(posp[1].x, posp[1].y, posp[1].z, 0.5) then
@@ -323,6 +340,23 @@ function auto_run(form)
 				end
 			-- Nuôi tằm
 			else
+				-- Check dụng cụ nuôi tằm
+				local goods_grid = nx_value('GoodsGrid')
+				if goods_grid:GetItemCount("tool_nf_16") == 0 then
+					-- Check pass rương và tự mua dụng cụ
+					local game_client=nx_value("game_client")
+					local player_client=game_client:GetPlayer()
+					if not player_client:FindProp("IsCheckPass") or player_client:QueryProp("IsCheckPass") ~= 1 then
+						yBreaker_show_Utf8Text("Mở khóa rương để tự mua dụng cụ", 3)
+						return 
+					else 		
+						-- Mua Cần câu trong Tạp Hóa ------------- Shop Giang hồ ---- 1: Công Cụ, 17: số thứ tự dụng cụ nuôi tằm, 1: Mua (Tương tự vậy thì 1,1,1: Tab Công Cụ, Mua Liệp Thú Đoản Kiếm)
+						nx_execute("custom_sender", "custom_open_mount_shop", 1)
+						nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,17,1)
+						nx_execute("custom_sender", "custom_open_mount_shop", 0)
+					end 
+				end	
+				
 				-- Đến vị trí bắt đầu nuôi tằm
 				if step == 1 then
 					if not tools_move_isArrived(poss.x, poss.y, poss.z, 0.5) then

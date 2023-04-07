@@ -203,7 +203,24 @@ function on_btn1_click(cbtn)
 		tools_show_notice(nx_function("ext_utf8_to_widestr", "Chưa thiết lập ví trí câu cá!"))
 		return 
 	end
-
+	
+	-- Check dụng cụ câu cá
+	local goods_grid = nx_value('GoodsGrid')
+	if goods_grid:GetItemCount("tool_yf_06") == 0 then
+		-- Check pass rương và tự mua cần câu
+		local game_client=nx_value("game_client")
+		local player_client=game_client:GetPlayer()
+		if not player_client:FindProp("IsCheckPass") or player_client:QueryProp("IsCheckPass") ~= 1 then
+			yBreaker_show_Utf8Text("Mở khóa rương để tự mua cần câu", 3)
+			return 
+		else 		
+			-- Mua Cần câu trong Tạp Hóa ------------- Shop Giang hồ ---- 1: Công Cụ, 4: số thứ tự cần câu, 1: Mua (Tương tự vậy thì 1,1,1: Tab Công Cụ, Mua Liệp Thú Đoản Kiếm)
+			nx_execute("custom_sender", "custom_open_mount_shop", 1)
+			nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,4,1)
+			nx_execute("custom_sender", "custom_open_mount_shop", 0)
+		end 
+	end	
+	
 	UpdateScriptStatus()
 
 	while form.auto_start do

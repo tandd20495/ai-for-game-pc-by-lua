@@ -339,6 +339,24 @@ function on_btn1_click(cbtn)
 	LoadSetting(form)
 
 	form.cur_point = nx_number(GetNearPoint(1))
+	
+	-- Check dụng cụ thu thập
+	local goods_grid = nx_value("GoodsGrid")	
+	if goods_grid:GetItemCount("tool_cai_01") == 0 then
+	
+		-- Check pass rương và tự mua dụng cụ thu thập
+		local game_client=nx_value("game_client")
+		local player_client=game_client:GetPlayer()
+		if not player_client:FindProp("IsCheckPass") or player_client:QueryProp("IsCheckPass") ~= 1 then
+			yBreaker_show_Utf8Text("Mở khóa rương để tự mua dụng cụ", 3)
+			return 
+		else 		
+			-- Mua dụng cụ trong Tạp Hóa ------------- Shop Giang hồ ---- 1: Công Cụ, 18: số thứ tự dụng cụ thu thập, 1: Mua (Tương tự vậy thì 1,1,1: Tab Công Cụ, Mua Liệp Thú Đoản Kiếm)
+			nx_execute("custom_sender", "custom_open_mount_shop", 1)
+			nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,18,1)
+			nx_execute("custom_sender", "custom_open_mount_shop", 0)
+		end 
+	end	
 
 	UpdateScriptStatus()
 
