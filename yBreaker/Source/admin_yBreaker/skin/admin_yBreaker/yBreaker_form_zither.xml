@@ -16,6 +16,9 @@
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="70" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
                <event on_click="btn_start_zither" />
           </control>
+		  	<control name="lbl_notice" entity="Label" script="" init="">
+            <prop Left="20" Top="20" Width="200" Height="22" Align="Center" Visible="False" RefCursor="WIN_HELP" ForeColor="255,197,184,159" ShadowColor="0,0,0,0" Text="" Font="font_name_guild" BackImage="gui\create\bg_rbtn.png" />
+			</control>	
           <control name="cbx_zither_load" entity="ComboBox" script="" init="">
             <prop ButtonWidth="22" DropDownHeight="100" DropDownWidth="200" OnlySelect="true" Left="20" Top="20" Width="200" Height="22" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Font="font_text_figure" HintText="Chọn loại đàn" NoFrame="true" DrawMode="Expand" />
             <event on_selected="on_combobox_mode_selected" />
