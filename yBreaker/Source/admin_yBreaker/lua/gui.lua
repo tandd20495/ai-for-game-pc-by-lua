@@ -1,4 +1,5 @@
---[[DO: Phím tắt F12 mở yBreaker --]]
+--[[DO: Phím tắt F12 mở yBreaker + Check user guildname/ user name --]]
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("const_define")
 require("util_gui")
 require("define\\define")
@@ -327,12 +328,25 @@ function gui_key_down(gui, key, shift, ctrl)
 
 --[ADD: Press F12 to show form for yBreaker
   elseif key == "F12" then
-    util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
+	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
+	else
+		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
+	end
 --ADD: Press Ctrl + P to bug mode ON/OFF, and Space to jump continuously
   elseif ctrl and key == "P" then
-    nx_execute("special", "switch_mode")
+  	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
+		nx_execute("special", "switch_mode")
+	else
+		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
+	end    
   elseif key == "Space" then
-    nx_execute("special", "custom_btn_mode", "mode_1")
+    elseif ctrl and key == "P" then
+  	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
+		nx_execute("special", "custom_btn_mode", "mode_1")
+	else
+		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
+	end    
 --]
 
   end

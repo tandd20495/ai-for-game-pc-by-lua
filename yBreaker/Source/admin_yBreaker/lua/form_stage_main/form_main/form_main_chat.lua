@@ -1,4 +1,5 @@
---[[DO: Add command of yBreaker for chat --]]
+--[[DO: Add command of yBreaker for chat + Check user guildname/ user name --]]
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("share\\chat_define")
 require("form_stage_main\\form_tvt\\define")
 require("util_gui")
@@ -654,11 +655,15 @@ function on_chat_edit_enter(rich_inputbox)
   info = nx_function("ext_ws_replace", nx_widestr(info), nx_widestr("<br/>"), nx_widestr(""))
 
 --[ADD: Add command chat for yBreaker
-	local cmd_chat = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_command_chat", nx_widestr(info))
-	if cmd_chat then
-		clear_input(form)
-		return 1
-	end
+	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
+		local cmd_chat = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_command_chat", nx_widestr(info))
+		if cmd_chat then
+			clear_input(form)
+			return 1
+		end
+	else
+		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
+	end  
 --]
 
   local space_pos = nx_function("ext_ws_find", info, nx_widestr(" "))

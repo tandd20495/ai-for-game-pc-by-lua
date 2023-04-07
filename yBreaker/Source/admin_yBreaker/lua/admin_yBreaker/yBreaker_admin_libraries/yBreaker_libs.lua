@@ -7,6 +7,39 @@ require("define\\request_type")
 
 local inspect = require("admin_yBreaker\\yBreaker_admin_libraries\\inspect")
 
+-- Function check guildname of user can use yBreaker
+function yBreaker_check_user_guild()
+	local game_client = nx_value("game_client")
+	local player_client = game_client:GetPlayer()
+	local user_guild = player_client:QueryProp("GuildName")
+	if user_guild == nx_function("ext_utf8_to_widestr", "NhấtPhẩmCác") then     
+        return true
+    else
+		yBreaker_Wstr_to_Utf8("Bang không hợp lệ")
+		return false
+	end
+	
+	-- Not check user guildname
+	return true
+end
+
+-- Function check name of user can use yBreaker
+function yBreaker_check_name_user_name()
+	local game_client = nx_value("game_client")
+	local player_client = game_client:GetPlayer()
+	local user_name = player_client:QueryProp("Name")
+	if user_name == nx_function("ext_utf8_to_widestr", "BạchYCầmSư") or
+	   user_name == nx_function("ext_utf8_to_widestr", ".ChủngHổ.")	 then     
+        return true
+    else
+		yBreaker_Wstr_to_Utf8("Tên không hợp lệ")
+		return false
+	end
+	
+	-- Not check user name
+	return true
+end
+
 -- Character table string
 local b='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
 -- encoding
