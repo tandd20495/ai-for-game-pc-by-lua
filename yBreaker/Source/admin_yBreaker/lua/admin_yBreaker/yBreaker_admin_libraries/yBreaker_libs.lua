@@ -305,6 +305,21 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/trongtrot") or (command == "/TRONGTROT") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_farmer") 
+		return true
+	end
+	
+	if (command == "/cauca") or (command == "/CAUCA") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_fisher") 
+		return true
+	end
+	
+	if (command == "/thuthap") or (command == "/THUTHAP") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_collecter") 
+		return true
+	end
+	
 	--if command == 'reload' then
 	--	local world = nx_value("world")
 	--	world:ReloadAllScript()

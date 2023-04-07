@@ -143,8 +143,11 @@ Dừng blink bằng cách tắt form
 -- Spam mail			/sm
 -- Luyện công			/lc
 -- Thụ nghiệp			/tn
--- Vận tiêu			/vt
+-- Vận tiêu				/vt
 -- Mã hóa + tự nhập pass rương	/pw 
+-- Trồng trọt			/trongtrot
+-- Câu cá				/cauca
+-- Thu thập				/thuthap
 
 TODO:
 
