@@ -148,6 +148,7 @@ Dừng blink bằng cách tắt form
 -- Trồng trọt			/trongtrot
 -- Câu cá				/cauca
 -- Thu thập				/thuthap
+-- Setting khác			/set
 
 TODO:
 

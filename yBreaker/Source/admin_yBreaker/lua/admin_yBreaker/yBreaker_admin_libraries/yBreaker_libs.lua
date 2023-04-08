@@ -124,6 +124,16 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/at") or (command == "/AT") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_automation") 
+		return true
+	end
+	
+	if (command == "/set") or (command == "/SET") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_setting") 
+		return true
+	end
+	
 	if (command == "/a") or (command == "/A") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp") 
 		return true
@@ -257,11 +267,6 @@ function yBreaker_command_chat(str_chat)
 	
 	if (command == "/use") or (command == "/USE") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_useitems") 
-		return true
-	end
-	
-	if (command == "/at") or (command == "/AT") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_automation") 
 		return true
 	end
 	
@@ -511,7 +516,7 @@ end
 -- Function unlock pass 2
 function unlock_my_pw2()
 	local ini = nx_create("IniDocument")
-	local file = Get_Auto_ConfigDir("Password")
+	local file = Get_Config_Dir_Ini("Password")
   	ini.FileName = file
   	if not ini:LoadFromFile() then
 		nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_function("ext_utf8_to_widestr"," Chưa lưu mật khẩu rương."), 2)
@@ -529,7 +534,7 @@ end
 
 function check_encrypted_pw2()
 	local ini = nx_create("IniDocument")
-	local file = Get_Auto_ConfigDir("Password")
+	local file = Get_Config_Dir_Ini("Password")
   	ini.FileName = file
   	if not ini:LoadFromFile() then
   		return false
@@ -542,7 +547,7 @@ function check_encrypted_pw2()
 	end
 end
 
-function Get_Auto_ConfigDir(Auto_Type)
+function Get_Config_Dir_Ini(func_name)
 	local game_config = nx_value("game_config")
 	local account = game_config.login_account
     local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
@@ -550,47 +555,39 @@ function Get_Auto_ConfigDir(Auto_Type)
     if not nx_function("ext_is_exist_directory", nx_string(dir)) then
 		nx_function("ext_create_directory", nx_string(dir))
     end
-	if Auto_Type == "Password" then
+	if func_name == "Password" then
 		file = dir .. nx_string("\\Password.ini")
 	end
 	
+	if func_name == "Setting" then
+		file = dir .. nx_string("\\Setting.ini")
+	end
 	
     if not nx_function("ext_is_file_exist", file) then
-		if Auto_Type == "Password" then
+		if func_name == "Password" then
 			local PR = nx_create("StringList")
 			PR:AddString("[Pw2]")
 			PR:AddString("Pw2_Encrytped=")
 			PR:SaveToFile(file)
+		end
+		
+		if func_name == "Setting" then
+			local set = nx_create("StringList")
+			set:AddString("[Setting]")
+			set:AddString("Unlock_Pass_2=")
+			set:AddString("Noi_Tu_Char=")
+			set:AddString("Title_ID=")
+			set:AddString("Title_Char_Name=")
+			set:AddString("Auto_Weapon_Swap=")
+			set:AddString("Auto_Use_Caiyao=")
+			set:AddString("Caiyao_Number=")
+			set:SaveToFile(file)
 		end
     end
     return file
 end
 
 
-function add_file_user(inifile)
-	local game_client = nx_value('game_client')	
-	local client_player = game_client:GetPlayer()	
-	local game_config = nx_value('game_config')
-	local stage = nx_value('stage')
-	if not nx_is_valid(game_config) and not nx_is_valid(client_player) then return end	
-	if stage == 'main' then						
-		local account = game_config.login_account
-		local dir = nx_function('ext_get_current_exe_path') .. account 
-		local all_char = yBreaker_Wstr_to_Utf8(readIni(dir..'\\yBreaker_setting.ini',nx_string("Support"), "all_in_char", ""))		
-		if nx_string(all_char) == nx_string('true') then
-			dir = nx_resource_path() .. 'yBreaker\\data' 
-		end
-		if not nx_function('ext_is_exist_directory', nx_string(dir)) then
-		  nx_function('ext_create_directory', nx_string(dir))	 
-		end
-		local ini = nx_create('IniDocument')
-		if not nx_is_valid(ini) then
-			return
-		end
-		ini.FileName = dir .. '\\'..nx_string(1)..'.ini'
-		return ini.FileName
-	end
-end
 
 -- DEMO chưa dùng
 -- Get map ID by name

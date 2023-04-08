@@ -67,7 +67,7 @@ function on_save_btn_click(btn)
 end
 function Save_PR(form)
 	local ini = nx_create("IniDocument")
-	local file = Get_Auto_ConfigDir("Password")
+	local file = Get_Config_Dir_Ini("Password")
   	ini.FileName = file
 	ini:WriteString("Pw2", "Pw2_Encrytped", nx_string(form.ipt_pw2_encrypt.Text))
 	ini:SaveToFile()
@@ -75,7 +75,7 @@ function Save_PR(form)
 end
 function Load_PR(form)
 	local ini = nx_create("IniDocument")
-	local file = Get_Auto_ConfigDir("Password")
+	local file = Get_Config_Dir_Ini("Password")
   	ini.FileName = file
   	if not ini:LoadFromFile() then
   		return
