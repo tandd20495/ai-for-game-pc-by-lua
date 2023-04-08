@@ -490,8 +490,46 @@ function yBreaker_show_HP_bar()
 	end
 end
 
+-- Function set ID title for window client
+function yBreaker_set_id_title()
+  local account = nx_value("game_sock").account
+  local game_config = nx_value("game_config")
+  if not nx_is_valid(game_config) then
+    return
+  end
+  local title = nx_widestr("yBreaker-") .. nx_widestr(account) .. nx_widestr("  ") .. nx_widestr(game_config.server_name)
+  nx_function("ext_set_window_title", nx_widestr(title))
+end
+
+-- Function set char name title for window client
+function yBreaker_set_char_name_title()
+  local game_client = nx_value("game_client")
+  if not nx_is_valid(game_client) then
+    return
+  end
+  local client_player = game_client:GetPlayer()
+  if not nx_is_valid(client_player) then
+    return
+  end
+  
+  local game_config = nx_value("game_config")
+   if not nx_is_valid(game_config) then
+    return
+  end
+  local player_name = client_player:QueryProp("Name")
+  local title = nx_widestr("yBreaker-") .. nx_widestr(player_name) .. nx_widestr("  ") .. nx_widestr(game_config.server_name)
+  nx_function("ext_set_window_title", nx_widestr(title))
+end
+
+-- Function set org title for window client
+function yBreaker_set_org_title()
+	local game_config = nx_value("game_config")
+	local title = nx_widestr(util_text("ui_GameName")) .. nx_widestr("  ") .. nx_widestr(game_config.server_name)
+	nx_function("ext_set_window_title", title)
+end
+
 -- Function to setting FPS
-function fps_setting(fps_int)
+function yBreaker_fps_setting(fps_int)
 	local world = nx_value("world")
 	local scene = world.MainScene
 	local game_control = scene.game_control
@@ -575,10 +613,11 @@ function Get_Config_Dir_Ini(func_name)
 			local set = nx_create("StringList")
 			set:AddString("[Setting]")
 			set:AddString("Unlock_Pass_2=")
-			set:AddString("Noi_Tu_Char=")
+			set:AddString("Add_Del_Text=")
+			set:AddString("Skip_Story_Movie=")
+			set:AddString("Title_Char_Name=")	
 			set:AddString("Title_ID=")
-			set:AddString("Title_Char_Name=")
-			set:AddString("Auto_Weapon_Swap=")
+			set:AddString("Auto_Get_Miracle=")			
 			set:AddString("Auto_Use_Caiyao=")
 			set:AddString("Caiyao_Number=")
 			set:SaveToFile(file)

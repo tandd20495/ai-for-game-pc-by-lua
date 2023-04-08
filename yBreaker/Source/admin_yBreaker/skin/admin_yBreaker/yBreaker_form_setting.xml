@@ -14,46 +14,46 @@
             <event on_click="on_btn_close_click" />
     </control>	
 		<control name="cb_unlock" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="50" Width="16" Height="16" HintText="Tự mở pass rương nếu bạn đã đặt thêm pass ở phần mã hóa" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<prop BoxSize="12" Left="15" Top="50" Width="16" Height="16" HintText="Tự mở rương nếu bạn đã đặt ở phần mã hóa" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 		  <event on_checked_changed="" />
 		</control>
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
 			  <prop RefCursor="WIN_HELP" Left="40" Top="48" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự mở rương" Font="font_main" />
 		</control>
-		<control name="cb_can_noitu" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="70" Width="16" Height="16" HintText="Chọn để tự cắn nội tu" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
-		  <event on_checked_changed="" />
-		</control>
-		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-			  <prop RefCursor="WIN_HELP" Left="40" Top="68" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự cắn nội tu" Font="font_main" />
-		</control>
 		<control name="cb_delete_text" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="90" Width="16" Height="16" HintText="Chọn để thêm chữ Xóa khi xóa vật phẩm" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
-		  <event on_checked_changed="cb_delete_combo" />
-		</control>
-		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-			  <prop RefCursor="WIN_HELP" Left="40" Top="88" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự thêm chữ Xóa" Font="font_main" />
-		</control>		
-		<control name="cb_set_title" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="110" Width="16" Height="16" HintText="Đổi tiêu đề của client thành tên tài khoản" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<prop BoxSize="12" Left="15" Top="70" Width="16" Height="16" HintText="Chọn để thêm chữ Xóa khi xóa vật phẩm" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 		  <event on_checked_changed="" />
 		</control>
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-			  <prop RefCursor="WIN_HELP" Left="40" Top="108" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tiêu đề là ID" Font="font_main" />
+			  <prop RefCursor="WIN_HELP" Left="40" Top="68" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự thêm chữ Xóa" Font="font_main" />
+		</control>
+		<control name="cb_skip_movie" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="15" Top="90" Width="16" Height="16" HintText="Chọn để bỏ qua cốt truyện" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+		</control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+			  <prop RefCursor="WIN_HELP" Left="40" Top="88" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Bỏ qua cốt truyện" Font="font_main" />
 		</control>		
 		<control name="cb_set_title_name" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="130" Width="16" Height="16" HintText="Đổi tiêu đề của client thành tên nhân vật" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<prop BoxSize="12" Left="15" Top="110" Width="16" Height="16" HintText="Đổi tiêu đề của client thành tên nhân vật" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+		</control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+			  <prop RefCursor="WIN_HELP" Left="40" Top="108" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tiêu đề là tên N.V" Font="font_main" />
+		</control>		
+		<control name="cb_set_title" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="15" Top="130" Width="16" Height="16" HintText="Đổi tiêu đề của client thành tên tài khoản" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 		  <event on_checked_changed="" />
 		</control>        
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-			  <prop RefCursor="WIN_HELP" Left="40" Top="128" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tiêu đề là tên N.V" Font="font_main" />
+			  <prop RefCursor="WIN_HELP" Left="40" Top="128" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tiêu đề là tài khoản" Font="font_main" />
 		</control>
-		<control name="cb_wp_swap" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="150" Width="16" Height="16" HintText="Khi chọn chế độ này lúc bạn ấn phím kỹ năng sẽ tự swap sang loại vũ khí tương ứng với kỹ năng đó <br>•Lưu Ý: Chỉ hổ trợ phím ấn không hổ trợ thao tác chuột" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
-		  <event on_checked_changed="on_change_auto_swap" />
+		<control name="cb_get_miracle" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="15" Top="150" Width="16" Height="16" HintText="Chọn để tự nhận Kỳ ngộ" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
 		</control>        
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-			  <prop RefCursor="WIN_HELP" Left="40" Top="148" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự đổi vũ khí" Font="font_main" />
+			  <prop RefCursor="WIN_HELP" Left="40" Top="148" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự nhận Kỳ Ngộ" Font="font_main" />
 		</control>		
 		<control name="cb_use_caiyao" entity="CheckButton" script="" init="">
 			<prop BoxSize="12" Left="15" Top="170" Width="16" Height="16" HintText="" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />

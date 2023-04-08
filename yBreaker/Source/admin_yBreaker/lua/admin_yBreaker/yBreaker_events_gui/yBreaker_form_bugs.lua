@@ -66,7 +66,7 @@ function on_btn_fps_apply_click(btn)
 	local fps_int = form1.ipt_fps_value.Text
     
 	-- Apply new FPS setting
-	fps_setting(nx_int(fps_int))
+	yBreaker_fps_setting(nx_int(fps_int))
 	yBreaker_show_Utf8Text("Đã áp dụng FPS mới", 3)
 end
 

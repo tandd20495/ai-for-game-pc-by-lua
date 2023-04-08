@@ -1,4 +1,4 @@
---[[DO: Skip story of quest/ Unlock password2 --]]
+--[[DO: Skip story of quest/ Unlock password2 in Setting function for yBreaker--]]
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("share\\server_custom_define")
 require("share\\client_custom_define")
@@ -2092,11 +2092,24 @@ setStateMovie = function(value)
 end
 
 function start_movie(movie_id, npc_id, movie_mode, ...)
---ADD: Check condition to kill movie end
- if getStateMovie() then
-    nx_execute("custom_sender","custom_movie_end", movie_id)
-    return
-  end
+
+--[ADD: Load setting skip movie and check condition to kill movie end
+	if  not nx_is_valid(nx_value("form_loading")) and nx_string(nx_value("stage_main")) == nx_string("success") then
+		-- Initialize file INI
+		local ini = nx_create("IniDocument")
+		local file = Get_Config_Dir_Ini("Setting")
+	  	ini.FileName = file
+	  	if not ini:LoadFromFile() then
+	  		return
+	  	end
+	
+		if nx_string(ini:ReadString(nx_string("Setting"), "Skip_Story_Movie", "")) == nx_string("true") then
+			if getStateMovie() then
+			    nx_execute("custom_sender","custom_movie_end", movie_id)
+			    return
+			end
+		end
+	end
 --]
 
   local form_movie_effect = nx_value("form_stage_main\\form_movie_effect")
@@ -5214,11 +5227,23 @@ function on_check_second_word(self, arg_num, msg_type, ...)
     end
 
 --[ADD: Logic auto unlock password 2 for yBreaker
-	if check_encrypted_pw2() == true then
-		unlock_my_pw2()
-		yBreaker_Wstr_to_Utf8("Khẩu lệnh xác nhận thành công, thành công gỡ bỏ bảo vệ")	
+	-- Initialize file INI
+	local ini = nx_create("IniDocument")
+	local file = Get_Config_Dir_Ini("Setting")
+  	ini.FileName = file
+  	if not ini:LoadFromFile() then
+  		return
+  	end
+	
+	if nx_string(ini:ReadString(nx_string("Setting"), "Unlock_Pass_2", "")) == nx_string("true") then
+		if check_encrypted_pw2() == true then
+			unlock_my_pw2()
+			yBreaker_Wstr_to_Utf8("Khẩu lệnh xác nhận thành công, thành công gỡ bỏ bảo vệ")	
+		else
+			yBreaker_Wstr_to_Utf8("Chưa mã hóa mật khẩu rương!")		
+		end
 	else
-		nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))			
+		nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))
 	end
 --REM:  nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))
 --]
