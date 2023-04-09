@@ -32,3 +32,24 @@ function get_miracle()
 		tools_show_notice(nx_function("ext_utf8_to_widestr", "Kết thúc nhận kỳ ngộ!"))
 	end
 end
+
+function set_get_miracle(status)
+	if status == nx_string("ON") then
+		auto_is_running = true
+		num_repeated = 0
+		--tools_show_notice(nx_function("ext_utf8_to_widestr", "Mở nhận kỳ ngộ"))
+		
+		while auto_is_running == true do
+		auto_capture_qt()
+		
+		num_repeated = num_repeated + 1
+		if num_repeated >= 12 then
+			num_repeated = 0
+		end
+		nx_pause(2)
+	end
+	else
+		auto_is_running = false
+		--tools_show_notice(nx_function("ext_utf8_to_widestr", "Tắt nhận kỳ kgộ"))
+	end
+end

@@ -5245,6 +5245,14 @@ function on_check_second_word(self, arg_num, msg_type, ...)
 	else
 		nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))
 	end
+	
+	if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Get_Miracle", "")) == nx_string("true") then
+			nx_pause(0.1)
+			nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "set_get_miracle", nx_string("ON"))
+	else
+		nx_pause(0.1)
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "set_get_miracle", nx_string("OFF"))
+	end
 --REM:  nx_execute("form_stage_main\\from_word_protect\\form_protect_sure", "show_form_protect_sure", nx_int(count))
 --]
 

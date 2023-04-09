@@ -506,13 +506,6 @@ function entry_stage_main(old_stage)
 			nx_pause(0.1)
 			nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs","yBreaker_set_org_title")
 		end
-		
-		if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Get_Miracle", "")) == nx_string("true") then
-			nx_pause(0.1)
-			nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_miracle")
-		else
-			-- Stop auto nhận kỳ ngộ
-		end
 		nx_pause(0.1)
 	end
 --]

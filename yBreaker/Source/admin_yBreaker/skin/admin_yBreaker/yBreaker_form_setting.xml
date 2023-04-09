@@ -49,7 +49,7 @@
 			  <prop RefCursor="WIN_HELP" Left="40" Top="128" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tiêu đề là tài khoản" Font="font_main" />
 		</control>
 		<control name="cb_get_miracle" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="150" Width="16" Height="16" HintText="Chọn để tự nhận Kỳ ngộ" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<prop BoxSize="12" Left="15" Top="150" Width="16" Height="16" HintText="Chọn để tự nhận kỳ ngộ sau khi mở pass rương" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 		  <event on_checked_changed="" />
 		</control>        
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
