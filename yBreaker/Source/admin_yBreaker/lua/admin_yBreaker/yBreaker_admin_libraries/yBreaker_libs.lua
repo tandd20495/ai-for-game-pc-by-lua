@@ -325,6 +325,11 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/sanbat") or (command == "/SANBAT") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_hunter") 
+		return true
+	end
+	
 	--if command == 'reload' then
 	--	local world = nx_value("world")
 	--	world:ReloadAllScript()
