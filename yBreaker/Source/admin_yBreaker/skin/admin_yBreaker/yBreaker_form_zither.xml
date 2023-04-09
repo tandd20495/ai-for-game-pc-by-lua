@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_zither" init="main_form_init">
-        <prop LimitInScreen="true" Left="530" Top="160" Width="250" Height="130" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <prop LimitInScreen="true" Left="530" Top="160" Width="250" Height="145" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
 		<control name="btn_close" entity="Button" script="" init="">
 		  <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="220" Top="7" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
@@ -11,11 +11,26 @@
         <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="250" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Đàn Đội" Font="font_title" />
         </control>
         <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
-          <prop Left="4" Top="30" Width="240" Height="100" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand"/>
+          <prop Left="4" Top="30" Width="240" Height="115" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand"/>
           <control name="btn_start_stop" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="70" Top="60" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="70" Top="75" Width="87"  Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0"  Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
                <event on_click="btn_start_zither" />
           </control>
+			<control name="cb_auto_run" entity="CheckButton" script="" init="">
+				<prop BoxSize="12" Left="30" Top="50" Width="16" Height="16" HintText="Chọn để tự chạy về vị trí cũ" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<event on_checked_changed="" />
+			</control>
+			<control name="lbl_run_title" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="55" Top="48" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chạy đàn" Font="font_main" />
+			</control>
+			<control name="cb_train" entity="CheckButton" script="" init="">
+				<prop BoxSize="12" Left="130" Top="50" Width="16" Height="16" HintText="Chọn để đổi thành luyện đàn" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<event on_checked_changed="" />
+			</control>
+			<control name="lbl_train_title" entity="Label" script="" init="">
+				<prop RefCursor="WIN_HELP" Left="155" Top="48" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Luyện đàn" Font="font_main" />
+			</control>
+		
 		  	<control name="lbl_notice" entity="Label" script="" init="">
             <prop Left="20" Top="20" Width="200" Height="22" Align="Center" Visible="False" RefCursor="WIN_HELP" ForeColor="255,197,184,159" ShadowColor="0,0,0,0" Text="" Font="font_name_guild" BackImage="gui\create\bg_rbtn.png" />
 			</control>	

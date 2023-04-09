@@ -39,7 +39,10 @@ function init_ui_content(form)
 	else
 		form.btn_start_stop.Text = util_text("ui_off_end")
 	end
+	-- Default training is disable
+	form.cb_train.Checked = false
 end
+
 function loadzitherConfig(cbx)
   cbx.DropListBox:ClearString()
   cbx.InputEdit.Text = ""
@@ -130,12 +133,12 @@ function autoBuyItemJob(itemShop)
 		itemBuyFromShop(itemShop)
 	end
 end
+
 function btn_start_zither(cbtn)
-	num_repeated = 0
 	local form = cbtn.ParentForm
+	num_repeated = 0
 	local goods_grid = nx_value("GoodsGrid")	
 	if goods_grid:GetItemCount("tool_qs_06") == 0 then
-	
 		-- Check pass rương và tự mua đàn
 		local game_client=nx_value("game_client")
 		local player_client=game_client:GetPlayer()
@@ -149,27 +152,35 @@ function btn_start_zither(cbtn)
 			nx_execute("custom_sender", "custom_open_mount_shop", 0)
 		end 
 	end		
-	update_btn_start_stop()
+	
+	update_btn_start_stop()	
+
 	while form.auto_start do
-		nx_pause(0.1)
-		local game_client=nx_value("game_client")
-		local game_visual=nx_value("game_visual")
-		if nx_is_valid(game_client)and nx_is_valid(game_visual)then
-			local player_client=game_client:GetPlayer()
-			local logicstate = player_client:QueryProp("LogicState")
-			autoBuyItemJob("tool_qs_06")
-			if num_repeated == 0 or os.difftime(os.time(), num_repeated) >= 50 then
-				num_repeated = os.time()
-			end		
-			local form_zither = nx_value("form_stage_main\\form_small_game\\form_mini_qingame")	
-			if nx_is_valid(form_zither) then
-				form_zither.t_speed = 0.01
-			end
-			if logicstate ~= 10 and logicstate ~= 102 and logicstate ~= 121 and logicstate ~= 120 and player_client:QueryProp("GameState") ~= "QinGameModule" then
-				if auto_zither_id_list ~= nil and table.getn(auto_zither_id_list) > 0 then					
-				  nx_execute("custom_sender", "custom_doqin", auto_zither_id_list[nx_number(form.cbx_zither_load.DropListBox.SelectIndex) + 1].id)
-				  nx_execute("form_stage_main\\form_helper\\form_main_helper_manager", "next_helper_form")
-				end				
+		-- Luyện đàn nếu checkbox này true
+		if form.cb_train.Checked then
+			startTrainingMusic(1)	
+		else
+			
+			nx_pause(0.1)
+			local game_client=nx_value("game_client")
+			local game_visual=nx_value("game_visual")
+			if nx_is_valid(game_client)and nx_is_valid(game_visual)then
+				local player_client=game_client:GetPlayer()
+				local logicstate = player_client:QueryProp("LogicState")
+				autoBuyItemJob("tool_qs_06")
+				if num_repeated == 0 or os.difftime(os.time(), num_repeated) >= 50 then
+					num_repeated = os.time()
+				end		
+				local form_zither = nx_value("form_stage_main\\form_small_game\\form_mini_qingame")	
+				if nx_is_valid(form_zither) then
+					form_zither.t_speed = 0.01
+				end
+				if logicstate ~= 10 and logicstate ~= 102 and logicstate ~= 121 and logicstate ~= 120 and player_client:QueryProp("GameState") ~= "QinGameModule" then
+					if auto_zither_id_list ~= nil and table.getn(auto_zither_id_list) > 0 then					
+					  nx_execute("custom_sender", "custom_doqin", auto_zither_id_list[nx_number(form.cbx_zither_load.DropListBox.SelectIndex) + 1].id)
+					  nx_execute("form_stage_main\\form_helper\\form_main_helper_manager", "next_helper_form")
+					end				
+				end
 			end
 		end
 	end
@@ -233,5 +244,69 @@ function getitem()
 				item[#item+1] = qinid
 			end
 		end
+	end
+end
+
+-- Trainning music
+function is_Learned_formula(formulaid)
+	local game_client = nx_value('game_client')
+	local client_player = game_client:GetPlayer()
+	local rows = client_player:FindRecordRow('FormulaRec', 1, nx_string(formulaid), 0)
+	if rows >= 0 then
+		return true
+	else
+		return false
+	end
+end
+startTrainingMusic = function(num)
+	local count = 0
+	local job_info_ini = nx_execute('util_functions', 'get_ini', 'share\\Life\\job_info.ini')
+	local gather_ini = nx_execute('util_functions', 'get_ini', 'ini\\ui\\life\\job_gather_prop.ini')
+	local sec_index = job_info_ini:FindSectionIndex('sh_qs')
+	local gather_info = job_info_ini:ReadString(sec_index, 'gather', '')
+	local gather_lst = util_split_string(gather_info, ',')
+	for i = table.getn(gather_lst), 1, -1 do
+		local sec_index1 = gather_ini:FindSectionIndex(nx_string(gather_lst[i]))
+		local item_count = gather_ini:GetSectionItemCount(sec_index1)
+		for j = item_count, 1, -1 do
+			local qipu_str = gather_ini:ReadString(sec_index1, nx_string(j), '')
+			local node_info = util_split_string(qipu_str, '/')
+			local node_item_str = nx_string(node_info[3])
+			local formula_list = util_split_string(nx_string(node_item_str), ',')
+			for k = table.getn(formula_list), 1, -1 do
+				local formula_id = formula_list[k]
+				if is_Learned_formula(formula_id) then
+					playTrainingMusic(formula_id, num)
+					return
+				end
+			end
+		end
+	end
+end
+fMus = 'form_stage_main\\form_small_game\\form_qingame'
+playTrainingMusic = function(music_id, num)
+	local count = 0
+	while 1
+	do
+		local display_time = 0
+		nx_value('game_visual'):CustomSend(nx_int(600), nx_string(music_id), 1, 0)
+		while not nx_is_valid(nx_value(fMus)) and display_time < 10
+		do
+			nx_pause(0.5)
+			display_time = display_time + 1
+		end
+		if display_time == 10 then
+			return
+		end
+		count = count + 1
+		nx_execute(fMus, 'on_btn_start_game_click', nx_value(fMus).btn_start_game)
+		while nx_is_valid(nx_value(fMus))
+		do
+			nx_pause(1)
+		end
+		if num and nx_number(count) >= nx_number(num) then
+			return
+		end
+		nx_pause(15)
 	end
 end
