@@ -14,11 +14,11 @@ function yBreaker_check_user_guild()
 	local user_guild = player_client:QueryProp("GuildName")
 	if user_guild == nx_function("ext_utf8_to_widestr", "NhấtPhẩmCác") then  
 		-- Actived yBreaker
-        return true
+        --return true
     else
 		yBreaker_Wstr_to_Utf8("Bang không hợp lệ")
 		-- Deactived yBreaker
-		return false
+		--return false
 	end
 	
 	-- Deactived yBreaker_check_user_guild()
@@ -34,12 +34,12 @@ function yBreaker_check_name_user_name()
 	   user_name == nx_function("ext_utf8_to_widestr", ".ChủngHổ.")	 then   
 		
 		-- Actived yBreaker
-        return true
+        --return true
     else
 		yBreaker_Wstr_to_Utf8("Tên không hợp lệ")
 		
 		-- Deactived yBreaker
-		return false
+		--return false
 	end
 	
 	-- Deactived yBreaker_check_user_name()
@@ -626,7 +626,29 @@ function Get_Config_Dir_Ini(func_name)
     return file
 end
 
-
+function yBreaker_use_caiyao()
+	local GoodsGrid = nx_value("GoodsGrid")	
+	local caiyao_count = GoodsGrid:GetItemCount("caiyao20002")	--  Màn thầu
+	local buf_baosd_01 = yBreaker_get_buff_id_info("buf_baosd_01") -- buf_baosd_01=Bụng đói vơ quàng
+	--local buf_baosd_02 = yBreaker_get_buff_id_info("buf_baosd_02") -- buf_baosd_02=Cơ Trường Lộc Lộc
+	--local buf_baosd_03 = yBreaker_get_buff_id_info("buf_baosd_03") -- buf_baosd_03=Nhu cầu thiết yếu
+	
+	local ini = nx_create("IniDocument")
+	local file = Get_Config_Dir_Ini("Setting")
+  	ini.FileName = file
+  	if not ini:LoadFromFile() then
+  		return
+  	end
+	local setting_caiyao = nx_string(ini:ReadString(nx_string("Setting"), "Auto_Use_Caiyao", ""))
+	--local caiyao_num = nx_int(ini:ReadString(nx_string("Setting"), "Caiyao_Number", ""))
+	
+	if setting_caiyao == nx_string("true") and (buf_baosd_01 ~= nil) and caiyao_count > 0 then	
+	--if setting_caiyao == nx_string("true") and caiyao_num > nx_int(0) and (buf_baosd_01 ~= nil) and caiyao_count > 0 then
+		--yBreaker_show_Utf8Text("Setting:" .. nx_string(setting_caiyao) .. " Number:" .. nx_string(caiyao_num))
+		nx_execute("form_stage_main\\form_bag_func", "use_item_by_configid", "caiyao20002")		
+		nx_pause(1)
+	end	
+end
 
 -- DEMO chưa dùng
 -- Get map ID by name

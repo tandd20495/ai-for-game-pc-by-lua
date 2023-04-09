@@ -14,6 +14,10 @@ end
 
 function init_ui_content(form)	
 	load_setting_ini(form)
+	
+	-- Visible edit number caiyao
+	form.edt_num_caiyao.Visible = false
+	form.lbl_caiyao_title.Visible = false
 end
 
 function btn_start_save(btn)

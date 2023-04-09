@@ -1,4 +1,4 @@
---[[DO: Load settting file ini when load map for yBreaker --]]
+--[[DO: Load settting file ini when load map for yBreaker (Includes: Set ID title/ Char name title/ ORG title/ Use caiyao --]]
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("role_composite")
 require("util_functions")
@@ -505,6 +505,11 @@ function entry_stage_main(old_stage)
 		else
 			nx_pause(0.1)
 			nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs","yBreaker_set_org_title")
+		end
+		
+		if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Use_Caiyao", "")) == nx_string("true") then
+			nx_pause(0.1)
+			nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs","yBreaker_use_caiyao")
 		end
 		nx_pause(0.1)
 	end

@@ -53,10 +53,10 @@
 		  <event on_checked_changed="" />
 		</control>        
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-			  <prop RefCursor="WIN_HELP" Left="40" Top="148" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự nhận Kỳ Ngộ" Font="font_main" />
+			  <prop RefCursor="WIN_HELP" Left="40" Top="148" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự nhận kỳ ngộ" Font="font_main" />
 		</control>		
 		<control name="cb_use_caiyao" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" Left="15" Top="170" Width="16" Height="16" HintText="" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<prop BoxSize="12" Left="15" Top="170" Width="16" Height="16" HintText="Chọn để tự ăn bánh bao khi bụng đói meo meo meo (độ no = 0) <br>Chỉ áp dụng khi chuyển map" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 		  <event on_checked_changed="on_cb_use_caiyao" />
 		</control>   		
 		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
@@ -65,7 +65,7 @@
 		<control name="edt_num_caiyao" entity="Edit" script="" init="">
 				<prop TextOffsetX="2" Text="100" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" Caret="Default" Left="130" Top="190" Width="30" Height="22" ForeColor="255,255,255,255" BackColor="0,255,255,255" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" TabStop="true" DrawMode="ExpandH" BackImage="gui\common\form_line\ibox_2.png"/>
 		</control>		
-		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+		<control name="lbl_caiyao_title" entity="Label" script="" init="">
 				  <prop RefCursor="WIN_HELP" Left="20" Top="190" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Ăn khi độ no thấp:" Font="font_main" />
 		</control>	
 		
