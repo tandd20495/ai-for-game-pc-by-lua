@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
-  <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_hunter_set" init="on_form_main_init">
+  <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_hunter_set" init="on_main_form_init">
     <prop ShowGrid="true" Left="77" Top="120" Width="372" Height="340" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
-    <event on_open="on_setting_open" on_close="on_setting_close" />
+    <event on_open="on_main_form_open" on_close="on_main_form_close" />
 
     <control name="btn_close" entity="Button" script="" init="">
       <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="344" Top="6" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" />
-      <event on_click="tools_show_form" />
+      <event on_click="on_btn_close_click" />
     </control>
     <control name="lbl_title" entity="Label" script="" init="">
       <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="372" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thợ Săn Setting" Font="font_title" />

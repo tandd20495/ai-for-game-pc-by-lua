@@ -9,7 +9,7 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_hunter_set"
 local tab_now = "tuiVP"
 local list_item = {}
 
-function on_form_main_init(form)
+function on_main_form_init(form)
 	form.Fixed = false
 	form.is_minimize = false
 	form.auto_start = false
@@ -23,7 +23,7 @@ function on_form_main_init(form)
 	form.Top = 470
 end
 
-function on_setting_open(form)
+function on_main_form_open(form)
   LoadListDelete(form.combobox_tab_tuiVP_2, 2)
 	-- LoadHidePoint(form)
 	--LoadBlackList(form)
@@ -37,7 +37,19 @@ function on_setting_open(form)
 	-- local file = assert(loadfile(nx_work_path().."autodata\\data_hunter.lua"))
 	-- file()
 end
-function on_setting_close(form)
+
+
+function on_main_form_close(form)
+	form.auto_start = false
+	nx_destroy(form)
+end
+
+function on_btn_close_click(btn)
+	local form = nx_value(THIS_FORM)
+	if not nx_is_valid(form) then
+		return
+	end
+	on_main_form_close(form)
 end
 
 function show_hide_form_hunter_set(form)
