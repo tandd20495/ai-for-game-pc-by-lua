@@ -1,5 +1,7 @@
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
 local item = {}
+local is_running_zither = false	
 
 function main_form_init(form)
   form.Fixed = false
@@ -156,9 +158,83 @@ function btn_start_zither(cbtn)
 	update_btn_start_stop()	
 
 	while form.auto_start do
+		-- Chạy đàn
+		if form.cb_auto_run.Checked then	
+			--yBreaker_show_Utf8Text("Chạy")
+			-- Set auto running
+			is_running_zither = true
+			
+			-- Get X/Z current
+			local game_visual = nx_value("game_visual")
+			local visual_player = game_visual:GetPlayer()
+			local pos_X_save = visual_player.PositionX
+			local pos_Z_save = visual_player.PositionZ
+				
+			-- Run auto when checked
+			while is_running_zither == true do
+				local is_vaild_data = true
+				local game_client
+				local game_visual
+				local game_player
+				local player_client
+				local game_scence
+
+				game_client = nx_value("game_client")
+				if not nx_is_valid(game_client) then
+					is_vaild_data = false
+				end
+				game_visual = nx_value("game_visual")
+				if not nx_is_valid(game_visual) then
+					is_vaild_data = false
+				end
+				if is_vaild_data == true then
+					game_player = game_visual:GetPlayer()
+					if not nx_is_valid(game_player) then
+						is_vaild_data = false
+					end
+					player_client = game_client:GetPlayer()
+					if not nx_is_valid(player_client) then
+						is_vaild_data = false
+					end
+					game_scence = game_client:GetScene()
+					if not nx_is_valid(game_scence) then
+						is_vaild_data = false
+					end
+				end
+
+				local map_query = nx_value("MapQuery")
+				if not nx_is_valid(map_query) then
+					is_vaild_data = false
+				end
+
+				if is_vaild_data == true then
+					local city = map_query:GetCurrentScene()
+					local posX = pos_X_save
+					local posZ = pos_Z_save
+
+					-- Nếu bị chết thì trị thương lân cận
+					local logicstate = player_client:QueryProp("LogicState")
+					if logicstate == 120 then
+						nx_execute("custom_sender", "custom_relive", 2, 0)
+						nx_pause(7)
+					-- Chưa tới điểm đứng đó thì di chuyển đến
+					elseif not tools_move_isArrived2D(posX, -10000, posZ) then
+						tools_move(city, posX, -10000, posZ, 0)
+					else
+						-- Đúng vị trí cần tới thì xuống ngựa -> Chuyển qua đàn
+						is_running_zither = false
+						yBreaker_get_down_the_horse()
+						break
+					end
+				end
+				nx_pause(0.2)
+			end
+		end		
+		
 		-- Luyện đàn nếu checkbox này true
 		if form.cb_train.Checked then
-			startTrainingMusic(1)	
+			startTrainingMusic(1)
+			nx_pause(3)
 		else
 			
 			nx_pause(0.1)
@@ -183,6 +259,7 @@ function btn_start_zither(cbtn)
 				end
 			end
 		end
+		
 	end
 end
 
@@ -200,6 +277,7 @@ function on_btn_close_click(btn)
 			else
 			yBreaker_show_Utf8Text("Tắt đàn trước khi đóng", 3)
 		end
+	is_running_zither = false	
 end
 
 function on_combobox_mode_selected(boxitem)
@@ -310,3 +388,5 @@ playTrainingMusic = function(music_id, num)
 		nx_pause(15)
 	end
 end
+
+-- Chạy đàn

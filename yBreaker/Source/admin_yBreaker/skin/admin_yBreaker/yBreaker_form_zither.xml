@@ -8,7 +8,7 @@
 		  <event on_click="on_btn_close_click" />
 		</control>
 	<control name="lbl_title" entity="Label" script="" init="">
-        <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="250" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Đàn Đội" Font="font_title" />
+        <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="250" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Cầm Sư" Font="font_title" />
         </control>
         <control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
           <prop Left="4" Top="30" Width="240" Height="115" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand"/>
@@ -17,7 +17,7 @@
                <event on_click="btn_start_zither" />
           </control>
 			<control name="cb_auto_run" entity="CheckButton" script="" init="">
-				<prop BoxSize="12" Left="30" Top="50" Width="16" Height="16" HintText="Chọn để tự chạy về vị trí cũ" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<prop BoxSize="12" Left="30" Top="50" Width="16" Height="16" HintText="Chọn để tự chạy về vị trí cũ <br>Vị trí cũ được ghi nhận từ khi ấn &lt;font color=&apos;#46fd15&apos;&gt;Bắt Đầu&lt;/font&gt;" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 				<event on_checked_changed="" />
 			</control>
 			<control name="lbl_run_title" entity="Label" script="" init="">

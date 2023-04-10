@@ -655,6 +655,32 @@ function yBreaker_use_caiyao()
 	end	
 end
 
+-- Xuống ngựa
+function yBreaker_get_down_the_horse()
+	if get_buff_info("buf_riding_01") ~= nil then
+		nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+		nx_pause(0.2)
+	end
+end
+
+--Thụ Nghiệp
+-- Nhận số điểm thụ nghiệp nếu < 1000 điểm và trong ngày chưa max trả về true
+function yBreaker_is_School_Dance_Finish()
+	local game_client = nx_value('game_client')
+	if not nx_is_valid(game_client) then
+		return false
+	end
+	local player = game_client:GetPlayer()
+	local f = 'form_stage_main\\form_school_dance\\form_school_dance_member'
+	local t = nx_int(player:QueryProp('SchoolDanceTotalScore'))
+	local d = nx_int(player:QueryProp('SchoolDanceDayScore'))
+	if t < nx_int(1000) and d < nx_int(nx_execute(f, 'get_inisec', 'DayScore')) then
+		return true
+	else
+		return false
+	end
+end
+
 -- DEMO chưa dùng
 -- Get map ID by name
 function yBreaker_get_map_id(name)
