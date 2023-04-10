@@ -549,6 +549,85 @@ function EquipItemProp(form, ini, skill_prop, active)
 			if skill_prop == "wuji_CS_tm_ywt03" then
 				skill_prop = "CS_tm_ywt03"
 			end
+			
+			-- Long trảo thủ cổ
+			if skill_prop == "wuji_CS_sl_lzs06" then
+				skill_prop = "CS_sl_lzs06"
+			end
+			if skill_prop == "wuji_CS_sl_lzs07" then
+				skill_prop = "CS_sl_lzs07"
+			end
+			
+			-- Thái cực quyền cổ
+			if skill_prop == "wuji_CS_wd_tjq08" then
+				skill_prop = "CS_wd_tjq08"
+			end
+			if skill_prop == "wuji_CS_wd_tjq06" then
+				skill_prop = "CS_wd_tjq06"
+			end
+			if skill_prop == "wuji_CS_wd_tjq03" then
+				skill_prop = "CS_wd_tjq03"
+			end
+			
+						-- Kim xà thích
+			if skill_prop == "wuji_CS_tm_jsc05" then
+				skill_prop = "CS_tm_jsc05"
+			end
+			if skill_prop == "wuji_CS_tm_jsc06" then
+				skill_prop = "CS_tm_jsc06"
+			end
+			
+			-- Đả cẩu bổng Cổ
+			if skill_prop == "wuji_CS_gb_dgbf02" then
+				skill_prop = "CS_gb_dgbf02"
+			end
+			if skill_prop == "wuji_CS_gb_dgbf07" then
+				skill_prop = "CS_gb_dgbf07"
+			end
+			if skill_prop == "wuji_CS_gb_dgbf08" then
+				skill_prop = "CS_gb_dgbf08"
+			end
+			
+			-- Mị ảnh kiếm
+			if skill_prop == "wuji_CS_jh_myjf03" then
+				skill_prop = "CS_jh_myjf03"
+			end
+			if skill_prop == "wuji_CS_jh_myjf08" then
+				skill_prop = "CS_jh_myjf03"
+			end
+			
+			-- Kim đỉnh
+			if skill_prop == "wuji_CS_em_jdmz01" then
+				skill_prop = "CS_em_jdmz01"
+			end
+			if skill_prop == "wuji_CS_em_jdmz02" then
+				skill_prop = "CS_em_jdmz02"
+			end
+			if skill_prop == "wuji_CS_em_jdmz03" then
+				skill_prop = "CS_em_jdmz03"
+			end
+			
+			-- Tịch tà
+			if skill_prop == "wuji_CS_jh_bxjf01" then
+				skill_prop = "CS_jh_bxjf01"
+			end
+			if skill_prop == "wuji_CS_jh_bxjf04" then
+				skill_prop = "CS_jh_bxjf04"
+			end
+			if skill_prop == "wuji_CS_jh_bxjf08" then
+				skill_prop = "CS_jh_bxjf08"
+			end
+			
+			-- Bích hải
+			if skill_prop == "wuji_CS_th_bhcs04" then
+				skill_prop = "CS_th_bhcs04"
+			end
+			if skill_prop == "wuji_CS_th_bhcs06" then
+				skill_prop = "CS_th_bhcs06"
+			end
+			if skill_prop == "wuji_CS_th_bhcs07" then
+				skill_prop = "CS_th_bhcs07"
+			end
 
 			local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_prop, "UseLimit", "")
 			if LimitIndex == nil then
