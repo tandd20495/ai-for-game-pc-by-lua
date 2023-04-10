@@ -168,6 +168,7 @@ function btn_start_zither(cbtn)
 			local game_visual = nx_value("game_visual")
 			local visual_player = game_visual:GetPlayer()
 			local pos_X_save = visual_player.PositionX
+			local pos_Y_save = visual_player.PositionY
 			local pos_Z_save = visual_player.PositionZ
 				
 			-- Run auto when checked
@@ -210,6 +211,7 @@ function btn_start_zither(cbtn)
 				if is_vaild_data == true then
 					local city = map_query:GetCurrentScene()
 					local posX = pos_X_save
+					local posY = pos_Y_save
 					local posZ = pos_Z_save
 
 					-- Nếu bị chết thì trị thương lân cận
@@ -218,8 +220,9 @@ function btn_start_zither(cbtn)
 						nx_execute("custom_sender", "custom_relive", 2, 0)
 						nx_pause(7)
 					-- Chưa tới điểm đứng đó thì di chuyển đến
-					elseif not tools_move_isArrived2D(posX, -10000, posZ) then
-						tools_move(city, posX, -10000, posZ, 0)
+					elseif not tools_move_isArrived(posX, posY, posZ) then
+						tools_move(city, posX, posY, posZ, direct_run)
+						direct_run = false
 					else
 						-- Đúng vị trí cần tới thì xuống ngựa -> Chuyển qua đàn
 						is_running_zither = false

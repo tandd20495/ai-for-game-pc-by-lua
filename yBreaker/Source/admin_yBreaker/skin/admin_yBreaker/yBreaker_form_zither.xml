@@ -17,7 +17,7 @@
                <event on_click="btn_start_zither" />
           </control>
 			<control name="cb_auto_run" entity="CheckButton" script="" init="">
-				<prop BoxSize="12" Left="30" Top="50" Width="16" Height="16" HintText="Chọn để tự chạy về vị trí cũ <br>Vị trí cũ được ghi nhận từ khi ấn &lt;font color=&apos;#46fd15&apos;&gt;Bắt Đầu&lt;/font&gt;" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+				<prop BoxSize="12" Left="30" Top="50" Width="16" Height="16" HintText="• Chọn để tự chạy về vị trí cũ <br>• Vị trí cũ được ghi nhận từ khi ấn nút &lt;font color=&apos;#46fd15&apos;&gt;Bắt Đầu&lt;/font&gt;" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
 				<event on_checked_changed="" />
 			</control>
 			<control name="lbl_run_title" entity="Label" script="" init="">
