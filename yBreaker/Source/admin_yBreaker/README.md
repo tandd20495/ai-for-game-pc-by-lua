@@ -92,6 +92,7 @@ Block comment:
 + Done: Không bị connect ở màn hình login
 + Done: Skip cốt truyện
 + Done: Mở giới hạn client game
++ Done: Tự đập trứng sôi nổi
 
 GUI MAIN: /yt or /YT
 
@@ -107,6 +108,7 @@ Có thể thực hiện lệnh /code _filename để chạy file code nháp yBre
 --15: Đổi mạch	 /w
 -- Bug Ping  	 /e
 -- Show máu  	 /z
+-- Quét Custom	 /x
 --19: Blink	 	 /b     Add thêm text cho user nhập bước nhảy
 -- Tự tích THBB  /th 	Tích THBB
 --7: Thần hành	 /tele  	Nếu thêm điểm k thể tele thì bị mất vị trí đó
@@ -149,6 +151,7 @@ Dừng blink bằng cách tắt form
 -- Câu cá				/cauca
 -- Thu thập				/thuthap
 -- Setting khác			/set 
+
 
 TODO:
 

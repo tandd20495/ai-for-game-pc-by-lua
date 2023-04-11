@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_customscan" init="on_form_setting_init">
+        <prop LimitInScreen="true" Left="77" Top="120" Width="230" Height="160" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="on_setting_open" on_close="on_setting_close" />
+        <control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="204" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="show_form_custom_set" />
+        </control>
+
+        <control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_help_out.png" FocusImage="gui\common\button\btn_help_on.png" PushImage="gui\common\button\btn_help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="6.5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="show_form_custom_help" />
+        </control>
+
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Custom Setting" Font="font_title" />
+        </control>
+
+
+		<control name="check_btn1" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="40" Width="16" Height="16" ForeColor="255,0,168,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="on_btncheck_player" />
+        </control>
+        <control name="check_text1" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="30" Top="40" Width="50" Height="16" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Text="Player" Font="font_text_figure 30px" />
+        </control>
+        <control name="Edit_box_1" entity="Edit" script="" init="">
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="38" Width="150" Height="25" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+        </control>
+
+        <control name="check_btn2" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="70" Width="16" Height="16" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="on_btncheck_guild" />
+        </control>
+        <control name="check_text2" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="30" Top="70" Width="70" Height="16" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Text="Guild" Font="font_text_figure 30px" />
+        </control>
+        <control name="Edit_box_2" entity="Edit" script="" init="">
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="68" Width="150" Height="25" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+        </control>
+
+        <control name="check_btn3" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="100" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="on_btncheck_npc" />
+        </control>
+        <control name="check_text3" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="30" Top="100" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="NPC" Font="font_text_figure 30px" />
+        </control>
+        <control name="Edit_box_3" entity="Edit" script="" init="">
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="98" Width="150" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+        </control>
+
+        <control name="check_btn4" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="130" Width="16" Height="16" ForeColor="255,235,47,6" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="on_btncheck_checkbufplayer" />
+        </control>
+        <control name="check_text4" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="30" Top="130" Width="70" Height="16" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Text="Buff" Font="font_text_figure 30px" />
+        </control>
+        <control name="Edit_box_4" entity="Edit" script="" init="">
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="128" Width="150" Height="25" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+        </control>
+    </control>
+</form>

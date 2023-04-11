@@ -168,6 +168,10 @@ function yBreaker_command_chat(str_chat)
 		nx_execute(nx_current(),"yBreaker_show_HP_bar")
 		return true
 	end
+	if (command == "/x") or (command == "/x") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_customscan") 
+		return true
+	end
 	
 	if (command == "/b") or (command == "/B") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink") 
@@ -761,5 +765,173 @@ function yBreaker_get_bag_id_by_config_id(configId)
 		return 123 	-- Túi nguyên liệu
 	elseif bag_no == 4 then
 		return 125 	-- Túi nhiệm vụ
+	end
+end
+
+auto_swap_weapon_skill = function()
+	if not auto_skill_weapon_uid then		
+		local inifile = add_file_user('auto_skill')
+		local skilltaolu = wstrToUtf8(readIni(inifile,'SettingSkill','Active',''))
+		if skilltaolu ~= '' then
+			local weaponuid = nx_string(readIni(inifile,skilltaolu,'item_uid',''))
+			auto_skill_weapon_uid = weaponuid
+		end
+	end
+	if not check_skill_weapon_enable(auto_skill_weapon_uid) then
+		local weapon = get_weapon_use_by_uid(auto_skill_weapon_uid)
+		if weapon == nil then
+			nx_pause(0.5)
+			swap_weapon_autoskill(auto_skill_weapon_uid)
+		end
+	end
+end
+
+function getBattlefieldWeapon()
+  local game_client = nx_value('game_client')
+  local ini = get_ini_safe('share\\ModifyPack\\SkillPack.ini')
+  if nx_is_valid(game_client) then
+    local view_table = game_client:GetViewList()
+    local skillDamage = 0
+    local CPDamage = 0
+    local STDamage = 0
+    local binhthuName = ''
+    for i = 1, table.getn(view_table) do
+      local view = view_table[i]
+      if view.Ident == nx_string('1') then
+        local view_obj_table = view:GetViewObjList()
+        for k = 1, table.getn(view_obj_table) do
+          local view_obj = view_obj_table[k]
+          if string.find(nx_string(view_obj:QueryProp('ConfigID')), 'battlefield') and view_obj:QueryProp('EquipType') == 'Weapon' then
+            return true
+          end
+        end
+      end
+    end
+  end
+  return false
+end
+
+function getCurPos()
+	local game_client = nx_value("game_client")
+	local game_visual = nx_value("game_visual")
+	if not nx_is_valid(game_client) or  not nx_is_valid(game_visual) then return end
+	local client_player = game_client:GetPlayer()
+	local visual_player = game_visual:GetPlayer()
+	if not nx_is_valid(client_player) or not nx_is_valid(visual_player) then return end
+	return visual_player.PositionX, visual_player.PositionY, visual_player.PositionZ
+end
+
+function getDistancePlayerToObj(obj)
+	local vObj = getVisualObj(obj)
+	if not nx_is_valid(vObj) then return 9999999999 end
+	return getDistanceFromPos(vObj.PositionX, vObj.PositionY, vObj.PositionZ)
+end
+
+getDistanceFromPos = function(x, y, z)
+  if x == nil or z == nil then
+	--reset_current_pos()
+	return 999999 
+  end
+  local game_visual = nx_value("game_visual")
+  if not nx_is_valid(game_visual) then
+    return 999999
+  end
+  local visual_player = game_visual:GetPlayer()
+  if not nx_is_valid(visual_player) then
+    return 999999
+  end
+  local rX = visual_player.PositionX - x
+  local rY = visual_player.PositionY - y
+  local rZ = visual_player.PositionZ - z
+  local r = math.sqrt(rX * rX + rY * rY + rZ * rZ)
+  return r
+end
+
+function is_mp_full_train()
+  local player = getPlayer()
+  if not nx_is_valid(player) then return true end
+  local mp = nx_number(player:QueryProp('MPRatio'))
+  local hp = nx_number(player:QueryProp('HPRatio'))
+  local logic_state = getPlayerLogicState()
+  return (logic_state ~= 102 and mp > 10 and hp > 30) or (mp > 90 and hp > 90)
+end
+
+function getPlayerLogicState( ... )
+  local role = nx_value('role')
+  if not nx_is_valid(role) then return 1 end
+  local game_visual = nx_value('game_visual')
+  if not nx_is_valid(game_visual) then return 1 end
+  return game_visual:QueryRoleLogicState(role)
+end
+function get_captain_name()
+  local player = getPlayer()
+  if not nx_is_valid(player) then return nx_widestr('') end
+  return nx_widestr(player:QueryProp('TeamCaptain'))
+end
+function get_player_name( ... )
+  local player = getPlayer()
+  if not nx_is_valid(player) then return nil end
+  return nx_widestr(player:QueryProp('Name'))
+end
+function get_pos_player_dis(name)
+  local game_client = nx_value('game_client')
+  if not nx_is_valid(game_client) then return end
+  local game_scene = game_client:GetScene()
+  if not nx_is_valid(game_scene) then return  end
+  local obj_list = game_scene:GetSceneObjList()
+  for i,obj in pairs(obj_list) do
+    if name == nx_widestr(obj:QueryProp('Name')) then return obj end
+  end
+  return nil
+end
+
+get_weapon_by_id_uid = function(uid)
+	if uid == nil then return end 
+	local game_client = nx_value("game_client")
+	if not nx_is_valid(game_client) then
+		return
+	end
+	local view = game_client:GetView("121")
+	if not nx_is_valid(view) then return end
+	local viewobj_list = view:GetViewObjList()
+	for i = 1 ,table.getn(viewobj_list) do
+		local obj = viewobj_list[i]
+		if nx_string(obj:QueryProp('UniqueID')) == nx_string(uid) then
+			return obj.Ident,obj:QueryProp('ConfigID')
+		end
+	end	
+	return nil	
+end
+get_weapon_use_by_uid = function(uid)
+	if uid == nil then return end 
+	local game_client = nx_value("game_client")
+	if not nx_is_valid(game_client) then
+		return
+	end
+	local view = game_client:GetView("1")
+	if not nx_is_valid(view) then return end
+	local viewobj_list = view:GetViewObjList()
+	for i = 1 ,table.getn(viewobj_list) do
+		local obj = viewobj_list[i]
+		if nx_number(obj.Ident) == nx_number('22') then
+			if obj:QueryProp('UniqueID') == uid then
+				return obj.Ident,obj:QueryProp('ConfigID')
+			end
+		end
+	end	
+	return nil	
+end
+function swap_weapon_autoskill(uid)	
+	if uid == nil then return end 
+	local game_client = nx_value("game_client")
+	if not nx_is_valid(game_client) then
+		return
+	end
+	local ident,config = get_weapon_by_id_uid(uid)
+	if ident ~= nil then
+		local form = util_get_form('form_stage_main\\form_bag')
+		if nx_is_valid(form) then
+			nx_execute('form_stage_main\\form_bag_func', 'on_bag_right_click', form.imagegrid_equip, nx_number(ident) - 1)
+		end
 	end
 end
