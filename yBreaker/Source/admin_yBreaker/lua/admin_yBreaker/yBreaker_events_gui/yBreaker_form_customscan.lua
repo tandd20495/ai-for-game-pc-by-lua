@@ -66,9 +66,9 @@ function change_form_size()
 		return
 	end
 	--local gui = nx_value("gui")
-	form_main.Left = 140
+	form_main.Left = 100
 	--form.Top = (gui.Height - form.Height) / 2
-	form_main.Top = 100
+	form_main.Top = 140
 end
 
 function get_current_map()
