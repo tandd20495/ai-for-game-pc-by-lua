@@ -6,12 +6,9 @@ require("share\\server_custom_define")
 require("define\\sysinfo_define")
 require("share\\chat_define")
 require("define\\request_type")
---require("auto_tools\\tool_libs2")
---require("auto\\lib")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_customscan"
 local FORM_SETTING = "admin_yBreaker\\yBreaker_form_customscan_set"
-local FORM_HELP = "admin_yBreaker\\yBreaker_form_customscan_help"
 local auto_is_running = false
 
 function on_form_main_init(form_main)
@@ -46,14 +43,6 @@ function on_btn_close_click(btn)
 		return
 	end
 	on_main_form_close(form_main)
-end
-
-function on_btn_close_form_help(form_help)
-	local form_help = nx_value(FORM_HELP)
-	if not nx_is_valid(form_help) then
-		return
-	end
-	nx_destroy(form_help)
 end
 
 function on_btn_control_click(btn)
@@ -92,10 +81,6 @@ end
 
 function show_form_custom_set()
 	util_auto_show_hide_form(FORM_SETTING)
-end
-
-function show_form_custom_help()
-	util_auto_show_hide_form(FORM_HELP)
 end
 
 function on_btncheck_player(cbtn)

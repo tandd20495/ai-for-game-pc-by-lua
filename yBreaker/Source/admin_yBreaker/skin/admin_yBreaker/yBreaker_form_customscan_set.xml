@@ -9,8 +9,8 @@
         </control>
 
         <control name="btn_help" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_help_out.png" FocusImage="gui\common\button\btn_help_on.png" PushImage="gui\common\button\btn_help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="6.5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
-            <event on_click="show_form_custom_help" />
+            <prop NormalImage="gui\common\button\btn_help_out.png" FocusImage="gui\common\button\btn_help_on.png" PushImage="gui\common\button\btn_help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="6.5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#00a8ff&apos;&gt;------- Player -------&lt;/font&gt;<br>all: người chơi xung quanh<br>&lt;font color=&apos;#4cd137&apos;&gt;------- Guild -------&lt;/font&gt; <br>tênBang: tự nhập tên Bang <br>&lt;font color=&apos;#ff2bdf&apos;&gt;------- NPC -------&lt;/font&gt; <br>cstnpc_zs: giá sách <br>&lt;font color=&apos;#f6b93b&apos;&gt;------- Buff -------&lt;/font&gt; <br>buf_fan: truy nã<br>"  />
+            <event on_click="" />
         </control>
 
         <control name="lbl_title" entity="Label" script="" init="">
@@ -26,7 +26,7 @@
             <prop RefCursor="WIN_HELP" Left="30" Top="40" Width="50" Height="16" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Text="Player" Font="font_text_figure 30px" />
         </control>
         <control name="Edit_box_1" entity="Edit" script="" init="">
-            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="38" Width="150" Height="25" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="38" Width="150" Height="25" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="all" />
         </control>
 
         <control name="check_btn2" entity="CheckButton" script="" init="">
@@ -37,7 +37,7 @@
             <prop RefCursor="WIN_HELP" Left="30" Top="70" Width="70" Height="16" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Text="Guild" Font="font_text_figure 30px" />
         </control>
         <control name="Edit_box_2" entity="Edit" script="" init="">
-            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="68" Width="150" Height="25" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="68" Width="150" Height="25" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="NhấtPhẩmCác" />
         </control>
 
         <control name="check_btn3" entity="CheckButton" script="" init="">
@@ -48,7 +48,7 @@
             <prop RefCursor="WIN_HELP" Left="30" Top="100" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="NPC" Font="font_text_figure 30px" />
         </control>
         <control name="Edit_box_3" entity="Edit" script="" init="">
-            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="98" Width="150" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="98" Width="150" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="cstnpc_zs" />
         </control>
 
         <control name="check_btn4" entity="CheckButton" script="" init="">
@@ -59,7 +59,7 @@
             <prop RefCursor="WIN_HELP" Left="30" Top="130" Width="70" Height="16" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Text="Buff" Font="font_text_figure 30px" />
         </control>
         <control name="Edit_box_4" entity="Edit" script="" init="">
-            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="128" Width="150" Height="25" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" />
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="75" Top="128" Width="150" Height="25" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="buf_fan" />
         </control>
     </control>
 </form>
