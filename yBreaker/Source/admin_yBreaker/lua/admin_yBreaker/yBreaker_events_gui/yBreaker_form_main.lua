@@ -4,6 +4,7 @@ require("util_functions")
 
 -- Initialize skin path for form
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_main"
+local HELP_FORM = "admin_yBreaker\\yBreaker_form_main_help"
 
 -- Set value default
 function on_form_main_init(form)
@@ -43,3 +44,6 @@ function on_btn_close_click(btn)
 	on_main_form_close(form)
 end
 	
+function on_btn_help_click(btn)
+	util_auto_show_hide_form(HELP_FORM)
+end

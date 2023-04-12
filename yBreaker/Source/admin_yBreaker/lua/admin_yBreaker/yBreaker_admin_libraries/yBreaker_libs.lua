@@ -124,8 +124,18 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
+	if (command == "/help") or (command == "/HELP") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main_help") 
+		return true
+	end
+	
 	if (command == "/at") or (command == "/AT") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_automation") 
+		return true
+	end
+	
+	if (command == "/ai") or (command == "/AI") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_ai") 
 		return true
 	end
 	
@@ -145,7 +155,12 @@ function yBreaker_command_chat(str_chat)
 	end
 	
 	if (command == "/d") or (command == "/D") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_selectinfo") 
+		return true
+	end
+	
+	if (command == "/q") or (command == "/Q") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes") 
 		return true
 	end
 	
@@ -154,32 +169,32 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/q") or (command == "/Q") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_godseyes") 
-		return true
-	end	
-	
 	if (command == "/e") or (command == "/E") then
-		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs") 
 		return true
 	end
 	
 	if (command == "/z") or (command == "/Z") then
+		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
+		return true
+	end
+	
+	if (command == "/x") or (command == "/X") then
 		nx_execute(nx_current(),"yBreaker_show_HP_bar")
 		return true
 	end
 	
-	if (command == "/x") or (command == "/x") then
+	if (command == "/c") or (command == "/C") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_customscan") 
 		return true
 	end
 	
-	if (command == "/c") or (command == "/c") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_selectinfo") 
+	if (command == "/b") or (command == "/B") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_boombuff") 
 		return true
 	end
-	
-	if (command == "/b") or (command == "/B") then
+		
+	if (command == "/blink") or (command == "/BLINK") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_blink") 
 		return true
 	end
