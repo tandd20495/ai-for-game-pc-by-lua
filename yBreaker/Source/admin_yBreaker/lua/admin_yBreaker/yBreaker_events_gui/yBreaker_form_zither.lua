@@ -35,6 +35,10 @@ function init_ui_content(form)
 	
 	form.cbx_zither_load.Visible = false
     form.btn_start_stop.Visible = false
+	form.lbl_run_title.Visible = false
+	form.cb_auto_run.Visible = false
+	form.cb_train.Visible = false
+	form.lbl_train_title.Visible = false
   end
 	if not form.auto_start then
 		form.btn_start_stop.Text = util_text("ui_begin")
