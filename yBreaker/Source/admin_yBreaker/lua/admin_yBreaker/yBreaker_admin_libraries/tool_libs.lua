@@ -2463,7 +2463,7 @@ function getDistanceWithObj(pos, vobj)
     local pyd = py - pos[2]
     local pzd = pz - pos[3]
 
-    return math.sqrt(pxd * pxd + pzd * pzd)
+    return math.sqrt(pxd * pxd + pyd * pyd + pzd * pzd)
 end
 
 -- Function swap button 2 trong form swap cần sử dụng

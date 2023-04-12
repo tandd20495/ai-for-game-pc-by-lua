@@ -168,8 +168,14 @@ function yBreaker_command_chat(str_chat)
 		nx_execute(nx_current(),"yBreaker_show_HP_bar")
 		return true
 	end
+	
 	if (command == "/x") or (command == "/x") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_customscan") 
+		return true
+	end
+	
+	if (command == "/c") or (command == "/c") then
+		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_selectinfo") 
 		return true
 	end
 	
