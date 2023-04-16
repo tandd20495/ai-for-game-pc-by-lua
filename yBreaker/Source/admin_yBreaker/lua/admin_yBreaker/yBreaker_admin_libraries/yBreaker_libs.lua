@@ -502,7 +502,7 @@ function yBreaker_get_player()
 	local client_player = client:GetPlayer()
 	
 	if not nx_is_valid(client_player) then
-		return
+		return false
 	end
 	
 	return client_player
