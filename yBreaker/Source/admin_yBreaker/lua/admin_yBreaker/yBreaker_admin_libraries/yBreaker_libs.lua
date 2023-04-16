@@ -325,10 +325,10 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/vt") or (command == "/VT") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_vantieu") 
-		return true
-	end
+	--if (command == "/vt") or (command == "/VT") then
+	--	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_vantieu") 
+	--	return true
+	--end
 	
 	if (command == "/pw") or (command == "/PW") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_password") 
@@ -500,6 +500,11 @@ end
 function yBreaker_get_player()
 	local client = nx_value("game_client")
 	local client_player = client:GetPlayer()
+	
+	if not nx_is_valid(client_player) then
+		return
+	end
+	
 	return client_player
 end
 
