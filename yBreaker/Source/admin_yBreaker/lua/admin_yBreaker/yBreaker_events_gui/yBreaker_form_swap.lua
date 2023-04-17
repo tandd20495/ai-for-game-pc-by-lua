@@ -340,17 +340,65 @@ function EquipItemProp(form, ini, skill_prop, active)
 					local name = nx_function("ext_widestr_to_utf8", util_text(item:QueryProp("ConfigID")))
 					nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(item.Ident) - 1)	
 				end
+				
+				local form_swap = nx_value(THIS_FORM)
+				-- Swap bình thư nếu check vào checkbox
+				if form_swap.chk_bth.Checked == true then
+				
+					-- Đổi bình thư xích huyết tăng 15% damage khi dưới 50% máu
+					local player = yBreaker_get_player()
+					if player:QueryProp("HPRatio") < 50 then
+						if not nx_function("find_buffer", player, "buf_zs_hs_5_1_01") then
+							useBinhThuByIDAndSkill("zs_hs_5_1")
+							nx_pause(0.5)
+						end
+					end
 
-
-				-- Đổi bình thư 10%
-				if nx_is_valid(binhthu) then
-					local form_swap = nx_value(THIS_FORM)
-					-- Swap bình thư nếu check vào checkbox
-					if form_swap.chk_bth.Checked == true then
+					-- Đổi bình thư 10%
+					if nx_is_valid(binhthu) then
 						nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(binhthu.Ident) - 1)
 					end
 				end
 			end
 		end
 	end
+end
+
+
+-- Dùng bình thư bởi ID của bình thư và Skill
+-- Nếu skill rỗng thì chỉ quan tâm đến ID bình thư
+-- Nếu nhiều bình thư trùng nhau thì bình thư đầu tiên sẽ được chọn
+function useBinhThuByIDAndSkill(configID, SkillID)
+    local goods_grid = nx_value("GoodsGrid")
+    local game_client = nx_value("game_client")
+    local view = game_client:GetView(nx_string(121))
+    local items = view:GetViewObjList()
+    for j, item in pairs(items) do
+        if nx_is_valid(item) then
+            local grid, index = goods_grid:GetToolBoxGridAndPos(configID)
+            if not nx_is_valid(grid) then
+                return false
+            end
+            if SkillID == nil then
+                -- Không quan tâm skill thì kết thúc
+                goods_grid:ViewUseItem(grid.typeid, grid:GetBindIndex(index), grid, index)
+                --logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
+                --logToForm("Đang chờ trang bị bình thư xong")
+               -- checkItemIsEquipSuccess(configID)
+                return true
+            end
+            local skillInt = arraySkillIntergerByID[SkillID]
+            if skillInt == nil then
+                return false
+            end
+            local binhthuSkill = item:QueryRecord("SkillModifyPackRec", 0, 0)
+            if nx_int(binhthuSkill) == nx_int(skillInt) then
+                goods_grid:ViewUseItem(grid.typeid, grid:GetBindIndex(index), grid, index)
+                --logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
+                --logToForm("Đang chờ trang bị bình thư xong")
+                --checkItemIsEquipSuccess(configID)
+                return true
+            end
+        end
+    end
 end

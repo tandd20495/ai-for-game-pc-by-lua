@@ -20,10 +20,10 @@
 		</control>
 		
 		<control name="chk_bth" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="12" Top="80" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false"/>
+			<prop BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="12" Top="80" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false" HintText="•Khi chọn sẽ đổi bình thư 10% skill khi hơn 50% máu. <br>•Dưới 50% máu sẽ dùng Xích Huyết và BT 10% skill"/>
 		</control>
 		<control name="lbl_bth" entity="Label" script="" init="">
-                <prop Align="Left" RefCursor="WIN_HELP" Left="35" Top="80" Width="60" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="BT 10%" Font="font_main" />
+                <prop Align="Left" RefCursor="WIN_HELP" Left="35" Top="80" Width="60" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Sách" Font="font_main" />
         </control>
 		
     </control>
