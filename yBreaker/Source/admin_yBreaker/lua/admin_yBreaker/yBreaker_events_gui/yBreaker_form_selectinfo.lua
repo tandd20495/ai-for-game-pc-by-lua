@@ -124,8 +124,16 @@ function scan_info_player()
                     end
                 end
             end
-        end
-        nx_pause(1)
+        else
+			-- Set default value
+			form.t_hp_txt.Text = ""
+			form.t_mp_txt.Text = ""
+			form.t_dis_txt.Text = ""
+			form.t_sp_txt.Text = ""
+			form.t_team_txt.Text = ""
+			form.t_team_num_txt.Text = ""
+			nx_pause(1)
+	end
     end
 
 end
