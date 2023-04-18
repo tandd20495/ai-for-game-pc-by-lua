@@ -56,34 +56,39 @@ function scan_info_player()
         game_client = nx_value("game_client")
         if not nx_is_valid(game_client) then
             is_vaild_data = false
+			return
         end
         game_visual = nx_value("game_visual")
         if not nx_is_valid(game_visual) then
             is_vaild_data = false
+			return
         end
         if is_vaild_data == true then
             game_player = game_visual:GetPlayer()
             if not nx_is_valid(game_player) then
                 is_vaild_data = false
+				return
             end
             player_client = game_client:GetPlayer()
             if not nx_is_valid(player_client) then
                 is_vaild_data = false
+				return
             end
             game_scence = game_client:GetScene()
             if not nx_is_valid(game_scence) then
                 is_vaild_data = false
+				return
             end
         end
         local form = nx_value(THIS_FORM)
         if not nx_is_valid(form) then
             is_vaild_data = false
+			return
         end
-
-        if is_vaild_data == true then
-            local game_scence_objs = game_scence:GetSceneObjList()
-            local num_objs = table.getn(game_scence_objs)
-           
+		
+        if is_vaild_data == true then   
+			local game_scence_objs = game_scence:GetSceneObjList()
+			local num_objs = table.getn(game_scence_objs)
             for i = 1, num_objs do
                 local obj_type = 0
                 if game_scence_objs[i]:FindProp("Type") then
