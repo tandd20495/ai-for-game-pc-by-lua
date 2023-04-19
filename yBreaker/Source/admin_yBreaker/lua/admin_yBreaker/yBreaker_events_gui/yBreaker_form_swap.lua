@@ -23,12 +23,12 @@ function on_main_form_open(form)
     form.is_minimize = false
 	form.chk_bth.Checked = false
 	
-	-- Variable for swap 30% + book 10%
-    local swap_30_per = false	
+	-- Variable for swap item equip
+    local swap_items_equip = false	
 end
 
 function on_main_form_close(form)
-    swap_30_per = false
+    swap_items_equip = false
     nx_destroy(form)
 end
 
@@ -56,106 +56,49 @@ function show_hide_form_swap(btn)
 end
 
 
--- Function swap 30% + book 10% damage
-function on_btn_swap_30_per_click(btn)
+-- Function swap items equip
+function on_btn_swap_items_equip_click(btn)
     local form = btn.ParentForm
     if not nx_is_valid(form) then
         return
     end
 	
-	if swap_30_per then
-		swap_30_per = false
+	if swap_items_equip then
+		swap_items_equip = false
 		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
     else
-		swap_30_per = true
+		swap_items_equip = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")	  
     end
 	
-    local form = util_get_form("form_stage_main\\form_bag")
-    if nx_is_valid(form) then
-      local ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
-      if nx_is_valid(ini) then
-        while swap_30_per do
-          nx_pause(0.1)
-		  
-          local player = yBreaker_get_player()
-          if nx_is_valid(player) then
-            if player:FindProp("CurSkillID") then
-              local fight = nx_value("fight")
-              if player:QueryProp("CurSkillID") ~= "" then				
-                EquipItemProp(form, ini, player:QueryProp("CurSkillID"), 1)
-                nx_pause(0.0001)
-              end
-            end
-          end
-        end
-      end
-    end
-end
-
-function getCurWeapon(ini, skill_prop)
-	local game_client = nx_value("game_client")
-	local client_player = game_client:GetPlayer()
-	if nx_is_valid(client_player) then
-		local scene = game_client:GetScene()
-		local view_table = game_client:GetViewList()
-		for i = 1, table.getn(view_table) do
-			local view = view_table[i]
-			if view.Ident == nx_string("1") then
-				local view_obj_table = view:GetViewObjList()
-				for k = 1, table.getn(view_obj_table) do
-					local view_obj = view_obj_table[k]
-					if view_obj:QueryProp("EquipType") == "Weapon" then
-						local row = view_obj:GetRecordRows("PropModifyPackRec")
-						local newdamage = 0
-						local newcp = 0
-						if row > 0 then
-							for k = 0, row - 1 do
-								local damage = view_obj:QueryRecord("PropModifyPackRec", k, 0)
-								if nx_number(damage) > 13033 and nx_number(damage) < 13900 then
-									if nx_number(damage) > 13224 then
-										-- cong pha
-										newcp = newcp + (nx_number(damage) - 13224)
-									else
-										-- sat thuong vu khi
-										newdamage = newdamage + (nx_number(damage) - 13033)
-									end
-								end
-							end
+    local form_bag = util_get_form("form_stage_main\\form_bag")
+	if nx_is_valid(form_bag) then
+	
+		local skill_pack_ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
+		if nx_is_valid(skill_pack_ini) then
+		
+			while swap_items_equip do
+				nx_pause(0.1)
+				local player = yBreaker_get_player()
+				if nx_is_valid(player) then
+					if player:FindProp("CurSkillID") then
+						if player:QueryProp("CurSkillID") ~= "" then				
+							equip_item_prop(form_bag, skill_pack_ini, player:QueryProp("CurSkillID"), 1)
+							nx_pause(0.1)
 						end
-
-						local skilldmg = 0
-						local row = view_obj:GetRecordRows("SkillModifyPackRec")
-						if row > 0 then
-							for k = 0, row - 1 do
-								local prop = view_obj:QueryRecord("SkillModifyPackRec", k, 0)
-								local sec_index = ini:FindSectionIndex(nx_string(prop))
-								local value = ""
-								if sec_index >= 0 then
-									value = ini:ReadString(sec_index, "r", nx_string(""))
-								end
-								local tuple = util_split_string(value, ",")
-								if nx_string(tuple[1]) == nx_string(skill_prop) then
-									skilldmg = skilldmg + 1
-								end
-							end
-						end
-						return newdamage, newcp, skilldmg
 					end
 				end
-				break
 			end
 		end
 	end
 end
 
-function EquipItemProp(form, ini, skill_prop, active)
-	if nx_is_valid(form) then
-		if nx_is_valid(ini) then
-			local item = nx_null()
-			local binhthu = nil
-			local item_tru = nil
-			local item_cp = nil
+-- Function equip items by properties
+function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
+	if nx_is_valid(form_bag) then
+		if nx_is_valid(skill_pack_ini) then
+			local item_quip = nx_null()
+			local book_10per = nil
 			local game_client = nx_value("game_client")
 			local client_player = game_client:GetPlayer()
 			
@@ -273,11 +216,8 @@ function EquipItemProp(form, ini, skill_prop, active)
 				return
 			end
 
-			local item_trudmg, item_cpdmg, skilldamage = getCurWeapon(ini, skill_prop)
-
 			if nx_is_valid(client_player) then
 
-				local scene = game_client:GetScene()
 				local view_table = game_client:GetViewList()
 				for i = 1, table.getn(view_table) do
 					local view = view_table[i]
@@ -286,31 +226,26 @@ function EquipItemProp(form, ini, skill_prop, active)
 						for k = 1, table.getn(view_obj_table) do
 							local view_obj = view_obj_table[k]
 
-							--if ItemType == nx_number(0) or nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) then
 							-- ItemType: Get vũ khí dựa vào skill ở trên/ 
 							-- nx_number(145): Oản
-							-- nx_int(0): Tất cả các loại (Oản + B.thư, ...
+							-- nx_int(0): Tất cả các loại (Oản + B.thư, ...)
 							if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) or nx_number(view_obj:QueryProp("ItemType")) == nx_number(145) then
 
-								local skilldmg = 0
 								local row = view_obj:GetRecordRows("SkillModifyPackRec")
 								if row > 0 then
 									for k = 0, row - 1 do
 										local prop = view_obj:QueryRecord("SkillModifyPackRec", k, 0)
-										local sec_index = ini:FindSectionIndex(nx_string(prop))
+										local sec_index = skill_pack_ini:FindSectionIndex(nx_string(prop))
 										local value = ""
 										if sec_index >= 0 then
-											value = ini:ReadString(sec_index, "r", nx_string(""))
+											value = skill_pack_ini:ReadString(sec_index, "r", nx_string(""))
 										end
+										
 										local tuple = util_split_string(value, ",")
 										if nx_string(tuple[1]) == nx_string(skill_prop) then
-											skilldmg = skilldmg + 1
+											item_quip = view_obj
 										end
 									end
-								end
-								if nx_number(skilldamage) < nx_number(skilldmg) then
-									item = view_obj
-									skilldamage = skilldmg
 								end
 							end
 							
@@ -319,14 +254,14 @@ function EquipItemProp(form, ini, skill_prop, active)
 								local row = view_obj:GetRecordRows("SkillModifyPackRec")
 								if row > 0 then
 									local prop = view_obj:QueryRecord("SkillModifyPackRec", 0, 0)
-									local sec_index = ini:FindSectionIndex(nx_string(prop))
+									local sec_index = skill_pack_ini:FindSectionIndex(nx_string(prop))
 									local value = ""
 									if sec_index >= 0 then
-										value = ini:ReadString(sec_index, "r", nx_string(""))
+										value = skill_pack_ini:ReadString(sec_index, "r", nx_string(""))
 									end
 									local tuple = util_split_string(value, ",")
 									if nx_string(tuple[1]) == nx_string(skill_prop) then
-										binhthu = view_obj										
+										book_10per = view_obj										
 									end
 								end
 							end
@@ -336,9 +271,8 @@ function EquipItemProp(form, ini, skill_prop, active)
 				end
 
 				-- Đổi đồ 30%
-				if nx_is_valid(item) then
-					local name = nx_function("ext_widestr_to_utf8", util_text(item:QueryProp("ConfigID")))
-					nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(item.Ident) - 1)	
+				if nx_is_valid(item_quip) then
+					nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(item_quip.Ident) - 1)	
 				end
 				
 				local form_swap = nx_value(THIS_FORM)
@@ -349,14 +283,14 @@ function EquipItemProp(form, ini, skill_prop, active)
 					local player = yBreaker_get_player()
 					if player:QueryProp("HPRatio") < 50 then
 						if not nx_function("find_buffer", player, "buf_zs_hs_5_1_01") then
-							useBinhThuByIDAndSkill("zs_hs_5_1")
-							nx_pause(0.5)
+							use_book_by_configID("zs_hs_5_1")
+							nx_pause(1)
 						end
 					end
 
 					-- Đổi bình thư 10%
-					if nx_is_valid(binhthu) then
-						nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form.imagegrid_equip, nx_number(binhthu.Ident) - 1)
+					if nx_is_valid(book_10per) then
+						nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(book_10per.Ident) - 1)
 					end
 				end
 			end
@@ -368,35 +302,31 @@ end
 -- Dùng bình thư bởi ID của bình thư và Skill
 -- Nếu skill rỗng thì chỉ quan tâm đến ID bình thư
 -- Nếu nhiều bình thư trùng nhau thì bình thư đầu tiên sẽ được chọn
-function useBinhThuByIDAndSkill(configID, SkillID)
+function use_book_by_configID(config_ID, skill_ID)
     local goods_grid = nx_value("GoodsGrid")
     local game_client = nx_value("game_client")
     local view = game_client:GetView(nx_string(121))
-    local items = view:GetViewObjList()
-    for j, item in pairs(items) do
-        if nx_is_valid(item) then
-            local grid, index = goods_grid:GetToolBoxGridAndPos(configID)
+    local list_book = view:GetViewObjList()
+    for j, book in pairs(list_book) do
+        if nx_is_valid(book) then
+            local grid, index = goods_grid:GetToolBoxGridAndPos(config_ID)
             if not nx_is_valid(grid) then
                 return false
             end
-            if SkillID == nil then
+            if skill_ID == nil then
                 -- Không quan tâm skill thì kết thúc
                 goods_grid:ViewUseItem(grid.typeid, grid:GetBindIndex(index), grid, index)
-                --logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
-                --logToForm("Đang chờ trang bị bình thư xong")
-               -- checkItemIsEquipSuccess(configID)
+               -- checkItemIsEquipSuccess(config_ID)
                 return true
             end
-            local skillInt = arraySkillIntergerByID[SkillID]
+            local skillInt = arraySkillIntergerByID[skill_ID]
             if skillInt == nil then
                 return false
             end
-            local binhthuSkill = item:QueryRecord("SkillModifyPackRec", 0, 0)
-            if nx_int(binhthuSkill) == nx_int(skillInt) then
+            local book_skill = book:QueryRecord("SkillModifyPackRec", 0, 0)
+            if nx_int(book_skill) == nx_int(skillInt) then
                 goods_grid:ViewUseItem(grid.typeid, grid:GetBindIndex(index), grid, index)
-                --logToForm(nx_function("ext_utf8_to_widestr", "Trang bị bình thư: ") .. util_text(configID), true)
-                --logToForm("Đang chờ trang bị bình thư xong")
-                --checkItemIsEquipSuccess(configID)
+                --checkItemIsEquipSuccess(config_ID)
                 return true
             end
         end
