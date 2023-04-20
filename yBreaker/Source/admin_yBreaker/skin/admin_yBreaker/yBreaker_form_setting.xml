@@ -7,7 +7,7 @@
             <prop RefCursor="WIN_HELP" Top="2" Width="175" Height="275" ShadowColor="0,0,0,0" Font="font_sns_title_hual_2" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
    </control>	 
    <control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
-              <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="180" Height="20" ForeColor="255,255,255,255" DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Hỗ Trợ Khác" Font="font_title" />
+              <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="180" Height="20" ForeColor="255,255,255,255" DrawMode="ExpandH" ShadowColor="0,0,0,0" Text="Hỗ Trợ" Font="font_title" />
     </control>
 	<control name="btn_close" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="145" Top="8" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="ok_7" />
@@ -70,7 +70,7 @@
 		</control>	
 		
 		<control name="btn_start_save" entity="Button" script="" init="">
-                <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="50" Top="235" Width="120" Height="30" ForeColor="255,255,235,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Save" Font="font_btn" TabStop="true" AutoSize="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+                <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="50" Top="235" Width="120" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Lưu" Font="font_btn" TabStop="true" AutoSize="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
                   <event on_click="btn_start_save" />
 		</control> 
 </control>
