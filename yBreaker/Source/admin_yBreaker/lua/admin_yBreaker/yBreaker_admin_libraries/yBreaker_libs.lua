@@ -199,7 +199,7 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/buff") or (command == "/BUFF") then
+	if (command == "/lam") or (command == "/LAM") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_bughpmp","yBreaker_buff_hpmp")
 		return true
 	end

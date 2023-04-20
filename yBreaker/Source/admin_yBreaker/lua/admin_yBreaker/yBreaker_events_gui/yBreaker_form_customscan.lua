@@ -1,6 +1,6 @@
 require("const_define")
 require("util_gui")
-require("util_move") -- Xac dinh toa do distance3d
+require("util_move") -- Distance3d
 require("util_functions")
 require("share\\server_custom_define")
 require("define\\sysinfo_define")

@@ -44,8 +44,9 @@ AI			 /ai 		Gồm: LC,TN,VT,Q NC6,Cấm địa TDC/LTT,Trồng cây,Săn,Thu th�
 --15: Đổi mạch	 /w
 --6: BUGS		 /e  		
 -- Bug Ping  	 /z			Nâng cấp khi đang khinh công vẫn đè ping đc
--- Quét Custom	 /x
--- Show máu  	 /c
+-- Quét Custom	 /c
+-- Show máu  	 /x
+-- Boom or buff  /b
 --19: Blink	 	 /blink     Add thêm text cho user nhập bước nhảy
 
 -- Tự tích THBB  /th 		Thêm Tự gọi PET
@@ -60,7 +61,7 @@ AI			 /ai 		Gồm: LC,TN,VT,Q NC6,Cấm địa TDC/LTT,Trồng cây,Săn,Thu th�
 --17: Tìm cây	 /timcay 	
 
 
--- Lãm	 /buff 		
+-- Lãm	 /lam	
 -- Tự sát /die
 -- Diễn vỡ Tâm Ma		/tm
 -- Use vật phẩm ô đầu tiên trong hành trang /use
@@ -91,10 +92,23 @@ Cần bật MAP + chọn điểm đến trên MAP mới ấn nút Blink để nh
 Dừng blink bằng cách tắt form
 
 TODO:
-
-- /help: Cách sử dụng và các lệnh trong yBreaker
-
 - Mở form log: /log
+
+/help : Bảng hướng dẫn lệnh chat
+/dan : Bổ sung chạy đàn lại chỗ cũ + Luyện đàn
+/pw Lưu + mã hóa pass rương
+/set Cài đặt khác
+/cauca câu cá
+/sanbat săn bắt
+/trongtrot trồng trọt
+/thuthap thu thập
+/c Quét Custom
+/d Quét info
+/b Boom or buff
+
+Fix lỗi treo khi qua map của Select Info
+Refactor swap function
+Add Boom/Buff
 
 
 
