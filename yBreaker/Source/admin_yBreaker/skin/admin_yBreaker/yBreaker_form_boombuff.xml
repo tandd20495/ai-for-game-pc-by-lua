@@ -11,7 +11,7 @@
         <control name="btn_help" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_help_out.png" FocusImage="gui\common\button\btn_help_on.png" PushImage="gui\common\button\btn_help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="6.5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" 
 			HintText="&lt;font color=&apos;#f6b93b&apos;&gt;•Mode Boom:&lt;/font&gt; Sẽ chạy đến các điểm đã cài tọa độ, kiểm tra tên N.V or Bang để ném boom cho mục tiêu nếu đã chọn
-			<br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Mode Buff:&lt;/font&gt; Sẽ chọn tên N.V or tên Bang để làm mục tiêu theo buff nếu đã chọn, khi buff sẽ tự kiểm tra buff xấu trên mục tiêu mới buff"  />
+			<br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Mode Buff:&lt;/font&gt; Sẽ chọn tên nhân vật để làm mục tiêu theo buff nếu đã chọn, khi buff sẽ tự kiểm tra buff xấu trên mục tiêu mới buff"  />
             <event on_click="" />
         </control>
 

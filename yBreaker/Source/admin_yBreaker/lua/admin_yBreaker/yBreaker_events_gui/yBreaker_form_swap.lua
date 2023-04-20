@@ -21,7 +21,7 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
-	form.chk_bth.Checked = false
+	form.chk_bth.Checked = true
 	
 	-- Variable for swap item equip
     local swap_items_equip = false	

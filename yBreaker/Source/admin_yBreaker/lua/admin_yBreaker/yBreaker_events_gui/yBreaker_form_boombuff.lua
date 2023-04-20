@@ -23,6 +23,7 @@ function on_main_form_open(form)
 	form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
 	--form.btn_start.ForeColor = "255,0,255,0"
 	form.rbtn_buff.Checked = true
+	form.chk_player.Checked = true
 	LoadSetting(form)
 end
 function on_main_form_close(form)
@@ -103,14 +104,14 @@ function on_btn_start_click(btn)
 					end	
 					
 					-- Handle for Player checked
-					if form.chk_player.Checked or form.chk_guild.Checked then 
+					if form.chk_player.Checked then 
 						-- Type 2 là người chơi
 						if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
 						
 							local name_player = game_scence_objs[i]:QueryProp("Name")
-							local guild_player = game_scence_objs[i]:QueryProp("GuildName")
+							
 							-- Kiểm tra đúng tên thì chọn mục tiêu
-							if name_player == nx_widestr(form.edt_player_txt.Text) or guild_player == nx_widestr(form.edt_guild_txt.Text)  then
+							if name_player == nx_widestr(form.edt_player_txt.Text) then
 								-- Chọn mục tiêu
 								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
 								
@@ -118,6 +119,16 @@ function on_btn_start_click(btn)
 								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
 								local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
 								
+								if form.chk_relive.Checked then
+									-- Nếu bị chết thì trị thương lân cận
+									local logicstate = player_client:QueryProp("LogicState")
+									if logicstate == 120 then
+										nx_execute("custom_sender", "custom_relive", 2, 0)
+										nx_pause(7)
+										break
+									end
+								end
+							
 								if dist_player <= 20 then
 									--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
 									if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
@@ -135,9 +146,10 @@ function on_btn_start_click(btn)
 									--: Trói của CYV: buf_CS_jy_xsd01_01
 									--: Trói ném CYV: buf_CS_jy_tdshs05_1
 									--: Mê của Rồng: buf_CS_jh_xlsbz15_02
+									--: Lao tới Rồng: buf_CS_jh_xlsbz07
 									--: Mê của Khai Cổ: buf_CS_wd_tjq08
 									--: Mê của Khai thường: buf_CS_wdzp_tjq08
-									--: Buff Trịch Bút: wuji_buf_CS_tm_ywt07 (Võ kỹ)
+									--: Cấm Trịch Bút: wuji_buf_CS_tm_ywt07 (Võ kỹ)
 									--: Thổ tín: buf_CS_tm_jsc02
 									--: Bản đằng choáng: buf_CS_jh_llt02
 									--: Trường tam: buf_CS_jh_llt03_2: Giảm tốc + chính xác / buf_CS_jh_llt03_1: Phong chiêu + cấm KC
@@ -168,6 +180,7 @@ function on_btn_start_click(btn)
 									end
 				
 								else
+													
 									yBreaker_show_Utf8Text("Ngoài phạm vi buff, đang di chuyển lại mục tiêu trong phạm vi 20m")
 									-- Di chuyển đến khoảng cách trong tầm buff
 									local map_query = nx_value("MapQuery")
@@ -359,3 +372,30 @@ function UpdateStatus()
 		end
 	end
 end
+
+-- function on_changed_radio_button()
+-- 	local form = util_get_form(THIS_FORM, false, false)
+-- 	if nx_is_valid(form) then
+-- 		if form.rbtn_buff.Checked then
+-- 			-- Set control disable
+-- 			form.chk_guild.Enable = false
+-- 			form.chk_guild_txt.Enable = false
+-- 			form.edt_guild_txt.Enable = false
+-- 			form.chk_pos.Enable = false
+-- 			form.chk_pos_txt.Enable = false
+-- 			form.cmb_pos.Enable = false
+-- 			form.btn_add_pos.Enable = false
+-- 			form.btn_del_pos.Enable = false
+-- 		else 
+-- 			-- Set control disable
+-- 			form.chk_guild.Enable = true
+-- 			form.chk_guild_txt.Enable = true
+-- 			form.edt_guild_txt.Enable = true
+-- 			form.chk_pos.Enable = true
+-- 			form.chk_pos_txt.Enable = true
+-- 			form.cmb_pos.Enable = true
+-- 			form.btn_add_pos.Enable = true
+-- 			form.btn_del_pos.Enable = true
+-- 		end
+-- 	end
+-- end
