@@ -13,18 +13,15 @@ function on_form_main_init(form)
 	form.is_minimize = false
 	is_start = false
 
-	form.select_index = 0
-	form.cur_point = 1
-	form.total_point = 0
-	InitSetting()
 end
 function on_main_form_open(form)
 	change_form_size()
 	form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
-	--form.btn_start.ForeColor = "255,0,255,0"
+	form.btn_start.ForeColor = "255,0,255,0"
 	form.rbtn_buff.Checked = true
 	form.chk_player.Checked = true
-	LoadSetting(form)
+	form.chk_acceptreq.Checked = true
+	form.chk_relive.Checked = true
 end
 function on_main_form_close(form)
 	is_start = false
@@ -42,13 +39,6 @@ function on_btn_start_click(btn)
 	local form = btn.ParentForm
 	if not nx_is_valid(form) then
 		return
-	end
-
-	if form.chk_pos.Checked then 
-		if form.total_point <= 0 then
-			tools_show_notice(nx_function("ext_utf8_to_widestr", "Chưa thiết lập các vị trí cần chạy!"))
-			return 
-		end
 	end
 	
 	UpdateStatus()
@@ -180,18 +170,19 @@ function on_btn_start_click(btn)
 									end
 				
 								else
-													
-									yBreaker_show_Utf8Text("Ngoài phạm vi buff, đang di chuyển lại mục tiêu trong phạm vi 20m")
-									-- Di chuyển đến khoảng cách trong tầm buff
-									local map_query = nx_value("MapQuery")
-									local city = map_query:GetCurrentScene()
-									local posX = visualObj.PositionX - 10
-									local posY = visualObj.PositionY - 10
-									local posZ = visualObj.PositionZ - 10
-									tools_move(city, posX, posY, posZ, direct_run)	
-									direct_run = false
-									
-									break -- Dùng lệnh này để tránh object không tồn tại
+									if form.chk_autorun.Checked then				
+										yBreaker_show_Utf8Text("Ngoài phạm vi buff, đang di chuyển lại mục tiêu trong phạm vi 20m")
+										-- Di chuyển đến khoảng cách trong tầm buff
+										local map_query = nx_value("MapQuery")
+										local city = map_query:GetCurrentScene()
+										local posX = visualObj.PositionX - 10
+										local posY = visualObj.PositionY - 10
+										local posZ = visualObj.PositionZ - 10
+										tools_move(city, posX, posY, posZ, direct_run)	
+										direct_run = false
+										
+										break -- Dùng lệnh này để tránh object không tồn tại
+									end
 														
 								end
 							end
@@ -201,7 +192,112 @@ function on_btn_start_click(btn)
 			end
 		
 			if form.rbtn_boom.Checked then
-				-- Đây là boom
+	
+				local game_scence_objs = game_scence:GetSceneObjList()
+				local num_objs = table.getn(game_scence_objs)
+			   
+				for i = 1, num_objs do
+
+					local obj_type = 0
+					if game_scence_objs[i] == nil then
+						break
+					end
+					if game_scence_objs[i]:FindProp("Type") then
+						obj_type = game_scence_objs[i]:QueryProp("Type")
+						
+						-- Type 2 là người chơi
+						if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
+
+							local name_player = game_scence_objs[i]:QueryProp("Name")
+							
+							-- Nếu đúng tên thì select
+							if form.chk_player.Checked and name_player == nx_widestr(form.edt_player_txt.Text) then
+
+								-- Tự vào PT theo tên người chơi đã điền
+								if form.chk_acceptreq.Checked then
+									local FORM_MAIN_REQUEST = "form_stage_main\\form_main\\form_main_request"
+									local num_request = nx_execute(FORM_MAIN_REQUEST, "get_num_request")
+									if num_request >= 1 then
+										for i = num_request, 1, -1 do
+											local request_type = nx_execute(FORM_MAIN_REQUEST, "get_request_type", i)
+											local request_player = nx_execute(FORM_MAIN_REQUEST, "get_request_player", i)
+											if request_type ~= nil and  request_player ~= nil then
+												if request_type == REQUESTTYPE_INVITETEAM or request_type == REQUESTTYPE_TEAMREQUEST then
+													nx_value("form_main_chat"):AddChatInfoEx(nx_widestr(request_type) .. nx_widestr(request_player) .. nx_widestr(" xin to doi"), CHATTYPE_SYSTEM, false)
+													if nx_widestr(form.edt_player_txt.Text) == nx_widestr(request_player) then
+														nx_execute("custom_sender", "custom_request_answer", request_type, request_player, 1)
+														nx_execute(FORM_MAIN_REQUEST, "clear_special_request", request_type)
+														break
+													end
+												end
+											end
+											nx_pause(0.3)
+										end
+									end
+								end
+							
+								-- Object đang target
+								if nx_string(player_client:QueryProp("LastObject")) ~= nx_string(game_scence_objs[i].Ident) then
+									
+									--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
+									local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
+									
+									local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+									
+									if form.chk_relive.Checked then
+										-- Nếu bị chết thì trị thương lân cận
+										local logicstate = player_client:QueryProp("LogicState")
+										if logicstate == 120 then
+											nx_execute("custom_sender", "custom_relive", 2, 0)
+											nx_pause(7)
+											break
+										end
+									end
+									
+									if dist_player < 20 then
+										--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
+										if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
+											nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+											nx_pause(0.2)
+										end
+
+										-- Check mục tiêu có buff không?
+										if not get_buff_info("buf_CS_tm_fgzyc05a_range", game_scence_objs[i]) then		 
+											-- Ném boom
+											-- Kiểm tra có buff boom không? Nếu không mới ném
+											nx_value('gui').GameHand:SetHand('groundpick', 'Default', 'map\\tex\\Target_area_G.dds', '' .. 4, 'xxx', nx_string(10))
+											nx_execute('game_effect', 'hide_ground_pick_decal')
+											local object_target = nx_value('game_visual'):GetSceneObj(game_scence_objs[i].Ident)
+											nx_execute('game_effect', 'locate_ground_pick_decal', object_target.PositionX + math.random() + math.random(-2, 2), object_target.PositionY, object_target.PositionZ + math.random() + math.random(-2, 2), 30)
+											nx_value('fight'):TraceUseSkill('cs_tm_fgzyc05', true, false)
+										end
+									else
+										if form.chk_autorun.Checked then
+											-- Di chuyển đến khoảng cách trong tầm buff
+											local map_query = nx_value("MapQuery")
+											local city = map_query:GetCurrentScene()
+											local posX = visualObj.PositionX
+											local posY = visualObj.PositionY
+											local posZ = visualObj.PositionZ
+											tools_move(city, posX, posY, posZ, direct_run)	
+											direct_run = false
+											
+											break -- Dùng lệnh này để tránh object không tồn tại
+										end
+									end
+								end
+							else
+								local player = yBreaker_get_player()
+								-- Ném boom dưới chân
+								nx_value('gui').GameHand:SetHand('groundpick', 'Default', 'map\\tex\\Target_area_G.dds', '' .. 4, 'xxx', nx_string(10))
+								nx_execute('game_effect', 'hide_ground_pick_decal')
+								local object_target = nx_value('game_visual'):GetSceneObj(player.Ident)
+								nx_execute('game_effect', 'locate_ground_pick_decal', object_target.PositionX + math.random() + math.random(-2, 2), object_target.PositionY, object_target.PositionZ + math.random() + math.random(-2, 2), 30)
+								nx_value('fight'):TraceUseSkill('cs_tm_fgzyc05', true, false)
+							end
+						end
+					end
+				end
 			end
 		end
     end
@@ -220,116 +316,6 @@ end
 function show_hide_form_boombuff()
 	util_auto_show_hide_form(THIS_FORM)
 end
-
-
--- Setting tọa độ
-function InitSetting()
-	local game_config = nx_value("game_config")
-	local account = game_config.login_account
-	local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
-	local file = ""
-	if not nx_function("ext_is_exist_directory", nx_string(dir)) then
-	  nx_function("ext_create_directory", nx_string(dir))
-	end
-	file = dir .. nx_string("\\PositionData_BoomBuff.ini")
-	if not nx_function("ext_is_file_exist", file) then
-		local thth = nx_create("StringList")
-		thth:SaveToFile(file)
-	end
-end
-
-function LoadSetting(form)
-	local game_config = nx_value("game_config")
-	local account = game_config.login_account
-	local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
-	local file = dir .. nx_string("\\PositionData_BoomBuff.ini")
-	local gm_list = nx_create("StringList")
-	if not gm_list:LoadFromFile(file) then
-		nx_destroy(gm_list)
-		return 0
-	end
-	form.cmb_pos.DropListBox:ClearString()
-	local gm_num = gm_list:GetStringCount()
-	for i = 0, gm_num - 1 do
-		local gm = gm_list:GetStringByIndex(i)
-		if gm ~= "" then
-			local gui = nx_value("gui")
-			if nx_is_valid(gui) then
-				form.cmb_pos.DropListBox:AddString(nx_widestr(gm))
-			end
-			form.total_point = form.total_point + 1
-			item[i+1] = gm
-			form.cmb_pos.OnlySelect = true
-			
-		end
-	end
-end
-
-function AddSetting(scene, x, y, z)
-	local form = util_get_form(THIS_FORM, false, false)
-	local game_config = nx_value("game_config")
-	local account = game_config.login_account
-	local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
-	local file = dir .. nx_string("\\PositionData_BoomBuff.ini")
-	local gm_list = nx_create("StringList")
-	if not gm_list:LoadFromFile(file) then
-		nx_destroy(gm_list)
-		return 0
-	end
-	local string = scene .. "," .. x .. "," .. y .. "," .. z
-	gm_list:AddString(string)
-	gm_list:SaveToFile(file)
-	LoadSetting(form)
-	
-	tools_show_notice(nx_function("ext_utf8_to_widestr", "Lưu tọa độ thành công!"))
-end
-
-function RemoveSetting(form)
-	local game_config = nx_value("game_config")
-	local account = game_config.login_account
-	local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
-	local file = dir .. nx_string("\\PositionData_BoomBuff.ini")
-	local gm_list = nx_create("StringList")
-	local removestring = item[form.select_index]
-	item[form.select_index] = ""
-
-	for k = 1, table.getn(item) do
-		if item[k] ~= "" then
-			gm_list:AddString(item[k])
-		end
-	end
-	
-	tools_show_notice(nx_function("ext_utf8_to_widestr", "Xóa tọa độ thành công!"))
-	form.cmb_pos.InputEdit.Text = ""
-	gm_list:SaveToFile(file)
-	LoadSetting(form)
-end
-
-function on_btnDel_click(cbtn)
-	local form = cbtn.ParentForm
-	RemoveSetting(form)
-end
-
-function on_btnAdd_click(cbtn)
-	local form = cbtn.ParentForm
-	local game_client = nx_value("game_client")
-	local game_visual = nx_value("game_visual")
-	if nx_is_valid(game_client) and nx_is_valid(game_visual) then
-
-		local client_player = game_client:GetPlayer()
-		local visual_player = game_visual:GetPlayer()
-		local scene = game_client:GetScene()
-		if nx_is_valid(scene) then
-			AddSetting(scene:QueryProp("Resource"),visual_player.PositionX, visual_player.PositionY, visual_player.PositionZ)
-		end
-	end
-end
-
-function on_combobox_selected(boxitem)
-	local form = boxitem.ParentForm
-	form.select_index = form.cmb_pos.DropListBox.SelectIndex + 1
-end
-
 
 function UpdateStatus()
 	local form = util_get_form(THIS_FORM, false, false)
@@ -363,7 +349,7 @@ function UpdateStatus()
 					tools_show_notice(nx_function("ext_utf8_to_widestr", "Chưa học kĩ năng Tiềm Tung Niếp Tích, không thể dùng chức năng này!"), 2)
 					return
 				end
-				yBreaker_show_Utf8Text("Chỉ hỗ trợ ném boom vào các mục tiêu xung quanh tọa độ đã cài đặt")
+				yBreaker_show_Utf8Text("Chỉ hỗ trợ ném boom vào các mục tiêu tìm được trong phạm vi 50m")
 			end
 			
 			form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Kết thúc")
@@ -372,30 +358,3 @@ function UpdateStatus()
 		end
 	end
 end
-
--- function on_changed_radio_button()
--- 	local form = util_get_form(THIS_FORM, false, false)
--- 	if nx_is_valid(form) then
--- 		if form.rbtn_buff.Checked then
--- 			-- Set control disable
--- 			form.chk_guild.Enable = false
--- 			form.chk_guild_txt.Enable = false
--- 			form.edt_guild_txt.Enable = false
--- 			form.chk_pos.Enable = false
--- 			form.chk_pos_txt.Enable = false
--- 			form.cmb_pos.Enable = false
--- 			form.btn_add_pos.Enable = false
--- 			form.btn_del_pos.Enable = false
--- 		else 
--- 			-- Set control disable
--- 			form.chk_guild.Enable = true
--- 			form.chk_guild_txt.Enable = true
--- 			form.edt_guild_txt.Enable = true
--- 			form.chk_pos.Enable = true
--- 			form.chk_pos_txt.Enable = true
--- 			form.cmb_pos.Enable = true
--- 			form.btn_add_pos.Enable = true
--- 			form.btn_del_pos.Enable = true
--- 		end
--- 	end
--- end
