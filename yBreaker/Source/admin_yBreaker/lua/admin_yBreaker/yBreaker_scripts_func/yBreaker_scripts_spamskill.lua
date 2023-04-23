@@ -18,7 +18,7 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
  	if not isRunning then
 		isRunning = true
 		
-		yBreaker_show_WstrText(util_text("Skill Start"))
+		yBreaker_show_Utf8Text("Mở tự động ấn phím 1 đến 5")
 		-- Xuống ngựa trước khi đánh
 		if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
 			nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
@@ -40,6 +40,6 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 			end
 	else
 		isRunning = false
-		yBreaker_show_WstrText(util_text("Skill Stop"))
+		yBreaker_show_Utf8Text("Tắt tự động ấn phím 1 đến 5")
 	end
 end

@@ -265,7 +265,7 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 		
-	if (command == "/skill") or (command == "/SKILL") then
+	if (command == "/spam") or (command == "/SPAM") then
 		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_spamskill","spam_Skill")
 		return true
 	end
@@ -324,11 +324,6 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_thunghiep") 
 		return true
 	end
-	
-	--if (command == "/vt") or (command == "/VT") then
-	--	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_vantieu") 
-	--	return true
-	--end
 	
 	if (command == "/pw") or (command == "/PW") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_password") 
