@@ -32,6 +32,8 @@ end
 function on_main_form_open(form_main)
 	change_form_size()
 	auto_is_running = false
+	form_main.btn_start.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form_main.btn_start.ForeColor = "255,255,255,255"
 end
 function on_main_form_close(form_main)
 	auto_is_running = false
@@ -52,10 +54,12 @@ function on_btn_control_click(btn)
 	end
 	if auto_is_running then
 		auto_is_running = false
-		btn.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
 	else
 		auto_is_running = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
 		auto_run()
 	end
 end

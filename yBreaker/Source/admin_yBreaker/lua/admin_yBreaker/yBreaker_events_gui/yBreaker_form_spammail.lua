@@ -23,12 +23,12 @@ function UpdateStatus()
 	local form = util_get_form(THIS_FORM, false, false)
 	if nx_is_valid(form) then
 		if form.auto_start then 
-			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
-			--form.btn_control.ForeColor = "255,0,255,0"
+			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+			form.btn_control.ForeColor = "255,255,255,255"
 		    form.auto_start = false	
 		else
-			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Kết thúc")
-			--form.btn_control.ForeColor = "255,255,0,0"
+			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+			form.btn_control.ForeColor = "255,220,20,60"
 			sendmail = 0
 		    form.auto_start = true
 		end
@@ -40,10 +40,9 @@ function on_form_main_init(form)
 end
 function on_main_form_open(form)
 	change_form_size()
-	if form.auto_start then 
-		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
-		--form.btn_control.ForeColor = "255,0,255,0"
-	end
+	
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 
 function change_form_size()

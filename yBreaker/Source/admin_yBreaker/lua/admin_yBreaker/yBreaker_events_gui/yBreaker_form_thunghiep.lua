@@ -24,6 +24,8 @@ function on_main_form_open(form)
     form.is_minimize = false
 	form.cbtn_tiendo.Visible = false
 	form.lbl_tiendo.Visible = false
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 
 function on_main_form_close(form)
@@ -65,11 +67,13 @@ function on_btn_thunghiep_click(btn)
 	local form = util_get_form(THIS_FORM, false, false)
 	if nx_is_valid(form) then
 		if is_running then 
-			btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+			btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+			btn.ForeColor = "255,255,255,255"
 		    is_running = false
 			tools_show_notice(nx_function("ext_utf8_to_widestr", "Kết thúc treo thụ nghiệp"))
 		else
-			btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
+			btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+			btn.ForeColor = "255,220,20,60"
 		    is_running = true
 			tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu treo thụ nghiệp"))
 			start_thu_nghiep()

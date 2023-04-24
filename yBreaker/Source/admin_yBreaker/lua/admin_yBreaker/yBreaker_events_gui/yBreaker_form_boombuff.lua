@@ -16,8 +16,8 @@ function on_form_main_init(form)
 end
 function on_main_form_open(form)
 	change_form_size()
-	form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
-	form.btn_start.ForeColor = "255,0,255,0"
+	form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_start.ForeColor = "255,255,255,255"
 	form.rbtn_buff.Checked = true
 	form.chk_player.Checked = true
 	form.chk_acceptreq.Checked = true
@@ -321,8 +321,8 @@ function UpdateStatus()
 	local form = util_get_form(THIS_FORM, false, false)
 	if nx_is_valid(form) then
 		if is_start then 
-			form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Bắt đầu")
-			form.btn_start.ForeColor = "255,0,255,0"
+			form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+			form.btn_start.ForeColor = "255,255,255,255"
 		    is_start = false
 			
 		else
@@ -352,8 +352,8 @@ function UpdateStatus()
 				yBreaker_show_Utf8Text("Chỉ hỗ trợ ném boom vào các mục tiêu tìm được trong phạm vi 50m")
 			end
 			
-			form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Kết thúc")
-			form.btn_start.ForeColor = "255,255,0,0"
+			form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+			form.btn_start.ForeColor = "255,220,20,60"
 		    is_start = true
 		end
 	end

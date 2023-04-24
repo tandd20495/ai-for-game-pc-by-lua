@@ -14,7 +14,7 @@
 		<control name="lbl_title" entity="Label" script="" init="">
             <prop Align="Center" RefCursor="WIN_HELP" Left="10" Top="10" Width="65" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Đổi" Font="font_title" />
         </control>
-		<control name="btn_swap_30per" entity="Button" script="" init="">
+		<control name="btn_swap_items" entity="Button" script="" init="">
 			<prop Left="15" Top="40" Width="60" Height="30" Text="Chạy" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
 			<event on_click="on_btn_swap_items_equip_click" />
 		</control>

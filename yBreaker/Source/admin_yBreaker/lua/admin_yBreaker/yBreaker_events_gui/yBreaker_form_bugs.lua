@@ -82,6 +82,7 @@ function on_btn_speed_apply_click(btn)
   if autoStartSpeed then
     autoStartSpeed = false
     btn.btn_speed_apply.Text = nx_widestr("Start Speed")
+	btn.btn_speed_apply.ForeColor = "255,255,255,255"
   else
     local speed_int = form1.ipt_speed_value.Text
     if nx_int(speed_int) >= nx_int(45) then
@@ -89,7 +90,8 @@ function on_btn_speed_apply_click(btn)
       return
     end
     autoStartSpeed = true
-    btn.btn_speed_apply.Text = nx_widestr("Stop Speed")
+	btn.btn_speed_apply.Text = nx_function("ext_utf8_to_widestr", "Stop Speed")
+	btn.btn_speed_apply.ForeColor = "255,220,20,60"
     yBreaker_show_Utf8Text("Tốc độ hiện tại tăng: "..nx_string(nx_int(speed_int)).." lần", 3)
     yBreaker_show_Utf8Text("Chỉ sử dụng khi khinh công.", 3)
     autoSpeed(nx_int(speed_int))
@@ -176,10 +178,12 @@ function on_btn_jump_hight_click(btn)
 	if isStartJump then
 		isStartJump = false
 		form1.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Cao")
+		form1.btn_jump_hight.ForeColor = "255,255,255,255"
 	else
 	
 		isStartJump = true
 		form1.btn_jump_hight.Text =  nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		form1.btn_jump_hight.ForeColor = "255,220,20,60"
 		yBreaker_show_Utf8Text("Tự nhảy cao chỉ nên dùng cho clone đàn", 3)
 		jumpjump()
 	end
@@ -202,6 +206,7 @@ function on_btn_jetsu_click(btn)
 		nx_execute("special", "switch_mode")
 		
 		form.btn_jetsu.Text = nx_function("ext_utf8_to_widestr", "Nhẫn Thuật")
+		form.btn_jetsu.ForeColor = "255,255,255,255"
 	else
 		isJetsu = true
 		-- Execute special.lua in lua
@@ -212,6 +217,7 @@ function on_btn_jetsu_click(btn)
 		nx_execute("special", "custom_btn_mode", "mode_3")
 		yBreaker_show_Utf8Text("Bấm Space để trở lại bình thương")
 		form.btn_jetsu.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		form.btn_jetsu.ForeColor = "255,220,20,60"
 	end
 end
 
@@ -228,8 +234,10 @@ function on_btn_god_ping_click(btn)
 	if form.btn_god_ping.Text == nx_function("ext_utf8_to_widestr", "Dừng Lại") then
 		
 		form.btn_god_ping.Text = nx_function("ext_utf8_to_widestr", "Cấm Thuật")
+		form.btn_god_ping.ForeColor = "255,255,255,255"
 	else
 		form.btn_god_ping.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		form.btn_god_ping.ForeColor = "255,220,20,60"
 	end
 end
 
@@ -288,9 +296,11 @@ function update_btn_start_jump()
 	
 	if nx_running(nx_current(),"jumpjump") then
 		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		form.btn_jump_hight.ForeColor = "255,220,20,60"
 		isStartJump = true
 	else
 		form.btn_jump_hight.Text = nx_function("ext_utf8_to_widestr", "Nhảy Cao")
+		form.btn_jump_hight.ForeColor = "255,255,255,255"
 		isStartJump = false
 	end
 end

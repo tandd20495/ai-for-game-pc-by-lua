@@ -438,7 +438,7 @@ function yBreaker_command_chat(str_chat)
 	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong_binh") 
 	-- 	return true
 	-- end
-	if (command == "/nhatdo") or (command == "/NHATDO") then
+	if (command == "/nd") or (command == "/ND") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_nhat_do") 
 		return true
 	end

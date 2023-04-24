@@ -52,8 +52,8 @@
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/cay&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/CAY&lt;/font&gt;: Lịch lấy cây
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/skill&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SKILL&lt;/font&gt;: Thiết lập bộ võ
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/vp&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/VP&lt;/font&gt;: Thiết lập vật phẩm
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/nhatdo&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/NHATDO&lt;/font&gt;: Thiết lập nhặt đồ
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/train&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TRAIN&lt;/font&gt;: Đánh trong phạm vi
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/nd&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/ND&lt;/font&gt;: Thiết lập nhặt đồ
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/train&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TRAIN&lt;/font&gt;: Đánh theo phạm vi
 			"  
             ScrollSize="17" HasVScroll="true" Left="20" Top="35" Width="220" Height="480" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure 35px" />
         </control>	

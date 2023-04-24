@@ -18,6 +18,8 @@ function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
     local isRunning = false
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 
 end
 
@@ -52,12 +54,14 @@ function on_btn_tamma_click(btn)
 	
     if isRunning then
 		-- Stop status
-		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
         --isRunning = false   
 		stop_tamma()
 
     else
-		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
 		--isRunning = true   
 		start_tamma()
 		

@@ -22,6 +22,8 @@ function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
 	form.chk_bth.Checked = true
+	form.btn_swap_items.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_swap_items.ForeColor = "255,255,255,255"
 	
 	-- Variable for swap item equip
     local swap_items_equip = false	
@@ -66,9 +68,11 @@ function on_btn_swap_items_equip_click(btn)
 	if swap_items_equip then
 		swap_items_equip = false
 		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
     else
 		swap_items_equip = true
-		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")	  
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")	
+		btn.ForeColor = "255,220,20,60"		
     end
 	
     local form_bag = util_get_form("form_stage_main\\form_bag")

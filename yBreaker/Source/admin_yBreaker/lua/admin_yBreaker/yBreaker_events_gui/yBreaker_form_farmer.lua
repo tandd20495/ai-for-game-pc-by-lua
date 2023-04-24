@@ -1200,8 +1200,8 @@ function on_main_form_open(form)
 	form.is_minimize = false
 	auto_is_running = false
 	build_combobox(form)
-	form.btn_control.Text=nx_function("ext_utf8_to_widestr","Bắt Đầu")
-	form.btn_control.ForeColor = "255,0,255,0"
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 function on_main_form_close(form)
 	auto_is_running = false
@@ -1221,12 +1221,16 @@ function on_btn_control_click(btn)
 	end
 	if auto_is_running then
 		auto_is_running = false
-		form.btn_control.Text=nx_function("ext_utf8_to_widestr","Bắt Đầu")
-		form.btn_control.ForeColor = "255,0,255,0"
+		--form.btn_control.Text=nx_function("ext_utf8_to_widestr","Bắt Đầu")
+		--form.btn_control.ForeColor = "255,0,255,0"
+		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		form.btn_control.ForeColor = "255,255,255,255"
 	else
 		auto_is_running = true
-		form.btn_control.Text=nx_function("ext_utf8_to_widestr","Kết Thúc")
-		form.btn_control.ForeColor = "255,255,0,0"
+		--form.btn_control.Text=nx_function("ext_utf8_to_widestr","Kết Thúc")
+		--form.btn_control.ForeColor = "255,255,0,0"
+		form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		form.btn_control.ForeColor = "255,220,20,60"
 		auto_run()
 	end
 end

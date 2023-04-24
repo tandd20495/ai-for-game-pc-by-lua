@@ -19,6 +19,8 @@ function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
 	form.cbtn_lhq.Checked = true
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 
 function on_main_form_close(form)
@@ -63,11 +65,13 @@ function on_btn_thbb_click(btn)
 		--Use skill Tọa Thiền Điều Tức,zs_default_01  để đứng dậy
 		fight:TraceUseSkill("zs_default_01", false, false)
 		
-		btn.Text = nx_function("ext_utf8_to_widestr", "Start")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
 
     else
 		isStartTHBB = true
-		btn.Text = nx_function("ext_utf8_to_widestr", "Stop")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
 		stack_THBB()
     end
 end

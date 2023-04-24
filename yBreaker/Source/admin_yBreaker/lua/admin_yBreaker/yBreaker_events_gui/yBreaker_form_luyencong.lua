@@ -397,10 +397,12 @@ function on_btn_leader_click(btn)
         auto_is_running = false
 		isTele = false
         btn.Text = nx_function("ext_utf8_to_widestr", "Tự mở luyện nhóm")
+		btn.ForeColor = "255,255,255,255"
         form.btn_jonner.Visible = true		
     else
         auto_is_running = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng mở luyện nhóm")
+		btn.ForeColor = "255,220,20,60"
         form.btn_jonner.Visible = false
         last_chat = os.time() - 16
 		
@@ -425,10 +427,12 @@ function on_btn_jonner_click(btn)
         auto_is_running = false
 		isTele = false
         btn.Text = nx_function("ext_utf8_to_widestr", "Xin luyện nhóm")
+		btn.ForeColor = "255,255,255,255"
         form.btn_leader.Visible = true
     else
         auto_is_running = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng luyện nhóm")
+		btn.ForeColor = "255,220,20,60"
         form.btn_leader.Visible = false
 		
 		-- Tự sang map TĐ và di chuyển tới vị trí chỉ định

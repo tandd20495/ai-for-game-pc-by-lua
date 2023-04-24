@@ -61,13 +61,13 @@ function UpdateStatus()
 	local form = util_get_form(THIS_FORM, false, false)
 	if nx_is_valid(form) then
 		if form.auto_start then 
-			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
-			--form.btn_control.ForeColor = "255,0,255,0"
+			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+			form.btn_control.ForeColor = "255,255,255,255"
 		    form.auto_start = false	
 			step = 1
 		else
-			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
-			--form.btn_control.ForeColor = "255,255,255,255"
+			form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+			form.btn_control.ForeColor = "255,220,20,60"
 			form.limit_round = nx_number(form.ipt_limit_turn.Text)
 			form.lbl_limit_number.Text=nx_widestr(form.limit_round)
 			form.lbl_turn_number.Text=nx_widestr(form.cur_round)
@@ -85,8 +85,8 @@ end
 function on_main_form_open(form)
 	change_form_size()
 	if not form.auto_start then
-	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")
-	--form.btn_control.ForeColor = "255,255,255,255"
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 	end
 end
 

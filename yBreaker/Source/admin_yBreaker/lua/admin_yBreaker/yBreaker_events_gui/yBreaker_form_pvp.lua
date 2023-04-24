@@ -533,6 +533,8 @@ function on_main_form_open(form)
     binhthu = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs", "getPvpBinhThu")
     reloadSelectTaolu(taolu)
     reloadSelectBinhThu(binhthu)
+	form.btn_start_pvp.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_start_pvp.ForeColor = "255,255,255,255"
 end
 
 function reloadSelectTaolu(setTaolu)
@@ -622,14 +624,16 @@ function on_btn_start_click(btn)
     end
     if auto_is_running then
         auto_is_running = false
-        btn.Text = nx_function("ext_utf8_to_widestr", "Start PVP")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
     else
         if taolu == "" then
             tools_show_notice(nx_function("ext_utf8_to_widestr", "Hãy thiết lập bộ võ PVP trước"), 2)
             return false
         end
         auto_is_running = true
-        btn.Text = nx_function("ext_utf8_to_widestr", "Stop PVP")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
         auto_run()
     end
 end
@@ -641,9 +645,11 @@ function on_btn_parry_click(btn)
     end
     if isAutoActiveParry then
         btn.Text = nx_function("ext_utf8_to_widestr", "Tự Đỡ")
+		btn.ForeColor = "255,255,255,255"
         isAutoActiveParry = false
     else
         btn.Text = nx_function("ext_utf8_to_widestr", "Bỏ Đỡ")
+		btn.ForeColor = "255,220,20,60"
         isAutoActiveParry = true
     end
 end

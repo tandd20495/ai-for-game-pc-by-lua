@@ -122,6 +122,7 @@ function reload_form()
     -- Xử lý nút tắt hết mạch
     if table.getn(cur_actived_jingmai) <= 0 then
         form.btn_jingmai_close.Text = nx_function("ext_utf8_to_widestr", "Đã tắt hết mạch")
+		form.btn_jingmai_close.ForeColor = "255,220,20,60"
         form.btn_jingmai_close.Enable = false
     else
         form.btn_jingmai_close.Text = nx_function("ext_utf8_to_widestr", "Tắt hết mạch")
@@ -129,34 +130,34 @@ function reload_form()
     end
     -- Xử lý nút kích mạch nội
     if matched_jingmai_in == table.getn(jingmais_in) then
-        form.btn_jingmai_in.Text = nx_function("ext_utf8_to_widestr", "Đã kích mạch nội")
+        form.btn_jingmai_in.Text = nx_function("ext_utf8_to_widestr", "Đã kích Nội MAX BQ")
         form.btn_jingmai_in.Enable = false
     else
-        form.btn_jingmai_in.Text = nx_function("ext_utf8_to_widestr", "Kích mạch nội")
+        form.btn_jingmai_in.Text = nx_function("ext_utf8_to_widestr", "Kích Nội MAX BQ ")
         form.btn_jingmai_in.Enable = true
     end
     -- Xử lý nút kích mạch ngoại
     if matched_jingmai_out == table.getn(jingmais_out) then
-        form.btn_jingmai_out.Text = nx_function("ext_utf8_to_widestr", "Đã kích mạch ngoại")
+        form.btn_jingmai_out.Text = nx_function("ext_utf8_to_widestr", "Đã kích Ngoại MAX STBK")
         form.btn_jingmai_out.Enable = false
     else
-        form.btn_jingmai_out.Text = nx_function("ext_utf8_to_widestr", "Kích mạch ngoại")
+        form.btn_jingmai_out.Text = nx_function("ext_utf8_to_widestr", "Kích Ngoại MAX STBK")
         form.btn_jingmai_out.Enable = true
     end
     -- Xử lý nút kích mạch nội boss
     if matched_jingmai_inboss == table.getn(jingmais_inboss) then
-        form.btn_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "Đã kích M.Nội boss")
+        form.btn_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "Đã kích Nội + LT")
         form.btn_jingmai_inboss.Enable = false
     else
-        form.btn_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "Kích M.Nội boss")
+        form.btn_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "Kích Nội + LT")
         form.btn_jingmai_inboss.Enable = true
     end
     -- Xử lý nút kích mạch ngoại boss
     if matched_jingmai_outboss == table.getn(jingmais_outboss) then
-        form.btn_jingmai_outboss.Text = nx_function("ext_utf8_to_widestr", "Đã kích M.Ngoại boss")
+        form.btn_jingmai_outboss.Text = nx_function("ext_utf8_to_widestr", "Đã kích Ngoại + Thủ")
         form.btn_jingmai_outboss.Enable = false
     else
-        form.btn_jingmai_outboss.Text = nx_function("ext_utf8_to_widestr", "Kích M.Ngoại boss")
+        form.btn_jingmai_outboss.Text = nx_function("ext_utf8_to_widestr", "Kích Ngoại + Thủ")
         form.btn_jingmai_outboss.Enable = true
     end
 end
@@ -168,7 +169,7 @@ function on_btn_jingmai_in_click(btn)
         return
     end
     active_jingmai("jingmai_in")
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Kích mạch ngoại
@@ -178,7 +179,7 @@ function on_btn_jingmai_out_click(btn)
         return
     end
     active_jingmai("jingmai_out")
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Kích mạch nội boss
@@ -188,7 +189,7 @@ function on_btn_jingmai_inboss_click(btn)
         return
     end
     active_jingmai("jingmai_inboss")
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Kích mạch ngoại boss
@@ -198,7 +199,7 @@ function on_btn_jingmai_outboss_click(btn)
         return
     end
     active_jingmai("jingmai_outboss")
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Tắt hết mạch
@@ -208,7 +209,7 @@ function on_btn_jingmai_close_click(btn)
         return
     end
     close_all_jingmai()
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Tắt nội công
@@ -229,7 +230,8 @@ function on_btn_neigong_close_click(btn)
     if minNeigongID ~= "" and player_client:QueryProp("CurNeiGong") ~= minNeigongID then
         nx_execute("custom_sender", "custom_use_neigong", nx_string(minNeigongID))
     end
-    on_main_form_close(form)
+	btn.ForeColor = "255,220,20,60"
+    --on_main_form_close(form)
 end
 
 -------------------------

@@ -57,6 +57,7 @@ function set_stop()
     end
     local btn = form.btn_control
     btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	btn.ForeColor = "255,255,255,255"
 end
 function set_start()
     auto_is_running = true
@@ -66,6 +67,7 @@ function set_start()
     end
     local btn = form.btn_control
     btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+	btn.ForeColor = "255,220,20,60"
 end
 function on_form_main_init(form)
 	form.Fixed = false
@@ -74,6 +76,10 @@ end
 function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
+	local btn = form.btn_control
+    btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	btn.ForeColor = "255,255,255,255"
+	
     -- Build Tab túi đồ
 	local combobox_tab = form.combobox_tab
 	combobox_tab.Text = util_text("ui_toolbox_goods")

@@ -762,6 +762,7 @@ function on_btn_control_click(btn)
         reset_all_btns("")
         auto_is_running = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
         auto_run()
     end
 end
@@ -778,23 +779,8 @@ function on_btn_control_rsabduct_click(btn)
         reset_all_btns("rsabduct")
         auto_is_running_rsabduct = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
         auto_run_rsabduct()
-    end
-end
-
-function on_btn_control_khd_click(btn)
-    local form = btn.ParentForm
-    if not nx_is_valid(form) then
-        return
-    end
-
-    if auto_is_running_khd then
-        reset_all_btns("----")
-    else
-        reset_all_btns("khd")
-        auto_is_running_khd = true
-        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
-        auto_run_khd()
     end
 end
 
@@ -820,6 +806,7 @@ function on_btn_control_player_click(btn)
         reset_all_btns("player")
         auto_is_running_player = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
         auto_run_player()
     end
 end
@@ -832,10 +819,12 @@ function reset_all_btns(skip)
     if skip ~= "" then
         auto_is_running = false
         form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Quét cóc")
+		form.btn_control.ForeColor = "255,255,255,255"
     end
     if skip ~= "rsabduct" then
         auto_is_running_rsabduct = false
         form.btn_control_rsabduct.Text = nx_function("ext_utf8_to_widestr", "Thổi cóc")
+		form.btn_control_rsabduct.ForeColor = "255,255,255,255"
     end
 
     -- Hủy soi buff
@@ -848,6 +837,7 @@ function reset_all_btns(skip)
     if skip ~= "player" then
         auto_is_running_player = false
         form.btn_control_player.Text = nx_function("ext_utf8_to_widestr", "Quét Player")
+		form.btn_control_player.ForeColor = "255,255,255,255"
     end
 end
 

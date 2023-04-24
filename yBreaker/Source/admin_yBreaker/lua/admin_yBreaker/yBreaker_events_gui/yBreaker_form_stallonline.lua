@@ -80,6 +80,8 @@ end
 function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 
 --
@@ -120,12 +122,14 @@ function on_btn_control_click(btn)
 	
 	if not auto_is_running then
 		auto_is_running = true
-		btn.Text = nx_function("ext_utf8_to_widestr", "Kết Thúc")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
 		run_stall_online()	
 	
 	else
-		auto_is_running = flase
-		btn.Text = nx_function("ext_utf8_to_widestr", "Bắt Đầu")		
+		auto_is_running = false
+		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"		
 	end
 
 end

@@ -358,7 +358,7 @@ function on_btn_testfile_click(btn)
     nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs", "tools_reload_cache")
     tools_show_notice(nx_function("ext_utf8_to_widestr", "File chạy code đã được lưu lại"))
     nx_pause(0.2)
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Lưu bộ võ pvp
@@ -408,7 +408,7 @@ function on_btn_pvptaolu_click(btn)
     nx_execute("admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_pvp", "resetTaolu", taolu)
     tools_show_notice(nx_function("ext_utf8_to_widestr", "Bộ võ PvP đã được lưu lại"))
     nx_pause(0.2)
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Lưu bình thư PVP
@@ -454,7 +454,7 @@ function on_btn_pvpbinhthu_click(btn)
     nx_execute("admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_pvp", "resetBinhThu", binhthu)
     tools_show_notice(nx_function("ext_utf8_to_widestr", "Bình thư PvP ở dạng phòng ngự đã được lưu lại"))
     nx_pause(0.2)
-    on_main_form_close(form)
+    --on_main_form_close(form)
 end
 
 -- Xóa cache

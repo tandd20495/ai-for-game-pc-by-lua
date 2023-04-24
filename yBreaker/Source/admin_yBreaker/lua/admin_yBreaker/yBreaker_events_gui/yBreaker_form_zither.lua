@@ -41,9 +41,11 @@ function init_ui_content(form)
 	form.lbl_train_title.Visible = false
   end
 	if not form.auto_start then
-		form.btn_start_stop.Text = util_text("ui_begin")
+		form.btn_start_stop.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		form.btn_start_stop.ForeColor = "255,255,255,255"
 	else
-		form.btn_start_stop.Text = util_text("ui_off_end")
+		form.btn_start_stop.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		form.btn_start_stop.ForeColor = "255,220,20,60"
 	end
 	-- Default training is disable
 	form.cb_train.Checked = false
@@ -307,10 +309,12 @@ function update_btn_start_stop()
 	if nx_is_valid(form) then
 		if form.auto_start then
 			CloseGame()
-			form.btn_start_stop.Text = util_text("ui_begin")
+			form.btn_start_stop.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+			form.btn_start_stop.ForeColor = "255,255,255,255"
 		  form.auto_start = false
 		else
-			form.btn_start_stop.Text = util_text("ui_off_end")
+			form.btn_start_stop.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+			form.btn_start_stop.ForeColor = "255,220,20,60"
 		  form.auto_start = true
 		end
 	end

@@ -106,9 +106,16 @@ TODO:
 /d Quét info
 /b Boom or buff
 
-Fix lỗi treo khi qua map của Select Info
-Refactor swap function
-Add Boom/Buff
+/tl: Trợ lý 24/7 (Gồm: LC/TN/VT/DT/HK/N6/LTT/TDC/NỘI TU)
+/vt: Vận tiêu
+/n6: Nhiệm vụ nội 6
+/ltt: Lăng tiêu thành
+/tdc: Tình dao cung
+/cay: Lịch lấy cây
+/skill: Thiết lập bộ võ
+/vp: Thiết lập vật phẩm
+/nd: Thiết lập nhặt đồ
+/train: Đánh trong phạm vi
 
 
 

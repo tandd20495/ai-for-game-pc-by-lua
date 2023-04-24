@@ -290,6 +290,7 @@ function control_this_form(ids)
 	combobox_ids.Text = util_text(ids[1])
 	form.lbl_4.Text = nx_function("ext_utf8_to_widestr", "Có thể thực hiện")
 	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 
 function on_form_main_init(form)
@@ -337,9 +338,11 @@ function on_btn_control_click(btn)
 	if auto_is_running then
 		auto_is_running = false
 		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
 	else
 		auto_is_running = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
 		auto_run()
 	end
 end

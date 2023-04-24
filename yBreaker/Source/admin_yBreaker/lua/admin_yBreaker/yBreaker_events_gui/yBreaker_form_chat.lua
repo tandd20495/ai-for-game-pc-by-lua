@@ -159,6 +159,8 @@ function on_main_form_open(form)
 	is_running = false
 	form.ipt_search_key.Text = nx_widestr(util_text("ui_trade_search_key"))
 	form.combobox_itemname.config = false
+	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 function on_main_form_close(form)
 	is_running = false
@@ -181,10 +183,12 @@ function on_btn_control_click(btn)
 	build_stat_count()
 	if is_running then
 		is_running = false
-		btn.Text = util_text("Start")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		btn.ForeColor = "255,255,255,255"
 	else
 		is_running = true
-		btn.Text = util_text("Stop")
+		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
 		loop_chat()
 	end
 end
