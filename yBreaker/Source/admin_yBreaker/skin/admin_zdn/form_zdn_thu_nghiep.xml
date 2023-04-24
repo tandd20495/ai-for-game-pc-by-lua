@@ -22,7 +22,7 @@
         </control>
 
         <control name="btn_submit" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="35" Top="70" Width="100" Height="35" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Start" Font="font_btn" HintText="" DrawMode="ExpandH" />
+            <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="35" Top="70" Width="100" Height="35" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Start" Font="font_btn" HintText="" DrawMode="ExpandH" />
             <event on_click="onBtnSubmitClick" />
         </control>
     </control>
