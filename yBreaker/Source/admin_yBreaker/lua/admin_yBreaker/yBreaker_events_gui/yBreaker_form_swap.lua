@@ -200,6 +200,19 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 			if skill_prop == "wuji_CS_th_bhcs07" then
 				skill_prop = "CS_th_bhcs07"
 			end
+			
+			-- Tứ Hải Đao - biến chiêu
+			if skill_prop == "CS_dy_sdyjl01_hide" then
+				skill_prop = "CS_dy_sdyjl01"
+			end
+			
+			if skill_prop == "CS_dy_sdyjl05_hide" then
+				skill_prop = "CS_dy_sdyjl05"
+			end
+			
+			if skill_prop == "CS_dy_sdyjl09_hide" then
+				skill_prop = "CS_dy_sdyjl09"
+			end
 
 			local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_prop, "UseLimit", "")
 			if LimitIndex == nil then
