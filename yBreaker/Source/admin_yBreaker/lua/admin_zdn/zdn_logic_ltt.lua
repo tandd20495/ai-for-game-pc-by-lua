@@ -1,5 +1,7 @@
 require("admin_zdn\\zdn_lib_moving")
 require("admin_zdn\\zdn_lib_jump")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+
 
 local Running = false
 local LADDER_POS = {535.17767333984, 116.4740447998, 188.96406555176}
@@ -178,6 +180,7 @@ function doBossScene()
     nx_execute("admin_zdn\\zdn_logic_skill", "PauseAttack")
     if TimerDiff(TimerWaitForTalk) > 4 then
         selectCurrentSchoolIndex()
+		schoolIndex = schoolIndex + 1
     end
 end
 
@@ -209,6 +212,7 @@ function selectCurrentSchoolIndex()
     TalkToNpc(handlerNpc, 0)
     nx_execute("admin_zdn\\zdn_listener", "addListen", nx_current(), "newworld_lingxia_biwunpc_002_talk_043", "nextSchool", 4)
     TalkToNpc(handlerNpc, schoolIndex)
+	yBreaker_show_Utf8Text("Đang chọn phái dòng : " .. nx_string(schoolIndex))
 end
 
 function isBossSceneAttackNpc(obj)

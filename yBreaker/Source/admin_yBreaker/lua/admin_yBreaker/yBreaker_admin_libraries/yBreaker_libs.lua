@@ -16,7 +16,8 @@ function yBreaker_check_user_guild()
 		-- Actived yBreaker
         --return true
     else
-		yBreaker_Wstr_to_Utf8("Bang không hợp lệ")
+		--yBreaker_show_Utf8Text("Text")
+		
 		-- Deactived yBreaker
 		--return false
 	end
@@ -36,7 +37,7 @@ function yBreaker_check_name_user_name()
 		-- Actived yBreaker
         --return true
     else
-		yBreaker_Wstr_to_Utf8("Tên không hợp lệ")
+		--yBreaker_show_Utf8Text("Text")
 		
 		-- Deactived yBreaker
 		--return false
