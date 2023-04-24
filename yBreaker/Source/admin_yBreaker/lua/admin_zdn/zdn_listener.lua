@@ -1,6 +1,7 @@
 require("util_gui")
 require("util_functions")
 require("admin_zdn\\zdn_util")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local ListenList = {}
 
@@ -14,7 +15,7 @@ function addListen(file, msg, call, sleep, ...)
 		["Sleep"] = sleep,
 		["Param"] = arg
 	}
-
+	yBreaker_show_Utf8Text("Message: " .. nx_string(msg))
 	if isListenExists(listen) then
 		return
 	end

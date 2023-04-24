@@ -1,14 +1,14 @@
 TASK_LIST = {
 	{
-		"Thụ Nghiệp",
-		"admin_zdn\\zdn_logic_thu_nghiep",
-		"admin_zdn\\form_zdn_thu_nghiep",
-		false
-	},
-	{
 		"Luyện Công",
 		"admin_zdn\\zdn_logic_luyen_cong",
 		"admin_zdn\\form_zdn_luyen_cong",
+		false
+	},
+	{
+		"Thụ Nghiệp",
+		"admin_zdn\\zdn_logic_thu_nghiep",
+		"admin_zdn\\form_zdn_thu_nghiep",
 		false
 	},
 	{
@@ -18,27 +18,9 @@ TASK_LIST = {
 		false
 	},
 	{
-		"Chiến Trường",
-		"admin_zdn\\zdn_logic_chien_truong",
-		"admin_zdn\\form_zdn_chien_truong",
-		true -- need loadConfig?
-	},
-	{
 		"Hào Kiệt",
 		"admin_zdn\\zdn_logic_hao_kiet",
 		"admin_zdn\\form_zdn_hao_kiet_setting",
-		false
-	},
-	{
-		"Nhiệm Vụ Nội 6",
-		"admin_zdn\\zdn_logic_noi6",
-		"admin_zdn\\form_zdn_noi6_setting",
-		false
-	},
-	{
-		"Thiên Thê",
-		"admin_zdn\\zdn_logic_thien_the",
-		"admin_zdn\\form_zdn_thien_the",
 		false
 	},
 	{
@@ -48,9 +30,40 @@ TASK_LIST = {
 		false
 	},
 	{
-		"Nhiệm Vụ Ẩn Thế",
-		"admin_zdn\\zdn_logic_an_the",
-		"admin_zdn\\form_zdn_an_the_setting",
+		"Nhiệm Vụ Nội 6",
+		"admin_zdn\\zdn_logic_noi6",
+		"admin_zdn\\form_zdn_noi6_setting",
+		false
+	},
+	-- {
+	-- 	"Nhiệm Vụ Ẩn Thế",
+	-- 	"admin_zdn\\zdn_logic_an_the",
+	-- 	"admin_zdn\\form_zdn_an_the_setting",
+	-- 	false
+	-- },
+	-- {
+	-- 	"Chiến Trường",
+	-- 	"admin_zdn\\zdn_logic_chien_truong",
+	-- 	"admin_zdn\\form_zdn_chien_truong",
+	-- 	true -- need loadConfig?
+	-- },
+	-- {
+	-- 	"Thiên Thê",
+	-- 	"admin_zdn\\zdn_logic_thien_the",
+	-- 	"admin_zdn\\form_zdn_thien_the",
+	-- 	false
+	-- },
+
+	{
+		"Lăng Tiêu Thành",
+		"admin_zdn\\zdn_logic_ltt",
+		"admin_zdn\\form_zdn_ltt",
+		false
+	},
+	{
+		"Tình Dao Cung",
+		"admin_zdn\\zdn_logic_tdc",
+		"admin_zdn\\form_zdn_tdc",
 		false
 	},
 	{
@@ -59,4 +72,5 @@ TASK_LIST = {
 		"admin_zdn\\form_zdn_vat_pham_setting",
 		true
 	}
+	
 }

@@ -321,10 +321,10 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/tn") or (command == "/TN") then
-		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_thunghiep") 
-		return true
-	end
+	-- if (command == "/tn") or (command == "/TN") then
+	-- 	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_thunghiep") 
+	-- 	return true
+	-- end
 	
 	if (command == "/pw") or (command == "/PW") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_password") 
@@ -351,7 +351,7 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	----- 
+	-----zdn 
 	if (command == "/tl") or (command == "/TL") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_task") 
 		return true
@@ -382,39 +382,39 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_vat_pham") 
 		return true
 	end
-	if (command == "/anthe") or (command == "/ANTHE") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_an_the") 
-		return true
-	end
-	if (command == "/atk") or (command == "/ATK") then
+	-- if (command == "/anthe") or (command == "/ANTHE") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_an_the") 
+	-- 	return true
+	-- end
+	if (command == "/train") or (command == "/TRAIN") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_attack") 
 		return true
 	end
-	if (command == "/battho") or (command == "/BATTHO") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_bat_tho") 
-		return true
-	end
+	-- if (command == "/battho") or (command == "/BATTHO") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_bat_tho") 
+	-- 	return true
+	-- end
 	if (command == "/cay") or (command == "/CAY") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_cay") 
 		return true
 	end
-	if (command == "/chatloop") or (command == "/CHATLOOP") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_chat_loop") 
-		return true
-	end
-	if (command == "/ct") or (command == "/CT") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_chien_truong") 
-		return true
-	end
-	if (command == "/coc") or (command == "/COC") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_coc") 
-		return true
-	end
+	-- if (command == "/chatloop") or (command == "/CHATLOOP") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_chat_loop") 
+	-- 	return true
+	-- end
+	-- if (command == "/ct") or (command == "/CT") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_chien_truong") 
+	-- 	return true
+	-- end
+	-- if (command == "/coc") or (command == "/COC") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_coc") 
+	-- 	return true
+	-- end
 	if (command == "/dotham") or (command == "/DOTHAM") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_do_tham") 
 		return true
 	end
-	if (command == "/train") or (command == "/TRAIN") then
+	if (command == "/farm") or (command == "/FARM") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_farm") 
 		return true
 	end
@@ -422,10 +422,10 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_hao_kiet") 
 		return true
 	end
-	if (command == "/kyngo") or (command == "/KYNGO") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_ky_ngo") 
-		return true
-	end
+	-- if (command == "/kyngo") or (command == "/KYNGO") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_ky_ngo") 
+	-- 	return true
+	-- end
 	if (command == "/log") or (command == "/LOG") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_log") 
 		return true
@@ -434,18 +434,18 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong") 
 		return true
 	end
-	if (command == "/lcb") or (command == "/lcb") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong_binh") 
-		return true
-	end
+	-- if (command == "/lcb") or (command == "/lcb") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong_binh") 
+	-- 	return true
+	-- end
 	if (command == "/nhatdo") or (command == "/NHATDO") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_nhat_do") 
 		return true
 	end
-	if (command == "/ontuyen") or (command == "/ONTUYEN") then
-		util_auto_show_hide_form("admin_zdn\\form_zdn_on_tuyen") 
-		return true
-	end
+	-- if (command == "/ontuyen") or (command == "/ONTUYEN") then
+	-- 	util_auto_show_hide_form("admin_zdn\\form_zdn_on_tuyen") 
+	-- 	return true
+	-- end
 	if (command == "/selectbuff") or (command == "/SELECTBUFF") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_select_buff") 
 		return true
@@ -466,7 +466,7 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_thth") 
 		return true
 	end
-	if (command == "/tnz") or (command == "/tnz") then
+	if (command == "/tn") or (command == "/TN") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_thu_nghiep") 
 		return true
 	end

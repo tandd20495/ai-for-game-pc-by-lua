@@ -14,8 +14,8 @@ end
 function loadBuffList()
 	BuffDataList = {
 		{
-			["buffId"] = "admin_zdn\\zdn_buff_no_delay",
-			["descId"] = "<font color="#FFFF00">Dùng liên tục</font>",
+			["buffId"] = "buff_no_delay",
+			["descId"] = "desc_buff_no_delay", --<font color="#FFFF00">Dùng liên tục</font>
 			["photo"] = "icon\\buff\\buff_hungry.png"
 		}
 	}

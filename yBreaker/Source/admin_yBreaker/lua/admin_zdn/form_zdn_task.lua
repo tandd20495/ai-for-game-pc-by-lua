@@ -34,3 +34,7 @@ end
 function onFormClose()
 	nx_execute("admin_zdn\\zdn_event_manager", "Unsubscribe", Logic, "on-task-stop", nx_current())
 end
+
+function show_hide_form_task()
+	util_auto_show_hide_form("admin_zdn\\form_zdn_task")
+end

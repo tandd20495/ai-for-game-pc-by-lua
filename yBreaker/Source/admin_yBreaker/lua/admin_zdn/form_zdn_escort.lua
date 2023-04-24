@@ -1,5 +1,6 @@
 require("admin_zdn\\zdn_form_common")
 require("util_functions")
+require("util_gui")
 
 local Logic = "admin_zdn\\zdn_logic_escort"
 
@@ -78,4 +79,8 @@ end
 
 function onTaskStop()
 	updateView()
+end
+
+function show_hide_form_vt()
+	util_auto_show_hide_form("admin_zdn\\form_zdn_escort")
 end

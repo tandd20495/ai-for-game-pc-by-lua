@@ -34,3 +34,7 @@ end
 function onBtnSettingClick()
 	util_auto_show_hide_form("admin_zdn\\form_zdn_noi6_setting")
 end
+
+function show_hide_form_noi6()
+	util_auto_show_hide_form("admin_zdn\\form_zdn_noi6")
+end

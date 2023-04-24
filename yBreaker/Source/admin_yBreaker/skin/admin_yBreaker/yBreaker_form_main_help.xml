@@ -15,7 +15,7 @@
             HtmlText="&lt;font color=&apos;#ffee2e&apos;&gt;Hướng dẫn dùng lệnh chat:&lt;/font&gt;
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/yt&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/YT&lt;/font&gt;: Mở giao diện chính 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/at&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/AT&lt;/font&gt;: Tính năng tự động
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/ai&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/AI&lt;/font&gt;: Chạy tác vụ 24/7
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tl&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TL&lt;/font&gt;: Chạy tác vụ 24/7
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/set&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SET&lt;/font&gt;: Cài đặt khác
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/a&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/A&lt;/font&gt;: PVP 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/s&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/S&lt;/font&gt;: Tự đổi đồ 
@@ -41,8 +41,20 @@
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/timdan&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TIMDAN&lt;/font&gt;: Tìm đàn 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/timcay&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TIMCAY&lt;/font&gt;: Tìm cây 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/die&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/DIE&lt;/font&gt;: Tự sát nhanh 
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/use&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/USE&lt;/font&gt;: Tự dùng vật phẩm
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tm&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TM&lt;/font&gt;: Diễn võ tâm ma 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/use&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/USE&lt;/font&gt;: Tự dùng vật phẩm"  
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/lc&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/LC&lt;/font&gt;: Luyện công
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tn&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TN&lt;/font&gt;: Thụ nghiệp
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/vt&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/VT&lt;/font&gt;: Vận tiêu
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/n6&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/N6&lt;/font&gt;: Nhiệm vụ nội 6
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/ltt&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/LTT&lt;/font&gt;: Lăng tiêu thành
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tdc&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TDC&lt;/font&gt;: Tình dao cung
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/cay&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/CAY&lt;/font&gt;: Lịch lấy cây
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/skill&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SKILL&lt;/font&gt;: Thiết lập bộ võ
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/vp&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/VP&lt;/font&gt;: Thiết lập vật phẩm
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/nhatdo&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/NHATDO&lt;/font&gt;: Thiết lập nhặt đồ
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/train&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TRAIN&lt;/font&gt;: Đánh trong phạm vi
+			"  
             ScrollSize="17" HasVScroll="true" Left="20" Top="35" Width="220" Height="480" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure 35px" />
         </control>	
     </control>
