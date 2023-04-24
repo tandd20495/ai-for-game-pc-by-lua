@@ -1,0 +1,165 @@
+require("admin_zdn\\zdn_util")
+require("admin_zdn\\zdn_lib_moving")
+require("admin_zdn\\zdn_lib_an_the")
+
+QUEST_ID = "ttc_ndtp"
+local NPC_MAP = "school19"
+local NPC_CONFIG_ID = "newmp_shenshui_002"
+local NPC_THACH_DAI = "ysmp_ssg_rc_004"
+local TASK_INDEX = 21401
+local NPC_TALK_FUNC_ID = 100021401
+
+function loopAnThe()
+    if IsMapLoading() then
+        return
+    end
+
+    if GetCurMap() ~= NPC_MAP then
+        TeleToSchoolHomePoint()
+        return
+    end
+
+    if not nx_execute("admin_zdn\\zdn_logic_base", "CanTaskSubmit", TASK_INDEX) and isReceiveQuest() then
+        doQuest()
+        return
+    end
+
+    local npc = nx_execute("admin_zdn\\zdn_logic_base", "GetNearestObj", nx_current(), "isQuestNpc")
+    if not nx_is_valid(npc) then
+        goToMainlandNpc(NPC_CONFIG_ID)
+        return
+    end
+
+    if nx_find_custom(npc, "Head_Effect_Flag") and nx_string(npc.Head_Effect_Flag) == nx_string(5) then
+        if GetDistanceToObj(npc) > 3 then
+            goToMainlandNpc(NPC_CONFIG_ID)
+            return
+        end
+        if not TalkIsFuncIdAvailable(npc, NPC_TALK_FUNC_ID) then
+            TalkToNpcByMenuId(npc, 600000000)
+            onTaskDone()
+            return
+        end
+        TalkToNpcByMenuId(npc, NPC_TALK_FUNC_ID)
+        TalkToNpc(npc, 0)
+        return
+    end
+
+    -- tra Q
+    if nx_find_custom(npc, "Head_Effect_Flag") and nx_string(npc.Head_Effect_Flag) == nx_string(2) then
+        if GetDistanceToObj(npc) > 3 then
+            goToMainlandNpc(NPC_CONFIG_ID)
+            return
+        end
+        TalkToNpc(npc, 0)
+        TalkToNpc(npc, 0)
+        return
+    end
+
+    if nx_find_custom(npc, "Head_Effect_Flag") and nx_string(npc.Head_Effect_Flag) == nx_string(0) then
+        nx_pause(3)
+        if not nx_is_valid(npc) then
+            return
+        end
+        if nx_find_custom(npc, "Head_Effect_Flag") and nx_string(npc.Head_Effect_Flag) == nx_string(0) then
+            onTaskDone()
+            return
+        end
+    end
+end
+
+function isNhuocLamNpc(obj)
+    return obj:QueryProp("ConfigID") == "Transschool19C"
+end
+
+function isNhuocKyNpc(obj)
+    return obj:QueryProp("ConfigID") == "Transschool19A"
+end
+
+function goToMainlandNpc(configId)
+    local role = nx_value("role")
+    if nx_is_valid(role) and role.state == "trans" then
+        return
+    end
+    if isInLeftInsland() then
+        local npc = nx_execute("admin_zdn\\zdn_logic_base", "GetNearestObj", nx_current(), "isNhuocLamNpc")
+        if not nx_is_valid(npc) or GetDistanceToObj(npc) > 3 then
+            GoToNpc(NPC_MAP, "Transschool19C")
+            return
+        end
+        TalkToNpc(npc, 0)
+        TalkToNpc(npc, 0)
+        return
+    end
+
+    local x, _, z = GetNpcPostion(NPC_MAP, configId)
+    if x > 2388 and x < 2421 and z > -1384 and z < -1347 then
+        if not isInThienNhatCac() and GetDistance(2409.150390625, 156.38922119141, -1329.1750488281) > 20 then
+            GoToPosition(2409.150390625, 156.38922119141, -1329.1750488281)
+            return
+        end
+    end
+    GoToNpc(NPC_MAP, configId)
+end
+
+function goToLeftInslandNpc(configId)
+    local role = nx_value("role")
+    if nx_is_valid(role) and role.state == "trans" then
+        return
+    end
+    if not isInLeftInsland() then
+        local npc = nx_execute("admin_zdn\\zdn_logic_base", "GetNearestObj", nx_current(), "isNhuocKyNpc")
+        if not nx_is_valid(npc) or GetDistanceToObj(npc) > 3 then
+            GoToNpc(NPC_MAP, "Transschool19A")
+            return
+        end
+        TalkToNpc(npc, 0)
+        TalkToNpc(npc, 2)
+        return
+    end
+
+    GoToNpc(NPC_MAP, configId)
+end
+
+function isInLeftInsland()
+    local x, _, z = GetPlayerPosition()
+    if x > 2480 and x < 2578 and z > -1236 and z < -1111 then
+        return true
+    end
+    if x >= 2578 and x < 2808 and z > -1427 and z < -1111 then
+        return true
+    end
+    return false
+end
+
+function isInThienNhatCac()
+    local x, _, z = GetPlayerPosition()
+    return x > 2388 and x < 2421 and z > -1384 and z < -1347
+end
+
+function isQuestNpc(obj)
+    return obj:QueryProp("ConfigID") == NPC_CONFIG_ID
+end
+
+function isReceiveQuest()
+    return nx_execute("admin_zdn\\zdn_logic_base", "GetTaskInfoById", TASK_INDEX, 0) == TASK_INDEX
+end
+
+--
+function doQuest()
+    local i = nx_execute("admin_zdn\\zdn_logic_vat_pham", "FindItemIndexFromNhiemVu", "item_ssgrc_002")
+    if i > 0 then
+        local obj = nx_execute("admin_zdn\\zdn_logic_base", "GetNearestObj", nx_current(), "isThachDaiNpc")
+        if not nx_is_valid(obj) or GetDistanceToObj(obj) > 3 then
+            goToLeftInslandNpc(NPC_THACH_DAI)
+            return
+        end
+        nx_execute("admin_zdn\\zdn_logic_base", "SelectTarget", obj)
+        StopFindPath()
+        nx_execute("admin_zdn\\zdn_logic_vat_pham", "UseItem", 125, i)
+    end
+end
+
+function isThachDaiNpc(obj)
+    return obj:QueryProp("ConfigID") == NPC_THACH_DAI
+end
