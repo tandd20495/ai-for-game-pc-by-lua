@@ -58,6 +58,7 @@ function onBtnSaveClick()
 	end
 	IniWriteUserConfig("TroLy", "Task", taskStr)
 	local stopOnDoneFlg = Form.stop_on_done_cbtn.Checked
+	local stopOnDoneFlg = Form.stop_on_done_cbtn.Checked
 	IniWriteUserConfig("TroLy", "StopOnDone", stopOnDoneFlg and "1" or "0")
 end
 
