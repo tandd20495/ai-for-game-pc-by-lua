@@ -9,6 +9,7 @@ local currentRunningTask = ""
 local TimeManager = {}
 local TimerTaskInterruptCheck = 0
 local StopOnDoneFlg = true
+local StopOnDieFlg = false
 
 function IsRunning()
     return Running
@@ -98,6 +99,9 @@ function loadConfig()
     end
     local stopOnDoneStr = nx_string(IniReadUserConfig("TroLy", "StopOnDone", "1"))
     StopOnDoneFlg = stopOnDoneStr == "1" and true or false
+	
+	local stopOnDieStr = nx_string(IniReadUserConfig("TroLy", "StopOnDie", "1"))
+    StopOnDieFlg = stopOnDieStr == "1" and true or false
     if #TodoList > 0 then
         return true
     end
@@ -171,6 +175,11 @@ function checkNextTask()
     Console("All task is done.")
 
     if StopOnDoneFlg then
+        Stop()
+        return
+    end
+	
+	if StopOnDieFlg and nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") then
         Stop()
         return
     end

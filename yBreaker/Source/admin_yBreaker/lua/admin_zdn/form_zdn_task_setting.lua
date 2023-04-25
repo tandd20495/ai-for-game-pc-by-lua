@@ -31,7 +31,8 @@ function loadConfig()
 	end
 	local stopOnDoneStr = nx_string(IniReadUserConfig("TroLy", "StopOnDone", "1"))
 	Form.stop_on_done_cbtn.Checked = stopOnDoneStr == "1" and true or false
-	Form.stop_on_die_cbtn.Checked = stopOnDoneStr == "1" and true or false
+	local stopOnDieStr = nx_string(IniReadUserConfig("TroLy", "StopOnDie", "1"))
+	Form.stop_on_die_cbtn.Checked = stopOnDieStr == "1" and true or false
 end
 
 function onBtnSaveClick()
@@ -58,8 +59,9 @@ function onBtnSaveClick()
 	end
 	IniWriteUserConfig("TroLy", "Task", taskStr)
 	local stopOnDoneFlg = Form.stop_on_done_cbtn.Checked
-	local stopOnDoneFlg = Form.stop_on_done_cbtn.Checked
+	local stopOnDieFlg = Form.stop_on_die_cbtn.Checked
 	IniWriteUserConfig("TroLy", "StopOnDone", stopOnDoneFlg and "1" or "0")
+	IniWriteUserConfig("TroLy", "StopOnDie", stopOnDieFlg and "1" or "0")
 end
 
 function onBtnAddTaskClick()
