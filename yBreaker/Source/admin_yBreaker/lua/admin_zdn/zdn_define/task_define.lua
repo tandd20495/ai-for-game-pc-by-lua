@@ -60,12 +60,12 @@ TASK_LIST = {
 		"admin_zdn\\form_zdn_ltt",
 		false
 	},
-	{
-		"Tình Dao Cung",
-		"admin_zdn\\zdn_logic_tdc",
-		"admin_zdn\\form_zdn_tdc",
-		false
-	},
+	--{
+	--	"Tình Dao Cung",
+	--	"admin_zdn\\zdn_logic_tdc",
+	--	"admin_zdn\\form_zdn_tdc",
+	--	false
+	--},
 	{
 		"Cắn nội tu",
 		"admin_zdn\\zdn_logic_noi_tu",
