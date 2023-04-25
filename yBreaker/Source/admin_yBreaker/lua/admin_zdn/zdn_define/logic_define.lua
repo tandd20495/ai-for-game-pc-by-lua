@@ -6,7 +6,7 @@ CAN_RUN_LOGIC_LIST = {
     "admin_zdn\\zdn_logic_do_tham",
 	"admin_zdn\\zdn_logic_noi6",
 	"admin_zdn\\zdn_logic_ltt",
-    "admin_zdn\\zdn_logic_tdc",
+    --"admin_zdn\\zdn_logic_tdc",
     --"admin_zdn\\zdn_logic_farm",
     --"admin_zdn\\zdn_logic_thich_quan",
     --"admin_zdn\\zdn_logic_thth",

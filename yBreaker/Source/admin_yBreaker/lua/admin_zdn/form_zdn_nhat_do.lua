@@ -21,10 +21,26 @@ local PRESET_PICK_ITEM = {
 	"qizhen_0113",
 	"qizhen_0114",
 	"qizhen_0115",
-	"box_fc_mml_001", -- ma mon lenh
-	"box_fc_mml_002", -- ma mon lenh
-	"box_fc_hss_001", -- hoang thu thach
-	"box_fc_hss_002", -- hoang thu thach
+	"box_fc_mml_001", -- Ma môn lệnh x1
+	"box_fc_mml_002", 
+	"box_fc_mml_003", 
+	"box_fc_mml_004", 
+	"box_fc_mml_005", 
+	"box_fc_mml_006", 
+	"box_fc_mml_007", 
+	"box_fc_mml_008", 
+	"box_fc_mml_009", 
+	"box_fc_mml_010", -- Ma môn lệnh x10
+	"box_fc_hss_001", -- Hoang thú thạch x1
+	"box_fc_hss_002", 
+	"box_fc_hss_003",
+	"box_fc_hss_004",
+	"box_fc_hss_005",
+	"box_fc_hss_006",
+	"box_fc_hss_007",
+	"box_fc_hss_008",
+	"box_fc_hss_009",
+	"box_fc_hss_010", -- Hoang thú thạch x10
 	"box_xmp_fc_01", -- long van cam thach
 	"item_yirong_05", -- Băng Tằm Ti
 	"item_yirong_07", -- Ngọc Tủy

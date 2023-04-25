@@ -95,11 +95,15 @@ function loopTdc()
 
         if TimerDiff(TimerEnterClone) > 5 then
             TimerEnterClone = TimerInit()
-            local form = nx_value("form_stage_main\\form_captain_reset_clone")
-            if nx_is_valid(form) and form.Visible then
-                nx_execute("form_stage_main\\form_captain_reset_clone", "on_btn_ok_click", form.btn_ok)
-                return
-            end
+            local form = nx_value("form_stage_main\\form_clone\\form_clone_guide")
+			if nx_is_valid(form) and form.Visible then
+				nx_execute("form_stage_main\\form_clone\\form_clone_guide", "on_btn_reset_clone_click", form.btn_reset_clone)
+				
+				-- Đóng form sau khi reset
+				nx_execute("form_stage_main\\form_clone\\form_clone_guide", "on_btn_close_click", form.btn_close)
+				
+				return
+			end
             nx_execute("admin_zdn\\zdn_listener", "addListen", nx_current(), "15906", "resetClone", 10)
             nx_execute("custom_sender", "custom_random_clone", nx_int(4), "ini\\scene\\clone035", nx_int(1))
         end

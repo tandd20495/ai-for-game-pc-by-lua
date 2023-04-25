@@ -31,6 +31,7 @@ function loadConfig()
 	end
 	local stopOnDoneStr = nx_string(IniReadUserConfig("TroLy", "StopOnDone", "1"))
 	Form.stop_on_done_cbtn.Checked = stopOnDoneStr == "1" and true or false
+	Form.stop_on_die_cbtn.Checked = stopOnDoneStr == "1" and true or false
 end
 
 function onBtnSaveClick()
