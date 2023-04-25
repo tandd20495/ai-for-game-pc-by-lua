@@ -1,1 +1,0 @@
-yBreaker_show_notice(util_text("Code new is actived"))
