@@ -7,6 +7,7 @@ local pvpTaoluText = {
     ["cuchi"] = "Cù Chi Kiếm Pháp",
     ["tuyettrai"] = "Tuyết Trai Kiếm Pháp",
     ["cuucung"] = "Cửu Cung Kiếm Pháp",
+	["thc"] = "Tham Hợp Chỉ",
     ["ptc"] = "Phật Tâm Chưởng",
     ["ltt"] = "Long Trảo Thủ (Cổ)"
 }
@@ -26,6 +27,10 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
+	form.btn_jingmai_in.Text = nx_function("ext_utf8_to_widestr", "Mạch Nội BQ")
+	form.btn_jingmai_out.Text = nx_function("ext_utf8_to_widestr", "Ngoại STBK")
+	form.btn_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "Nội + LT")
+	form.btn_jingmai_outboss.Text = nx_function("ext_utf8_to_widestr", "Ngoại + Thủ")
     reload_form()
 end
 
@@ -206,10 +211,11 @@ function reload_form()
     if combobox_pvptaolu.DroppedDown then
         combobox_pvptaolu.DroppedDown = false
     end
-    combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["hsd"]))
-    combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["cuchi"]))
-    combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["tuyettrai"]))
-    combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["cuucung"]))
+    --combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["hsd"]))
+    --combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["cuchi"]))
+    --combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["tuyettrai"]))
+    --combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["cuucung"]))
+	combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["thc"]))
     combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["ptc"]))
     combobox_pvptaolu.DropListBox:AddString(nx_function("ext_utf8_to_widestr", pvpTaoluText["ltt"]))
     if pvptaolu == "" then
@@ -294,7 +300,7 @@ function on_btn_jingmai_in_click(btn)
     end
     save_jingmai_config("jingmai_in")
     reload_form()
-    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch nội đã được lưu lại"))
+    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch nội max bỏ qua đã được lưu lại"))
 end
 
 -- Lưu mạch ngoại
@@ -305,7 +311,7 @@ function on_btn_jingmai_out_click(btn)
     end
     save_jingmai_config("jingmai_out")
     reload_form()
-    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch ngoại đã được lưu lại"))
+    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch ngoại sát thương bạo kích đã được lưu lại"))
 end
 
 -- Lưu mạch nội boss
@@ -316,7 +322,7 @@ function on_btn_jingmai_inboss_click(btn)
     end
     save_jingmai_config("jingmai_inboss")
     reload_form()
-    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch nội đánh boss đã được lưu lại"))
+    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch nội + lực tay đã được lưu lại"))
 end
 
 -- Lưu mạch ngoại boss
@@ -327,7 +333,7 @@ function on_btn_jingmai_outboss_click(btn)
     end
     save_jingmai_config("jingmai_outboss")
     reload_form()
-    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch ngoại đánh boss đã được lưu lại"))
+    tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch ngoại + thủ đã được lưu lại"))
 end
 
 -- Lưu file test
@@ -387,12 +393,14 @@ function on_btn_pvptaolu_click(btn)
     -- Xác định ra key bộ võ
     if nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["hsd"]) then
         taolu = "hsd"
-    elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["cuchi"]) then
-        taolu = "cuchi"
-    elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["tuyettrai"]) then
-        taolu = "tuyettrai"
-    elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["cuucung"]) then
-        taolu = "cuucung"
+    --elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["cuchi"]) then
+    --    taolu = "cuchi"
+    --elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["tuyettrai"]) then
+    --    taolu = "tuyettrai"
+    --elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["cuucung"]) then
+    --    taolu = "cuucung"
+	elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["thc"]) then
+        taolu = "thc"
     elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["ptc"]) then
         taolu = "ptc"
     elseif nx_widestr(form.combobox_pvptaolu.Text) == nx_function("ext_utf8_to_widestr", pvpTaoluText["ltt"]) then

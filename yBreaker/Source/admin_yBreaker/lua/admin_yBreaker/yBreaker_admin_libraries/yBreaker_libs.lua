@@ -316,7 +316,7 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/lc") or (command == "/LC") then
+	if (command == "/lcy") or (command == "/LCY") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_luyencong") 
 		return true
 	end
@@ -430,7 +430,7 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_log") 
 		return true
 	end
-	if (command == "/lcz") or (command == "/LCZ") then
+	if (command == "/lc") or (command == "/LC") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong") 
 		return true
 	end

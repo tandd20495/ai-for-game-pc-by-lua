@@ -1,4 +1,5 @@
 require("admin_zdn\\zdn_form_common")
+require("util_gui")
 
 local Logic = "admin_zdn\\zdn_logic_luyen_cong"
 
@@ -34,4 +35,8 @@ end
 
 function onCbtnCurrentPosChanged(btn)
 	IniWriteUserConfig("LuyenCong", "CurrentPos", btn.Checked and "1" or "0")
+end
+
+function show_hide_form_lc()
+	util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong")
 end

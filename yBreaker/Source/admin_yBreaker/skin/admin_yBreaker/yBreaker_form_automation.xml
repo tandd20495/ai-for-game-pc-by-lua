@@ -52,13 +52,13 @@
             <event on_click="show_hide_form_spammail" />
         </control>
 
-        <control name="tab_10_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_luyencong" init="">
+        <control name="tab_10_btn" entity="Button" script="admin_zdn\form_zdn_luyen_cong" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="15" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Luyện Công" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_hide_form_luyencong" />
+            <event on_click="show_hide_form_lc" />
         </control>
-        <control name="tab_11_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_thunghiep" init="">
+        <control name="tab_11_btn" entity="Button" script="admin_zdn\form_zdn_thu_nghiep" init="">
             <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="127" Top="175" Width="114" Height="40" DrawMode="Expand" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Thụ Nghiệp" Font="font_text_figure" AutoSize="true" />
-            <event on_click="show_hide_form_thunghiep" />
+            <event on_click="show_hide_form_tn" />
         </control>
 
         <control name="tab_12_btn" entity="Button" script="admin_zdn\form_zdn_escort" init="">

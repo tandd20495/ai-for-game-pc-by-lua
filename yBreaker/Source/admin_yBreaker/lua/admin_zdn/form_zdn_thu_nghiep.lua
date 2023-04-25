@@ -1,4 +1,5 @@
 require("admin_zdn\\zdn_form_common")
+require("util_gui")
 
 local Logic = "admin_zdn\\zdn_logic_thu_nghiep"
 
@@ -39,3 +40,8 @@ function loadConfig()
 	local checked = nx_string(IniReadUserConfig("ThuNghiep", "RunAllTheWay", "0"))
 	Form.cbtn_run_all_the_way.Checked = (checked == "1")
 end
+
+function show_hide_form_tn()
+	util_auto_show_hide_form("admin_zdn\\form_zdn_thu_nghiep")
+end
+
