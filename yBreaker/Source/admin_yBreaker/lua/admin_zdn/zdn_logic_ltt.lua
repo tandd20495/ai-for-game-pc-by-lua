@@ -212,6 +212,10 @@ function selectCurrentSchoolIndex()
     TalkToNpc(handlerNpc, 0)
     nx_execute("admin_zdn\\zdn_listener", "addListen", nx_current(), "newworld_lingxia_biwunpc_002_talk_043", "nextSchool", 4)
     TalkToNpc(handlerNpc, schoolIndex)
+	if schoolIndex >= 9 then
+        onTaskDone()
+        return
+    end
 	yBreaker_show_Utf8Text("Đang chọn phái dòng : " .. nx_string(schoolIndex))
 end
 
