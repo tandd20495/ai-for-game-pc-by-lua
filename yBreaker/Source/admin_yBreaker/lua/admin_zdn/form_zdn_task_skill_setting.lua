@@ -12,26 +12,26 @@ local TASK_LIST = {
 		"Vận Tiêu",
 		"admin_zdn\\zdn_logic_escort"
 	},
-	{
-		"Chiến Trường",
-		"admin_zdn\\zdn_logic_chien_truong"
-	},
+	-- {
+	-- 	"Chiến Trường",
+	-- 	"admin_zdn\\zdn_logic_chien_truong"
+	-- },
 	{
 		"Hào Kiệt",
 		"admin_zdn\\zdn_logic_hao_kiet"
 	},
-	{
-		"Thiên Thê",
-		"admin_zdn\\zdn_logic_thien_the"
-	},
-	{
-		"Tung Hoành Tứ Hải",
-		"admin_zdn\\zdn_logic_thth"
-	},
-	{
-		"Thích quán",
-		"admin_zdn\\zdn_logic_thich_quan"
-	},
+	-- {
+	-- 	"Thiên Thê",
+	-- 	"admin_zdn\\zdn_logic_thien_the"
+	-- },
+	-- {
+	-- 	"Tung Hoành Tứ Hải",
+	-- 	"admin_zdn\\zdn_logic_thth"
+	-- },
+	-- {
+	-- 	"Thích quán",
+	-- 	"admin_zdn\\zdn_logic_thich_quan"
+	-- },
 	{
 		"Tinh Dao Cung",
 		"admin_zdn\\zdn_logic_tdc"
