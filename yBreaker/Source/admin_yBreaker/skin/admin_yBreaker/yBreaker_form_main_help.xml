@@ -8,13 +8,14 @@
             <event on_click="on_btn_close_form_help" />
         </control>
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Help" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Hướng Dẫn" Font="font_title" />
         </control>
 		<control name="mltbox_1" entity="MultiTextBox" script="" init="">
             <prop HAlign="Center" VAlign="Center" TextColor="255,255,255,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,290,290" LineHeight="20" 
             HtmlText="&lt;font color=&apos;#ffee2e&apos;&gt;Hướng dẫn dùng lệnh chat:&lt;/font&gt;
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/yt&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/YT&lt;/font&gt;: Mở giao diện chính 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/at&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/AT&lt;/font&gt;: Tính năng tự động
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/pw&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/PW&lt;/font&gt;: Mã hóa, lưu MK rương
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tl&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TL&lt;/font&gt;: Chạy tác vụ 24/7
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/set&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SET&lt;/font&gt;: Cài đặt khác
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/a&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/A&lt;/font&gt;: PVP 
