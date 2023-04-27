@@ -6,7 +6,7 @@ local MAX_SET = 6
 local TASK_LIST = {
 	{
 		"Mặc Định",
-		"admin_zdn\\zdn_skill_default"
+		"zdn_skill_default"
 	},
 	{
 		"Vận Tiêu",

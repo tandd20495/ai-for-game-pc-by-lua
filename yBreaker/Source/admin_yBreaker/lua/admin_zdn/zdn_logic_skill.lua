@@ -837,7 +837,7 @@ function getSetFromConfig()
     for i = 1, cnt do
         local v = util_split_string(p[i], ",")
         local logic = v[1]
-        if logic == "admin_zdn\\zdn_skill_default" then
+        if logic == "zdn_skill_default" then
             default = nx_number(v[2])
         elseif nx_find_script(logic, "IsRunning") then
             if nx_execute(logic, "IsRunning") then
