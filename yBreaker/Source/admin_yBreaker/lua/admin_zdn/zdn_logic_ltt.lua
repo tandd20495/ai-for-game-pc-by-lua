@@ -195,6 +195,7 @@ function nextSchool()
     schoolIndex = schoolIndex + 1
     if schoolIndex >= 9 then
         onTaskDone()
+		yBreaker_show_Utf8Text("Đã khiêu chiến toàn bộ phái!")
         return
     end
     selectCurrentSchoolIndex()
@@ -216,7 +217,7 @@ function selectCurrentSchoolIndex()
         onTaskDone()
         return
     end
-	yBreaker_show_Utf8Text("Đang chọn phái dòng : " .. nx_string(schoolIndex))
+	yBreaker_show_Utf8Text("Đang chọn phái dòng : " .. nx_string(schoolIndex + 1))
 end
 
 function isBossSceneAttackNpc(obj)
