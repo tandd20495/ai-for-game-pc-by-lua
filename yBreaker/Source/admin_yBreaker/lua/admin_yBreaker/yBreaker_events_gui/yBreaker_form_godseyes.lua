@@ -18,260 +18,9 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_godseyes"
 local WINEXEC_PATH = "autodata\\tools.exe"
 
 local auto_is_running = false -- Quét cóc
-local auto_is_running_rsabduct = false -- Quét, thổi cóc
 local auto_is_running_player = false -- Quét người chơi
 
 local isAdmRights = true
-
-
-----------------------------------------------------
--- Phát hiện cóc RS, chat cóc, thổi cóc
--- Quét luôn người chơi đang ôm cóc
-function auto_run_rsabduct()
-    local max_distance_selectauto = 6
-    local last_table_coc = {}
-    local sound_before = nil -- Am thanh truoc
-    local volume_before = nil -- Am luong truoc
-    local used_abduct_item = false
-
-    -- Xac dinh cau hinh am thanh ban dau
-    if sound_before == nil then
-        local game_config = nx_value("game_config")
-        sound_before = game_config.music_enable
-        volume_before = game_config.music_volume
-    end
-
-    while auto_is_running_rsabduct == true do
-        -- Kiểm tra dữ liệu hợp chuẩn
-        local is_vaild_data = true
-        local game_client
-        local game_visual
-        local game_player
-        local game_scence
-
-        game_client = nx_value("game_client")
-        if not nx_is_valid(game_client) then
-            is_vaild_data = false
-        end
-        game_visual = nx_value("game_visual")
-        if not nx_is_valid(game_visual) then
-            is_vaild_data = false
-        end
-
-        if is_vaild_data == true then
-            game_player = game_visual:GetPlayer()
-            if not nx_is_valid(game_player) then
-                is_vaild_data = false
-            end
-            game_scence = game_client:GetScene()
-            if not nx_is_valid(game_scence) then
-                is_vaild_data = false
-            end
-        end
-        local form = nx_value(THIS_FORM)
-        if not nx_is_valid(form) then
-            is_vaild_data = false
-        end
-
-        -- Nếu dữ liệu ok hết
-        if is_vaild_data == true then
-            local game_scence_objs = game_scence:GetSceneObjList()
-            local select_object = 0
-            local trigger_music = false
-            local current_table_coc = {}
-            form.mltbox_content:Clear()
-
-            for i = 1, table.getn(game_scence_objs) do
-                local obj_type = 0
-                if game_scence_objs[i]:FindProp("Type") then
-                    obj_type = game_scence_objs[i]:QueryProp("Type")
-                end
-                local distance = string.format("%.0f", distance3d(game_player.PositionX, game_player.PositionY, game_player.PositionZ, game_scence_objs[i].PosiX, game_scence_objs[i].PosiY, game_scence_objs[i].PosiZ))
-
-                if obj_type == 4 and game_scence_objs[i]:QueryProp("ConfigID") == "OffAbductNpc_0" and used_abduct_item and tonumber(distance) <= max_distance_selectauto then --- NPC
-                    nx_execute("custom_sender", "custom_select", game_scence_objs[i].Ident)
-                    nx_pause(0.2)
-                    nx_execute("custom_sender", "custom_select", game_scence_objs[i].Ident)
-                    nx_pause(0.2)
-                    nx_execute("custom_sender", "custom_select", game_scence_objs[i].Ident)
-                    nx_pause(0.2)
-                    nx_execute("custom_sender", "custom_select", game_scence_objs[i].Ident)
-                    nx_pause(10)
-                    used_abduct_item = false
-                    break
-                elseif obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 1 and not game_scence_objs[i]:FindProp("OfflineTypeTvT") then
-                    local coc_name = game_scence_objs[i]:QueryProp("Name")
-                    local coc_ident = game_scence_objs[i]:QueryProp("Ident")
-                    local coc_posX = string.format("%.0f", game_scence_objs[i].PosiX)
-                    local coc_posZ = string.format("%.0f", game_scence_objs[i].PosiZ)
-
-                    local pathX = game_scence_objs[i].DestX
-                    local pathY = game_scence_objs[i].DestY
-                    local pathZ = game_scence_objs[i].DestZ
-
-                    if game_scence_objs[i]:QueryProp("IsAbducted") == 0 then
-                        if tonumber(distance) <= max_distance_selectauto then
-                            select_object = i
-                        end
-
-                        table.insert(current_table_coc, coc_name)
-
-                        if not in_array(coc_name, last_table_coc) then
-                            trigger_music = true
-                            -- Chat hệ thống thông số cóc
-                            local text = nx_function("ext_utf8_to_widestr", "Tên:")
-                            text = text .. nx_widestr(coc_name)
-                            text = text .. nx_function("ext_utf8_to_widestr", " - Tọa độ:<a href=\"findpath,")
-                            text = text .. nx_widestr(get_current_map())
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(pathX)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(pathY)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(pathZ)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(coc_ident)
-                            text = text .. nx_widestr("\" style=\"HLStype1\">")
-                            text = text .. nx_widestr(coc_posX)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(coc_posZ)
-                            text = text .. nx_widestr("</a>")
-                            nx_value("form_main_chat"):AddChatInfoEx(text, CHATTYPE_SYSTEM, false)
-                        end
-                    end
-
-                    -- Ghi lên hệ thống
-                    if game_scence_objs[i]:QueryProp("IsAbducted") == 1 then
-                        for j = 1, 20 do
-                            if game_scence_objs[i]:FindProp(nx_string("BufferInfo") .. nx_string(j)) and nx_string(util_split_string(game_scence_objs[i]:QueryProp(nx_string("BufferInfo") .. nx_string(j)), ",")[1]) == "buf_abducted" then
-                                local MessageDelay = nx_value("MessageDelay")
-                                if not nx_is_valid(MessageDelay) then
-                                  return 0
-                                end
-                                local buff_info = util_split_string(game_scence_objs[i]:QueryProp(nx_string("BufferInfo") .. nx_string(j)), ",")
-                                local buff_time = buff_info[4]
-
-                                local server_now_time = MessageDelay:GetServerNowTime()
-                                local buff_diff_time = nx_int((buff_time - server_now_time) / 1000) -- Unit timesamp
-                                local buff_remain_h = nx_int(buff_diff_time / 3600) -- Giờ
-                                local buff_remain_m = nx_int((buff_diff_time - (buff_remain_h * 3600)) / 60) -- Phút
-                                local buff_remain_s = nx_int(buff_diff_time - (buff_remain_h * 3600) - (buff_remain_m * 60)) -- Giây
-
-                                local text = nx_widestr(coc_name)
-                                text = text .. nx_widestr(" (<a href=\"findpath,")
-                                text = text .. nx_widestr(get_current_map())
-                                text = text .. nx_widestr(",")
-                                text = text .. nx_widestr(pathX)
-                                text = text .. nx_widestr(",")
-                                text = text .. nx_widestr(pathY)
-                                text = text .. nx_widestr(",")
-                                text = text .. nx_widestr(pathZ)
-                                text = text .. nx_widestr(",")
-                                text = text .. nx_widestr(coc_ident)
-                                text = text .. nx_widestr("\" style=\"HLStype1\">")
-                                text = text .. nx_widestr(coc_posX)
-                                text = text .. nx_widestr(",")
-                                text = text .. nx_widestr(coc_posZ)
-                                text = text .. nx_widestr("</a>) ")
-                                text = text .. nx_widestr(buff_remain_h)
-                                text = text .. nx_widestr(":")
-                                text = text .. nx_widestr(buff_remain_m)
-                                text = text .. nx_widestr(":")
-                                text = text .. nx_widestr(buff_remain_s)
-                                form.mltbox_content:AddHtmlText(text, -1)
-                                break
-                            end
-                        end
-                    else
-                        local text = nx_widestr("<font color=\"#B71D41\">")
-                        text = text .. nx_widestr(coc_name)
-                        text = text .. nx_widestr("</font> (<a href=\"findpath,")
-                        text = text .. nx_widestr(get_current_map())
-                        text = text .. nx_widestr(",")
-                        text = text .. nx_widestr(pathX)
-                        text = text .. nx_widestr(",")
-                        text = text .. nx_widestr(pathY)
-                        text = text .. nx_widestr(",")
-                        text = text .. nx_widestr(pathZ)
-                        text = text .. nx_widestr(",")
-                        text = text .. nx_widestr(coc_ident)
-                        text = text .. nx_widestr("\" style=\"HLStype1\">")
-                        text = text .. nx_widestr(coc_posX)
-                        text = text .. nx_widestr(",")
-                        text = text .. nx_widestr(coc_posZ)
-                        text = text .. nx_widestr("</a>)")
-                        form.mltbox_content:AddHtmlText(text, -1)
-                    end
-                end
-
-                -- Quét, chat người ôm cóc, không tính cho mình
-                local obj = game_scence_objs[i]
-                if obj_type == 2 and nx_is_valid(obj) and getPlayerPropWideStr("Name") ~= nx_widestr(obj:QueryProp("Name")) then
-                    local buff_abductor = get_buff_info("buf_abductor", obj)
-                    if buff_abductor ~= nil then
-                        local coc_name = obj:QueryProp("Name")
-                        local coc_ident = obj:QueryProp("Ident")
-                        local coc_posX = string.format("%.0f", obj.PosiX)
-                        local coc_posZ = string.format("%.0f", obj.PosiZ)
-
-                        local pathX = obj.DestX
-                        local pathY = obj.DestY
-                        local pathZ = obj.DestZ
-
-                        table.insert(current_table_coc, coc_name)
-
-                        if not in_array(coc_name, last_table_coc) then
-                            trigger_music = true
-                            -- Chat hệ thống người ôm cóc
-                            local text = nx_function("ext_utf8_to_widestr", "Ôm cóc: <font color=\"#FF00B2\">")
-                            text = text .. nx_widestr(coc_name)
-                            text = text .. nx_function("ext_utf8_to_widestr", "</font> - Tọa độ:<a href=\"findpath,")
-                            text = text .. nx_widestr(get_current_map())
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(pathX)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(pathY)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(pathZ)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(coc_ident)
-                            text = text .. nx_widestr("\" style=\"HLStype1\">")
-                            text = text .. nx_widestr(coc_posX)
-                            text = text .. nx_widestr(",")
-                            text = text .. nx_widestr(coc_posZ)
-                            text = text .. nx_widestr("</a>")
-                            nx_value("form_main_chat"):AddChatInfoEx(text, CHATTYPE_SYSTEM, false)
-                        end
-                    end
-                end
-            end
-
-            last_table_coc = current_table_coc
-
-            if select_object ~= 0 then
-                nx_execute("custom_sender", "custom_select", game_scence_objs[select_object].Ident)
-                local form_bag = nx_value("form_stage_main\\form_bag")
-                if nx_is_valid(form_bag) then
-                    form_bag.rbtn_tool.Checked = true
-                end
-                nx_execute("form_stage_main\\form_bag_func", "use_item_by_configid", "offitem_miyao10")
-                used_abduct_item = true
-            end
-
-            if trigger_music then
-                local timer = nx_value(GAME_TIMER)
-                if nx_is_valid(timer) then
-                    timer:UnRegister(nx_current(), "tools_resume_scene_music", nx_value("game_config"))
-                end
-                nx_function("ext_flash_window")
-                tools_play_sound()
-            end
-        end
-
-        -- Dừng một lát trước khi chạy lại
-        nx_pause(0.3)
-    end
-end
 
 -----------------------------------------
 -- Quét cóc
@@ -390,6 +139,45 @@ function auto_run()
                         text = text .. nx_widestr(coc_posZ)
                         text = text .. nx_widestr("</a>)")
                         form.mltbox_content:AddHtmlText(text, -1)
+                    end
+                end
+				
+				-- Quét, chat người ôm cóc, không tính cho mình
+                local obj = game_scence_objs[i]
+                if obj_type == 2 and nx_is_valid(obj) and getPlayerPropWideStr("Name") ~= nx_widestr(obj:QueryProp("Name")) then
+                    local buff_abductor = get_buff_info("buf_abductor", obj)
+                    if buff_abductor ~= nil then
+                        local coc_name = obj:QueryProp("Name")
+                        local coc_ident = obj:QueryProp("Ident")
+                        local coc_posX = string.format("%.0f", obj.PosiX)
+                        local coc_posZ = string.format("%.0f", obj.PosiZ)
+
+                        local pathX = obj.DestX
+                        local pathY = obj.DestY
+                        local pathZ = obj.DestZ
+ 
+						-- Chat hệ thống người ôm cóc
+						local text = nx_function("ext_utf8_to_widestr", "Ôm cóc: <font color=\"#FF00B2\">")
+						text = text .. nx_widestr(coc_name)
+						text = text .. nx_function("ext_utf8_to_widestr", "</font> - Tọa độ:<a href=\"findpath,")
+						text = text .. nx_widestr(get_current_map())
+						text = text .. nx_widestr(",")
+						text = text .. nx_widestr(pathX)
+						text = text .. nx_widestr(",")
+						text = text .. nx_widestr(pathY)
+						text = text .. nx_widestr(",")
+						text = text .. nx_widestr(pathZ)
+						text = text .. nx_widestr(",")
+						text = text .. nx_widestr(coc_ident)
+						text = text .. nx_widestr("\" style=\"HLStype1\">")
+						text = text .. nx_widestr(coc_posX)
+						text = text .. nx_widestr(",")
+						text = text .. nx_widestr(coc_posZ)
+						text = text .. nx_widestr("</a>")
+						
+						form.mltbox_content:AddHtmlText(text, -1) -- Add text to display on form
+						nx_value("form_main_chat"):AddChatInfoEx(text, CHATTYPE_SYSTEM, false) -- Add text to chat system
+                        
                     end
                 end
             end
@@ -732,7 +520,6 @@ end
 
 function on_main_form_close(form)
     auto_is_running = false
-    auto_is_running_rsabduct = false
     auto_is_running_player = false
     nx_destroy(form)
 end
@@ -764,23 +551,6 @@ function on_btn_control_click(btn)
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
 		btn.ForeColor = "255,220,20,60"
         auto_run()
-    end
-end
-
-function on_btn_control_rsabduct_click(btn)
-    local form = btn.ParentForm
-    if not nx_is_valid(form) then
-        return
-    end
-
-    if auto_is_running_rsabduct then
-        reset_all_btns("----")
-    else
-        reset_all_btns("rsabduct")
-        auto_is_running_rsabduct = true
-        btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
-		btn.ForeColor = "255,220,20,60"
-        auto_run_rsabduct()
     end
 end
 
@@ -820,11 +590,6 @@ function reset_all_btns(skip)
         auto_is_running = false
         form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Quét cóc")
 		form.btn_control.ForeColor = "255,255,255,255"
-    end
-    if skip ~= "rsabduct" then
-        auto_is_running_rsabduct = false
-        form.btn_control_rsabduct.Text = nx_function("ext_utf8_to_widestr", "Thổi cóc")
-		form.btn_control_rsabduct.ForeColor = "255,255,255,255"
     end
 
     -- Hủy soi buff
