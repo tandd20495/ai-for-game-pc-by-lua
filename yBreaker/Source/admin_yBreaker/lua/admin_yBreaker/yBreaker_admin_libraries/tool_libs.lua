@@ -782,8 +782,15 @@ function callTheSpecialRiding()
         "Marry_mount_1_fc", -- Bạch Mã Liễn (180 ngày)
         "newyear_mount_1", -- Tam Dương Liên (30 ngày)
         "newyear_mount_2", -- Tam Dương Liên (7 ngày)
-        "mount_2_001" -- Lạc Đà
-    }
+        "mount_2_001", -- Lạc Đà
+		"mount_1_001", --Thanh Lư
+		"mount_hawk_001", -- [Thần Điêu]
+		"mount_2_002", -- Bạch Lạc Đà
+		"mount_hawk_003", -- Hắc Vũ Đại Điêu
+		"mount_1_002", -- [Thanh Lư] (30 ngày)
+        "mount_boss067_01" -- Tuyệt Phàm Liên
+	}   
+	
     for j = 1, table.getn(rideArray) do
         local rideID = rideArray[j]
         if goods_grid:GetItemCount(rideID) > 0 then

@@ -53,3 +53,7 @@ function set_get_miracle(status)
 		--tools_show_notice(nx_function("ext_utf8_to_widestr", "Tắt nhận kỳ kgộ"))
 	end
 end
+
+function get_is_capturing()
+    return auto_is_running
+end

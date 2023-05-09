@@ -138,7 +138,9 @@ function auto_run()
                         text = text .. nx_widestr(",")
                         text = text .. nx_widestr(coc_posZ)
                         text = text .. nx_widestr("</a>)")
+						
                         form.mltbox_content:AddHtmlText(text, -1)
+						nx_function("ext_flash_window")
                     end
                 end
 				
@@ -159,7 +161,7 @@ function auto_run()
 						-- Chat hệ thống người ôm cóc
 						local text = nx_function("ext_utf8_to_widestr", "Ôm cóc: <font color=\"#FF00B2\">")
 						text = text .. nx_widestr(coc_name)
-						text = text .. nx_function("ext_utf8_to_widestr", "</font> - Tọa độ:<a href=\"findpath,")
+						text = text .. nx_function("ext_utf8_to_widestr", "</font> - <a href=\"findpath,")
 						text = text .. nx_widestr(get_current_map())
 						text = text .. nx_widestr(",")
 						text = text .. nx_widestr(pathX)
@@ -177,7 +179,7 @@ function auto_run()
 						
 						form.mltbox_content:AddHtmlText(text, -1) -- Add text to display on form
 						nx_value("form_main_chat"):AddChatInfoEx(text, CHATTYPE_SYSTEM, false) -- Add text to chat system
-                        
+						nx_function("ext_flash_window")
                     end
                 end
             end

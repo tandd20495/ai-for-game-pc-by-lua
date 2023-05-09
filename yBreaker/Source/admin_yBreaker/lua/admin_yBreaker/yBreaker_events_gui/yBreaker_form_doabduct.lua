@@ -194,7 +194,7 @@ function auto_run(map, pos, restabducttime, integrated_qt)
                     abduct_step = 1
                 else
                     -- Nhận kỳ ngộ khi đang chờ cóc
-                    local isCapturingQT = nx_execute("auto_tools1\\tools_captureqt", "is_capturing")
+                    local isCapturingQT = nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_is_capturing")
                     if integrated_qt and not isCapturingQT then
                         auto_capture_qt()
                     end
@@ -277,7 +277,7 @@ function auto_run(map, pos, restabducttime, integrated_qt)
                         end
                         -- Dừng lại ở điểm trốn cho đến khi hết thời gian trốn
                         -- Nhận kỳ ngộ khi đang ôm cóc trốn
-                        local isCapturingQT = nx_execute("auto_tools1\\tools_captureqt", "is_capturing")
+                        local isCapturingQT = nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_is_capturing")
                         if integrated_qt and not isCapturingQT then
                             auto_capture_qt()
                         end
@@ -714,7 +714,7 @@ function auto_run_dynamic()
                                 local abduct = game_visual:GetSceneObj(ident)
                                 if nx_is_valid(abduct) then
                                     -- Nếu có người bị định thân thì bỏ qua nó
-                                    if tools_have_nearabdut(ident) == -1 then
+                                    --if tools_have_nearabdut(ident) == -1 then
                                         doAbductPos = {}
                                         doAbductPos.Ident = ident
                                         doAbductPos.Name = ident_name
@@ -769,9 +769,9 @@ function auto_run_dynamic()
                                             step = 3
                                             break
                                         end
-                                    else
-                                        table.insert(dissMissAbductItent, scence_obj:QueryProp("Name"))
-                                    end
+                                    --else
+                                    --    table.insert(dissMissAbductItent, scence_obj:QueryProp("Name"))
+                                    --end
                                 end
                             end
                         end
@@ -814,20 +814,26 @@ function auto_run_dynamic()
                         end
                     end
                     if direct_run_count >= 20 then
-                        suicidePlayer(true)
+						
+                        --suicidePlayer(true) -- Tự sát
                         isFindPathFalse = true
-                    elseif direct_run_count >= 15 and is_call_exttools then
+                    --elseif direct_run_count >= 15 and is_call_exttools then
+					elseif direct_run_count >= 15 then
                         -- Thử gọi file bên ngoài can thiệp để nhảy nhót
                         if fix_extautoit_executed == false then
-                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Xuống ngựa cũng không được, thử nhảy nhót"))
+                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Xuống ngựa cũng không được, thử dùng Bạch Vân Cái Đỉnh"))
                             fix_extautoit_executed = true
+							
+							-- Dùng skill bạch vân cái đỉnh để thoát
+							local fight = nx_value("fight")
+							fight:TraceUseSkill("CS_jh_cqgf02", false, false)
                             --nx_function("ext_win_exec", nx_work_path() .. WINEXEC_PATH .. " FIXFINDPATH " .. ext_set_window_title)
                         end
                     elseif direct_run_count >= 8 then
                         -- Không di chuyển được thì xuống ngựa
                         if fix_ride_executed == false then
                             tools_show_notice(nx_function("ext_utf8_to_widestr", "Không di chuyển được, thử xuống ngựa"))
-                            fix_ride_executed = true
+                            fix_ride_executed = true	
                         end
                         nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
                     end
@@ -878,14 +884,19 @@ function auto_run_dynamic()
                             end
                         end
                         if direct_run_count >= 20 then
-                            suicidePlayer(true)
+                            --suicidePlayer(true)
                             isFindPathFalse = true
-                        elseif direct_run_count >= 15 and is_call_exttools then
+						--elseif direct_run_count >= 15 and is_call_exttools then
+                        elseif direct_run_count >= 15 then
                             -- Thử gọi file bên ngoài can thiệp để nhảy nhót
                             if fix_extautoit_executed == false then
-                                tools_show_notice(nx_function("ext_utf8_to_widestr", "Xuống ngựa cũng không được, thử nhảy nhót"))
+                                tools_show_notice(nx_function("ext_utf8_to_widestr", "Xuống ngựa cũng không được, thử dùng Bạch Vân Cái Đỉnh"))
                                 fix_extautoit_executed = true
                                 --nx_function("ext_win_exec", nx_work_path() .. WINEXEC_PATH .. " FIXFINDPATH " .. ext_set_window_title)
+								
+								-- Dùng skill bạch vân cái đỉnh để thoát
+								local fight = nx_value("fight")
+								fight:TraceUseSkill("CS_jh_cqgf02", false, false)
                             end
                         elseif direct_run_count >= 8 then
                             -- Không di chuyển được thì xuống ngựa
@@ -967,7 +978,7 @@ function auto_run_dynamic()
                         end
                         if direct_run_count >= 8 then
                             -- Nếu không tự tìm đường được thì bỏ qua con cóc này
-                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Cóc này không auto tìm đường được nên bỏ qua"))
+                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Cóc này không tự tìm đường được nên bỏ qua"))
                             if table.getn(dissMissAbductItent) > 70 then
                                 dissMissAbductItent = {}
                             end
@@ -1006,7 +1017,7 @@ function auto_run_dynamic()
                                 step = 1
                             end
                         else
-                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Không còn con cóc nữa"))
+                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu nhặt cóc!"))
                             doAbductPos = nil
                             step = 1
                         end
@@ -1039,7 +1050,7 @@ function auto_run_dynamic()
             elseif step == 5 then
                 if (buff_abduct ~= nil and buff_abduct > 30) or isStopAuto or isAutoStoped then
                     -- Đứng im đây
-                    local isCapturingQT = nx_execute("auto_tools1\\tools_captureqt", "is_capturing")
+                    local isCapturingQT = nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_is_capturing")
                     if is_receive_qt and not isCapturingQT then
                         auto_capture_qt()
                     end
@@ -2129,6 +2140,7 @@ function set_form_type_dynamic(form)
     end
 
     form.btn_dynamic_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_dynamic_control.ForeColor = "255,255,255,255"
     form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Có thể thực hiện")
 end
 
@@ -2180,6 +2192,7 @@ function set_form_type_static(form)
 
     form.cbtn_integrated_qt.Checked = true
     form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+	form.btn_control.ForeColor = "255,255,255,255"
 end
 
 function stop_type_static()
@@ -2190,6 +2203,7 @@ function stop_type_static()
     auto_is_running_static = false
     if form.btn_control.Text ~= nx_widestr("...") then
         form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		form.btn_control.ForeColor = "255,255,255,255"
     end
 end
 
@@ -2201,8 +2215,9 @@ function stop_type_dynamic()
     auto_is_running_dynamic = false
     if form.btn_dynamic_control.Text ~= nx_widestr("...") then
         form.btn_dynamic_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
+		form.btn_dynamic_control.ForeColor = "255,255,255,255"
     end
-    reset_window_title()
+    --reset_window_title()
 end
 
 function on_typedynamic_click(btn)
@@ -2245,7 +2260,7 @@ function on_main_form_close(form)
     isFindPathFalse = false
     auto_is_running_static = false
     auto_is_running_dynamic = false
-    reset_window_title()
+    --reset_window_title()
     nx_destroy(form)
 end
 
@@ -2270,6 +2285,7 @@ function on_btn_control_click(btn)
     else
         auto_is_running_static = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
         local map = get_current_map()
         local pos = form.combobox_pos.Text
         local restabducttime = (nx_number(form.combobox_time.Text) * 60)
@@ -2291,6 +2307,7 @@ function on_btn_dynamic_control_click(btn)
     else
         auto_is_running_dynamic = true
         btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		btn.ForeColor = "255,220,20,60"
         isCompleteBeauseAttacker = false
         auto_run_dynamic()
     end
