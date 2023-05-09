@@ -144,6 +144,7 @@ function console(str, isdebug)
     end
 end
 
+-- Ghi log ra
 function consoleAttacker(str, isdebug)
     local file = io.open("D:\\logAttacker.txt", "a")
     if file == nil then

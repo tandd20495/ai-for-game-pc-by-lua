@@ -71,8 +71,6 @@ local dynamic_selldata = {}
 local dynamic_waitpos = {}
 -- Điểm hồi sinh thần hành về sau khi bắt - Dữ liệu mảng để random
 local dynamic_homepoint = {}
--- Tọa độ di chuyển đến để chuẩn bị bày hàng
-local dynamic_prestall = false
 -- Bị dừng do có người đánh
 local isCompleteBeauseAttacker = false
 -- Lần cuối bị đánh
@@ -499,13 +497,7 @@ function auto_run_dynamic()
 
         if is_vaild_data == true then
             local map = form.map
-            --local is_call_exttools = form.cbtn_dynamic_useexe.Checked
-            local is_call_exttools = false -- Không xài file ngoài nữa do GOSU đang theo dõi
-            local is_receive_qt = form.cbtn_dynamic_integrated_qt.Checked
             local is_autofight = form.cbtn_dynamic_fight.Checked
-            local is_stallonline = form.cbtn_dynamic_autoshops.Checked
-            local escort_friend = form.combobox_dynamic_escortfriend.Text
-            local escort_friend2 = form.combobox_dynamic_escortfriend2.Text
             local isUseSpecialRide = form.cbtn_dynamic_usespride.Checked
             local isReturnHomePoint = form.cbtn_dynamic_returnhomepoint.Checked
             local isStopIfBeattacked = form.cbtn_dynamic_stop_if_beattacked.Checked
@@ -538,11 +530,6 @@ function auto_run_dynamic()
                 isStopAuto = false
             end
 
-            -- Khống chế phần auto bày hàng
-            if logicstate ~= 0 and logicstate ~= 101 then
-                is_stallonline = false
-            end
-
             -- Nếu auto bị dừng do bị đánh thì kiểm tra
             if isAutoStoped then
                 -- Bị đánh 10 phút thì tiếp tục bắt cóc
@@ -571,6 +558,7 @@ function auto_run_dynamic()
                     local totalAttacker = table.getn(listAttacker)
                     for i = 1, totalAttacker do
                         -- Log thông tin người đánh (luôn luôn)
+						-- Ghi log
                         consoleAttacker(nx_function("ext_widestr_to_utf8", player_client:QueryProp("Name")) .. ": " .. tostring(os.date("%c")) .. ": Tên: " .. listAttacker[i].name .. ", Thực Lực: " .. listAttacker[i].level .. ", Bang: " .. listAttacker[i].guide .. ", Tọa độ: " .. listAttacker[i].position)
                         textChatLog = textChatLog .. nx_function("ext_utf8_to_widestr", listAttacker[i].name)
                         if i < totalAttacker then
@@ -817,7 +805,6 @@ function auto_run_dynamic()
 						
                         --suicidePlayer(true) -- Tự sát
                         isFindPathFalse = true
-                    --elseif direct_run_count >= 15 and is_call_exttools then
 					elseif direct_run_count >= 15 then
                         -- Thử gọi file bên ngoài can thiệp để nhảy nhót
                         if fix_extautoit_executed == false then
@@ -827,7 +814,6 @@ function auto_run_dynamic()
 							-- Dùng skill bạch vân cái đỉnh để thoát
 							local fight = nx_value("fight")
 							fight:TraceUseSkill("CS_jh_cqgf02", false, false)
-                            --nx_function("ext_win_exec", nx_work_path() .. WINEXEC_PATH .. " FIXFINDPATH " .. ext_set_window_title)
                         end
                     elseif direct_run_count >= 8 then
                         -- Không di chuyển được thì xuống ngựa
@@ -886,13 +872,11 @@ function auto_run_dynamic()
                         if direct_run_count >= 20 then
                             --suicidePlayer(true)
                             isFindPathFalse = true
-						--elseif direct_run_count >= 15 and is_call_exttools then
                         elseif direct_run_count >= 15 then
                             -- Thử gọi file bên ngoài can thiệp để nhảy nhót
                             if fix_extautoit_executed == false then
                                 tools_show_notice(nx_function("ext_utf8_to_widestr", "Xuống ngựa cũng không được, thử dùng Bạch Vân Cái Đỉnh"))
                                 fix_extautoit_executed = true
-                                --nx_function("ext_win_exec", nx_work_path() .. WINEXEC_PATH .. " FIXFINDPATH " .. ext_set_window_title)
 								
 								-- Dùng skill bạch vân cái đỉnh để thoát
 								local fight = nx_value("fight")
@@ -1050,186 +1034,125 @@ function auto_run_dynamic()
             elseif step == 5 then
                 if (buff_abduct ~= nil and buff_abduct > 30) or isStopAuto or isAutoStoped then
                     -- Đứng im đây
-                    local isCapturingQT = nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_is_capturing")
-                    if is_receive_qt and not isCapturingQT then
-                        auto_capture_qt()
-                    end
                     if intevalMessage == 0 then
-                        if is_receive_qt then
-                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt cóc xong, đang đợi turn sau, trong lúc đợi thì nhận kỳ ngộ chơi :)"))
-                        else
-                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt cóc xong, đang đợi turn sau"))
-                        end
+                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Còn buff cóc, đang đợi lượt sau!"))
                     end
-                    -- Nếu đi bày shops thì đi bày shops
-                    -- Chú ý: Nếu có bật bày shops mà trạng thái xuất chiêu thì phần này tự động mất tác dụng
-                    if is_stallonline == true then
-                        if not tools_move_isArrived(dynamic_prestall[1], dynamic_prestall[2], dynamic_prestall[3]) and logicstate ~= 101 then
-                            if not is_moving() then
-                                tools_move_new(map, dynamic_prestall[1], dynamic_prestall[2], dynamic_prestall[3], true)
-                            end
-                        elseif logicstate == 0 and get_buff_info("buff_yunbiao_escortbuff") ~= nil then
-                            -- Nếu đi bày shops mà đang vận tiêu thì rời đội
-                            nx_execute("custom_sender", "custom_leave_team")
-                        elseif get_buff_info("buf_riding_01") ~= nil then
-                            -- Nếu đang trên ngựa thì phải xuống ngựa trước
-                            nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
-                            nx_pause(0.2)
-                        elseif logicstate == 0 then
-                            -- Trạng thái sẵn sàng mới tiến hành bày hàng
-                            local form_stall = nx_value(FORM_STALL_MAIN)
-                            if not nx_is_valid(form_stall) then
-                                util_auto_show_hide_form(FORM_STALL_MAIN)
-                                nx_pause(0.2)
-                            end
-                            local form_stall = nx_value(FORM_STALL_MAIN)
-                            if nx_is_valid(form_stall) and nx_find_custom(form_stall, "lbl_stall_pos") then
-                                local gui = nx_value("gui")
-                                if form_stall.lbl_stall_pos.Text == gui.TextManager:GetText("@ui_stall_null") then
-                                    -- Sẵn sàng bày hàng
-                                    local btn = form_stall.btn_online_stall
-                                    nx_execute(FORM_STALL_MAIN, "on_btn_online_stall_click", btn)
-                                    nx_pause(0.2)
-                                    local form_confirm = nx_value(FORM_CONFIRM)
-                                    if nx_is_valid(form_confirm) then
-                                        local btn = form_confirm.ok_btn
-                                        nx_execute(FORM_CONFIRM, "ok_btn_click", btn)
-                                    end
-                                    nx_pause(0.4)
-                                end
-                            end
-                        end
-                    else
-                        -- Không bày shops thì thần hành về ĐHS
-                        -- Di chuyển tới đứng chỗ ẩn nếu đang đứng tại vị trí bán cóc :D
-                        local isStandOnSellPos = false
-                        for i = 1, table.getn(dynamic_selldata) do
-                            local sellpos = dynamic_selldata[i]
-                            if tools_move_isArrived2D(sellpos.x, sellpos.y, sellpos.z) then
-                                local pos = math.random(1, table.getn(dynamic_waitpos))
-                                local posData = dynamic_waitpos[pos]
-                                tools_move_new(map, posData[1], posData[2], posData[3], true)
-                                isStandOnSellPos = true
-                            end
-                        end
-                        -- Nếu đang đứng im thì kiểm tra xem trong phạm vi 1 mét chỗ mình đứng có ai ở đó không
-                        -- Khi đã trở về điểm dừng chân rồi thì bỏ qua phần kiểm tra này
-                        local haveStackUpObj = false
-                        if isStandOnSellPos == false and not isReturnedHomePoint then
-                            local isMoving = is_moving()
-                            if isMoving == false then
-                                local game_scence_objs = game_scence:GetSceneObjList()
-                                for i = 1, table.getn(game_scence_objs) do
-                                    local obj = game_scence_objs[i]
-                                    if nx_is_valid(obj) then
-                                        local visualObj = game_visual:GetSceneObj(obj.Ident)
-                                        if nx_is_valid(visualObj) then
-                                            if obj:FindProp("Type") and obj:QueryProp("Type") == 2 and player_client:QueryProp("Name") ~= obj:QueryProp("Name") and obj:QueryProp("OffLineState") == 0 then
-                                                -- Nếu có người đứng cách bán kính 0.8 mét
-                                                if tools_move_isArrived2D(visualObj.PositionX, visualObj.PositionY, visualObj.PositionZ, 0.8) then
-                                                    haveStackUpObj = true
-                                                    -- Đánh dấu thời điểm có người đứng trùng
-                                                    if lastStackUpTime == 0 then
-                                                        lastStackUpTime = os.time()
-                                                    elseif tools_difftime(lastStackUpTime) > 2 then
-                                                        local pos = math.random(1, table.getn(dynamic_waitpos))
-                                                        local posData = dynamic_waitpos[pos]
-                                                        tools_move_new(map, posData[1], posData[2], posData[3], true)
-                                                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Có người chiếm chỗ, đi chỗ khác đứng"))
-                                                        lastStackUpTime = 0
-                                                    end
-                                                end
-                                            end
-                                        end
-                                    end
-                                end
-                            end
-                        end
-                        -- Nếu không có ai đứng trùng thì reset lastStackUpTime
-                        if not haveStackUpObj then
-                            lastStackUpTime = 0
-                        end
-                        -- Nếu không có ai đứng trùng nữa và thiết lập về điểm dừng chân và chưa về điểm hồi sinh thì về
-                        if lastStackUpTime <= 0 and not haveStackUpObj and not isReturnedHomePoint and isReturnHomePoint and not is_moving() then
-                            -- Random cái điểm dừng chân
-                            local randHP = math.random(1, table.getn(dynamic_homepoint))
-                            local rand_dynamic_homepoint = dynamic_homepoint[randHP]
-                            if rand_dynamic_homepoint == nil then
-                                stop_type_dynamic()
-                                return false
-                            end
+					
+					-- Thần hành về ĐHS
+					-- Di chuyển tới đứng chỗ ẩn nếu đang đứng tại vị trí bán cóc :D
+					local isStandOnSellPos = false
+					for i = 1, table.getn(dynamic_selldata) do
+						local sellpos = dynamic_selldata[i]
+						if tools_move_isArrived2D(sellpos.x, sellpos.y, sellpos.z) then
+							local pos = math.random(1, table.getn(dynamic_waitpos))
+							local posData = dynamic_waitpos[pos]
+							tools_move_new(map, posData[1], posData[2], posData[3], true)
+							isStandOnSellPos = true
+						end
+					end
+					-- Nếu đang đứng im thì kiểm tra xem trong phạm vi 1 mét chỗ mình đứng có ai ở đó không
+					-- Khi đã trở về điểm dừng chân rồi thì bỏ qua phần kiểm tra này
+					local haveStackUpObj = false
+					if isStandOnSellPos == false and not isReturnedHomePoint then
+						local isMoving = is_moving()
+						if isMoving == false then
+							local game_scence_objs = game_scence:GetSceneObjList()
+							for i = 1, table.getn(game_scence_objs) do
+								local obj = game_scence_objs[i]
+								if nx_is_valid(obj) then
+									local visualObj = game_visual:GetSceneObj(obj.Ident)
+									if nx_is_valid(visualObj) then
+										if obj:FindProp("Type") and obj:QueryProp("Type") == 2 and player_client:QueryProp("Name") ~= obj:QueryProp("Name") and obj:QueryProp("OffLineState") == 0 then
+											-- Nếu có người đứng cách bán kính 0.8 mét
+											if tools_move_isArrived2D(visualObj.PositionX, visualObj.PositionY, visualObj.PositionZ, 0.8) then
+												haveStackUpObj = true
+												-- Đánh dấu thời điểm có người đứng trùng
+												if lastStackUpTime == 0 then
+													lastStackUpTime = os.time()
+												elseif tools_difftime(lastStackUpTime) > 2 then
+													local pos = math.random(1, table.getn(dynamic_waitpos))
+													local posData = dynamic_waitpos[pos]
+													tools_move_new(map, posData[1], posData[2], posData[3], true)
+													tools_show_notice(nx_function("ext_utf8_to_widestr", "Có người chiếm chỗ, đi chỗ khác đứng"))
+													lastStackUpTime = 0
+												end
+											end
+										end
+									end
+								end
+							end
+						end
+					end
+					-- Nếu không có ai đứng trùng thì reset lastStackUpTime
+					if not haveStackUpObj then
+						lastStackUpTime = 0
+					end
+					-- Nếu không có ai đứng trùng nữa và thiết lập về điểm dừng chân và chưa về điểm hồi sinh thì về
+					if lastStackUpTime <= 0 and not haveStackUpObj and not isReturnedHomePoint and isReturnHomePoint and not is_moving() then
+						-- Random cái điểm dừng chân
+						local randHP = math.random(1, table.getn(dynamic_homepoint))
+						local rand_dynamic_homepoint = dynamic_homepoint[randHP]
+						if rand_dynamic_homepoint == nil then
+							stop_type_dynamic()
+							return false
+						end
 
-                            -- Kiểm tra điểm dừng chân tồn tại
-                            local IsExists = false
-                            local HomePointCount = player_client:GetRecordRows("HomePointList")
-                            for i = 0, HomePointCount - 1 do
-                                if rand_dynamic_homepoint == player_client:QueryRecord("HomePointList", i, 0) then
-                                    IsExists = true
-                                    break
-                                end
-                            end
+						-- Kiểm tra điểm dừng chân tồn tại
+						local IsExists = false
+						local HomePointCount = player_client:GetRecordRows("HomePointList")
+						for i = 0, HomePointCount - 1 do
+							if rand_dynamic_homepoint == player_client:QueryRecord("HomePointList", i, 0) then
+								IsExists = true
+								break
+							end
+						end
 
-                            -- Nếu chưa thêm điểm dừng chân
-                            if not IsExists then
-                                -- Xác định số điểm dừng chân đã mở
-                                local Max1 = player_client:QueryProp("JiangHuHomePointCount")
-                                if Max1 >= 2 then
-                                    local Max2 = player_client:QueryProp("SchoolHomePointCount")
-                                    local Max = Max1 + Max2
-                                    -- Xác định điểm dừng chân giang hồ cuối cùng
-                                    local LastHomePoint = ""
-                                    local LastHomePointText = nx_widestr("")
-                                    local CountJiangHuHomePoint = 0
-                                    for i = 0, Max do
-                                        local _hp = player_client:QueryRecord("HomePointList", i, 0)
-                                        if _hp == 0 then
-                                            break
-                                        end
-                                        local typename, htext = get_type_homepoint(_hp)
-                                        if typename == "0" or typename == "1" then
-                                            LastHomePoint = _hp
-                                            LastHomePointText = util_text(nx_string(htext))
-                                            CountJiangHuHomePoint = CountJiangHuHomePoint + 1
-                                        end
-                                    end
-                                    -- Xóa cái điểm dừng chân cuối cùng đi
-                                    if CountJiangHuHomePoint > 1 and LastHomePoint ~= "" then
-                                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Xóa điểm dừng chân: ") .. LastHomePointText)
-                                        send_homepoint_msg_to_server(3, LastHomePoint) -- 3: Xóa điểm dừng chân
-                                        nx_pause(0.5)
-                                    end
-                                    local typename, htext = get_type_homepoint(rand_dynamic_homepoint)
-                                    tools_show_notice(nx_function("ext_utf8_to_widestr", "Thêm điểm dừng chân: ") .. util_text(nx_string(htext)))
-                                    send_homepoint_msg_to_server(2, rand_dynamic_homepoint) -- 2: Thêm điểm dừng chân
-                                    nx_pause(0.5)
-                                end
-                            end
+						-- Nếu chưa thêm điểm dừng chân
+						if not IsExists then
+							-- Xác định số điểm dừng chân đã mở
+							local Max1 = player_client:QueryProp("JiangHuHomePointCount")
+							if Max1 >= 2 then
+								local Max2 = player_client:QueryProp("SchoolHomePointCount")
+								local Max = Max1 + Max2
+								-- Xác định điểm dừng chân giang hồ cuối cùng
+								local LastHomePoint = ""
+								local LastHomePointText = nx_widestr("")
+								local CountJiangHuHomePoint = 0
+								for i = 0, Max do
+									local _hp = player_client:QueryRecord("HomePointList", i, 0)
+									if _hp == 0 then
+										break
+									end
+									local typename, htext = get_type_homepoint(_hp)
+									if typename == "0" or typename == "1" then
+										LastHomePoint = _hp
+										LastHomePointText = util_text(nx_string(htext))
+										CountJiangHuHomePoint = CountJiangHuHomePoint + 1
+									end
+								end
+								-- Xóa cái điểm dừng chân cuối cùng đi
+								if CountJiangHuHomePoint > 1 and LastHomePoint ~= "" then
+									tools_show_notice(nx_function("ext_utf8_to_widestr", "Xóa điểm dừng chân: ") .. LastHomePointText)
+									send_homepoint_msg_to_server(3, LastHomePoint) -- 3: Xóa điểm dừng chân
+									nx_pause(0.5)
+								end
+								local typename, htext = get_type_homepoint(rand_dynamic_homepoint)
+								tools_show_notice(nx_function("ext_utf8_to_widestr", "Thêm điểm dừng chân: ") .. util_text(nx_string(htext)))
+								send_homepoint_msg_to_server(2, rand_dynamic_homepoint) -- 2: Thêm điểm dừng chân
+								nx_pause(0.5)
+							end
+						end
 
-                            send_homepoint_msg_to_server(1, rand_dynamic_homepoint, 4) -- 1: Trở về điểm dừng chân 4: Điểm dừng chân giang hồ
-                            isReturnedHomePoint = true
-                            nx_pause(10)
-                            nx_pause(10)
-                            nx_pause(10)
-                            if get_buff_info("buf_riding_01") ~= nil then
-                                nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
-                            end
-                        end
-                    end
-                    -- Nếu tích hợp vận tiêu thì xác nhận vào đội
-                    if escort_friend ~= nx_function("ext_utf8_to_widestr", "Không ké tiêu") or escort_friend2 ~= nx_function("ext_utf8_to_widestr", "Không ké tiêu") then
-                        local num_request = nx_execute(FORM_MAIN_REQUEST, "get_num_request")
-                        if num_request > 0 then
-                            for i = 1, num_request do
-                                local request_type = nx_execute(FORM_MAIN_REQUEST, "get_request_type", i)
-                                local request_player = nx_execute(FORM_MAIN_REQUEST, "get_request_player", i)
-                                if request_type == REQUESTTYPE_INVITETEAM and (request_player == escort_friend or request_player == escort_friend2) then
-                                    nx_execute("custom_sender", "custom_request_answer", request_type, request_player, 1)
-                                    nx_execute(FORM_MAIN_REQUEST, "clear_request")
-                                    break
-                                end
-                            end
-                        end
-                    end
+						send_homepoint_msg_to_server(1, rand_dynamic_homepoint, 4) -- 1: Trở về điểm dừng chân 4: Điểm dừng chân giang hồ
+						isReturnedHomePoint = true
+						nx_pause(10)
+						nx_pause(10)
+						nx_pause(10)
+						if get_buff_info("buf_riding_01") ~= nil then
+							nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+						end
+					end
+					
                     -- Trong quá trình này thì xóa thư
                     if nx_is_valid(player_client) then
                         local rownum = player_client:GetRecordRows(Recv_rec_name)
@@ -2019,14 +1942,9 @@ function set_form_type_dynamic(form)
     form.GroupTypedynamic.Visible = true
     form.GroupTypestatic.Visible = false
 
-    form.cbtn_dynamic_integrated_qt.Checked = true
     form.cbtn_dynamic_fight.Checked = false
-    form.cbtn_dynamic_useexe.Checked = true
-    form.cbtn_dynamic_useexe.Visible = true
-    form.cbtn_dynamic_autoshops.Checked = false
-
     form.cbtn_dynamic_usespride.Checked = false
-    form.cbtn_dynamic_returnhomepoint.Checked = true
+    form.cbtn_dynamic_returnhomepoint.Checked = false
     form.cbtn_dynamic_stop_if_beattacked.Checked = true
     form.cbtn_dynamic_chat_attacker.Checked = false
 
@@ -2035,14 +1953,8 @@ function set_form_type_dynamic(form)
     form.btn_dynamic_control.Text = nx_widestr("...")
     form.lbl_dynamic_map.Text = util_text(map)
 
-    -- Kiểm tra xem có thể chạy file ngoài không
-    --if not nx_function("ext_is_file_exist", nx_work_path() .. WINEXEC_PATH) then
-    --    form.cbtn_dynamic_useexe.Checked = false
-    --    form.cbtn_dynamic_useexe.Visible = false
-    --end
-
     if not nx_function("ext_is_file_exist", nx_work_path() .. DATA_ABDUCT_PATH) then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Không hỗ trợ")
+        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
         return 0
     end
 
@@ -2051,97 +1963,61 @@ function set_form_type_dynamic(form)
     local posMap = abductPos[map]
 
     if posMap == nil then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Không hỗ trợ")
+        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
         return 0
     end
 
     local sellDataMap = abductSell[map]
     if sellDataMap == nil then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Không hỗ trợ")
+        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
         return 0
     end
 
     local waitpos = waitPosAfterSell[map]
     if waitpos == nil then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Không hỗ trợ")
+        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
         return 0
     end
 
     local homepoint = homePointReturn[map]
     if homepoint == nil or homepoint == {} then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Không hỗ trợ")
+        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
         return 0
     end
 
-    -- Xuất danh sách bạn, chí hữu, chú ý đang online để ké tiêu
-    local game_client = nx_value("game_client")
-    local player_client = game_client:GetPlayer()
-    -- Xác định bang của người vận tiêu
-    local self_guild = player_client:QueryProp("GuildName")
-    local allowEscort = true
-    if self_guild == "" or self_guild == nil or self_guild == 0 then
-        allowEscort = false
-    end
-    local combobox_des = form.combobox_dynamic_escortfriend
-    if combobox_des.DroppedDown then
-        combobox_des.DroppedDown = false
-    end
-    combobox_des.DropListBox:AddString(nx_function("ext_utf8_to_widestr", "Không ké tiêu"))
-    local combobox_des2 = form.combobox_dynamic_escortfriend2
-    if combobox_des2.DroppedDown then
-        combobox_des2.DroppedDown = false
-    end
-    combobox_des2.DropListBox:AddString(nx_function("ext_utf8_to_widestr", "Không ké tiêu"))
-    if allowEscort then
-        local arrayRecordName = {"rec_buddy", "rec_friend", "rec_attention"}
-        for j = 1, table.getn(arrayRecordName) do
-            local RecordTable = arrayRecordName[j]
-            local rows = player_client:GetRecordRows(RecordTable)
-            for i = 0, rows - 1 do
-                local player_name = player_client:QueryRecord(RecordTable, i, 1)
-                local player_guild = player_client:QueryRecord(RecordTable, i, 6)
-                -- Chí hữu cùng bang và đang online
-                if player_guild == self_guild then
-                    combobox_des.DropListBox:AddString(player_name)
-                    combobox_des2.DropListBox:AddString(player_name)
-                end
-            end
-        end
-    end
-    combobox_des.Text = nx_function("ext_utf8_to_widestr", "Không ké tiêu")
-    combobox_des2.Text = nx_function("ext_utf8_to_widestr", "Không ké tiêu")
-
     -- Hạn giờ bắt cóc
     local combobox_lt1 = form.combobox_dynamic_limittime_from
+	-- Clear data before add new data
+	combobox_lt1.DropListBox:ClearString()
+	
     if combobox_lt1.DroppedDown then
         combobox_lt1.DroppedDown = false
     end
-    combobox_lt1.DropListBox:AddString(nx_function("ext_utf8_to_widestr", "Không G.Hạn"))
+    combobox_lt1.DropListBox:AddString(nx_function("ext_utf8_to_widestr", "Không Giới Hạn"))
     local combobox_lt2 = form.combobox_dynamic_limittime_to
+	-- Clear data before add new data
+	combobox_lt2.DropListBox:ClearString()
+	
     if combobox_lt2.DroppedDown then
         combobox_lt2.DroppedDown = false
     end
-    combobox_lt2.DropListBox:AddString(nx_function("ext_utf8_to_widestr", "Không G.Hạn"))
+    combobox_lt2.DropListBox:AddString(nx_function("ext_utf8_to_widestr", "Không Giới Hạn"))
     for j = 1, 24 do
         combobox_lt1.DropListBox:AddString(nx_widestr(j - 1))
         combobox_lt2.DropListBox:AddString(nx_widestr(j - 1))
     end
     combobox_lt1.Text = nx_widestr("0")
-    combobox_lt2.Text = nx_widestr("22")
+    combobox_lt2.Text = nx_widestr("23")
 
     form.map = map
     dynamic_posmap = posMap
     dynamic_selldata = sellDataMap
     dynamic_waitpos = waitpos
     dynamic_homepoint = homepoint
-    local prestall = prestallPos[map]
-    if prestall ~= nil then
-        dynamic_prestall = prestall
-    end
 
     form.btn_dynamic_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 	form.btn_dynamic_control.ForeColor = "255,255,255,255"
-    form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Có thể thực hiện")
+    form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "OK")
 end
 
 function set_form_type_static(form)
@@ -2167,7 +2043,7 @@ function set_form_type_static(form)
         combobox_pos.DroppedDown = false
     end
     local combobox_time = form.combobox_time
-    combobox_time.Text = nx_widestr("20")
+    combobox_time.Text = nx_widestr("9")
     combobox_time.DropListBox:ClearString()
     if combobox_time.DroppedDown then
         combobox_time.DroppedDown = false
@@ -2175,10 +2051,10 @@ function set_form_type_static(form)
     form.btn_control.Text = nx_widestr("...")
     form.lbl_2.Text = util_text(map)
     if data_pos == false then
-        form.lbl_4.Text = nx_function("ext_utf8_to_widestr", "Không hỗ trợ")
+        form.lbl_4.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
         return 0
     else
-        form.lbl_4.Text = nx_function("ext_utf8_to_widestr", "Có thể thực hiện")
+        form.lbl_4.Text = nx_function("ext_utf8_to_widestr", "OK")
     end
 
     for i = 1, table.getn(data_pos) do
@@ -2190,7 +2066,6 @@ function set_form_type_static(form)
         combobox_time.DropListBox:AddString(nx_widestr(tostring(i)))
     end
 
-    form.cbtn_integrated_qt.Checked = true
     form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 	form.btn_control.ForeColor = "255,255,255,255"
 end
@@ -2289,7 +2164,6 @@ function on_btn_control_click(btn)
         local map = get_current_map()
         local pos = form.combobox_pos.Text
         local restabducttime = (nx_number(form.combobox_time.Text) * 60)
-        local integrated_qt = form.cbtn_integrated_qt.Checked
         auto_run(map, pos, restabducttime, integrated_qt)
     end
 end
@@ -2333,18 +2207,6 @@ function on_combobox_time_selected(combobox)
     stop_type_static()
 end
 
-function on_cbtn_integrated_qt_changed(cbtn)
-    stop_type_static()
-end
-
-function on_cbtn_dynamic_integrated_qt_changed(cbtn)
-    stop_type_dynamic()
-end
-
-function on_cbtn_dynamic_useexe_changed(cbtn)
-    stop_type_dynamic()
-end
-
 function on_cbtn_dynamic_fight_changed(cbtn)
     stop_type_dynamic()
 end
@@ -2357,58 +2219,12 @@ function on_cbtn_dynamic_chat_attacker_changed(cbtn)
     stop_type_dynamic()
 end
 
--- Nhấp nút auto shops
-function on_cbtn_dynamic_autoshops_changed(cbtn)
-    local form = nx_value(THIS_FORM)
-    if not nx_is_valid(form) then
-        return
-    end
-    if dynamic_prestall == false then
-        tools_show_notice(nx_function("ext_utf8_to_widestr", "Map này không hỗ trợ bày shops, bạn không thể bật chức năng này"), 2)
-        cbtn.Checked = false
-        return
-    end
-    local game_client = nx_value("game_client")
-    if not nx_is_valid(game_client) then
-        return false
-    end
-    local client_player = game_client:GetPlayer()
-    if not nx_is_valid(client_player) then
-        return false
-    end
-    if client_player:QueryProp("LogicState") ~= 0 then
-        tools_show_notice(nx_function("ext_utf8_to_widestr", "Trạng thái xuất vũ khí không thể bày hàng, hãy thu vũ khí trước"), 2)
-        cbtn.Checked = false
-        return
-    end
-    stop_type_dynamic()
-    -- Thông báo nếu kích hoạt thằng này lên
-    if cbtn.Checked == true then
-        tools_show_notice(nx_function("ext_utf8_to_widestr", "Chú ý: Thiết lập các mặt hàng bày bán cũng như mua trước rồi mới bắt cóc"), 4)
-    end
-end
-
--- Thay đổi bạn vận tiêu
-function on_combobox_dynamic_escortfriend_selected(combobox)
-    stop_type_static()
-end
-
-function on_combobox_dynamic_escortfriend2_selected(combobox)
-    stop_type_static()
-end
-
 function on_cbtn_dynamic_usespride_changed(cbtn)
     stop_type_dynamic()
 end
 
 function on_cbtn_dynamic_returnhomepoint_changed(cbtn)
     stop_type_dynamic()
-end
-
-function reset_window_title()
-    local game_config = nx_value("game_config")
-    local game_name = nx_widestr(util_text("ui_GameName")) .. nx_widestr("  ") .. nx_widestr(game_config.server_name)
-    --nx_function("ext_set_window_title", game_name)
 end
 
 function get_type_homepoint(type_name)
