@@ -76,6 +76,7 @@ Bước 3: Vào game bình thường
 /stall 	or /STALL	: Treo shop online
 /lt		or /LT 		: Luyện tửu
 /sm 	or /SM 		: Spam thư
+/coc	or /COC		: Treo cóc
 
 
 
