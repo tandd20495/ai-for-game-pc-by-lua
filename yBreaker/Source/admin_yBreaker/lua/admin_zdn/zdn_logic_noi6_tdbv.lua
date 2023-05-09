@@ -428,7 +428,7 @@ end
 
 function phienBai()
     local form = nx_value(PRIZE_FORM_PATH)
-    local btn_remove = form:Find("btn_remove_2")
+    local btn_remove = form:Find("btn_remove_4")
     if not nx_is_valid(btn_remove) or not btn_remove.Visible then
         return false
     end
