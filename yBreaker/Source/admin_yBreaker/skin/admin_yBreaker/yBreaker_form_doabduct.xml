@@ -45,51 +45,12 @@
             <control name="lbl_dynamic_status" entity="Label" script="" init="">
                 <prop Align="Left" RefCursor="WIN_HELP" Left="305" Top="0" Width="270" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="B" Font="font_title" />
             </control>
-
-            <control name="lbl_dynamic_stop_if_beattacked" entity="Label" script="" init="">
-                <prop Left="45" Top="50" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Dừng nếu bị đánh" Font="font_main" />
-            </control>
-            <control name="cbtn_dynamic_stop_if_beattacked" entity="CheckButton" script="" init="">
-                <prop Left="20" Top="50" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
-                <event on_checked_changed="on_cbtn_dynamic_stop_if_beattacked_changed" />
-            </control>
-            <control name="lbl_auto_fight" entity="Label" script="" init="">
-                <prop Left="250" Top="50" Width="140" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự đánh lại" Font="font_main" />
-            </control>
-            <control name="cbtn_dynamic_fight" entity="CheckButton" script="" init="">
-                <prop Left="225" Top="50" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
-                <event on_checked_changed="on_cbtn_dynamic_fight_changed" />
-            </control>
-
-            <control name="lbl_dynamic_usespride" entity="Label" script="" init="">
-                <prop Left="45" Top="75" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Gọi tọa kỵ đặc biệt" Font="font_main" />
-            </control>
-            <control name="cbtn_dynamic_usespride" entity="CheckButton" script="" init="">
-                <prop Left="20" Top="75" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
-                <event on_checked_changed="on_cbtn_dynamic_usespride_changed" />
-            </control>
-
-            <control name="lbl_dynamic_returnhomepoint" entity="Label" script="" init="">
-                <prop Left="250" Top="75" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tele về ĐHS" Font="font_main" />
-            </control>
-            <control name="cbtn_dynamic_returnhomepoint" entity="CheckButton" script="" init="">
-                <prop Left="225" Top="75" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
-                <event on_checked_changed="on_cbtn_dynamic_returnhomepoint_changed" />
-            </control>
-
-            <control name="lbl_dynamic_chat_attacker" entity="Label" script="" init="">
-                <prop Left="45" Top="100" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chat thông tin đối địch" Font="font_main" />
-            </control>
-            <control name="cbtn_dynamic_chat_attacker" entity="CheckButton" script="" init="">
-                <prop Left="20" Top="100" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
-                <event on_checked_changed="on_cbtn_dynamic_chat_attacker_changed" />
-            </control>
-            
-            <control name="lbl_dynamic_limittime_from" entity="Label" script="" init="">
-                <prop Align="Right" RefCursor="WIN_HELP" Left="10" Top="125" Width="80" Height="22" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Giờ(h) bắt từ" Font="font_main" />
+			
+			<control name="lbl_dynamic_limittime_from" entity="Label" script="" init="">
+                <prop Align="Right" RefCursor="WIN_HELP" Left="10" Top="30" Width="80" Height="22" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Giờ(h) bắt từ" Font="font_main" />
             </control>
             <control name="combobox_dynamic_limittime_from" entity="ComboBox" script="" init="">
-                <prop ButtonWidth="20" DropDownHeight="100" OnlySelect="true" Left="95" Top="125" Width="120" Height="22" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                <prop ButtonWidth="20" DropDownHeight="100" OnlySelect="true" Left="95" Top="30" Width="120" Height="22" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
                 <event on_selected="on_combobox_limittime_from_selected" />
                 <subor name="InputEdit">
                     <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
@@ -114,10 +75,10 @@
                 </subor>
             </control>
             <control name="lbl_dynamic_limittime_to" entity="Label" script="" init="">
-                <prop Align="Center" RefCursor="WIN_HELP" Left="220" Top="125" Width="40" Height="22" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="đến" Font="font_main" />
+                <prop Align="Center" RefCursor="WIN_HELP" Left="220" Top="30" Width="40" Height="22" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="đến" Font="font_main" />
             </control>
             <control name="combobox_dynamic_limittime_to" entity="ComboBox" script="" init="">
-                <prop ButtonWidth="20" DropDownHeight="100" OnlySelect="true" Left="265" Top="125" Width="120" Height="22" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                <prop ButtonWidth="20" DropDownHeight="100" OnlySelect="true" Left="265" Top="30" Width="120" Height="22" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
                 <event on_selected="on_combobox_limittime_to_selected" />
                 <subor name="InputEdit">
                     <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
@@ -142,11 +103,77 @@
                 </subor>
             </control>
 
+            <control name="lbl_dynamic_stop_if_beattacked" entity="Label" script="" init="">
+                <prop Left="45" Top="60" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Dừng nếu bị đánh" Font="font_main" />
+            </control>
+            <control name="cbtn_dynamic_stop_if_beattacked" entity="CheckButton" script="" init="">
+                <prop Left="20" Top="60" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_stop_if_beattacked_changed" />
+            </control>
+            <control name="lbl_auto_fight" entity="Label" script="" init="">
+                <prop Left="250" Top="60" Width="140" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự đánh lại" Font="font_main" />
+            </control>
+            <control name="cbtn_dynamic_fight" entity="CheckButton" script="" init="">
+                <prop Left="225" Top="60" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_fight_changed" />
+            </control>
+            <control name="lbl_dynamic_usespride" entity="Label" script="" init="">
+                <prop Left="45" Top="85" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Gọi tọa kỵ đặc biệt" Font="font_main" />
+            </control>
+            <control name="cbtn_dynamic_usespride" entity="CheckButton" script="" init="">
+                <prop Left="20" Top="85" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_usespride_changed" />
+            </control>
+            <control name="lbl_dynamic_returnhomepoint" entity="Label" script="" init="">
+                <prop Left="250" Top="85" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tele về ĐHS" Font="font_main" />
+            </control>
+            <control name="cbtn_dynamic_returnhomepoint" entity="CheckButton" script="" init="">
+                <prop Left="225" Top="85" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_returnhomepoint_changed" />
+            </control>
+            <control name="lbl_dynamic_chat_attacker" entity="Label" script="" init="">
+                <prop Left="45" Top="110" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chat thông tin đối địch" Font="font_main" />
+            </control>
+            <control name="cbtn_dynamic_chat_attacker" entity="CheckButton" script="" init="">
+                <prop Left="20" Top="110" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_chat_attacker_changed" />
+            </control>
+			<control name="lbl_time" entity="Label" script="" init="">
+                <prop Left="227" Top="110" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Ôm cóc khi còn" Font="font_main" />
+            </control>
+            <control name="combobox_count_time" entity="ComboBox" script="" init="">
+                <prop Left="318" Top="110" Width="45" Height="22" ButtonWidth="20" DropDownHeight="200" OnlySelect="true" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                <event on_selected="on_combobox_count_time_selected" />
+                <subor name="InputEdit">
+                    <prop ReadOnly="true" TextOffsetX="2" Align="Center" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Center" />
+                </subor>
+                <subor name="DropButton">
+                    <prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down2_on.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" />
+                </subor>
+                <subor name="DropListBox">
+                    <prop MouseSelect="true" ItemHeight="18" TextOffsetX="5" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+                    <subor name="VScrollBar">
+                        <prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,0,0,0" ShadowColor="0,0,0,0" />
+                        <subor name="DecButton">
+                            <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_up_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                        </subor>
+                        <subor name="IncButton">
+                            <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_down_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                        </subor>
+                        <subor name="TrackButton">
+                            <prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\bg_scrollbar.png" Width="17" Height="10" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+                        </subor>
+                    </subor>
+                </subor>
+            </control>
+            <control name="lbl_time_min" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="365" Top="110" Width="70" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="phút" Font="font_main" />
+            </control>
+			
             <control name="btn_dynamic_control" entity="Button" script="" init="">
                 <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="150" Top="160" Width="90" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Chạy" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
                 <event on_click="on_btn_dynamic_control_click" />
             </control>
-
         </control>
         
         <control name="GroupTypestatic" entity="GroupBox" script="" init="">

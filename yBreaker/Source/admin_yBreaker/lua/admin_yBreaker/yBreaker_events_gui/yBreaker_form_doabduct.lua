@@ -103,7 +103,7 @@ end
 -----------------------------------------
 -- Bắt cóc cố định
 --
-function auto_run(map, pos, restabducttime, integrated_qt)
+function auto_run(map, pos, restabducttime)
     local abduct_step = 1
     direct_run = true
 
@@ -191,11 +191,6 @@ function auto_run(map, pos, restabducttime, integrated_qt)
                 if not tools_move_isArrived(data.waitpoint.x, data.waitpoint.y, data.waitpoint.z) then
                     abduct_step = 1
                 else
-                    -- Nhận kỳ ngộ khi đang chờ cóc
-                    local isCapturingQT = nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_is_capturing")
-                    if integrated_qt and not isCapturingQT then
-                        auto_capture_qt()
-                    end
                     -- Kiểm tra buff bắt cóc còn lại nếu không tồn tại hoặc nhỏ hơn thời gian quy định
                     local buff_abduct = get_buff_info("buf_offline_abduct_cd")
                     if buff_abduct == nil or buff_abduct < restabducttime then
@@ -274,11 +269,6 @@ function auto_run(map, pos, restabducttime, integrated_qt)
                             direct_run = false
                         end
                         -- Dừng lại ở điểm trốn cho đến khi hết thời gian trốn
-                        -- Nhận kỳ ngộ khi đang ôm cóc trốn
-                        local isCapturingQT = nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle", "get_is_capturing")
-                        if integrated_qt and not isCapturingQT then
-                            auto_capture_qt()
-                        end
                     -- Di chuyển đến chỗ bán con cóc
                     elseif not tools_move_isArrived(data.salepoint.x, data.salepoint.y, data.salepoint.z) then
                         tools_move(city, data.salepoint.x, data.salepoint.y, data.salepoint.z, direct_run)
@@ -397,10 +387,6 @@ function auto_run_dynamic()
     -- Khi đã log rồi thì không log lại nữa
     local isLoggedAttacker = false
 
-    -- Thiết đặt tên cửa sổ
-    local ext_set_window_title = "CuuAmChanKinh:Auto" .. tostring(os.time())
-
-    --nx_function("ext_set_window_title", nx_widestr(ext_set_window_title))
     local FORM_STALL_MAIN = "form_stage_main\\form_stall\\form_stall_main"
     local FORM_CONFIRM = "form_common\\form_confirm"
     local FORM_MAIN_REQUEST = "form_stage_main\\form_main\\form_main_request"
@@ -509,10 +495,10 @@ function auto_run_dynamic()
 
             local text_limitTimeF = form.combobox_dynamic_limittime_from.Text
             local text_limitTimeT = form.combobox_dynamic_limittime_to.Text
-            if nx_widestr(text_limitTimeF) ~= nx_function("ext_utf8_to_widestr", "Không G.Hạn") then
+            if nx_widestr(text_limitTimeF) ~= nx_function("ext_utf8_to_widestr", "Không Giới Hạn") then
                 limitTimeF = nx_int(nx_string(text_limitTimeF) .. nx_string("04"))
             end
-            if nx_widestr(text_limitTimeT) ~= nx_function("ext_utf8_to_widestr", "Không G.Hạn") then
+            if nx_widestr(text_limitTimeT) ~= nx_function("ext_utf8_to_widestr", "Không Giới Hạn") then
                 limitTimeT = nx_int(nx_string(text_limitTimeT) .. nx_string("00"))
             end
 
@@ -520,6 +506,7 @@ function auto_run_dynamic()
             local logicstate = player_client:QueryProp("LogicState")
             local buff_abductor = get_buff_info("buf_abductor")
             local buff_abduct = get_buff_info("buf_offline_abduct_cd")
+			local buff_count_time = (nx_number(form.combobox_count_time.Text) * 60)
             local buf_offline_abduct_fail = get_buff_info("buf_offline_abduct_fail")
 
             local os_h = tonumber(os.date("%H"))
@@ -607,7 +594,7 @@ function auto_run_dynamic()
             elseif buf_offline_abduct_fail ~= nil then
                 -- Nếu bị định thân thì chờ hết buff
                 step = 6
-            elseif (buff_abduct ~= nil and buff_abduct > 30) or isAutoStoped then
+            elseif (buff_abduct ~= nil and buff_abduct > buff_count_time) or isAutoStoped then
                 -- Còn lại thời gian bắt cóc thì đi đến vị trí đứng để tránh bị theo dõi
                 -- Phiên bản mới sẽ thần hành về điểm hồi sinh
                 -- Khi thiết đặt
@@ -792,6 +779,18 @@ function auto_run_dynamic()
                 if not tools_move_isArrived2D(pos[1], pos[2], pos[3]) then
                     if intevalMessage == 0 then
                         tools_show_notice(nx_function("ext_utf8_to_widestr", "Di chuyển đến vị trí số " .. tostring(posOffset)))
+						
+						-- Dùng yên ngựa đôi và tật bôn (ngựa nhanh)
+						if get_buff_info("buf_riding_01") ~= nil then
+							local form_shortcut = nx_value("form_stage_main\\form_main\\form_main_shortcut")
+							local grid = form_shortcut.grid_shortcut_main
+							local game_shortcut = nx_value("GameShortcut")
+							if nx_is_valid(game_shortcut) then
+								-- Ô thứ 2
+								game_shortcut:on_main_shortcut_useitem(grid, 4, true)
+								game_shortcut:on_main_shortcut_useitem(grid, 1, true)
+							end
+						end
                     end
                     -- Số lần dịch chuyển nhỏ hơn 20 thì mới di chuyển
                     if direct_run_count < 20 then
@@ -1032,10 +1031,13 @@ function auto_run_dynamic()
                     step = 1
                 end
             elseif step == 5 then
-                if (buff_abduct ~= nil and buff_abduct > 30) or isStopAuto or isAutoStoped then
+				--tools_show_notice(nx_function("ext_utf8_to_widestr", "Buff môi giới còn: ") .. util_text(nx_string(buff_abduct)))
+				--tools_show_notice(nx_function("ext_utf8_to_widestr", "Thời gian cài đặt: ") .. util_text(nx_string(buff_count_time)))
+                if (buff_abduct ~= nil and buff_abduct > buff_count_time) or isStopAuto or isAutoStoped then
+					
                     -- Đứng im đây
                     if intevalMessage == 0 then
-                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Còn buff cóc, đang đợi lượt sau!"))
+                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Còn trạng thái môi giới, đang đợi lượt sau!"))
                     end
 					
 					-- Thần hành về ĐHS
@@ -2006,9 +2008,24 @@ function set_form_type_dynamic(form)
         combobox_lt1.DropListBox:AddString(nx_widestr(j - 1))
         combobox_lt2.DropListBox:AddString(nx_widestr(j - 1))
     end
-    combobox_lt1.Text = nx_widestr("0")
-    combobox_lt2.Text = nx_widestr("23")
-
+    combobox_lt1.Text = nx_function("ext_utf8_to_widestr", "Không Giới Hạn")
+    combobox_lt2.Text = nx_function("ext_utf8_to_widestr", "Không Giới Hạn")
+	
+	-- Count time combobox
+	local combobox_count_time = form.combobox_count_time
+	
+    combobox_count_time.Text = nx_widestr("8")
+    combobox_count_time.DropListBox:ClearString()
+	
+    if combobox_count_time.DroppedDown then
+        combobox_count_time.DroppedDown = false
+    end
+	
+	-- Add string count time combobox
+	for i = 1, 59 do
+        combobox_count_time.DropListBox:AddString(nx_widestr(tostring(i)))
+    end
+	
     form.map = map
     dynamic_posmap = posMap
     dynamic_selldata = sellDataMap
@@ -2043,7 +2060,7 @@ function set_form_type_static(form)
         combobox_pos.DroppedDown = false
     end
     local combobox_time = form.combobox_time
-    combobox_time.Text = nx_widestr("9")
+    combobox_time.Text = nx_widestr("8")
     combobox_time.DropListBox:ClearString()
     if combobox_time.DroppedDown then
         combobox_time.DroppedDown = false
@@ -2164,7 +2181,7 @@ function on_btn_control_click(btn)
         local map = get_current_map()
         local pos = form.combobox_pos.Text
         local restabducttime = (nx_number(form.combobox_time.Text) * 60)
-        auto_run(map, pos, restabducttime, integrated_qt)
+        auto_run(map, pos, restabducttime)
     end
 end
 
