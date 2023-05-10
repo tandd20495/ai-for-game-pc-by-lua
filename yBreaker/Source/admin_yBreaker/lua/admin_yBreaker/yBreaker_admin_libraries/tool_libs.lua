@@ -146,7 +146,7 @@ end
 
 -- Ghi log ra
 function consoleAttacker(str, isdebug)
-    local file = io.open("D:\\logAttacker.txt", "a")
+    local file = io.open("D:\\yBreaker_logAttacker.txt", "a")
     if file == nil then
         nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_widestr("Can't open file D:\\logAttacker.txt, please check this file!"), 3)
     else

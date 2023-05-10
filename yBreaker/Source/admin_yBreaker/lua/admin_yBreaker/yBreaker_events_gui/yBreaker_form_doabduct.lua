@@ -535,6 +535,7 @@ function auto_run_dynamic()
                     stopPlayerHackMove()
                 end
                 -- Thiết lập dừng
+				nx_function("ext_flash_window") -- Nháy màn hình khi bị đánh
                 isAutoStoped = true
                 isCompleteBeauseAttacker = true
                 lastBeingAttacked = os.time()
@@ -782,14 +783,13 @@ function auto_run_dynamic()
 						
 						-- Dùng yên ngựa đôi và tật bôn (ngựa nhanh)
 						if get_buff_info("buf_riding_01") ~= nil then
-							local form_shortcut = nx_value("form_stage_main\\form_main\\form_main_shortcut")
-							local grid = form_shortcut.grid_shortcut_main
-							local game_shortcut = nx_value("GameShortcut")
-							if nx_is_valid(game_shortcut) then
-								-- Ô thứ 2
-								game_shortcut:on_main_shortcut_useitem(grid, 4, true)
-								game_shortcut:on_main_shortcut_useitem(grid, 1, true)
-							end
+							--local form_shortcut_ride = nx_value("form_stage_main\\form_main\\form_main_shortcut_ride")
+							--local grid = form_shortcut_ride.grid_shortcut_main
+							--local game_shortcut = nx_value("GameShortcut")
+							--if nx_is_valid(game_shortcut) then
+							--	game_shortcut:on_main_shortcut_useitem(grid, 4, true)
+							--	game_shortcut:on_main_shortcut_useitem(grid, 1, true)
+							--end
 						end
                     end
                     -- Số lần dịch chuyển nhỏ hơn 20 thì mới di chuyển
@@ -1034,6 +1034,31 @@ function auto_run_dynamic()
 				--tools_show_notice(nx_function("ext_utf8_to_widestr", "Buff môi giới còn: ") .. util_text(nx_string(buff_abduct)))
 				--tools_show_notice(nx_function("ext_utf8_to_widestr", "Thời gian cài đặt: ") .. util_text(nx_string(buff_count_time)))
                 if (buff_abduct ~= nil and buff_abduct > buff_count_time) or isStopAuto or isAutoStoped then
+				
+                    -- Trong quá trình này thì xóa thư
+                    if nx_is_valid(player_client) then
+                        local rownum = player_client:GetRecordRows(Recv_rec_name)
+
+                        for row = 0, rownum - 1 do
+                            local ntype = player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_TYPE)
+                            local str_goods = nx_string(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_APPEDIXVALUE))
+                            local serialno = nx_string(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_SERIALNO))
+                            local gold = nx_int(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_GOLD))
+                            local silver = nx_int(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_SILVER))
+
+                            -- Xóa các thư của hệ thống, không tiền không vàng
+                            -- Không có item hoặc chứa item thiết lập xóa
+                            local itemID = getItemInMail(str_goods)
+                            if  nx_int(ntype) > nx_int(LETTER_SYSTEM_TYPE_MIN) and nx_int(ntype) < nx_int(LETTER_SYSTEM_TYPE_MAX)
+                                and gold <= nx_int(0) and silver <= nx_int(0)
+                                and itemID == nx_string("fixitem_002")
+                            then
+                                -- Xóa vật phẩm thì set lại thời gian
+                                nx_execute("custom_sender", "custom_del_letter_ok", 1, serialno)
+                                break
+                            end
+                        end
+                    end
 					
                     -- Đứng im đây
                     if intevalMessage == 0 then
@@ -1154,31 +1179,6 @@ function auto_run_dynamic()
 							nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
 						end
 					end
-					
-                    -- Trong quá trình này thì xóa thư
-                    if nx_is_valid(player_client) then
-                        local rownum = player_client:GetRecordRows(Recv_rec_name)
-
-                        for row = 0, rownum - 1 do
-                            local ntype = player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_TYPE)
-                            local str_goods = nx_string(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_APPEDIXVALUE))
-                            local serialno = nx_string(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_SERIALNO))
-                            local gold = nx_int(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_GOLD))
-                            local silver = nx_int(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_SILVER))
-
-                            -- Xóa các thư của hệ thống, không tiền không vàng
-                            -- Không có item hoặc chứa item thiết lập xóa
-                            local itemID = getItemInMail(str_goods)
-                            if  nx_int(ntype) > nx_int(LETTER_SYSTEM_TYPE_MIN) and nx_int(ntype) < nx_int(LETTER_SYSTEM_TYPE_MAX)
-                                and gold <= nx_int(0) and silver <= nx_int(0)
-                                and itemID == nx_string("fixitem_002")
-                            then
-                                -- Xóa vật phẩm thì set lại thời gian
-                                nx_execute("custom_sender", "custom_del_letter_ok", 1, serialno)
-                                break
-                            end
-                        end
-                    end
                 else
                     isSPRideCalled = false
                     step = 1
