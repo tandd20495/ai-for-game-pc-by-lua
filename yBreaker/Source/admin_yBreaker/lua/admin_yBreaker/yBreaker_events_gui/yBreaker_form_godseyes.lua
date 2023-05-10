@@ -151,8 +151,8 @@ function auto_run()
                     if buff_abductor ~= nil then
                         local coc_name = obj:QueryProp("Name")
                         local coc_ident = obj:QueryProp("Ident")
-                        local coc_posX = string.format("%.0f", obj.PosiX)
-                        local coc_posZ = string.format("%.0f", obj.PosiZ)
+                        local coc_posX = string.format("%.0f", obj.DestX)
+                        local coc_posZ = string.format("%.0f", obj.DestZ)
 
                         local pathX = obj.DestX
                         local pathY = obj.DestY
@@ -161,7 +161,7 @@ function auto_run()
 						-- Chat hệ thống người ôm cóc
 						local text = nx_function("ext_utf8_to_widestr", "Ôm cóc: <font color=\"#FF00B2\">")
 						text = text .. nx_widestr(coc_name)
-						text = text .. nx_function("ext_utf8_to_widestr", "</font> - <a href=\"findpath,")
+						text = text .. nx_function("ext_utf8_to_widestr", "</font> tại: <a href=\"findpath,")
 						text = text .. nx_widestr(get_current_map())
 						text = text .. nx_widestr(",")
 						text = text .. nx_widestr(pathX)

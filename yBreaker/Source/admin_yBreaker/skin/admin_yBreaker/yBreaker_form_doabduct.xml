@@ -107,36 +107,71 @@
                 <prop Left="45" Top="60" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Dừng nếu bị đánh" Font="font_main" />
             </control>
             <control name="cbtn_dynamic_stop_if_beattacked" entity="CheckButton" script="" init="">
-                <prop Left="20" Top="60" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <prop Left="20" Top="60" Width="20" Height="20" HintText= "• Tự dừng khi bị đánh <br>• Ghi log kẻ thù vào ổ D:\\yBreaker_logAttacker.txt" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_cbtn_dynamic_stop_if_beattacked_changed" />
             </control>
             <control name="lbl_auto_fight" entity="Label" script="" init="">
                 <prop Left="250" Top="60" Width="140" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự đánh lại" Font="font_main" />
             </control>
             <control name="cbtn_dynamic_fight" entity="CheckButton" script="" init="">
-                <prop Left="225" Top="60" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <prop Left="225" Top="60" Width="20" Height="20" BoxSize="12" HintText= "• Tự đánh lại kẻ thù" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_cbtn_dynamic_fight_changed" />
             </control>
             <control name="lbl_dynamic_usespride" entity="Label" script="" init="">
                 <prop Left="45" Top="85" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Gọi tọa kỵ đặc biệt" Font="font_main" />
             </control>
             <control name="cbtn_dynamic_usespride" entity="CheckButton" script="" init="">
-                <prop Left="20" Top="85" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <prop Left="20" Top="85" Width="20" Height="20" HintText= "• Tự gọi các loại tọa kỵ đặc biệt: Liễn/ Liên, Thanh Lư, Lạc Đà" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_cbtn_dynamic_usespride_changed" />
             </control>
             <control name="lbl_dynamic_returnhomepoint" entity="Label" script="" init="">
                 <prop Left="250" Top="85" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tele về ĐHS" Font="font_main" />
             </control>
             <control name="cbtn_dynamic_returnhomepoint" entity="CheckButton" script="" init="">
-                <prop Left="225" Top="85" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <prop Left="225" Top="85" Width="20" Height="20" HintText= "• Tự dịch chuyển về điểm hồi sinh của map" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_cbtn_dynamic_returnhomepoint_changed" />
             </control>
             <control name="lbl_dynamic_chat_attacker" entity="Label" script="" init="">
-                <prop Left="45" Top="110" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chat thông tin đối địch" Font="font_main" />
+                <prop Left="45" Top="110" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chat gần khi bị đánh" Font="font_main" />
             </control>
             <control name="cbtn_dynamic_chat_attacker" entity="CheckButton" script="" init="">
-                <prop Left="20" Top="110" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <prop Left="20" Top="110" Width="20" Height="20" HintText= "Chú ý: Chỉ chạy khi có chọn Dừng nếu bị đánh<br>• Tự chat gần nội dung chửi trong dữ liệu chat <br>• Ghi log kẻ thù vào ổ D:\\yBreaker_logAttacker.txt" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
                 <event on_checked_changed="on_cbtn_dynamic_chat_attacker_changed" />
+            </control>
+			<control name="lbl_dynamic_help_me" entity="Label" script="" init="">
+                <prop Left="45" Top="135" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Kêu cứu kênh:" Font="font_main" />
+            </control>
+            <control name="cbtn_dynamic_help_me" entity="CheckButton" script="" init="">
+                <prop Left="20" Top="135" Width="20" Height="20" HintText= "• Tự kêu cứu các kênh đã chọn <br>• Ghi log kẻ thù vào ổ D:\\yBreaker_logAttacker.txt" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_help_me_changed" />
+            </control>
+			<control name="cbtn_dynamic_help_me_guild" entity="CheckButton" script="" init="">
+                <prop Left="130" Top="135" Width="20" Height="20" HintText= "• Gọi kênh Bang" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_help_me_guild_changed" />
+            </control>
+			<control name="lbl_dynamic_help_me_guild" entity="Label" script="" init="">
+                <prop Left="150" Top="135" Width="30" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Bang" Font="font_main" />
+            </control>
+			<control name="cbtn_dynamic_help_me_league" entity="CheckButton" script="" init="">
+                <prop Left="185" Top="135" Width="20" Height="20" HintText= "• Gọi kênh Liên minh" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_help_me_league_changed" />
+            </control>
+			<control name="lbl_dynamic_help_me_league" entity="Label" script="" init="">
+                <prop Left="205" Top="135" Width="30" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="LM" Font="font_main" />
+            </control>
+			<control name="cbtn_dynamic_help_me_team" entity="CheckButton" script="" init="">
+                <prop Left="230" Top="135" Width="20" Height="20" HintText= "• Gọi kênh Nhóm" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_help_me_team_changed" />
+            </control>
+			<control name="lbl_dynamic_help_me_team" entity="Label" script="" init="">
+                <prop Left="250" Top="135" Width="30" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Nhóm" Font="font_main" />
+            </control>
+			<control name="cbtn_dynamic_help_me_row" entity="CheckButton" script="" init="">
+                <prop Left="290" Top="135" Width="20" Height="20" HintText= "• Gọi kênh Đội" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+                <event on_checked_changed="on_cbtn_dynamic_help_me_row_changed" />
+            </control>
+			<control name="lbl_dynamic_help_me_row" entity="Label" script="" init="">
+                <prop Left="310" Top="135" Width="30" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Đội" Font="font_main" />
             </control>
 			<control name="lbl_time" entity="Label" script="" init="">
                 <prop Left="227" Top="110" Width="150" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Ôm cóc khi còn" Font="font_main" />

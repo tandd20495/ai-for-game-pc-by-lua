@@ -305,6 +305,7 @@ function auto_run(map, pos, restabducttime)
                                             nx_pause(0.2)
                                             local form_talk = util_get_form("form_stage_main\\form_talk_movie", true)
                                             is_talking = form_talk.Visible
+											break
                                         end
 
                                         -- Bán con cóc
@@ -488,6 +489,11 @@ function auto_run_dynamic()
             local isReturnHomePoint = form.cbtn_dynamic_returnhomepoint.Checked
             local isStopIfBeattacked = form.cbtn_dynamic_stop_if_beattacked.Checked
             local isChatAttacker = form.cbtn_dynamic_chat_attacker.Checked
+			local isHelpMe = form.cbtn_dynamic_help_me.Checked
+			local isHelpMeGuild = form.cbtn_dynamic_help_me_guild.Checked
+			local isHelpMeLeague = form.cbtn_dynamic_help_me_league.Checked
+			local isHelpMeTeam = form.cbtn_dynamic_help_me_team.Checked
+			local isHelpMeRow = form.cbtn_dynamic_help_me_row.Checked
 
             -- Thời gian giới hạn
             local limitTimeF = nx_int(-1)
@@ -542,22 +548,63 @@ function auto_run_dynamic()
                 if not isLoggedAttacker then
                     isLoggedAttacker = true
                     local listAttacker = getListAttacker()
-                    local textChatLog = nx_function("ext_utf8_to_widestr", "Vô lại: ")
+					local textChatLog = nx_function("ext_utf8_to_widestr", "Cứu bé! Đang bị thằng ")
                     local totalAttacker = table.getn(listAttacker)
                     for i = 1, totalAttacker do
                         -- Log thông tin người đánh (luôn luôn)
 						-- Ghi log
-                        consoleAttacker(nx_function("ext_widestr_to_utf8", player_client:QueryProp("Name")) .. ": " .. tostring(os.date("%c")) .. ": Tên: " .. listAttacker[i].name .. ", Thực Lực: " .. listAttacker[i].level .. ", Bang: " .. listAttacker[i].guide .. ", Tọa độ: " .. listAttacker[i].position)
-                        textChatLog = textChatLog .. nx_function("ext_utf8_to_widestr", listAttacker[i].name)
+                        consoleAttacker(nx_function("ext_widestr_to_utf8", player_client:QueryProp("Name")) .. ": " .. tostring(os.date("%c")) .. ": Tên Thù: " .. listAttacker[i].name .. ", Thực Lực: " .. listAttacker[i].level .. ", Bang: " .. listAttacker[i].guide .. ", Tọa độ: " .. listAttacker[i].position)
+                        
+						local posX = string.format("%.0f", player_client.DestX)
+						local posZ = string.format("%.0f", player_client.DestZ)
+						local ident = player_client:QueryProp("Ident")
+
+						local pathX = player_client.DestX
+						local pathY = player_client.DestY
+						local pathZ = player_client.DestZ
+						
+						textChatLog = textChatLog .. nx_function("ext_utf8_to_widestr", listAttacker[i].name)
+						textChatLog = textChatLog .. nx_function("ext_utf8_to_widestr", " đánh tại: <a href=\"findpath,")
+						textChatLog = textChatLog .. nx_widestr(get_current_map())
+						textChatLog = textChatLog .. nx_widestr(",")
+						textChatLog = textChatLog .. nx_widestr(pathX)
+						textChatLog = textChatLog .. nx_widestr(",")
+						textChatLog = textChatLog .. nx_widestr(pathY)
+						textChatLog = textChatLog .. nx_widestr(",")
+						textChatLog = textChatLog .. nx_widestr(pathZ)
+						textChatLog = textChatLog .. nx_widestr(",")
+						textChatLog = textChatLog .. nx_widestr(ident)
+						textChatLog = textChatLog .. nx_widestr("\" style=\"HLStype1\">")
+						textChatLog = textChatLog .. nx_widestr(posX)
+						textChatLog = textChatLog .. nx_widestr(",")
+						textChatLog = textChatLog .. nx_widestr(posZ)
+						textChatLog = textChatLog .. nx_widestr("</a>")
+						
                         if i < totalAttacker then
                             textChatLog = textChatLog .. nx_widestr(", ")
                         end
+						
+						if isHelpMe then
+							-- Check nếu GUI có check thì chat theo kênh
+							if isHelpMeGuild then
+								-- Chat kênh bang
+								nx_execute("custom_sender", "custom_chat", nx_int(CHATTYPE_GUILD), textChatLog)
+							elseif isHelpMeLeague then
+								-- Chat kênh liên minh
+								nx_execute("custom_sender", "custom_chat", nx_int(CHATTYPE_GUILD_LEAGUE), textChatLog)
+							elseif isHelpMeTeam then
+								-- Chat kênh nhóm
+								nx_execute("custom_sender", "custom_chat", nx_int(CHATTYPE_TEAM), textChatLog)
+							elseif isHelpMeRow then
+								-- Chat kênh đội
+								nx_execute("custom_sender", "custom_chat", nx_int(CHATTYPE_ROW), textChatLog)
+							end
+						end
+						
                     end
 
                     if isChatAttacker then
-                        -- Chat thông tin người đánh vào kênh bang nếu cấu hình
-                        nx_execute("custom_sender", "custom_chat", nx_int(CHATTYPE_GUILD), textChatLog)
-                        -- Chat gần
+                        -- Chat gần theo dữ liệu
                         local dataChatForAttacker = getDataChatForAttacker()
                         local chatNearRand = math.random(1, table.getn(dataChatForAttacker))
                         local chatNearText = nx_function("ext_utf8_to_widestr", dataChatForAttacker[chatNearRand])
@@ -568,7 +615,8 @@ function auto_run_dynamic()
 
             -- Nếu auto bị dừng do bị đánh và không còn chiến đấu nữa thì vứt con cóc nếu đang ôm
             if isAutoStoped and logicstate ~= 1 then
-                throwAbduct()
+				-- Không vứt cóc
+                --throwAbduct()
                 nx_pause(0.2)
             end
 
@@ -611,36 +659,6 @@ function auto_run_dynamic()
                 step = 5
             else
                 local readyThisStep = true
-                -- Nếu đang bày hàng thì hủy bày hàng
-                if logicstate == 101 then
-                    readyThisStep = false
-                    local form_stall = nx_value(FORM_STALL_MAIN)
-                    if not nx_is_valid(form_stall) then
-                        util_auto_show_hide_form(FORM_STALL_MAIN)
-                        nx_pause(0.2)
-                    end
-                    local form_stall = nx_value(FORM_STALL_MAIN)
-                    if nx_is_valid(form_stall) and nx_find_custom(form_stall, "lbl_stall_pos") then
-                        local gui = nx_value("gui")
-                        if form_stall.lbl_stall_pos.Text == gui.TextManager:GetText("@ui_stall_baitanzhong") then
-                            -- Sẵn sàng bày hàng
-                            local btn = form_stall.btn_offline_stall
-                            nx_execute(FORM_STALL_MAIN, "on_btn_offline_stall_click", btn)
-                            nx_pause(0.2)
-                            local form_confirm = nx_value(FORM_CONFIRM)
-                            if nx_is_valid(form_confirm) then
-                                local btn = form_confirm.ok_btn
-                                nx_execute(FORM_CONFIRM, "ok_btn_click", btn)
-                            end
-                            nx_pause(0.4)
-                        end
-                    end
-                end
-                -- Nếu đang vận tiêu thì rời đội
-                if get_buff_info("buff_yunbiao_escortbuff") ~= nil then
-                    readyThisStep = false
-                    nx_execute("custom_sender", "custom_leave_team")
-                end
                 if readyThisStep then
                     -- Lên ngựa nếu như chưa lên
                     if not isSPRideCalled and isUseSpecialRide then
@@ -1062,7 +1080,7 @@ function auto_run_dynamic()
 					
                     -- Đứng im đây
                     if intevalMessage == 0 then
-                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Còn trạng thái môi giới, đang đợi lượt sau!"))
+                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang đợi lượt sau!"))
                     end
 					
 					-- Thần hành về ĐHS
@@ -1948,7 +1966,12 @@ function set_form_type_dynamic(form)
     form.cbtn_dynamic_usespride.Checked = false
     form.cbtn_dynamic_returnhomepoint.Checked = false
     form.cbtn_dynamic_stop_if_beattacked.Checked = true
-    form.cbtn_dynamic_chat_attacker.Checked = false
+    form.cbtn_dynamic_chat_attacker.Checked = true
+	form.cbtn_dynamic_help_me.Checked = true
+	form.cbtn_dynamic_help_me_guild.Checked = false
+	form.cbtn_dynamic_help_me_league.Checked = false
+	form.cbtn_dynamic_help_me_team.Checked = true
+	form.cbtn_dynamic_help_me_row.Checked = true
 
     local map = get_current_map()
 
@@ -2236,6 +2259,26 @@ function on_cbtn_dynamic_chat_attacker_changed(cbtn)
     stop_type_dynamic()
 end
 
+function on_cbtn_dynamic_help_me_changed(cbtn)
+    stop_type_dynamic()
+end
+
+function on_cbtn_dynamic_help_me_guild_changed(cbtn)
+    stop_type_dynamic()
+end
+
+function on_cbtn_dynamic_help_me_league_changed(cbtn)
+    stop_type_dynamic()
+end
+
+function on_cbtn_dynamic_help_me_team_changed(cbtn)
+    stop_type_dynamic()
+end
+
+function on_cbtn_dynamic_help_me_row_changed(cbtn)
+    stop_type_dynamic()
+end
+
 function on_cbtn_dynamic_usespride_changed(cbtn)
     stop_type_dynamic()
 end
@@ -2316,12 +2359,15 @@ function getListAttacker()
                     attackerGuide = nx_function("ext_widestr_to_utf8", nx_widestr(obj:QueryProp("GuildName")))
                 end
                 local attackerPos = nx_function("ext_widestr_to_utf8", nx_widestr(nx_int(obj.DestX)) .. nx_widestr(", ") .. nx_widestr(nx_int(obj.DestZ)))
+				
+				--local attackerIdent = nx_string(obj.Ident)
 
                 table.insert(listAttackersID, {
                     name = attackerName,
                     level = attackerLevel,
                     guide = attackerGuide,
-                    position = attackerPos
+                    position = attackerPos,
+					--ident = attackerIdent
                 })
             end
         end
