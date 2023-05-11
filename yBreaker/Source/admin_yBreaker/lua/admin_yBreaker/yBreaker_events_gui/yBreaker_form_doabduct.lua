@@ -533,18 +533,24 @@ function auto_run_dynamic()
                 end
             end
 
-            -- Nếu cấu hình dừng nếu bị đánh thì thiết đặt dừng auto
-            if logicstate == 1 and isStopIfBeattacked then
-                -- Dừng di chuyển khi bị đánh
-                if game_player.state == "path_finding" then
-                    nx_value("path_finding"):StopPathFind(game_player)
-                    stopPlayerHackMove()
-                end
-                -- Thiết lập dừng
+            -- Xử lý khi bị đánh hoặc chiến đấu
+            if logicstate == 1 then
 				nx_function("ext_flash_window") -- Nháy màn hình khi bị đánh
-                isAutoStoped = true
-                isCompleteBeauseAttacker = true
-                lastBeingAttacked = os.time()
+				
+				-- Nếu cấu hình dừng nếu bị đánh thì thiết đặt dừng auto
+				if isStopIfBeattacked then
+					-- Dừng di chuyển khi bị đánh
+					if game_player.state == "path_finding" then
+						nx_value("path_finding"):StopPathFind(game_player)
+						stopPlayerHackMove()
+					end
+					-- Thiết lập dừng
+					isAutoStoped = true
+					isCompleteBeauseAttacker = true
+					lastBeingAttacked = os.time()
+				end
+				
+				-- Luôn luôn ghi log khi bị đánh
                 if not isLoggedAttacker then
                     isLoggedAttacker = true
                     local listAttacker = getListAttacker()
@@ -1018,7 +1024,7 @@ function auto_run_dynamic()
                                 step = 1
                             end
                         else
-                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu nhặt cóc!"))
+                            tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu nhặt cóc"))
                             doAbductPos = nil
                             step = 1
                         end
@@ -1080,7 +1086,7 @@ function auto_run_dynamic()
 					
                     -- Đứng im đây
                     if intevalMessage == 0 then
-                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang đợi lượt sau!"))
+                        tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang đợi lượt sau"))
                     end
 					
 					-- Thần hành về ĐHS
