@@ -479,6 +479,10 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_thu_thap") 
 		return true
 	end
+	if (command == "/f") or (command == "/F") then
+		util_auto_show_hide_form("admin_zdn\\form_zdn_smart_setting") 
+		return true
+	end
 	
 	
 	
