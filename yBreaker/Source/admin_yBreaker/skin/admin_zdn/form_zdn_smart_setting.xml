@@ -47,7 +47,7 @@
                 <event on_left_up="onBookLeftClick" on_right_up="onBookRightClick" />
         </control>
 
-        <control name="skill_grid" entity="Grid" script="" init="">
+        <!-- <control name="skill_grid" entity="Grid" script="" init="">
             <prop Left="10" Top="109" Width="300" Height="300" ShowComment="true" HeaderRowHeight="1" HeaderBackColor="0,255,255,255" CanSelectRow="false" ColWidths="20,80,80,80,18" RowHeight="50" ColCount="5" ScrollSize="17" HasHScroll="true" AlwaysVScroll="false" AlwaysHScroll="false" Solid="true" ForeColor="255,255,255,255" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" Font="font_name_guild" TabStop="true" NoFrame="true" DrawMode="Expand" />
              <subor name="VScrollBar">
                 <prop ButtonSize="17" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" />
@@ -61,7 +61,7 @@
                     <prop NormalImage="gui\common\scrollbar\button_1\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_1\btn_trace_on.png" PushImage="gui\common\scrollbar\button_1\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="17" Height="8" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="Expand" />
                 </subor>
             </subor>
-        </control>
+        </control> -->
 
         <control name="btn_submit" entity="Button" script="" init="">
             <prop Left="15" Top="413" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Chạy" Font="font_btn" HintText="" DrawMode="ExpandH" />

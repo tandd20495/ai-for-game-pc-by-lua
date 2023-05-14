@@ -2,6 +2,8 @@ require("util_gui")
 require("util_functions")
 require("admin_zdn\\zdn_form_common")
 
+local Logic = "admin_zdn\\zdn_logic_smart"
+
 local MAX_SET = 6
 local MAX_SKILL = 8
 local Selected = 1
@@ -17,10 +19,35 @@ function onFormOpen()
 	-- end
 	-- Form.cbx_set.DropListBox.SelectIndex = Selected - 1
 	-- Form.cbx_set.Text = Utf8ToWstr("Bộ ") .. nx_widestr(Selected)
-	local cnt = Form.skill_grid.RowCount
-	if cnt > 1 then
+	--local cnt = Form.skill_grid.RowCount
+	--if cnt > 1 then
 		loadFormData()
+	--end
+	if nx_execute(Logic, "IsRunning") then
+		nx_execute("admin_zdn\\zdn_event_manager", "Subscribe", Logic, "on-task-stop", nx_current(), "onTaskStop")
+		updateBtnSubmitState(true)
+	else
+		updateBtnSubmitState(false)
 	end
+end
+
+function onBtnSubmitClick()
+	if not nx_execute(Logic, "IsRunning") then
+		updateBtnSubmitState(true)
+		nx_execute("admin_zdn\\zdn_event_manager", "Subscribe", Logic, "on-task-stop", nx_current(), "onTaskStop")
+		nx_execute(Logic, "Start")
+	else
+		nx_execute(Logic, "Stop")
+		updateBtnSubmitState(false)
+	end
+end
+
+function onTaskStop()
+	updateBtnSubmitState(false)
+end
+
+function onFormClose()
+	nx_execute("admin_zdn\\zdn_event_manager", "Unsubscribe", Logic, "on-task-stop", nx_current())
 end
 
 function onSkillLeftClick(self)
@@ -199,34 +226,19 @@ function onWeaponRightClick(self)
 end
 
 function saveConfig()
-	-- saveMasterConfig()
-	--Lưu checkbox
-	local cnt = Form.skill_grid.RowCount - 1
-	local itemStr = ""
-	for i = 0, cnt do
-		local cbtn = Form.skill_grid:GetGridControl(i, 0).btn
-		if i > 0 then
-			itemStr = itemStr .. ";"
-		end
-		itemStr =
-			itemStr ..
-			(cbtn.Checked and "1" or "0")
-		IniWriteUserConfig("DoiTrangBi", "Num", itemStr)
-	end
-	
-	
-	--ShowText(nx_function("ext_utf8_to_widestr", "Yêu cầu đặt vào bình thư"))
-	
+	--saveCheckConfig
 	saveSkillConfig()
 	saveWeaponConfig()
 	saveBookConfig()
+	
+	ShowText(nx_function("ext_utf8_to_widestr", "Lưu thiết lập thành công"))
 end
 
 function loadFormData()
 	-- loadMasterConfig()
-	--loadSkillConfig()
-	--loadWeaponConfig()
-	--loadBookConfig()
+	loadSkillConfig()
+	loadWeaponConfig()
+	loadBookConfig()
 end
 
 function onBookLeftClick(self)
@@ -285,7 +297,21 @@ function isBookItem(viewId, pos)
 	return false
 end
 
-
+function saveCheckConfig()
+	--Lưu checkbox
+	local cnt = Form.skill_grid.RowCount - 1
+	local itemStr = ""
+	for i = 0, cnt do
+		local cbtn = Form.skill_grid:GetGridControl(i, 0).btn
+		if i > 0 then
+			itemStr = itemStr .. ";"
+		end
+		itemStr =
+			itemStr ..
+			(cbtn.Checked and "1" or "0")
+		IniWriteUserConfig("DoiTrangBi", "Num", itemStr)
+	end
+end
 function saveSkillConfig()
 	local str = ""
 	--for i = 1, MAX_SKILL do
@@ -370,8 +396,8 @@ function setPicSkillFromStr(node, str)
 	end
 	local prop = util_split_string(str, ",")
 	node.ConfigID = prop[1]
-	node.SkillStyle = prop[2]
-	node.Image = prop[3]
+	--node.SkillStyle = prop[2]
+	node.Image = prop[2]
 	node.HintText = util_text(prop[1])
 end
 
