@@ -211,12 +211,12 @@ function selectCurrentSchoolIndex()
     TimerWaitForTalk = TimerInit()
     TalkToNpc(handlerNpc, 0)
     nx_execute("admin_zdn\\zdn_listener", "addListen", nx_current(), "newworld_lingxia_biwunpc_002_talk_043", "nextSchool", 4)
+	ShowText("Đang chọn phái dòng : " .. nx_string(schoolIndex + 1))
     TalkToNpc(handlerNpc, schoolIndex)
 	if schoolIndex >= 9 then
         onTaskDone()
         return
     end
-	ShowText("Đang chọn phái dòng : " .. nx_string(schoolIndex + 1))
 end
 
 function isBossSceneAttackNpc(obj)
