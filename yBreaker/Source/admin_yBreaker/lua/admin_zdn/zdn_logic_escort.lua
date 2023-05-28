@@ -174,6 +174,8 @@ function loopEscort()
         end
         nx_execute("admin_zdn\\zdn_logic_skill", "PauseAttack")
         nhanTieu()
+		-- Update view
+		nx_execute("admin_zdn\\form_zdn_escort", "updateView")
     end
 end
 

@@ -143,4 +143,5 @@ function onBtnSaveClick()
 		str = str .. infoNode.ZdnLogic .. "," .. set
 	end
 	IniWriteUserConfig("KyNang", "ByTask", str)
+	ShowText("Lưu thiết lập thành công!")
 end

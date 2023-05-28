@@ -62,6 +62,7 @@ function onBtnSaveClick()
 	local stopOnDieFlg = Form.stop_on_die_cbtn.Checked
 	IniWriteUserConfig("TroLy", "StopOnDone", stopOnDoneFlg and "1" or "0")
 	IniWriteUserConfig("TroLy", "StopOnDie", stopOnDieFlg and "1" or "0")
+	ShowText("Lưu thiết lập thành công!")
 end
 
 function onBtnAddTaskClick()

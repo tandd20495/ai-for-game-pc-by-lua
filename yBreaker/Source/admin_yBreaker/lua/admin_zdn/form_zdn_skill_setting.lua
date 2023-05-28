@@ -9,6 +9,7 @@ local Selected = 1
 
 function onBtnOkClick(btn)
 	saveConfig(btn)
+	ShowText("Lưu thiết lập thành công!")
 end
 
 function onFormOpen()
