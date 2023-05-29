@@ -2736,4 +2736,15 @@ function atData(name)
 	end
 	return false
 end
+
+function IsBusy()	
+	if nx_is_valid(nx_value("game_client")) then 		
+		if nx_is_valid(nx_value("game_client"):GetPlayer()) then
+			if string.find(nx_value("game_client"):GetPlayer():QueryProp("State"), "offact") or string.find(nx_value("game_client"):GetPlayer():QueryProp("State"), "interact") or string.find(nx_value("game_client"):GetPlayer():QueryProp("State"), "life") or nx_value("form_stage_main\\form_main\\form_main_curseloading") then
+				return true
+			end
+		end
+	end
+	return false
+end
 -----XData--End

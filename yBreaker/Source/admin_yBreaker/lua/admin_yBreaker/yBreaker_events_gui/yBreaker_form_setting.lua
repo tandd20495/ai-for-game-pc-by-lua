@@ -54,6 +54,8 @@ function save_setting_ini(form)
 	ini:WriteString("Setting", "Title_ID", nx_string(form.cb_set_title.Checked))
 	ini:WriteString("Setting", "Auto_Get_Miracle", nx_string(form.cb_get_miracle.Checked))
 	ini:WriteString("Setting", "Auto_Use_Caiyao", nx_string(form.cb_use_caiyao.Checked))
+	ini:WriteString("Setting", "Hidden_Expire_Bag", nx_string(form.cb_show_expire_bag.Checked))
+	ini:WriteString("Setting", "Auto_Swap_Weapon", nx_string(form.cb_swap_weapon.Checked))
 	
 	local caiyao_num = form.edt_num_caiyao.Text
  	if nx_int(caiyao_num) > nx_int(115) then 
@@ -93,6 +95,12 @@ function load_setting_ini(form)
  	end
 	if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Use_Caiyao", "")) == nx_string("true") then				
  		form.cb_use_caiyao.Checked = true
+ 	end
+	if nx_string(ini:ReadString(nx_string("Setting"), "Hidden_Expire_Bag", "")) == nx_string("true") then				
+ 		form.cb_show_expire_bag.Checked = true
+ 	end
+	if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Swap_Weapon", "")) == nx_string("true") then				
+ 		form.cb_swap_weapon.Checked = true
  	end
 
 end

@@ -67,7 +67,21 @@
 		</control>		
 		<control name="lbl_caiyao_title" entity="Label" script="" init="">
 				  <prop RefCursor="WIN_HELP" Left="20" Top="190" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Ăn khi độ no thấp:" Font="font_main" />
-		</control>	
+		</control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+			  <prop RefCursor="WIN_HELP" Left="40" Top="188" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Ẩn thông báo túi" Font="font_main" />
+		</control>		
+		<control name="cb_show_expire_bag" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="15" Top="190" Width="16" Height="16" HintText="Chọn để ẩn thông báo khi túi hết hạn" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+		</control>
+		<control name="lbl_siri_highest_priority_title" entity="Label" script="" init="">
+			  <prop RefCursor="WIN_HELP" Left="40" Top="208" Width="70" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự đổi vũ khí" Font="font_main" />
+		</control>		
+		<control name="cb_swap_weapon" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" Left="15" Top="210" Width="16" Height="16" HintText="Chọn để tự đổi vũ khí tương ứng khi dùng kĩ năng <br>Chỉ áp dụng khi ấn phím" Checked="false" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255"     DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+		  <event on_checked_changed="" />
+		</control>  
 		
 		<control name="btn_start_save" entity="Button" script="" init="">
                 <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="50" Top="235" Width="120" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Lưu" Font="font_btn" TabStop="true" AutoSize="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />

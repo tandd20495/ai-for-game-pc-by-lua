@@ -356,6 +356,11 @@ function yBreaker_command_chat(str_chat)
 	 	return true
 	end
 	
+	if (command == "/vcd") or (command == "/VCD") then
+	 	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_Qvcd") 
+	 	return true
+	end
+	
 	-----zdn 
 	if (command == "/tl") or (command == "/TL") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_task") 
@@ -785,7 +790,8 @@ function Get_Config_Dir_Ini(func_name)
 			set:AddString("Title_ID=")
 			set:AddString("Auto_Get_Miracle=")			
 			set:AddString("Auto_Use_Caiyao=")
-			set:AddString("Caiyao_Number=")
+			set:AddString("Hidden_Expire_Bag=")
+			set:AddString("Auto_Swap_Weapon=")
 			set:SaveToFile(file)
 		end
     end

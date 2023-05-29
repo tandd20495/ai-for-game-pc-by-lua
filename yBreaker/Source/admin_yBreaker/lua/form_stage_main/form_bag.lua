@@ -1,4 +1,5 @@
 --[[DO: Hidden show info of bag for yBreaker --]]
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("const_define")
 require("share\\view_define")
 require("util_gui")
@@ -868,17 +869,31 @@ function check_addbag_hardiness(cur_grid, add_grid, index)
   local count = cur_grid.RowNum * cur_grid.ClomnNum
   for i = 1, count do
     if i >= beginindex and i <= endindex then
+		
+		--[ Initialize value for yBreaker
+		local ini = nx_create("IniDocument")
+		local file = Get_Config_Dir_Ini("Setting")
+		ini.FileName = file
+		if not ini:LoadFromFile() then
+			return
+		end
+		--]
+		
       if nHardiness == 0 then
         cur_grid:SetItemBackImage(nx_int(i), "gui\\common\\imagegrid\\X_bag.png")
         timer:UnRegister("form_stage_main\\form_bag", "show_info", view_item)
 		--[REM: Not show info of bag
-        --show_info(view_item, false)
+		if nx_string(ini:ReadString(nx_string("Setting"), "Hidden_Expire_Bag", "")) ~= nx_string("true") then
+			show_info(view_item, false)
+		end
 		--]
       else
         cur_grid:SetItemBackImage(nx_int(i), "")
         if nHardiness == 1 then
 		--[REM: Not show info of bag
-        --show_info(view_item, true)
+        if nx_string(ini:ReadString(nx_string("Setting"), "Hidden_Expire_Bag", "")) ~= nx_string("true") then
+			show_info(view_item, false)
+		end
 		--]
           timer:UnRegister("form_stage_main\\form_bag", "show_info", view_item)
           timer:Register(600000, 5, "form_stage_main\\form_bag", "show_info", view_item, view_item, true)
