@@ -831,6 +831,48 @@ function on_btn_view_hatpvc_click(btn)
             end
         end
     end
+
+    --[[
+    local card_id_table = collect_card_manager:OnChooseCard(nx_int(CARD_MAIN_TYPE_EQUIP), nx_int(0), nx_int(0), nx_int(0), nx_int(0), nx_int(0))
+    local card_num = table.getn(card_id_table)
+    local card_offset = 0
+    while 1 do
+        card_offset = card_offset + 1
+        local i = ((card_offset - 1) * 3) + 1
+        if card_id_table[i] == nil then
+            break
+        end
+        local card_id = card_id_table[i]
+        local card_head_skill = collect_card_manager:GetCardHeadIcon(card_id)
+        local female_head_prop = card_head_skill[1]
+        local female_head_model = card_head_skill[2]
+        local female_head_icon = card_head_skill[3]
+        local male_head_prop = card_head_skill[4]
+        local male_head_model = card_head_skill[5]
+        local male_head_icon = card_head_skill[6]
+
+        local head_prop = ""
+        local head_model = ""
+        local head_icon = ""
+        if player_sex == nx_int(0) then
+            head_prop = male_head_prop
+            head_model = male_head_model
+            head_icon = male_head_icon
+        else
+            head_prop = female_head_prop
+            head_model = female_head_model
+            head_icon = female_head_icon
+        end
+
+        if (head_prop == "Hat" or head_prop == "hat") and head_model ~= nil and head_model ~= "" then
+            local groupbox = create_item_cardhat(card_id, head_model, head_icon)
+            if nx_is_valid(groupbox) then
+                group:Add(groupbox)
+            end
+        end
+    end
+    ]]--
+
     group:ResetChildrenYPos()
 end
 
@@ -1128,7 +1170,24 @@ function on_btn_view_clothpvc_click(btn)
     local player_sex = nx_int(player_client:QueryProp("Sex"))
     local group = form.groupscrollbox_1
     group:DeleteAll()
-
+    --[[
+    local collect_card_manager = nx_value("CollectCardManager")
+    local card_id_table = collect_card_manager:OnChooseCard(nx_int(CARD_MAIN_TYPE_EQUIP), nx_int(0), nx_int(0), nx_int(0), nx_int(0), nx_int(0))
+    local card_num = table.getn(card_id_table)
+    local card_offset = 0
+    while 1 do
+        card_offset = card_offset + 1
+        local i = ((card_offset - 1) * 3) + 1
+        if card_id_table[i] == nil then
+            break
+        end
+        local card_id = card_id_table[i]
+        local groupbox = create_item_cardrow(card_id, player_sex)
+        if nx_is_valid(groupbox) then
+            group:Add(groupbox)
+        end
+    end
+    ]]--
     local ini = nx_execute("util_functions", "get_ini", CARD_INI)
     if not nx_is_valid(ini) then
         return false
