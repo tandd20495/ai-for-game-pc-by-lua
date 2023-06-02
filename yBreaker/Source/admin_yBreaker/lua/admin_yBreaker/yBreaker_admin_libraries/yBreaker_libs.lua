@@ -848,6 +848,84 @@ function yBreaker_is_School_Dance_Finish()
 	end
 end
 
+function yBreaker_get_skill_data(grid, index)
+    if not nx_is_valid(grid) then
+        return ""
+    end
+    local itemName = grid:GetItemName(index)
+    if nx_widestr(itemName) == nx_widestr("") then
+        return ""
+    end
+    local game_client = nx_value("game_client")
+    if not nx_is_valid(game_client) then
+        return ""
+    end
+    local view = game_client:GetView(nx_string(40))
+    if not nx_is_valid(view) then
+        return ""
+    end
+    local viewobj_list = view:GetViewObjList()
+    for i = 1, table.getn(viewobj_list) do
+        local configID = viewobj_list[i]:QueryProp("ConfigID")
+        if util_text(configID) == itemName then
+            return configID
+        end
+    end
+    return ""
+end
+
+function yBreaker_change_weapon_click(grid, index)
+	if not nx_is_valid(grid) then
+	return
+	end
+	if grid:IsEmpty(index) then
+	return
+	end
+	local skill_id = yBreaker_get_skill_data(grid, index)
+	local form_bag = util_get_form("form_stage_main\\form_bag")
+	if nx_is_valid(form_bag) then
+		local weapon_quip = nx_null()
+		local game_client = nx_value("game_client")
+		local client_player = game_client:GetPlayer()
+		
+		local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_id, "UseLimit", "")
+		if LimitIndex == nil then
+		return false
+		end
+		local skill_query = nx_value("SkillQuery")
+		if not nx_is_valid(skill_query) then
+		return false
+		end
+		local ItemType = skill_query:GetSkillWeaponType(nx_int(LimitIndex))
+		if ItemType == nil or nx_int(ItemType) == nx_int(0) then
+		return false
+		end
+
+		if nx_is_valid(client_player) then
+			local view_table = game_client:GetViewList()
+			for i = 1, table.getn(view_table) do
+				local view = view_table[i]
+				if view.Ident == nx_string("121") then
+					local view_obj_table = view:GetViewObjList()
+					for k = 1, table.getn(view_obj_table) do
+						local view_obj = view_obj_table[k]
+						-- Check vũ khí tương ứng
+						if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) then
+							weapon_quip = view_obj
+							break
+						end
+					end
+				end
+			end
+
+			-- Đổi vũ khí tương ứng
+			if nx_is_valid(weapon_quip) then
+				nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(weapon_quip.Ident) - 1)	
+			end
+		end
+	end
+end
+
 -- DEMO chưa dùng
 -- Get map ID by name
 function yBreaker_get_map_id(name)
