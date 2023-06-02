@@ -42,6 +42,8 @@ local PRESET_PICK_ITEM = {
 	"box_fc_hss_009",
 	"box_fc_hss_010", -- Hoang thú thạch x10
 	"box_xmp_fc_01", -- long van cam thach
+	"drug_1005",	-- Xích thược
+	"toxicant_1005", -- Giả Bồng
 	"item_yirong_05", -- Băng Tằm Ti
 	"item_yirong_07", -- Ngọc Tủy
 	"item_yirong_08", -- Tử Băng Ngân Châm
@@ -49,7 +51,14 @@ local PRESET_PICK_ITEM = {
 	"item_yirong_10", -- Linh Cốt Thảo
 	"item_yirong_12", -- Ma Phí Tán
 	"buliao_1008", -- Bạch Kim Trù
+	"jm_hcitem_tj_saxe_03", -- Giai Binh Song Phủ Ký
+	"jm_hcitem_tj_saxe_04", -- Tinh Kim Song Phủ Thiên
+	"hcitem_tj_gun_03", -- Giai Binh Trường Thương  Ký
+	"hcitem_tj_gun_04", -- Tinh Kim Trường Thương Biên
+	"jm_hcitem_tj_token_03", -- Giai Binh Thánh Hỏa Lệnh Ký
+	"jm_hcitem_tj_token_04", -- Tinh Kim Thánh Hỏa Lệnh Thiên
 	"ui_exchange_wuxue" -- Tự define trong idres Trang sách võ học
+	
 }
 
 local Mode = 0 -- nhat theo list
