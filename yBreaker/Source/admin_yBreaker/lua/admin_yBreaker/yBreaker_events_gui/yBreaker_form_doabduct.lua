@@ -554,7 +554,7 @@ function auto_run_dynamic()
                 if not isLoggedAttacker then
                     isLoggedAttacker = true
                     local listAttacker = getListAttacker()
-					local textChatLog = nx_function("ext_utf8_to_widestr", "Cứu bé! Đang bị thằng ")
+					local textChatLog = nx_function("ext_utf8_to_widestr", "Cứu! Đang bị thằng ")
                     local totalAttacker = table.getn(listAttacker)
                     for i = 1, totalAttacker do
                         -- Log thông tin người đánh (luôn luôn)
@@ -1972,7 +1972,7 @@ function set_form_type_dynamic(form)
     form.cbtn_dynamic_usespride.Checked = false
     form.cbtn_dynamic_returnhomepoint.Checked = false
     form.cbtn_dynamic_stop_if_beattacked.Checked = true
-    form.cbtn_dynamic_chat_attacker.Checked = true
+    form.cbtn_dynamic_chat_attacker.Checked = false
 	form.cbtn_dynamic_help_me.Checked = true
 	form.cbtn_dynamic_help_me_guild.Checked = false
 	form.cbtn_dynamic_help_me_league.Checked = false
