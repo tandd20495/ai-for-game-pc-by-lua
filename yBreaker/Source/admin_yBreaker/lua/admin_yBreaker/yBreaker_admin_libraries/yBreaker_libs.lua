@@ -1,4 +1,5 @@
 require("util_gui")
+require("tips_data")
 require("util_functions")
 require("share\\server_custom_define")
 require("define\\sysinfo_define")
@@ -874,6 +875,7 @@ function yBreaker_get_skill_data(grid, index)
     return ""
 end
 
+--Function change weapon adaptation when perform skill
 function yBreaker_change_weapon_click(grid, index)
 	if not nx_is_valid(grid) then
 	return
@@ -925,6 +927,196 @@ function yBreaker_change_weapon_click(grid, index)
 		end
 	end
 end
+
+-- Function change 30% percent adaptation
+function yBreaker_change_item_skill_pressing(grid, index)
+	if not nx_is_valid(grid) then
+	return
+	end
+	if grid:IsEmpty(index) then
+	return
+	end
+	
+	local skill_id = yBreaker_get_skill_data(grid, index)
+	-- Trả về giá trị skill gốc khi là skill võ kỹ
+	-- ID: Trịch bút
+	if skill_id == "wuji_CS_tm_ywt07" then 
+		skill_id = "CS_tm_ywt07"
+	end
+	
+	-- Mạnh bà 
+	if skill_id == "wuji_CS_tm_ywt05" then 
+		skill_id = "CS_tm_ywt05"
+	end
+	
+	-- Vô Thường
+	if skill_id == "wuji_CS_tm_ywt03" then
+		skill_id = "CS_tm_ywt03"
+	end
+	
+	-- Long trảo thủ cổ
+	if skill_id == "wuji_CS_sl_lzs06" then
+		skill_id = "CS_sl_lzs06"
+	end
+	if skill_id == "wuji_CS_sl_lzs07" then
+		skill_id = "CS_sl_lzs07"
+	end
+	
+	-- Thái cực quyền cổ
+	if skill_id == "wuji_CS_wd_tjq08" then
+		skill_id = "CS_wd_tjq08"
+	end
+	if skill_id == "wuji_CS_wd_tjq06" then
+		skill_id = "CS_wd_tjq06"
+	end
+	if skill_id == "wuji_CS_wd_tjq03" then
+		skill_id = "CS_wd_tjq03"
+	end
+	
+	-- Kim xà thích
+	if skill_id == "wuji_CS_tm_jsc05" then
+		skill_id = "CS_tm_jsc05"
+	end
+	if skill_id == "wuji_CS_tm_jsc06" then
+		skill_id = "CS_tm_jsc06"
+	end
+	
+	-- Đả cẩu bổng Cổ
+	if skill_id == "wuji_CS_gb_dgbf02" then
+		skill_id = "CS_gb_dgbf02"
+	end
+	if skill_id == "wuji_CS_gb_dgbf07" then
+		skill_id = "CS_gb_dgbf07"
+	end
+	if skill_id == "wuji_CS_gb_dgbf08" then
+		skill_id = "CS_gb_dgbf08"
+	end
+	
+	-- Mị ảnh kiếm
+	if skill_id == "wuji_CS_jh_myjf03" then
+		skill_id = "CS_jh_myjf03"
+	end
+	if skill_id == "wuji_CS_jh_myjf08" then
+		skill_id = "CS_jh_myjf03"
+	end
+	
+	-- Kim đỉnh
+	if skill_id == "wuji_CS_em_jdmz01" then
+		skill_id = "CS_em_jdmz01"
+	end
+	if skill_id == "wuji_CS_em_jdmz02" then
+		skill_id = "CS_em_jdmz02"
+	end
+	if skill_id == "wuji_CS_em_jdmz03" then
+		skill_id = "CS_em_jdmz03"
+	end
+	
+	-- Tịch tà
+	if skill_id == "wuji_CS_jh_bxjf01" then
+		skill_id = "CS_jh_bxjf01"
+	end
+	if skill_id == "wuji_CS_jh_bxjf04" then
+		skill_id = "CS_jh_bxjf04"
+	end
+	if skill_id == "wuji_CS_jh_bxjf08" then
+		skill_id = "CS_jh_bxjf08"
+	end
+	
+	-- Bích hải
+	if skill_id == "wuji_CS_th_bhcs04" then
+		skill_id = "CS_th_bhcs04"
+	end
+	if skill_id == "wuji_CS_th_bhcs06" then
+		skill_id = "CS_th_bhcs06"
+	end
+	if skill_id == "wuji_CS_th_bhcs07" then
+		skill_id = "CS_th_bhcs07"
+	end
+	
+	-- Tứ Hải Đao - biến chiêu
+	if skill_id == "CS_dy_sdyjl01_hide" then
+		skill_id = "CS_dy_sdyjl01"
+	end
+	
+	if skill_id == "CS_dy_sdyjl05_hide" then
+		skill_id = "CS_dy_sdyjl05"
+	end
+	
+	if skill_id == "CS_dy_sdyjl09_hide" then
+		skill_id = "CS_dy_sdyjl09"
+	end
+		
+	local form_bag = util_get_form("form_stage_main\\form_bag")
+	if nx_is_valid(form_bag) then
+		local skill_pack_ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
+		if nx_is_valid(skill_pack_ini) then
+			local weapon_quip = nx_null()
+			local game_client = nx_value("game_client")
+			local client_player = game_client:GetPlayer()
+			
+			local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_id, "UseLimit", "")
+			if LimitIndex == nil then
+			return false
+			end
+			-- 27: Hỏa đạn/ 25: Phi tiêu/ 26: Phi đao
+			if nx_number(LimitIndex) == nx_number(27) or nx_number(LimitIndex) == nx_number(25) or nx_number(LimitIndex) == nx_number(26) then
+				LimitIndex = 0
+			end
+			
+			local skill_query = nx_value("SkillQuery")
+			if not nx_is_valid(skill_query) then
+			return false
+			end
+			local ItemType = skill_query:GetSkillWeaponType(nx_int(LimitIndex))
+			if ItemType == nil then
+			return false
+			end
+
+			if nx_is_valid(client_player) then
+				local view_table = game_client:GetViewList()
+				for i = 1, table.getn(view_table) do
+					local view = view_table[i]
+					if view.Ident == nx_string("121") then
+						local view_obj_table = view:GetViewObjList()
+						for k = 1, table.getn(view_obj_table) do
+							local view_obj = view_obj_table[k]
+
+							-- ItemType: Get vũ khí dựa vào skill ở trên/ 
+							-- nx_number(145): Oản
+							-- nx_int(0): Tất cả các loại (Oản + B.thư, ...)
+							if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) or nx_number(view_obj:QueryProp("ItemType")) == nx_number(145) then
+
+								local row = view_obj:GetRecordRows("SkillModifyPackRec")
+								if row > 0 then
+									for k = 0, row - 1 do
+										local prop = view_obj:QueryRecord("SkillModifyPackRec", k, 0)
+										local sec_index = skill_pack_ini:FindSectionIndex(nx_string(prop))
+										local value = ""
+										if sec_index >= 0 then
+											value = skill_pack_ini:ReadString(sec_index, "r", nx_string(""))
+										end
+										
+										local tuple = util_split_string(value, ",")
+										if nx_string(tuple[1]) == nx_string(skill_id) then
+											item_quip = view_obj
+										end
+									end
+								end
+							end
+						end
+						break
+					end
+				end
+
+				-- Đổi đồ 30%
+				if nx_is_valid(item_quip) then
+					nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(item_quip.Ident) - 1)	
+				end
+			end
+		end
+	end
+end
+
 
 -- DEMO chưa dùng
 -- Get map ID by name

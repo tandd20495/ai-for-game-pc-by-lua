@@ -331,22 +331,21 @@ function gui_key_down(gui, key, shift, ctrl)
 	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
 	else
-		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
+		yBreaker_show_Utf8Text("Liên hệ HàoHoa để kích hoạt yBreaker!")
 	end
 --ADD: Press Ctrl + P to bug mode ON/OFF, and Space to jump continuously
   elseif ctrl and key == "P" then
-  	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
+  	--if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
 		nx_execute("special", "switch_mode")
-	else
-		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
-	end    
+	--else
+	--	yBreaker_show_Utf8Text("Liên hệ HàoHoa để kích hoạt yBreaker!")
+	--end    
   elseif key == "Space" then
-    elseif ctrl and key == "P" then
-  	if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
+  	--if yBreaker_check_user_guild() or yBreaker_check_name_user_name() then
 		nx_execute("special", "custom_btn_mode", "mode_1")
-	else
-		yBreaker_show_WstrText("Không thể dùng yBreaker... Liên hệ yBreaker!")
-	end    
+	--else
+	--	yBreaker_show_Utf8Text("Liên hệ HàoHoa để kích hoạt yBreaker!")
+	--end
 --]
 
   end
@@ -358,6 +357,11 @@ function gui_key_down(gui, key, shift, ctrl)
   nx_execute("form_stage_main\\form_battlefield_wulin\\wudao_util", "game_key_down", gui, key, shift, ctrl)
   nx_execute("form_stage_main\\form_taosha\\taosha_util", "game_key_down", gui, key, shift, ctrl)
   nx_execute("form_stage_main\\form_taosha\\apex_util", "game_key_down", gui, key, shift, ctrl)
+
+--[ADD: Function to handle key down for form main shortcut
+  nx_execute("form_stage_main\\form_main\\form_main_shortcut", "game_key_down", gui, key, shift, ctrl)
+--]
+
   local game_visual = nx_value("game_visual")
   if nx_is_valid(game_visual) and game_visual.GameTest and key == "E" and ctrl and nx_is_debug() then
     local form = nx_value("test_action_form")

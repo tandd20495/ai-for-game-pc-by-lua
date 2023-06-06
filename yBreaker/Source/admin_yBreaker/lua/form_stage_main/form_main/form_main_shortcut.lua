@@ -1,4 +1,4 @@
---[[DO: Change weapon when click baseon skill for yBreaker --]]
+--[[DO: Change weapon/item 30percent when click base on skill for yBreaker --]]
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("util_gui")
 require("share\\view_define")
@@ -669,7 +669,8 @@ function on_main_shortcut_useitem(self, index, is_left)
 	end
 
 	if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Swap_Weapon", "")) == nx_string("true") then
-		nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_change_weapon_click", self, index)
+		--nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_change_weapon_click", self, index)
+		nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_change_item_skill_pressing", self, index)
 	end	
 --]
 
@@ -3199,3 +3200,52 @@ function init_bind_btn_data(form)
     end
   end
 end
+
+--[ADD: Function to handle event key down for yBreaker
+function game_key_down(gui, key, shift, ctrl)
+	if shift or ctrl then
+	return
+	end
+	
+	if key == "SPACE" or key == "Space" then
+	return
+	end
+	
+	local shortcut_keys = nx_value("ShortcutKey")
+	if not nx_is_valid(shortcut_keys) then
+		return
+	end
+	
+	local form = nx_value("form_stage_main\\form_main\\form_main_shortcut")
+	if not nx_is_valid(form) or not form.Visible then
+    return
+	end
+	local grid = form.grid_shortcut_main
+	if not nx_is_valid(grid) then
+    return
+	end
+
+	if key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index1)) then
+		on_main_shortcut_useitem(grid, 0, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index2)) then
+		on_main_shortcut_useitem(grid, 1, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index3)) then
+		on_main_shortcut_useitem(grid, 2, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index4)) then
+		on_main_shortcut_useitem(grid, 3, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index5)) then
+		on_main_shortcut_useitem(grid, 4, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index6)) then
+		on_main_shortcut_useitem(grid, 5, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index7)) then
+		on_main_shortcut_useitem(grid, 6, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index8)) then
+		on_main_shortcut_useitem(grid, 7, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index9)) then
+		on_main_shortcut_useitem(grid, 8, true)
+	elseif key == nx_string(shortcut_keys:GetKeyNameByKeyID(Key_MainShortcutGrid_Index10)) then
+		on_main_shortcut_useitem(grid, 9, true)
+	end
+
+end
+--]
