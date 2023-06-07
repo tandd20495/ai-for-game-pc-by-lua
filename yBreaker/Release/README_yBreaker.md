@@ -1,8 +1,8 @@
-[-- yBreaker được phát triển phi lợi nhuận bởi HàoHoa--]
+[-- yBreaker được phát triển vì mục đích nghịch nghợm bởi HàoHoa--]
 
 [ About: 
 *+ Release version 1.0 ngày 20/04/2023
-*+ Có tham khảo từ nhiều nguồn
+*+ Source code được tái cấu trúc từ nhiều nguồn, chưa được tối ưu. Cân nhắc khi sử dụng một số chức năng:(
 ]
 
 *** Hướng dẫn cài đặt yBreaker ver1.0:
@@ -25,7 +25,7 @@ Bước 3: Vào game bình thường
 /pw or /PW					: Mã hóa và lưu mật khẩu rương để dùng chức năng tự mở rương
 /tl or /TL					: Chạy tác vụ hàng ngày/ tuần (Gồm: Luyện công, Thụ nghiệp, Vận tiêu, Hào kiệt, Do thám, NV nội 6, Lăng tiêu thành, Cắn nội tu)
 /at or /AT					: Tính năng tự động (Gồm: Rao hàng, bày bán, Dùng vật phẩm, Trồng trọt, Săn bắt, Hái lượm, Câu cá, Luyện tửu, Gửi thư, Luyện công, Thụ nghiệp, Vận tiêu, Nội 6, Lăng tiêu thành, Tình dao cung)
-/set or /SET				: Cài đặt khác (Gồm: Tự mở rương, Tự thêm chữ Xóa, Bỏ qua cốt truyện, Đổi tiêu đề client thành tên nhân vật, Đổi tiêu đề thành tên tài khoản, Tự nhận kỳ ngộ, Tự ăn bánh bao)
+/set or /SET				: Cài đặt khác (Gồm: Tự mở rương, Tự thêm chữ Xóa, Bỏ qua cốt truyện, Đổi tiêu đề client thành tên nhân vật, Đổi tiêu đề thành tên tài khoản, Tự nhận kỳ ngộ, Tự ăn bánh bao, Tự đổi vũ khí theo kĩ năng và đồ 30%)
 /pvc or /PVC				: Thay đồ PVC
  
 *** Các tính năng cày cuốc:
@@ -47,13 +47,13 @@ Bước 3: Vào game bình thường
 /thuthap	or /TRONGTROT 	: Thu thập
 
 *** Các tính năng hỗ trợ player:
-/a 		or /A		: PVP (Gồm: Tự đỡ, Đổi đồ, Võ: THC, PTC, LTT) *Cần: - Cài đặt nhân vật tại /config trước khi sử dụng)
-/s 		or /S		: Tự đổi đồ (Gồm: Đổi Oản/ Vũ khí 30%, Bình thư nếu có chọn) *
+/a 		or /A		: PVP (Gồm: Tự đỡ, Đổi đồ, Võ: THC, PTC, LTT) *Cần: - Cài đặt nhân vật tại /config trước khi sử dụng, chức năng còn cơ bản, cân nhắc trước khi dùng)
+/s 		or /S		: Tự đổi đồ (Gồm: Đổi Oản/ Vũ khí 30%, Bình thư nếu có chọn)
 /d 		or /D		: Hiện thông tin (Gồm: % Máu, % Mana, Khoảng cách, Nộ, Cầm Key PT, Số TV trong PT)
 /q 		or /Q		: Mắt thần (Gồm: Quét cóc, Thổi cóc, Tìm đàn, Tìm cây, Quét người chơi xung quanh, Quét buff mục tiêu, Quét custom (như /c), Quét Select (như /d) 
 /w 		or /W		: Đổi mạch (Tự đổi mạch theo cài đặt ở /config, có thể tắt hết mạch + nội đang dùng)
 /e 		or /E		: Kết ấn (Gồm: Cài FPS, Speed, Thêm thù, Xóa thù, Hải bố, Bộ khoái, Tele Di Hoa Cung, Tele Đảo Thanh Hải, Nhảy Cao (Dành cho đàn), Nhảy Xa (Blink), Nhẫn thuật (Thay đổi góc nhìn), Cấm thuật (như /z, bản demo), Tự sát nhanh, Bug lãm.
-/z 		or /Z		: Đè ping bản demo *Lưu ý: Không nên sử dụng =))
+/z 		or /Z		: Đè ping bản demo *Lưu ý: Tính năng chưa hoàn thiện, không nên dùng :v =))
 /x 		or /X 		: Hiện % máu mục tiêu
 /c 		or /C 		: Quét theo loại đối tượng đã chọn trong phạm vi 50m
 /b 		or /B		: Boom đường môn or Buff PTC
@@ -77,6 +77,7 @@ Bước 3: Vào game bình thường
 /lt		or /LT 		: Luyện tửu
 /sm 	or /SM 		: Spam thư
 /coc	or /COC		: Treo cóc
+/vcd	or /VCD		: Chạy nhiệm vụ Vô Cực Đảo
 
 
 
