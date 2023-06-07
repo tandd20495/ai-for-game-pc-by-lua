@@ -8,6 +8,11 @@ require("util_role_prop")
 require("tips_data")
 require("form_stage_main\\form_tvt\\define")
 require("define\\gamehand_type")
+
+--[ADD: Variable for backup weapon is used
+	local before_weapon = nil
+--]
+
 local new_active_origin = {}
 local new_complete_origin = 0
 local FILE_FORM_MAIN_PLAYER_CFG = "ini\\ui\\newjh\\form_main_shortcut.ini"
@@ -669,7 +674,7 @@ function on_main_shortcut_useitem(self, index, is_left)
 	end
 
 	if nx_string(ini:ReadString(nx_string("Setting"), "Auto_Swap_Weapon", "")) == nx_string("true") then
-		--nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_change_weapon_click", self, index)
+		on_change_weapon(self, index)
 		nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs", "yBreaker_change_item_skill_pressing", self, index)
 	end	
 --]
@@ -3247,5 +3252,69 @@ function game_key_down(gui, key, shift, ctrl)
 		on_main_shortcut_useitem(grid, 9, true)
 	end
 
+end
+
+function on_change_weapon(grid, index)
+	if not nx_is_valid(grid) then
+	return
+	end
+	if grid:IsEmpty(index) then
+	return
+	end
+	local skill_id = yBreaker_get_skill_data(grid, index)
+	local form_bag = util_get_form("form_stage_main\\form_bag")
+	local skill_pack_ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
+	if nx_is_valid(form_bag) then
+		if nx_is_valid(skill_pack_ini) then
+			local item_quip = nx_null()
+			local game_client = nx_value("game_client")
+			local client_player = game_client:GetPlayer()
+			
+			local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_id, "UseLimit", "")
+			if LimitIndex == nil then
+			return false
+			end
+			local skill_query = nx_value("SkillQuery")
+			if not nx_is_valid(skill_query) then
+			return false
+			end
+			local ItemType = skill_query:GetSkillWeaponType(nx_int(LimitIndex))
+			if ItemType == nil or nx_int(ItemType) == nx_int(0) then
+			return false
+			end
+			
+			-- Nếu vũ khí mới giống vũ khí cũ thì k đổi
+			if before_weapon == ItemType then
+			return false
+			end
+			
+			-- Backup ItemType
+			before_weapon = ItemType
+			
+			if nx_is_valid(client_player) then
+
+				local view_table = game_client:GetViewList()
+				for i = 1, table.getn(view_table) do
+					local view = view_table[i]
+					if view.Ident == nx_string("121") then
+						local view_obj_table = view:GetViewObjList()
+						for k = 1, table.getn(view_obj_table) do
+							local view_obj = view_obj_table[k]
+
+							if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) then
+								item_quip = view_obj
+								break
+							end
+						end
+					end
+				end
+
+				-- Đổi vũ khí tương ứng
+				if nx_is_valid(item_quip) then
+					nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(item_quip.Ident) - 1)	
+				end
+			end
+		end
+	end
 end
 --]
