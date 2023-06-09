@@ -235,6 +235,10 @@ function show_copy_skill(base_skill, level, ...)
   update_shortcut_key()
   change_cur_skill(form, base_skill)
   
+  --[ADD: Get skill ID yBreaker
+	id_skill_copy = base_skill
+  --]
+  
 end
 function on_server_msg(sub_msg, skill_id, level, ...)
   if nx_number(sub_msg) == SERVER_SUB_MSG_COPY_OPEN then
@@ -413,7 +417,6 @@ function game_key_down(gui, key, shift, ctrl)
 end
 
 function on_change_weapon(skill_id)
-	yBreaker_show_Utf8Text("on_change_weapon-skill_id: " .. nx_string(skill_id))
 	local form_bag = util_get_form("form_stage_main\\form_bag")
 	local skill_pack_ini = get_ini_safe("share\\ModifyPack\\SkillPack.ini")
 	if nx_is_valid(form_bag) then
@@ -447,7 +450,6 @@ function on_change_weapon(skill_id)
 
 							if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) then
 								item_quip = view_obj
-								yBreaker_show_Utf8Text("item_quip: " .. nx_string(item_quip))
 								break
 							end
 						end
