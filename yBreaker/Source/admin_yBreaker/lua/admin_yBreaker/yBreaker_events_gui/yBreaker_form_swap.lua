@@ -289,7 +289,8 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 
 				-- Đổi đồ 30%
 				if nx_is_valid(item_quip) then
-					nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(item_quip.Ident) - 1)	
+					-- Tạm thời không dùng swap cũ nữa
+					--nx_execute("form_stage_main\\form_bag_func", "on_bag_right_click", form_bag.imagegrid_equip, nx_number(item_quip.Ident) - 1)	
 				end
 				
 				local form_swap = nx_value(THIS_FORM)
