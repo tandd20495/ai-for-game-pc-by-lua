@@ -1,4 +1,4 @@
---[[DO: Change weapon/item 30percent when click base on skill for yBreaker --]]
+--[[DO: Change weapon/item 30percent when click base on skill or pressing shortcut key for yBreaker --]]
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("util_gui")
 require("share\\view_define")

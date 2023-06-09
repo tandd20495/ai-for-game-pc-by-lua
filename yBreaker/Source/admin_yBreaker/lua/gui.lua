@@ -358,8 +358,9 @@ function gui_key_down(gui, key, shift, ctrl)
   nx_execute("form_stage_main\\form_taosha\\taosha_util", "game_key_down", gui, key, shift, ctrl)
   nx_execute("form_stage_main\\form_taosha\\apex_util", "game_key_down", gui, key, shift, ctrl)
 
---[ADD: Function to handle key down for form main shortcut
+--[ADD: Function to handle key down for form main shortcut/ shortcut_copyskill
   nx_execute("form_stage_main\\form_main\\form_main_shortcut", "game_key_down", gui, key, shift, ctrl)
+  nx_execute("form_stage_main\\form_main\\form_main_shortcut_copyskill", "game_key_down", gui, key, shift, ctrl)
 --]
 
   local game_visual = nx_value("game_visual")
