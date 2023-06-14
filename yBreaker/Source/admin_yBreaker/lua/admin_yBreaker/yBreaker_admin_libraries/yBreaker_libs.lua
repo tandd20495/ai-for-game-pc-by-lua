@@ -389,7 +389,7 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_tdc") 
 		return true
 	end
-	if (command == "/vp") or (command == "/vp") then
+	if (command == "/vp") or (command == "/VP") then
 		util_auto_show_hide_form("admin_zdn\\form_zdn_vat_pham") 
 		return true
 	end
