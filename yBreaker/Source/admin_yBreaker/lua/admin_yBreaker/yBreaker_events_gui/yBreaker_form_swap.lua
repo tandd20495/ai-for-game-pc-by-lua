@@ -302,7 +302,7 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 					if player:QueryProp("HPRatio") < 50 then
 						if not nx_function("find_buffer", player, "buf_zs_hs_5_1_01") then
 							use_book_by_configID("zs_hs_5_1")
-							nx_pause(1)
+							nx_pause(0.5)
 						end
 					end
 
