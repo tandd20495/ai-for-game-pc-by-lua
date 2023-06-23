@@ -9,7 +9,7 @@ local currentRunningTask = ""
 local TimeManager = {}
 local TimerTaskInterruptCheck = 0
 local StopOnDoneFlg = true
-local StopOnDieFlg = false
+local StopOnDieFlg = true
 
 function IsRunning()
     return Running

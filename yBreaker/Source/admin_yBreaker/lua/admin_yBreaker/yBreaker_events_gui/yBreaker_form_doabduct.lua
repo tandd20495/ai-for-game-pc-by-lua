@@ -1007,17 +1007,17 @@ function auto_run_dynamic()
                             local distance = math.sqrt(pxd * pxd + pyd * pyd + pzd * pzd)
                             if distance < max_distance_selectauto then
                                 -- Kiểm tra xem có ai đang bắt không
-                                if tools_have_nearabdut(doAbductPos.Ident) == -1 then
+                                --if tools_have_nearabdut(doAbductPos.Ident) == -1 then
                                     -- Thổi con cóc
                                     used_abduct_item = true
                                     nx_execute("custom_sender", "custom_select", doAbductPos.Ident)
                                     nx_execute("form_stage_main\\form_bag_func", "use_item_by_configid", "offitem_miyao10")
-                                else
-                                    tools_show_notice(nx_function("ext_utf8_to_widestr", "Có người đang bắt rồi kiếm con khác không KS"))
-                                    table.insert(dissMissAbductItent, doAbductPos.Name)
-                                    doAbductPos = nil
-                                    step = 1
-                                end
+                                --else
+                                --    tools_show_notice(nx_function("ext_utf8_to_widestr", "Có người đang bắt rồi kiếm con khác không KS"))
+                                --   table.insert(dissMissAbductItent, doAbductPos.Name)
+                                --    doAbductPos = nil
+                                --    step = 1
+                                --end
                             else
                                 tools_show_notice(nx_function("ext_utf8_to_widestr", "Quá xa con cóc"))
                                 doAbductPos = nil
@@ -1968,7 +1968,7 @@ function set_form_type_dynamic(form)
     form.GroupTypedynamic.Visible = true
     form.GroupTypestatic.Visible = false
 
-    form.cbtn_dynamic_fight.Checked = false
+    form.cbtn_dynamic_fight.Checked = true
     form.cbtn_dynamic_usespride.Checked = false
     form.cbtn_dynamic_returnhomepoint.Checked = false
     form.cbtn_dynamic_stop_if_beattacked.Checked = true

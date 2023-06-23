@@ -4,6 +4,7 @@ require("admin_zdn\\zdn_util")
 require("admin_zdn\\zdn_lib_moving")
 
 local Running = false
+local StopOnDieFlg = true
 local Config = {}
 
 LOGIC_STATE_SITCROSS = 102
@@ -14,10 +15,16 @@ function Start()
     end
     Running = true
     initData()
+	loadconfig()
     while Running do
         loopEscort()
         nx_pause(0.2)
     end
+end
+
+function loadconfig()
+	local stopOnDieStr = nx_string(IniReadUserConfig("TroLy", "StopOnDie", "1"))
+    StopOnDieFlg = stopOnDieStr == "1" and true or false
 end
 
 function Stop()
@@ -153,10 +160,14 @@ function loopEscort()
     if not checkLoop() then
         return
     end
-    if nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") then
-        nx_execute("custom_sender", "custom_relive", 2)
+    if nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") and StopOnDieFlg then
+		nx_execute("admin_zdn\\zdn_logic_task_manager", "StopGlobalTask")
+        --nx_execute("custom_sender", "custom_relive", 2)
         return
-    end
+    elseif nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") then
+		nx_execute("custom_sender", "custom_relive", 2)
+	end
+	
     if GetCurMap() ~= Config.Map then
         nx_execute("admin_zdn\\zdn_event_manager", "TriggerEvent", nx_current(), "on-task-interrupt")
         if not Running then
