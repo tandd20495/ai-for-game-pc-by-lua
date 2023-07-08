@@ -516,7 +516,7 @@ function on_main_form_open(form)
         return
     end
 	local section_config = "pvp"
-    local taolu = ""
+    local taolu_create = ""
     ini.FileName = account .. "\\yBreaker_config.ini"
     ini:LoadFromFile()
     -- Thêm cấu hình nếu chưa có
@@ -524,7 +524,7 @@ function on_main_form_open(form)
         ini:AddSection(nx_string(section_config))
     end
 	-- Write file ini
-    ini:WriteString(nx_string(section_config), "taolu", taolu)
+    ini:WriteString(nx_string(section_config), "taolu", taolu_create)
     ini:SaveToFile()
     nx_destroy(ini)
 
