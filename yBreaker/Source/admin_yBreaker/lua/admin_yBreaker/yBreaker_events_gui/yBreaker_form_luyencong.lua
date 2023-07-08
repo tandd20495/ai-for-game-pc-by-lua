@@ -39,6 +39,11 @@ end
 function run_auto_leader()
     local is_started_dance = false
     while auto_is_running == true do
+		-- Nhân vật chết thì dừng lại
+		if nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") then
+			return
+		end
+		
         local is_vaild_data = true
         local game_client
         local game_visual

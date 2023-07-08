@@ -7,6 +7,7 @@ require("share\\chat_define")
 require("define\\request_type")
 require("util_move")
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
+require("admin_zdn\\zdn_util")
 
 -- if nx_int(metmoi) == nx_int(60)
 -- Thụ nghiệp kiếm đột phá
@@ -85,6 +86,11 @@ end
 function start_thu_nghiep()
 
 	while is_running == true do
+		-- Nhân vật chết thì dừng lại
+		if nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") then
+			return
+		end
+		
 		local is_vaild_data = true
 		local game_client = nx_value("game_client")
 		local game_visual = nx_value("game_visual")
