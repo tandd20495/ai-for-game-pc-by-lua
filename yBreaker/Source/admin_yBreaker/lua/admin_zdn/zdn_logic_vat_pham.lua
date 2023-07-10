@@ -30,6 +30,16 @@ function IsRunning()
     return Running
 end
 
+function CanRun()
+    local hr = math.floor(nx_execute("admin_zdn\\zdn_logic_base", "GetCurrentHour"))
+    local mnt = math.floor(nx_execute("admin_zdn\\zdn_logic_base", "GetCurrentMinute"))
+    return hr >= 23 and mnt >= 45
+end
+
+function IsTaskDone()
+    return not CanRun()
+end
+
 function Stop()
     Running = false
     Processing = false

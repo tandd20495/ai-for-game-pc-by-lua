@@ -15,7 +15,7 @@ function addListen(file, msg, call, sleep, ...)
 		["Sleep"] = sleep,
 		["Param"] = arg
 	}
-	yBreaker_show_Utf8Text("Message: " .. nx_string(msg))
+	--yBreaker_show_Utf8Text("Message: " .. nx_string(msg))
 	if isListenExists(listen) then
 		return
 	end

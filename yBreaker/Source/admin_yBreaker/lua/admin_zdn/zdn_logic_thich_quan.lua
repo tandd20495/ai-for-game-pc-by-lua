@@ -13,7 +13,11 @@ function IsRunning()
 end
 
 function CanRun()
-    return true
+    return #ThichQuanData == #ThichQuanFinishList
+end
+
+function IsTaskDone()
+    return not CanRun()
 end
 
 function Start()
@@ -45,6 +49,10 @@ end
 function loopThichQuan()
     if isLoading() then
         nx_pause(1)
+        return
+    end
+	if not CanRun() then
+        Stop()
         return
     end
 

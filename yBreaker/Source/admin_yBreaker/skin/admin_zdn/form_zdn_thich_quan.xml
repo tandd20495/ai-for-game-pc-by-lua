@@ -10,7 +10,7 @@
         </control>
 
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Text="Thích Quán" Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_title" />
+            <prop Text="Tung Hoành" Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_title" />
         </control>
 
 		<control name="cbtn_open_box" entity="CheckButton" script="" init="">

@@ -30,44 +30,43 @@ TASK_LIST = {
 		false
 	},
 	{
+	 	"Tung Hoành",
+	 	"admin_zdn\\zdn_logic_thich_quan",
+	 	"admin_zdn\\form_zdn_thich_quan",
+	 	false
+	},
+	{
 		"Nhiệm Vụ Nội 6",
 		"admin_zdn\\zdn_logic_noi6",
 		"admin_zdn\\form_zdn_noi6_setting",
 		false
 	},
-	-- {
-	-- 	"Nhiệm Vụ Ẩn Thế",
-	-- 	"admin_zdn\\zdn_logic_an_the",
-	-- 	"admin_zdn\\form_zdn_an_the_setting",
-	-- 	false
-	-- },
-	-- {
-	-- 	"Chiến Trường",
-	-- 	"admin_zdn\\zdn_logic_chien_truong",
-	-- 	"admin_zdn\\form_zdn_chien_truong",
-	-- 	true -- need loadConfig?
-	-- },
-	-- {
-	-- 	"Thiên Thê",
-	-- 	"admin_zdn\\zdn_logic_thien_the",
-	-- 	"admin_zdn\\form_zdn_thien_the",
-	-- 	false
-	-- },
-
+	{
+		"Nhiệm Vụ Ẩn Thế",
+		"admin_zdn\\zdn_logic_an_the",
+		"admin_zdn\\form_zdn_an_the_setting",
+		false
+	},
+	--{
+	--	"Treo Cóc",
+	--	"admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_doabduct",
+	--	"admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_doabduct",
+	--	false
+	--},
 	{
 		"Lăng Tiêu Thành",
 		"admin_zdn\\zdn_logic_ltt",
 		"admin_zdn\\form_zdn_ltt",
 		false
 	},
-	--{
-	--	"Tình Dao Cung",
-	--	"admin_zdn\\zdn_logic_tdc",
-	--	"admin_zdn\\form_zdn_tdc",
-	--	false
-	--},
 	{
-		"Cắn nội tu",
+		"Mở Vật Phẩm",
+		"admin_zdn\\zdn_logic_vat_pham",
+		"admin_zdn\\form_zdn_vat_pham_setting",
+		false
+	},
+	{
+		"Cắn Nội Tu",
 		"admin_zdn\\zdn_logic_noi_tu",
 		"admin_zdn\\form_zdn_vat_pham_setting",
 		true
