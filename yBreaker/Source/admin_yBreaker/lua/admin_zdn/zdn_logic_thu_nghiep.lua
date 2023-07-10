@@ -3,8 +3,13 @@ require("admin_zdn\\zdn_util")
 require("admin_zdn\\zdn_lib_moving")
 
 local Running = false
-local ThuNghiepMap = "city04"
-local ThuNghiepNpc = "SMSY_School10"
+-- Lạc Dương
+--local ThuNghiepMap = "city04"
+--local ThuNghiepNpc = "SMSY_School10"
+--Thành Đô
+local ThuNghiepMap = "city05"
+local ThuNghiepNpc = "SMSY_School09"
+
 local RunAllTheWayFlg = false
 
 function IsRunning()
