@@ -390,6 +390,10 @@ end
 
 function getTaskStatus(index)
 	local logic = TASK_LIST[index][2]
+	--ShowText("Logic:" ..nx_string(logic))
+	if logic == "admin_zdn\\zdn_logic_vat_pham" then
+		return nx_widestr("-"), "255,128,101,74"
+	end
 	if nx_execute(logic, "IsRunning") then
 		return Utf8ToWstr("Đang chạy..."), "255,255,255,255"
 	end
