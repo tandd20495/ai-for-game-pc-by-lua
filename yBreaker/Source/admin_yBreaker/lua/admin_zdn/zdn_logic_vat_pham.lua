@@ -31,9 +31,7 @@ function IsRunning()
 end
 
 function CanRun()
-    local hr = math.floor(nx_execute("admin_zdn\\zdn_logic_base", "GetCurrentHour"))
-    local mnt = math.floor(nx_execute("admin_zdn\\zdn_logic_base", "GetCurrentMinute"))
-    return hr >= 23 and mnt >= 45
+	return UseItem()
 end
 
 function IsTaskDone()
