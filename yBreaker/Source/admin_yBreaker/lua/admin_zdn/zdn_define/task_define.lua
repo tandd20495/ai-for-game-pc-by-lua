@@ -32,7 +32,7 @@ TASK_LIST = {
 	{
 	 	"Tung Hoành",
 	 	"admin_zdn\\zdn_logic_thich_quan",
-	 	"admin_zdn\\form_zdn_thich_quan",
+	 	"admin_zdn\\form_zdn_thich_quan_setting",
 	 	false
 	},
 	{

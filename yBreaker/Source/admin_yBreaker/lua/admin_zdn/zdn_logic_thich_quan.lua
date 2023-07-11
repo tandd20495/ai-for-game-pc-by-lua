@@ -51,10 +51,10 @@ function loopThichQuan()
         nx_pause(1)
         return
     end
-	if not CanRun() then
-        Stop()
-        return
-    end
+	--if not CanRun() then
+    --    Stop()
+    --    return
+    --end
 
     if nx_execute("admin_zdn\\zdn_logic_skill", "IsPlayerDead") then
         endGame()
