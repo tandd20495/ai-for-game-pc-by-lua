@@ -42,6 +42,7 @@ function onBtnSaveClick()
 		posStr = posStr .. "," .. (cbtn.Checked and "1" or "0")
 	end
 	IniWriteUserConfig("HaoKiet", "Position", posStr)
+	ShowText("Lưu thiết lập thành công!")
 end
 
 function addRowToPositionGridByGridIndex(gridIndex, map, posX, posY, posZ, checked)

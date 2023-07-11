@@ -102,6 +102,7 @@ function onBtnSubmitClick()
         end
     end
     IniWriteUserConfig("AnThe", "DisableList", disableList)
+	ShowText("Lưu thiết lập thành công!")
 end
 
 function onHyperCheckAllClick()

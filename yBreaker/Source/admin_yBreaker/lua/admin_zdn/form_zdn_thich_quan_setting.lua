@@ -145,6 +145,7 @@ function onBtnSubmitClick()
     end
     IniWriteUserConfig("ThichQuan", "DisableList", disableList)
     IniWriteUserConfig("ThichQuan", "FollowMode", Form.follow_mode_cbtn.Checked and "1" or "0")
+	ShowText("Lưu thiết lập thành công!")
 end
 
 function onHyperCheckAllClick()
