@@ -13,6 +13,7 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_doabduct"
 
 local auto_is_running_dynamic = false
 local map_id = ""
+local buff_remain_second = 0
 
 local max_distance_selectauto = 6
 local used_abduct_item = false
@@ -566,7 +567,102 @@ function auto_run_dynamic()
                                     --    table.insert(dissMissAbductItent, scence_obj:QueryProp("Name"))
                                     --end
                                 end
-                            end
+                            
+							elseif obj_type == 2 and scence_obj:QueryProp("IsAbducted") == 1 and scence_obj:QueryProp("OffLineState") == 1 and not scence_obj:FindProp("OfflineTypeTvT") and doAbductPos == nil and not in_array(scence_obj:QueryProp("Name"), dissMissAbductItent) then
+								-- Check buff cóc hồi trên mục tiêu
+								for j = 1, 20 do
+									if scence_obj:FindProp(nx_string("BufferInfo") .. nx_string(j)) and nx_string(util_split_string(scence_obj:QueryProp(nx_string("BufferInfo") .. nx_string(j)), ",")[1]) == "buf_abducted" then
+										local MessageDelay = nx_value("MessageDelay")
+										if not nx_is_valid(MessageDelay) then
+										  return 0
+										end
+										local buff_info = util_split_string(scence_obj:QueryProp(nx_string("BufferInfo") .. nx_string(j)), ",")
+										local buff_time = buff_info[4]
+
+										local server_now_time = MessageDelay:GetServerNowTime()
+										local buff_diff_time = nx_int((buff_time - server_now_time) / 1000) -- Unit timesamp
+										local buff_remain_h = nx_int(buff_diff_time / 3600) -- Giờ
+										local buff_remain_m = nx_int((buff_diff_time - (buff_remain_h * 3600)) / 60) -- Phút
+										local buff_remain_s = nx_int(buff_diff_time - (buff_remain_h * 3600) - (buff_remain_m * 60)) -- Giây
+										buff_remain_second = nx_int(buff_remain_h) * 3600 + nx_int(buff_remain_m) * 60 + nx_int(buff_remain_s)	
+									end
+								end
+								
+								local buff_time_setting = nx_int(form.combobox_buff_time.Text) * 60
+								
+								if buff_remain_second ~= nil then
+									if nx_int(buff_remain_second) < nx_int(buff_time_setting) then
+										nx_function("ext_flash_window") -- Nháy màn hình khi có mục tiêu
+										local ident = nx_string(ident)
+										local ident_name = scence_obj:QueryProp("Name")
+										local abduct = game_visual:GetSceneObj(ident)
+										if nx_is_valid(abduct) then
+											-- Nếu có người bị định thân thì bỏ qua nó
+											--if tools_have_nearabdut(ident) == -1 then
+												doAbductPos = {}
+												doAbductPos.Ident = ident
+												doAbductPos.Name = ident_name
+												doAbductPos.x = abduct.PositionX
+												doAbductPos.y = abduct.PositionY
+												doAbductPos.z = abduct.PositionZ
+												-- Dừng 0.4s nếu cóc này không đi lại thì chạy lại chỗ nó
+												-- Nếu cóc đi lại thì chạy lại trước mặt nó 1 mét chờ nó tới
+												nx_pause(0.4)
+												-- Xác định lại xem con cóc còn không
+												local abduct = game_visual:GetSceneObj(ident)
+												if nx_is_valid(abduct) then
+													local pxd = doAbductPos.x - abduct.PositionX
+													local pyd = doAbductPos.y - abduct.PositionY
+													local pzd = doAbductPos.z - abduct.PositionZ
+													local distance = math.sqrt(pxd * pxd + pyd * pyd + pzd * pzd)
+													if distance > 0.3 then
+														tools_show_notice(nx_function("ext_utf8_to_widestr", "Phát hiện cóc sắp hồi, chạy lại trước mặt nó 5 mét"))
+														-- Set lại tọa độ trước mặt cóc
+														local radian = abduct.AngleY
+														local angle = radian_to_degree(radian)
+														local zz = abduct.PositionZ
+														local xx = abduct.PositionX
+														local yy = abduct.PositionY
+														local dst = 5
+
+														-- Trước mặt
+														if angle <= 90 then
+															zz = zz + math.abs(math.sin(math.pi / 2 - radian) * dst)
+															xx = xx + math.abs(math.cos(math.pi / 2 - radian) * dst)
+														elseif angle > 90 and angle <= 180 then
+															zz = zz - math.abs(math.sin(math.pi * 3 / 2 - radian) * dst)
+															xx = xx + math.abs(math.cos(math.pi * 3 / 2 - radian) * dst)
+														elseif angle > 180 and angle <= 270 then
+															zz = zz - math.abs(math.sin(math.pi * 3 / 2 - radian) * dst)
+															xx = xx - math.abs(math.cos(math.pi * 3 / 2 - radian) * dst)
+														elseif angle > 270 then
+															zz = zz + math.abs(math.sin(math.pi * 3 / 2 - radian) * dst)
+															xx = xx - math.abs(math.cos(math.pi * 3 / 2 - radian) * dst)
+														end
+
+														doAbductPos.x = xx
+														doAbductPos.y = yy
+														doAbductPos.z = zz
+													else
+														tools_show_notice(nx_function("ext_utf8_to_widestr", "Phát hiện cóc sắp hồi đứng im, chạy lại chỗ nó"))
+													end
+													direct_run = true
+													direct_run_count = 0
+													fix_ride_executed = false
+													fix_extautoit_executed = false
+													step = 3
+													break
+												end
+											--else
+											--    table.insert(dissMissAbductItent, scence_obj:QueryProp("Name"))
+											--end
+										end
+										
+										-- Đợi cóc theo thời gian hồi của cóc
+										--nx_pause(buff_remain_second)
+									end
+								end
+							end
                         end
                         i = i - 1
                         if i <= 0 then
@@ -1268,6 +1364,21 @@ function set_form_type_dynamic(form)
         combobox_count_time.DropListBox:AddString(nx_widestr(tostring(i)))
     end
 	
+	-- Delay time of abduct buff in combobox
+	local combobox_buff_time = form.combobox_buff_time
+	
+    combobox_buff_time.Text = nx_widestr("0")
+    combobox_buff_time.DropListBox:ClearString()
+	
+    if combobox_buff_time.DroppedDown then
+        combobox_buff_time.DroppedDown = false
+    end
+	
+	-- Add string count time combobox
+	for i = 0, 60 do
+        combobox_buff_time.DropListBox:AddString(nx_widestr(tostring(i)))
+    end
+	
     dynamic_posmap = posMap
     dynamic_selldata = sellDataMap
     dynamic_waitpos = waitpos
@@ -1345,6 +1456,8 @@ function change_form_size()
     --form.Top = (gui.Height - form.Height) / 2
     form.Left = 100
     form.Top = 140
+	form.cbtn_dynamic_returnhomepoint.Visible = false
+	form.lbl_dynamic_returnhomepoint.Visible = false
 end
 
 function on_cbtn_dynamic_fight_changed(cbtn)
