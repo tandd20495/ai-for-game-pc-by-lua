@@ -6,11 +6,14 @@ require("share\\client_custom_define")
 require("util_move")
 require("share\\view_define")
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+require("admin_zdn\\zdn_lib_moving")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_doabduct"
 
 local auto_is_running_static = false
 local auto_is_running_dynamic = false
+local map_id = ""
 
 local max_distance_selectauto = 6
 local used_abduct_item = false
@@ -392,6 +395,57 @@ function auto_run_dynamic()
     local FORM_CONFIRM = "form_common\\form_confirm"
     local FORM_MAIN_REQUEST = "form_stage_main\\form_main\\form_main_request"
 
+	local form = nx_value(THIS_FORM)
+	local current_map = get_current_map()
+	
+	--Get map_id by select inindex of combobox
+	map_id = get_mapid_by_selectindex(form.combobox_main_map)
+	
+	-- Kiểm tra map hiện tại có đúng như map đã chọn
+	if current_map ~= map_id then
+		-- Dịch chuyển đến map chính đã chọn
+		yBreaker_show_Utf8Text("Dịch chuyển qua map: " .. nx_string(map_id))
+		TeleToHomePoint(homePointReturn[map_id][1])
+		nx_pause(10)
+		is_vaild_data = false
+	else
+		map_id = current_map
+	end
+	
+	-- Kiểm tra xem có đang load map hay không?
+	if IsMapLoading() then
+		is_vaild_data = false
+	end
+
+	local posMap = abductPos[map_id]
+	if posMap == nil then
+		yBreaker_show_Utf8Text("Lỗi dữ liệu posMap")
+		is_vaild_data = false
+	end
+
+	local sellDataMap = abductSell[map_id]
+	if sellDataMap == nil then
+		yBreaker_show_Utf8Text("Lỗi dữ liệu sellDataMap")
+		is_vaild_data = false
+	end
+
+	local waitpos = waitPosAfterSell[map_id]
+	if waitpos == nil then
+		yBreaker_show_Utf8Text("Lỗi dữ liệu waitpos")
+		is_vaild_data = false
+	end
+
+	local homepoint = homePointReturn[map_id]
+	if homepoint == nil or homepoint == {} then
+		yBreaker_show_Utf8Text("Lỗi dữ liệu homepoint")
+		is_vaild_data = false
+	end
+
+	dynamic_posmap = posMap
+	dynamic_selldata = sellDataMap
+	dynamic_waitpos = waitpos
+	dynamic_homepoint = homepoint
+	
     while auto_is_running_dynamic == true do
         local is_vaild_data = true
         local game_client
@@ -483,7 +537,7 @@ function auto_run_dynamic()
         end
 
         if is_vaild_data == true then
-            local map = form.map
+            local map = map_id
             local is_autofight = form.cbtn_dynamic_fight.Checked
             local isUseSpecialRide = form.cbtn_dynamic_usespride.Checked
             local isReturnHomePoint = form.cbtn_dynamic_returnhomepoint.Checked
@@ -854,8 +908,49 @@ function auto_run_dynamic()
                     nx_pause(1)
                     -- Đến vị trí này rồi thì tăng posOffset
                     posOffset = posOffset + 1
+					
+					-- Nếu đã chạy hết vị trí thì dịch chuyển qua map phụ
                     if posOffset > table.getn(posMap) then
-                        posOffset = 1
+                        --posOffset = 1
+							
+						map_id = get_mapid_by_selectindex(form.combobox_sub_map)
+						
+						-- Update lại dữ liệu map
+						local posMap = abductPos[map_id]
+						if posMap == nil then
+							yBreaker_show_Utf8Text("Lỗi dữ liệu posMap")
+							is_vaild_data = false
+						end
+
+						local sellDataMap = abductSell[map_id]
+						if sellDataMap == nil then
+							yBreaker_show_Utf8Text("Lỗi dữ liệu sellDataMap")
+							is_vaild_data = false
+						end
+
+						local waitpos = waitPosAfterSell[map_id]
+						if waitpos == nil then
+							yBreaker_show_Utf8Text("Lỗi dữ liệu waitpos")
+							is_vaild_data = false
+						end
+
+						local homepoint = homePointReturn[map_id]
+						if homepoint == nil or homepoint == {} then
+							yBreaker_show_Utf8Text("Lỗi dữ liệu homepoint")
+							is_vaild_data = false
+						end
+
+						dynamic_posmap = posMap
+						dynamic_selldata = sellDataMap
+						dynamic_waitpos = waitpos
+						dynamic_homepoint = homepoint
+						
+						-- Dịch chuyển qua map phụ
+						TeleToHomePoint(homePointReturn[map_id][1])
+						nx_pause(10)
+						
+						-- Set lại vị trí số 1 của map mới
+						posOffset = 1
                     end
                 end
             elseif step == 2 then
@@ -1982,39 +2077,41 @@ function set_form_type_dynamic(form)
     local map = get_current_map()
 
     form.btn_dynamic_control.Text = nx_widestr("...")
-    form.lbl_dynamic_map.Text = util_text(map)
+    form.combobox_main_map.Text = util_text("school08")
+    form.combobox_sub_map.Text = util_text("school05")
+	
+	-- Add main map for combobox
+    local combobox_main_map = form.combobox_main_map
+	-- Clear data before add new data
+	combobox_main_map.DropListBox:ClearString()
+	
+    if combobox_main_map.DroppedDown then
+        combobox_main_map.DroppedDown = false
+    end
+
+	add_string_to_combobox(combobox_main_map)
+	combobox_main_map.DropListBox.SelectIndex = 0
+	
+	-- Add sub map for combobox
+    local combobox_sub_map = form.combobox_sub_map
+	-- Clear data before add new data
+	combobox_sub_map.DropListBox:ClearString()
+	
+    if combobox_sub_map.DroppedDown then
+        combobox_sub_map.DroppedDown = false
+    end
+	
+	add_string_to_combobox(combobox_sub_map)
+	combobox_sub_map.DropListBox.SelectIndex = 1
 
     if not nx_function("ext_is_file_exist", nx_work_path() .. DATA_ABDUCT_PATH) then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
+		yBreaker_show_Utf8Text("Lỗi file dữ liệu data_abduct.lua")
         return 0
     end
 
+    -- Add file data abduct
     local file = assert(loadfile(nx_work_path() .. DATA_ABDUCT_PATH))
     file()
-    local posMap = abductPos[map]
-
-    if posMap == nil then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
-        return 0
-    end
-
-    local sellDataMap = abductSell[map]
-    if sellDataMap == nil then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
-        return 0
-    end
-
-    local waitpos = waitPosAfterSell[map]
-    if waitpos == nil then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
-        return 0
-    end
-
-    local homepoint = homePointReturn[map]
-    if homepoint == nil or homepoint == {} then
-        form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "Chưa hỗ trợ")
-        return 0
-    end
 
     -- Hạn giờ bắt cóc
     local combobox_lt1 = form.combobox_dynamic_limittime_from
@@ -2055,7 +2152,6 @@ function set_form_type_dynamic(form)
         combobox_count_time.DropListBox:AddString(nx_widestr(tostring(i)))
     end
 	
-    form.map = map
     dynamic_posmap = posMap
     dynamic_selldata = sellDataMap
     dynamic_waitpos = waitpos
@@ -2063,7 +2159,6 @@ function set_form_type_dynamic(form)
 
     form.btn_dynamic_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 	form.btn_dynamic_control.ForeColor = "255,255,255,255"
-    form.lbl_dynamic_status.Text = nx_function("ext_utf8_to_widestr", "OK")
 end
 
 function set_form_type_static(form)
@@ -2245,6 +2340,14 @@ function change_form_size()
     form.Top = 140
 end
 
+function on_combobox_main_map_selected(combobox)
+    stop_type_static()
+end
+
+function on_combobox_sub_map_selected(combobox)
+	stop_type_static()
+end
+
 function on_combobox_pos_selected(combobox)
     stop_type_static()
 end
@@ -2421,4 +2524,66 @@ end
 --
 function show_hide_form_doabduct()
 	util_auto_show_hide_form(THIS_FORM)
+end
+
+function add_string_to_combobox(combobox)
+	-- Thiếu Lâm
+    combobox.DropListBox:AddString(util_text("school08"))
+	-- Đường Môn
+	combobox.DropListBox:AddString(util_text("school05"))
+	-- Võ Đang
+	combobox.DropListBox:AddString(util_text("school07"))
+	-- Nga Mi
+	combobox.DropListBox:AddString(util_text("school06"))
+	-- Cái Bang
+	combobox.DropListBox:AddString(util_text("school02"))
+	-- Cẩm Y Vệ
+	combobox.DropListBox:AddString(util_text("school01"))
+	-- Quân Tử Đường
+	combobox.DropListBox:AddString(util_text("school03"))
+	-- Cực Lạc Cốc
+	combobox.DropListBox:AddString(util_text("school04"))
+	-- Thành Đô
+	combobox.DropListBox:AddString(util_text("city05"))
+	-- Tô Châu
+	combobox.DropListBox:AddString(util_text("city02"))
+	-- Kim Lăng
+	combobox.DropListBox:AddString(util_text("city03"))
+	-- Lạc Dương
+	combobox.DropListBox:AddString(util_text("city04"))
+	-- Yến Kinh
+	combobox.DropListBox:AddString(util_text("city01"))
+end
+
+function get_mapid_by_selectindex(combobox)
+	local map_id = ""
+	if combobox.DropListBox.SelectIndex == 0 then
+		map_id = "school08"
+	elseif combobox.DropListBox.SelectIndex == 1 then
+		map_id = "school05"
+	elseif combobox.DropListBox.SelectIndex == 2 then
+		map_id = "school07"
+	elseif combobox.DropListBox.SelectIndex == 3 then
+		map_id = "school06"
+	elseif combobox.DropListBox.SelectIndex == 4 then
+		map_id = "school02"
+	elseif combobox.DropListBox.SelectIndex == 5 then
+		map_id = "school01"
+	elseif combobox.DropListBox.SelectIndex == 6 then
+		map_id = "school03"
+	elseif combobox.DropListBox.SelectIndex == 7 then
+		map_id = "school04"
+	elseif combobox.DropListBox.SelectIndex == 8 then
+		map_id = "city05"
+	elseif combobox.DropListBox.SelectIndex == 9 then
+		map_id = "city02"
+	elseif combobox.DropListBox.SelectIndex == 10 then
+		map_id = "city03"
+	elseif combobox.DropListBox.SelectIndex == 11 then
+		map_id = "city04"
+	elseif combobox.DropListBox.SelectIndex == 12 then
+		map_id = "city01"
+	end
+	
+	return map_id
 end
