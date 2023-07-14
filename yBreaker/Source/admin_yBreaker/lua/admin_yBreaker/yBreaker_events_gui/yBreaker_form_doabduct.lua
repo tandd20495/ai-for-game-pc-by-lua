@@ -145,7 +145,7 @@ function auto_run_dynamic()
 	-- Kiểm tra map hiện tại có đúng như map đã chọn
 	if current_map ~= map_id then
 		-- Dịch chuyển đến map chính đã chọn
-		yBreaker_show_Utf8Text("Dịch chuyển qua map: " .. nx_string(map_id))
+		--yBreaker_show_Utf8Text("Dịch chuyển qua map: " .. nx_string(map_id))
 		TeleToHomePoint(homePointReturn[map_id][1])
 		nx_pause(10)
 		is_vaild_data = false
@@ -1522,9 +1522,7 @@ end
 
 function on_combobox_count_time_selected(combobox)
 	-- Update value for buff_count_time
-	yBreaker_show_Utf8Text("buff_cnt_time mặc định: " .. nx_string(buff_cnt_time))
 	buff_cnt_time = nx_number(combobox.Text) * 60
-	yBreaker_show_Utf8Text("buff_cnt_timeupdate: " .. nx_string(buff_cnt_time))
 end
 
 function get_type_homepoint(type_name)
