@@ -282,6 +282,8 @@ function auto_run_dynamic()
 			Stop()
 			return
 		end
+		
+		nx_execute("admin_zdn\\zdn_event_manager", "TriggerEvent", nx_current(), "on-task-interrupt")
 
         if is_vaild_data == true then
             local map = map_id
@@ -1740,7 +1742,7 @@ end
 function Start()
 	util_show_form(THIS_FORM, true)
 	start_type_dynamic()
-
+	--nx_execute("admin_zdn\\zdn_event_manager", "Subscribe", Logic, "on-task-stop", nx_current(), "onTaskStop")
 end
 
 function Stop()
@@ -1751,4 +1753,5 @@ function Stop()
         return
     end
 	--on_main_form_close(form)
+	nx_execute("admin_zdn\\zdn_event_manager", "TriggerEvent", nx_current(), "on-task-stop")
 end
