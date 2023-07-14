@@ -1,5 +1,11 @@
 TASK_LIST = {
 	{
+		"Treo Cóc",
+		"admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_doabduct",
+		"admin_yBreaker\\yBreaker_form_doabduct",
+		false
+	},
+	{
 		"Luyện Công",
 		"admin_zdn\\zdn_logic_luyen_cong",
 		"admin_zdn\\form_zdn_luyen_cong",
@@ -47,12 +53,6 @@ TASK_LIST = {
 		"admin_zdn\\form_zdn_an_the_setting",
 		false
 	},
-	--{
-	--	"Treo Cóc",
-	--	"admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_doabduct",
-	--	"admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_doabduct",
-	--	false
-	--},
 	{
 		"Lăng Tiêu Thành",
 		"admin_zdn\\zdn_logic_ltt",

@@ -13,7 +13,8 @@ local THIS_FORM = "admin_yBreaker\\yBreaker_form_doabduct"
 
 local auto_is_running_dynamic = false
 local map_id = ""
-local buff_remain_second = 0
+local buff_remain_second = 0	-- Thời gian buff của cóc hồi (tính theo giây)
+local buff_cnt_time = 8 * 60	-- Thời gian buff cóc trên nhân vật đã cài ở form (tính theo giây)
 
 local max_distance_selectauto = 6
 local used_abduct_item = false
@@ -275,6 +276,12 @@ function auto_run_dynamic()
             -- Vòng này đánh dấu bỏ qua để tiếp vòng sau
             is_vaild_data = false
         end
+		
+		-- Check thời gian setting có thể chạy 
+		if not CanRun() then
+			Stop()
+			return
+		end
 
         if is_vaild_data == true then
             local map = map_id
@@ -1401,6 +1408,19 @@ function stop_type_dynamic()
     --reset_window_title()
 end
 
+function start_type_dynamic()
+	local form = nx_value(THIS_FORM)
+    if not nx_is_valid(form) then
+        return
+    end
+	auto_is_running_dynamic = true
+    if form.btn_dynamic_control.Text ~= nx_widestr("...") then
+        form.btn_dynamic_control.Text = nx_function("ext_utf8_to_widestr", "Dừng")
+		form.btn_dynamic_control.ForeColor = "255,220,20,60"
+        auto_run_dynamic()
+    end   
+end
+
 function on_form_main_init(form)
     form.Fixed = false
     form.is_minimize = false
@@ -1498,6 +1518,13 @@ end
 
 function on_cbtn_dynamic_returnhomepoint_changed(cbtn)
     stop_type_dynamic()
+end
+
+function on_combobox_count_time_selected(combobox)
+	-- Update value for buff_count_time
+	yBreaker_show_Utf8Text("buff_cnt_time mặc định: " .. nx_string(buff_cnt_time))
+	buff_cnt_time = nx_number(combobox.Text) * 60
+	yBreaker_show_Utf8Text("buff_cnt_timeupdate: " .. nx_string(buff_cnt_time))
 end
 
 function get_type_homepoint(type_name)
@@ -1690,4 +1717,40 @@ function get_mapid_by_selectindex(combobox)
 	end
 	
 	return map_id
+end
+
+function IsRunning()
+    return auto_is_running_dynamic
+end
+
+function CanRun()
+    return not IsTaskDone()
+end
+
+function IsTaskDone()
+	local buff_abduct = get_buff_info("buf_offline_abduct_cd")
+	
+	-- Get buff cóc trên người theo thời gian cài đặt trên form
+	if buff_abduct ~= nil then
+		if buff_abduct > buff_cnt_time then
+			return true
+		end
+	end
+    return false
+end
+
+function Start()
+	util_show_form(THIS_FORM, true)
+	start_type_dynamic()
+
+end
+
+function Stop()
+	stop_type_dynamic()
+	
+	local form = nx_value(THIS_FORM)
+    if not nx_is_valid(form) then
+        return
+    end
+	--on_main_form_close(form)
 end
