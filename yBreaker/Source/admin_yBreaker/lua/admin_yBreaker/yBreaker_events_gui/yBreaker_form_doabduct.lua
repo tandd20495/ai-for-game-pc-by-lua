@@ -1482,45 +1482,45 @@ function change_form_size()
 	form.lbl_dynamic_returnhomepoint.Visible = false
 end
 
-function on_cbtn_dynamic_fight_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_fight_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_stop_if_beattacked_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_stop_if_beattacked_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_chat_attacker_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_chat_attacker_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_help_me_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_help_me_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_help_me_guild_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_help_me_guild_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_help_me_league_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_help_me_league_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_help_me_team_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_help_me_team_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_help_me_row_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_help_me_row_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_usespride_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_usespride_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
-function on_cbtn_dynamic_returnhomepoint_changed(cbtn)
-    stop_type_dynamic()
-end
+-- function on_cbtn_dynamic_returnhomepoint_changed(cbtn)
+--     stop_type_dynamic()
+-- end
 
 function on_combobox_count_time_selected(combobox)
 	-- Update value for buff_count_time
