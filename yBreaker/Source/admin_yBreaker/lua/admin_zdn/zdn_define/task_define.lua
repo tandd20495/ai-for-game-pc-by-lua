@@ -1,6 +1,6 @@
 TASK_LIST = {
 	{
-		"Treo Cóc",
+		"Cõng Cóc",
 		"admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_doabduct",
 		"admin_yBreaker\\yBreaker_form_doabduct",
 		false
