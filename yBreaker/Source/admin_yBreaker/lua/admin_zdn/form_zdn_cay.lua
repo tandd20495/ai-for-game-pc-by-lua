@@ -1,5 +1,6 @@
 require("admin_zdn\\zdn_lib_moving")
 require("admin_zdn\\zdn_form_common")
+require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
 
 local RETURN_MAP = "city05"
 local RETURN_POS = {300.73034667969, 78.078170776367, 854.36932373047}
@@ -46,4 +47,9 @@ function onBtnReturnClick()
   end
   pathFinding:FindPathScene(RETURN_MAP, RETURN_POS[1], RETURN_POS[2], RETURN_POS[3], 0)
   nx_execute("admin_zdn\\zdn_logic_base" , "RideZdnConfigMount")
+	while not tools_move_isArrived(RETURN_POS[1], RETURN_POS[2], RETURN_POS[3]) do
+		tools_move(RETURN_MAP, RETURN_POS[1],RETURN_POS[2], RETURN_POS[3], direct_run)
+		tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang về điểm trả cây!"))
+		direct_run = false
+	end
 end
