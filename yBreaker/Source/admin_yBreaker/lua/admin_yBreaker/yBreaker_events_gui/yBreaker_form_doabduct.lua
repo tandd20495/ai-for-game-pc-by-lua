@@ -152,11 +152,6 @@ function auto_run_dynamic()
 	else
 		map_id = current_map
 	end
-	
-	-- Kiểm tra xem có đang load map hay không?
-	if IsMapLoading() then
-		is_vaild_data = false
-	end
 
 	local posMap = abductPos[map_id]
 	if posMap == nil then
@@ -186,6 +181,17 @@ function auto_run_dynamic()
 	dynamic_selldata = sellDataMap
 	dynamic_waitpos = waitpos
 	dynamic_homepoint = homepoint
+	
+	-- Kiểm tra xem có đang load map hay không?
+	if IsMapLoading() then
+		is_vaild_data = false
+	end
+	
+	-- Check thời gian setting có thể chạy 
+	if not CanRun() then
+		Stop()
+		return
+	end
 	
     while auto_is_running_dynamic == true do
         local is_vaild_data = true
@@ -901,6 +907,9 @@ function auto_run_dynamic()
                                         if sellPosOffset > table.getn(sellDataMap) then
                                             sellPosOffset = 1
                                         end
+										
+										-- Chuyển đến step đợi sau khi bán cóc
+										step = 5
 
                                         break
                                     end
@@ -1376,7 +1385,7 @@ function set_form_type_dynamic(form)
 	-- Delay time of abduct buff in combobox
 	local combobox_buff_time = form.combobox_buff_time
 	
-    combobox_buff_time.Text = nx_widestr("0")
+    combobox_buff_time.Text = nx_widestr("8")
     combobox_buff_time.DropListBox:ClearString()
 	
     if combobox_buff_time.DroppedDown then
