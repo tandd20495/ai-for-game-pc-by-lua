@@ -118,11 +118,11 @@ function acceptRequest(memberForm)
         return
     end
 
-    local nMax = nx_execute(MAIN_REQUEST_FORM_PATH, "get_request_prop", 0)
+    local nMax = nx_execute(nx_current(), "get_request_prop", 0)
     for i = 1, nMax do
-        if nx_execute(MAIN_REQUEST_FORM_PATH, "get_request_prop", i, 1) == 38 then
-            local name = nx_widestr(nx_execute(MAIN_REQUEST_FORM_PATH, "get_request_prop", i, 2))
-            nx_execute(MAIN_REQUEST_FORM_PATH, "remove_request", i)
+        if nx_execute(nx_current(), "get_request_prop", i, 1) == 38 then
+            local name = nx_widestr(nx_execute(nx_current(), "get_request_prop", i, 2))
+            nx_execute(nx_current(), "remove_request", i)
             nx_execute("custom_sender", "custom_request_answer", 38, name, 1)
             return
         end
@@ -189,4 +189,27 @@ end
 
 function loadConfig()
     CurrentPosFlg = nx_string(IniReadUserConfig("LuyenCong", "CurrentPos", "0")) == "1"
+end
+
+function get_request_prop(index, para)
+  if index == 0 then
+    return table.maxn(REQUEST_ARRAY)
+  elseif (1 <= para) and (para <=4)  then
+    return REQUEST_ARRAY[index][para]
+  end
+end
+
+function remove_request(index)
+  local button = get_request_button(index)
+  local form_main = nx_value(GAME_GUI_MAIN)
+  if not nx_is_valid(form_main) or not nx_is_valid(button) then
+    return
+  end
+  form_main:Remove(button.label)
+  form_main:Remove(button)
+  local gui = nx_value("gui")
+  gui:Delete(button.label)
+  gui:Delete(button)
+  table.remove(REQUEST_ARRAY, index)
+  show_request()
 end
