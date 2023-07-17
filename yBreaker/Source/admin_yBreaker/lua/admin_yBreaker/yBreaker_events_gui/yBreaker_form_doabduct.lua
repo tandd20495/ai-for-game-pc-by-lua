@@ -668,13 +668,7 @@ function auto_run_dynamic()
 													step = 3
 													break
 												end
-											--else
-											--    table.insert(dissMissAbductItent, scence_obj:QueryProp("Name"))
-											--end
 										end
-										
-										-- Đợi cóc theo thời gian hồi của cóc
-										--nx_pause(buff_remain_second)
 									end
 								end
 							end
@@ -909,7 +903,86 @@ function auto_run_dynamic()
                                         end
 										
 										-- Chuyển đến step đợi sau khi bán cóc
-										step = 5
+										-- step = 5
+										-- Do break khỏi vòng lặp nên thêm xử lý sau khi bán cóc ở đây
+										--if (buff_abduct ~= nil and buff_abduct > buff_count_time) or isStopAuto or isAutoStoped then
+				
+											-- Trong quá trình này thì xóa thư
+											if nx_is_valid(player_client) then
+												local rownum = player_client:GetRecordRows(Recv_rec_name)
+
+												for row = 0, rownum - 1 do
+													local ntype = player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_TYPE)
+													local str_goods = nx_string(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_APPEDIXVALUE))
+													local serialno = nx_string(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_SERIALNO))
+													local gold = nx_int(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_GOLD))
+													local silver = nx_int(player_client:QueryRecord(Recv_rec_name, row, POST_TABLE_SILVER))
+
+													-- Xóa các thư của hệ thống, không tiền không vàng
+													-- Không có item hoặc chứa item thiết lập xóa
+													local itemID = getItemInMail(str_goods)
+													if  nx_int(ntype) > nx_int(LETTER_SYSTEM_TYPE_MIN) and nx_int(ntype) < nx_int(LETTER_SYSTEM_TYPE_MAX)
+														and gold <= nx_int(0) and silver <= nx_int(0)
+														and itemID == nx_string("fixitem_002")
+													then
+														-- Xóa vật phẩm thì set lại thời gian
+														nx_execute("custom_sender", "custom_del_letter_ok", 1, serialno)
+														break
+													end
+												end
+											end
+											
+											-- Đứng im đây
+											if intevalMessage == 0 then
+												tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang đợi lượt sau"))
+											end
+											
+											-- Thần hành về ĐHS
+											-- Di chuyển tới đứng chỗ ẩn nếu đang đứng tại vị trí bán cóc :D
+											local isStandOnSellPos = false
+											for i = 1, table.getn(dynamic_selldata) do
+												local sellpos = dynamic_selldata[i]
+												if tools_move_isArrived2D(sellpos.x, sellpos.y, sellpos.z) then
+													local pos = math.random(1, table.getn(dynamic_waitpos))
+													local posData = dynamic_waitpos[pos]
+													tools_move_new(map, posData[1], posData[2], posData[3], true)
+													isStandOnSellPos = true
+												end
+											end
+											-- Nếu đang đứng im thì kiểm tra xem trong phạm vi 1 mét chỗ mình đứng có ai ở đó không
+											-- Khi đã trở về điểm dừng chân rồi thì bỏ qua phần kiểm tra này
+											local haveStackUpObj = false
+											if isStandOnSellPos == false and not isReturnedHomePoint then
+												local isMoving = is_moving()
+												if isMoving == false then
+													local game_scence_objs = game_scence:GetSceneObjList()
+													for i = 1, table.getn(game_scence_objs) do
+														local obj = game_scence_objs[i]
+														if nx_is_valid(obj) then
+															local visualObj = game_visual:GetSceneObj(obj.Ident)
+															if nx_is_valid(visualObj) then
+																if obj:FindProp("Type") and obj:QueryProp("Type") == 2 and player_client:QueryProp("Name") ~= obj:QueryProp("Name") and obj:QueryProp("OffLineState") == 0 then
+																	-- Nếu có người đứng cách bán kính 0.8 mét
+																	if tools_move_isArrived2D(visualObj.PositionX, visualObj.PositionY, visualObj.PositionZ, 0.8) then
+																		haveStackUpObj = true
+																		-- Đánh dấu thời điểm có người đứng trùng
+																		if lastStackUpTime == 0 then
+																			lastStackUpTime = os.time()
+																		elseif tools_difftime(lastStackUpTime) > 2 then
+																			local pos = math.random(1, table.getn(dynamic_waitpos))
+																			local posData = dynamic_waitpos[pos]
+																			tools_move_new(map, posData[1], posData[2], posData[3], true)
+																			tools_show_notice(nx_function("ext_utf8_to_widestr", "Có người chiếm chỗ, đi chỗ khác đứng"))
+																			lastStackUpTime = 0
+																		end
+																	end
+																end
+															end
+														end
+													end
+												end
+											end
+										--end
 
                                         break
                                     end
