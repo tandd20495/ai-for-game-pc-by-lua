@@ -29,6 +29,14 @@ function IsRunning()
     return Running
 end
 
+function CanRun()
+    return true
+end
+
+function IsTaskDone()
+    return not CanRun()
+end
+
 function Start()
     if Running then
         return

@@ -36,6 +36,18 @@ TASK_LIST = {
 		false
 	},
 	{
+		"Thu Thập",
+		"admin_zdn\\zdn_logic_thu_thap",
+		"admin_zdn\\form_zdn_thu_thap_setting",
+		false
+	},
+	{
+		"Trồng Trọt",
+		"admin_zdn\\zdn_logic_farm",
+		"admin_zdn\\form_zdn_farm",
+		false
+	},
+	{
 	 	"Tung Hoành",
 	 	"admin_zdn\\zdn_logic_thich_quan",
 	 	"admin_zdn\\form_zdn_thich_quan_setting",
