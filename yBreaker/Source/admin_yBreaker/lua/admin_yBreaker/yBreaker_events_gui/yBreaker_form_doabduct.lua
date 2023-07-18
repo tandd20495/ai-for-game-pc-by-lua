@@ -888,10 +888,11 @@ function auto_run_dynamic()
                                         -- Tắt cái form nhận đồ
                                         nx_pause(0.2)
                                         local form_giveitems = util_get_form("form_stage_main\\form_give_item", true)
+										
                                         if nx_is_valid(form_giveitems) then
                                             nx_pause(0.2)
                                             local form_giveitems1 = nx_value("form_stage_main\\form_give_item")
-                                            if nx_is_valid(form_giveitems1) then
+											if nx_is_valid(form_giveitems1) and form_giveitems1.Visible and nx_find_custom(form_giveitems1, "btn_mail") then
                                                 nx_execute("form_stage_main\\form_give_item", "on_btn_mail_click", form_giveitems1.btn_mail)
                                             end
                                         end
