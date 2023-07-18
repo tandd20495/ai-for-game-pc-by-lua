@@ -1,5 +1,6 @@
 require("util_functions")
 require("admin_zdn\\zdn_lib_moving")
+require("admin_zdn\\zdn_util")
 
 local Running = false
 local PositionList = {}
@@ -28,6 +29,7 @@ function Start()
     loadConfig()
 
     while Running do
+		buyTool()
         loopThuThap()
         nx_pause(0.2)
     end
@@ -340,4 +342,24 @@ end
 function isNotDead(obj)
     local dead = nx_number(obj:QueryProp("Dead")) == 1
     return not dead
+end
+
+function buyTool()
+	-- Check dụng cụ thu thập
+	local goods_grid = nx_value("GoodsGrid")	
+	if goods_grid:GetItemCount("tool_cai_01") == 0 then
+	
+		-- Check pass rương và tự mua dụng cụ thu thập
+		local game_client=nx_value("game_client")
+		local player_client=game_client:GetPlayer()
+		if not player_client:FindProp("IsCheckPass") or player_client:QueryProp("IsCheckPass") ~= 1 then
+			ShowText("Mở khóa rương để tự mua dụng cụ")
+			return 
+		else 		
+			-- Mua dụng cụ trong Tạp Hóa ------------- Shop Giang hồ ---- 1: Công Cụ, 18: số thứ tự dụng cụ thu thập, 1: Mua (Tương tự vậy thì 1,1,1: Tab Công Cụ, Mua Liệp Thú Đoản Kiếm)
+			nx_execute("custom_sender", "custom_open_mount_shop", 1)
+			nx_execute("custom_sender", "custom_buy_item", "Shop_zahuo_00102", 1,18,1)
+			nx_execute("custom_sender", "custom_open_mount_shop", 0)
+		end 
+	end	
 end
