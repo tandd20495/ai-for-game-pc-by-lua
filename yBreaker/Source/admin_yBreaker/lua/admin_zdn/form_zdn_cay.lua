@@ -47,9 +47,25 @@ function onBtnReturnClick()
   end
   pathFinding:FindPathScene(RETURN_MAP, RETURN_POS[1], RETURN_POS[2], RETURN_POS[3], 0)
   nx_execute("admin_zdn\\zdn_logic_base" , "RideZdnConfigMount")
-	while not tools_move_isArrived(RETURN_POS[1], RETURN_POS[2], RETURN_POS[3]) do
-		tools_move(RETURN_MAP, RETURN_POS[1],RETURN_POS[2], RETURN_POS[3], direct_run)
-		tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang về điểm trả cây!"))
-		direct_run = false
+  
+  -- Move return position
+  loopMoveReturn()
+end
+
+function loopMoveReturn()
+	if isRunning then
+		isRunning = false
+		tools_show_notice(nx_function("ext_utf8_to_widestr", "Dừng về điểm trả cây!"))
+	else
+		isRunning = true
+		-- Check load map
+		if not IsMapLoading() then
+			while isRunning do
+				nx_pause(0.1)
+				tools_move(RETURN_MAP, RETURN_POS[1],RETURN_POS[2], RETURN_POS[3], direct_run)
+				tools_show_notice(nx_function("ext_utf8_to_widestr", "Đang về điểm trả cây!"))
+				direct_run = false
+			end
+		end
 	end
 end
