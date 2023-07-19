@@ -929,6 +929,7 @@ function yBreaker_change_weapon_click(grid, index)
 end
 
 -- Function change 30% percent adaptation
+local skill_id_backup = ""
 function yBreaker_change_item_skill_pressing(grid, index)
 	if not nx_is_valid(grid) then
 	return
@@ -1097,8 +1098,9 @@ function yBreaker_change_item_skill_pressing(grid, index)
 										end
 										
 										local tuple = util_split_string(value, ",")
-										if nx_string(tuple[1]) == nx_string(skill_id) then
+										if nx_string(tuple[1]) == nx_string(skill_id) and skill_id ~= skill_id_backup then
 											item_quip = view_obj
+											skill_id_backup = skill_id
 										end
 									end
 								end
