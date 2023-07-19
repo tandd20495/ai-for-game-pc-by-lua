@@ -79,6 +79,12 @@ Bước 3: Vào game bình thường
 /coc	or /COC		: Treo cóc
 /vcd	or /VCD		: Chạy nhiệm vụ Vô Cực Đảo
 
+*** For run by script:
+/code gv : Mở giao diện thanh skill trong gia viên để tích THBB
+/code xoathu : Tự động xóa thư theo item ID, ID có trong file (...res\yBreaker\scripts\stringname.idres)
+/code xabac : Tự chạy ra chỗ cũ để xả bạc
+
+
 
 
 
