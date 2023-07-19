@@ -48,7 +48,7 @@ Bước 3: Vào game bình thường
 
 *** Các tính năng hỗ trợ player:
 /a 		or /A		: PVP (Gồm: Tự đỡ, Đổi đồ, Võ: THC, PTC, LTT) *Cần: - Cài đặt nhân vật tại /config trước khi sử dụng, chức năng còn cơ bản, cân nhắc trước khi dùng)
-/s 		or /S		: Tự đổi đồ (Gồm: Đổi Oản/ Vũ khí 30%, Bình thư nếu có chọn)
+/s 		or /S		: Tự đổi đồ (Gồm: Chỉ đổi bình thư nếu có chọn, dưới 50% máu đổi bình thư 15% damage)
 /d 		or /D		: Hiện thông tin (Gồm: % Máu, % Mana, Khoảng cách, Nộ, Cầm Key PT, Số TV trong PT)
 /q 		or /Q		: Mắt thần (Gồm: Quét cóc, Thổi cóc, Tìm đàn, Tìm cây, Quét người chơi xung quanh, Quét buff mục tiêu, Quét custom (như /c), Quét Select (như /d) 
 /w 		or /W		: Đổi mạch (Tự đổi mạch theo cài đặt ở /config, có thể tắt hết mạch + nội đang dùng)
