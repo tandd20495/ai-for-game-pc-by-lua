@@ -84,8 +84,8 @@ function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
 	auto_is_running = false
-	local map = yBreaker_get_current_map()
-	form.lbl_2.Text = util_text(map)
+	--local map = yBreaker_get_current_map()
+	--form.lbl_2.Text = util_text(map)
 	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 	form.btn_control.ForeColor = "255,255,255,255"
 end
