@@ -96,7 +96,8 @@ function scan_info_player()
                 end
                 if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
 					-- Get infor player is selected
-                    local hp_player = game_scence_objs[i]:QueryProp("HPRatio")
+					local name_player = game_scence_objs[i]:QueryProp("Name")
+					local hp_player = game_scence_objs[i]:QueryProp("HPRatio")
 					local mp_player = game_scence_objs[i]:QueryProp("MPRatio")
 					local sp_player = game_scence_objs[i]:QueryProp("SP")
 					local keypt_player = game_scence_objs[i]:QueryProp("TeamCaptain")
@@ -107,6 +108,9 @@ function scan_info_player()
 						--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
 						local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
 						local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+						
+						-- Set giá trị cho Name
+						form.lbl_title.Text = nx_widestr(name_player)
 						
 						-- Set giá trị cho HP
 						form.t_hp_txt.Text = nx_widestr(hp_player)
