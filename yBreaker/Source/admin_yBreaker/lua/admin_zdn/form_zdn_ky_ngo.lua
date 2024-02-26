@@ -150,6 +150,7 @@ function onBtnSaveClick()
 		end
 	end
 	IniWriteUserConfig("KyNgo", "ChangeList", kyNgoStr)
+	ShowText(nx_function("ext_utf8_to_widestr", "Lưu danh sách kỳ ngộ thành công!"))
 	nx_execute("admin_zdn\\zdn_logic_ky_ngo", "LoadConfig")
 end
 

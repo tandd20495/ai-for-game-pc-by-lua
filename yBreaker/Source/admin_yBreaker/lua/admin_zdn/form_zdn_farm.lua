@@ -1,3 +1,4 @@
+require("util_gui")
 require("util_functions")
 require("admin_zdn\\zdn_form_common")
 require("admin_zdn\\zdn_lib_moving")
@@ -67,4 +68,8 @@ function onBtnSaveClick()
     IniWriteUserConfig("NongPhu", "Position", posStr)
     IniWriteUserConfig("NongPhu", "SeedList", Form.input_seed.Text)
     IniWriteUserConfig("NongPhu", "Radius", Form.input_radius.Text)
+end
+
+function show_hide_form_farm()
+	util_auto_show_hide_form("admin_zdn\\form_zdn_farm")
 end
