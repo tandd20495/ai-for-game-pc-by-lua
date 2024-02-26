@@ -8,7 +8,7 @@
             <event on_click="on_btn_close_click" />
         </control>
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="340" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự Động" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="340" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Mở Rộng" Font="font_title" />
         </control>		
 
 		<control name="tab_1_btn" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_chat" init="">

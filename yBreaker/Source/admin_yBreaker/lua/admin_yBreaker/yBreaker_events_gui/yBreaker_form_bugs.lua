@@ -92,8 +92,8 @@ function on_btn_speed_apply_click(btn)
     autoStartSpeed = true
 	btn.btn_speed_apply.Text = nx_function("ext_utf8_to_widestr", "Stop Speed")
 	btn.btn_speed_apply.ForeColor = "255,220,20,60"
-    yBreaker_show_Utf8Text("Tốc độ hiện tại tăng: "..nx_string(nx_int(speed_int)).." lần", 3)
-    yBreaker_show_Utf8Text("Chỉ sử dụng khi khinh công.", 3)
+    yBreaker_show_Utf8Text("Tốc độ hiện tại tăng: "..nx_string(nx_int(speed_int)).." lần.", 3)
+    yBreaker_show_Utf8Text("Chỉ áp dụng khi khinh công và trị số thấp hơn 20.", 3)
     autoSpeed(nx_int(speed_int))
   end
   update_btn_start_speed()

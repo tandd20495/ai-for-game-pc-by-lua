@@ -8,7 +8,7 @@
             <event on_click="on_btn_close_click" />
         </control>
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="50" Top="10" Width="405" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Mod PVC" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="50" Top="10" Width="405" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thay Đồ" Font="font_title" />
         </control>
 
         <control name="groupscrollbox_1" entity="GroupScrollableBox" script="" init="">

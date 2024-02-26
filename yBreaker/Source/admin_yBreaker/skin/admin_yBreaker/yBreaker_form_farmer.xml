@@ -129,7 +129,7 @@
         </control>
 		
 		<control name="mltbox_1" entity="MultiTextBox" script="" init="">
-            <prop HAlign="Center" VAlign="Center" TextColor="255,255,255,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,250,118" LineHeight="10" HtmlText="&lt;font color=&apos;#ffee2e&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● Chọn giống cần trồng.<br>● Chọn địa điểm trồng/ nuôi.<br>● Bấm &lt;font color=&apos;#46fd15&apos;&gt;Bắt Đầu&lt;/font&gt; để bắt đầu!" ScrollSize="1" HasVScroll="true" Left="10" Top="191" Width="540" Height="300" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure" />
+            <prop HAlign="Center" VAlign="Center" TextColor="255,255,255,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,250,118" LineHeight="10" HtmlText="&lt;font color=&apos;#ffee2e&apos;&gt;Hướng Dẫn:&lt;/font&gt;<br>● Chọn giống cần trồng.<br>● Chọn địa điểm trồng/ nuôi.<br>● Bấm &lt;font color=&apos;#46fd15&apos;&gt;Chạy&lt;/font&gt; để bắt đầu!" ScrollSize="1" HasVScroll="true" Left="10" Top="191" Width="540" Height="300" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure" />
         </control>
 		
 		<control name="btn_control" entity="Button" script="" init="">

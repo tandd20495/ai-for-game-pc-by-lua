@@ -4,7 +4,7 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 function yBreaker_god_ping()  
 	if not isPing then
 		isPing = true
-		yBreaker_show_Utf8Text("Đè ping chi thuật")
+		yBreaker_show_Utf8Text("Mở khóa nhân vật khi đang dùng kỹ năng!")
 		while isPing == true do
 			nx_pause(0)
 			local is_vaild_data = true
@@ -18,7 +18,7 @@ function yBreaker_god_ping()
 			if client_scene_obj == false then
 				isPing = false
 				is_vaild_data = false
-				yBreaker_show_Utf8Text("Dừng cấm thuật, khởi động lại khi vào liên server!")
+				yBreaker_show_Utf8Text("Dừng tính năng, khởi động lại khi vào liên server!")
 				return
 			end
 			
@@ -38,6 +38,6 @@ function yBreaker_god_ping()
 		end
 	else
 		isPing = false
-		yBreaker_show_Utf8Text("Dừng cấm thuật")
+		yBreaker_show_Utf8Text("Dừng tính năng")
 	end
 end

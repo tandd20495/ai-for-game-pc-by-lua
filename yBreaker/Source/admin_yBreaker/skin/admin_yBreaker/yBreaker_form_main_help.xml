@@ -1,37 +1,39 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
      <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_main_help" init="on_form_main_help_init">
-        <prop LimitInScreen="true" Left="1155" Top="100" Width="260" Height="530" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <prop LimitInScreen="true" Left="1155" Top="100" Width="320" Height="530" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_help_open" on_close="on_main_form_help_close" />
 		<control name="btn_close" entity="Button" script="" init="">
-            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="225" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="285" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
             <event on_click="on_btn_close_form_help" />
         </control>
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Hướng Dẫn" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="290" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Hướng Dẫn" Font="font_title" />
         </control>
 		<control name="mltbox_1" entity="MultiTextBox" script="" init="">
             <prop HAlign="Center" VAlign="Center" TextColor="255,255,255,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,290,290" LineHeight="20" 
             HtmlText="&lt;font color=&apos;#ffee2e&apos;&gt;Hướng dẫn dùng lệnh chat:&lt;/font&gt;
+			<br>- &lt;font color=&apos;#00a8ff&apos;&gt;Các lệnh tiêu biểu:&lt;/font&gt;
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/yt&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/YT&lt;/font&gt;: Mở giao diện chính 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/at&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/AT&lt;/font&gt;: Tính năng tự động
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/at&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/AT&lt;/font&gt;: Tính năng mở rộng
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/pw&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/PW&lt;/font&gt;: Mã hóa, lưu MK rương
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tl&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TL&lt;/font&gt;: Chạy tác vụ 24/7
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/set&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SET&lt;/font&gt;: Cài đặt khác
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/pvc&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/PVC&lt;/font&gt;: Thay đồ PVC 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/a&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/A&lt;/font&gt;: PVP 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/s&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/S&lt;/font&gt;: Tự đổi đồ 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/d&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/D&lt;/font&gt;: Hiện thông tin
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/q&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/Q&lt;/font&gt;: Mắt thần 
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/s&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/S&lt;/font&gt;: Tự đổi sách 
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/d&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/D&lt;/font&gt;: Quét đối tượng
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/q&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/Q&lt;/font&gt;: Quét quanh
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/w&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/W&lt;/font&gt;: Đổi mạch 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/e&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/E&lt;/font&gt;: Kết ấn 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/z&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/Z&lt;/font&gt;: Cash Ping
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/e&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/E&lt;/font&gt;: Ngoại lệ
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/z&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/Z&lt;/font&gt;: Mở khóa NV
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/x&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/X&lt;/font&gt;: Hiện % máu 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/c&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/C&lt;/font&gt;: Soi custom 
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/c&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/C&lt;/font&gt;: Quét tùy chọn
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/b&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/B&lt;/font&gt;: Boom or Buff
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/lam&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/LAM&lt;/font&gt;: Bug Lãm 
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/die&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/DIE&lt;/font&gt;: Tự sát nhanh 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/blink&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/BLINK&lt;/font&gt;: Blink 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/th&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TH&lt;/font&gt;: Tích THBB 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/pvc&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/PVC&lt;/font&gt;: Thay đồ PVC 
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/th&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TH&lt;/font&gt;: Tích THBB 	
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/config&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/CONFIG&lt;/font&gt;: Cài nhân vật 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/dan&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/DAN&lt;/font&gt;: Cầm sư 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/spam&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SPAM&lt;/font&gt;: Tự ấn phím 1-5
@@ -41,8 +43,13 @@
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/chat&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/CHAT&lt;/font&gt;: Tự chat 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/timdan&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TIMDAN&lt;/font&gt;: Tìm đàn 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/timcay&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TIMCAY&lt;/font&gt;: Tìm cây 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/die&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/DIE&lt;/font&gt;: Tự sát nhanh 
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/use&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/USE&lt;/font&gt;: Tự dùng vật phẩm
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/use&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/USE&lt;/font&gt;: Tự dùng ô đầu tiên
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/skill&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SKILL&lt;/font&gt;: Thiết lập bộ võ
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/vp&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/VP&lt;/font&gt;: Thiết lập vật phẩm
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/nd&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/ND&lt;/font&gt;: Thiết lập nhặt đồ
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/atk&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/ATK&lt;/font&gt;: Đánh trong phạm vi
+			<br>
+			<br>- &lt;font color=&apos;#00a8ff&apos;&gt;Các lệnh khác:&lt;/font&gt;
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tm&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TM&lt;/font&gt;: Diễn võ tâm ma 
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/lc&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/LC&lt;/font&gt;: Luyện công
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tn&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TN&lt;/font&gt;: Thụ nghiệp
@@ -51,12 +58,17 @@
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/ltt&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/LTT&lt;/font&gt;: Lăng tiêu thành
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/tdc&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TDC&lt;/font&gt;: Tình dao cung
 			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/cay&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/CAY&lt;/font&gt;: Lịch lấy cây
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/skill&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/SKILL&lt;/font&gt;: Thiết lập bộ võ
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/vp&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/VP&lt;/font&gt;: Thiết lập vật phẩm
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/nd&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/ND&lt;/font&gt;: Thiết lập nhặt đồ
-			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/train&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TRAIN&lt;/font&gt;: Đánh theo phạm vi
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/trongtrot&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/TRONGTROT&lt;/font&gt;: Trồng trọt
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/thuthap&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/THUTHAP&lt;/font&gt;: Thu thập đủ loại
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/anthe&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/ANTHE&lt;/font&gt;: Nhiệm vụ ẩn thế
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/dotham&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/DOTHAM&lt;/font&gt;: Do thám
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/hk&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/HK&lt;/font&gt;: Hào kiệt
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/thth&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/THTH&lt;/font&gt;: Tung hoành tứ hải
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/lcgv&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/LCGV&lt;/font&gt;: Luyện công gia viên
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/ontuyen&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/ONTUYEN&lt;/font&gt;: Ôn tuyền
+			<br>● &lt;font color=&apos;#46fd15&apos;&gt;/battho&lt;/font&gt; or &lt;font color=&apos;#46fd15&apos;&gt;/BATTHO&lt;/font&gt;: Bắt thỏ
 			"  
-            ScrollSize="17" HasVScroll="true" Left="20" Top="35" Width="220" Height="480" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure 35px" />
+            ScrollSize="17" HasVScroll="true" Left="20" Top="35" Width="280" Height="480" ForeColor="255,197,184,159" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,255,255,255" TestTrans="true" Font="font_text_figure 35px" />
         </control>	
     </control>
 </form>

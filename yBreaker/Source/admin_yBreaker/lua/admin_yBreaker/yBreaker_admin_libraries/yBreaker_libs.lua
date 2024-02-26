@@ -302,10 +302,10 @@ function yBreaker_command_chat(str_chat)
 		return true
 	end
 	
-	if (command == "/kn") or (command == "/KN") then
-		nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle","get_miracle")
-		return true
-	end
+	--if (command == "/kn") or (command == "/KN") then
+	--	nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_getmiracle","get_miracle")
+	--	return true
+	--end
 	
 	if (command == "/lt") or (command == "/LT") then
 		util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_winepractice") 
@@ -429,7 +429,7 @@ function yBreaker_command_chat(str_chat)
 	end
 	
 	--- Function temp
-	if (command == "/batthoz") or (command == "/BATTHOZ") then
+	if (command == "/battho") or (command == "/BATTHO") then
 	 	util_auto_show_hide_form("admin_zdn\\form_zdn_bat_tho") 
 	 	return true
 	end
@@ -447,7 +447,7 @@ function yBreaker_command_chat(str_chat)
 	-- 	return true
 	-- end
 
-	if (command == "/kyngoz") or (command == "/KYNGOZ") then
+	if (command == "/kyngo") or (command == "/KYNGO") then
 	 	util_auto_show_hide_form("admin_zdn\\form_zdn_ky_ngo") 
 	 	return true
 	end
@@ -459,12 +459,12 @@ function yBreaker_command_chat(str_chat)
 		util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong") 
 		return true
 	end
-	if (command == "/lcbz") or (command == "/LCBZ") then
+	if (command == "/lcgv") or (command == "/LCGV") then
 	 	util_auto_show_hide_form("admin_zdn\\form_zdn_luyen_cong_binh") 
 	 	return true
 	end
 
-	if (command == "/ontuyenz") or (command == "/ONTUYENZ") then
+	if (command == "/ontuyen") or (command == "/ONTUYEN") then
 	 	util_auto_show_hide_form("admin_zdn\\form_zdn_on_tuyen") 
 	 	return true
 	end
