@@ -1,8 +1,10 @@
 require("admin_zdn\\zdn_form_common")
 require("util_functions")
 require("util_gui")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local Logic = "admin_zdn\\zdn_logic_escort"
+--local THIS_FORM = "admin_zdn\\form_zdn_escort"
 
 local escortName = {
 	["zdn_escort_name_1"]= "Thành Đô - Kim Châm",
@@ -43,6 +45,11 @@ function onFormOpen()
 end
 
 function onBtnSubmitClick()
+	--local form = nx_value(THIS_FORM)
+    --if not nx_is_valid(form) then
+    --    return
+    --end
+	
 	if not nx_execute(Logic, "IsRunning") then
 		saveFormData()
 		if nx_execute(Logic, "GetCompleteTimes") >= nx_number(IniReadUserConfig("Escort", "max_turn", 5)) then
@@ -50,7 +57,24 @@ function onBtnSubmitClick()
 		end
 		nx_execute(Logic, "Start")
 		nx_execute("admin_zdn\\zdn_listener", "addListen", nx_current(), "19561", "updateView", -1)
-	else
+		
+		-- Check checkbox is checked
+		if Form.chk_delmail.Checked then
+			isDelRunning = true
+		else 
+			isDelRunning = false
+		end
+		
+		-- Perform delete email
+		while isDelRunning do
+			nx_pause(1)
+			-- Xóa thư Minh Linh Đan
+			xoathu("faculty_yanwu_jhdw06")
+			-- Xóa thư Đơn hàng thô
+			xoathu("pingzheng_escort_001")
+		end
+	else	
+		isDelRunning = false
 		nx_execute(Logic, "Stop")
 		nx_execute("admin_zdn\\zdn_listener", "removeListen", nx_current(), "19561", "updateView")
 	end
