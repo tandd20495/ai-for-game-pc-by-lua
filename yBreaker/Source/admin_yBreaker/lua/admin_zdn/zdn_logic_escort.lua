@@ -2,12 +2,17 @@ require("util_functions")
 require("define\\team_rec_define")
 require("admin_zdn\\zdn_util")
 require("admin_zdn\\zdn_lib_moving")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local Running = false
 local StopOnDieFlg = true
 local Config = {}
+local isDelmail = false
+local isAcceptPT = false
 
 LOGIC_STATE_SITCROSS = 102
+
+local FORM_MAIN_REQUEST = "form_stage_main\\form_main\\form_main_request"
 
 function Start()
     if Running then
@@ -18,6 +23,59 @@ function Start()
 	loadconfig()
     while Running do
         loopEscort()
+		
+		-- Get value of delmail
+		isDelmail = nx_execute("admin_zdn\\form_zdn_escort", "is_delete_mail")
+		if isDelmail then
+			-- Xóa thư Minh Linh Đan
+			--yBreaker_show_Utf8Text("ML Đan")
+			del_email("faculty_yanwu_jhdw06")
+			
+			-- Xóa thư Đơn hàng thô
+			del_email("pingzheng_escort_001")
+		end
+		
+		-- Get value of auto accept party
+		isAcceptPT = nx_execute("admin_zdn\\form_zdn_escort", "is_auto_accept_pt")
+		if isAcceptPT then
+			-- Tự nhận pt
+			--yBreaker_show_Utf8Text("Tự động PT")
+			local num_request = nx_execute(FORM_MAIN_REQUEST, "get_num_request")
+			if num_request > 0 then
+				for i = 1, num_request do
+					local request_type = nx_execute(FORM_MAIN_REQUEST, "get_request_type", i)
+					local request_player = nx_execute(FORM_MAIN_REQUEST, "get_request_player", i)
+					if request_type == REQUESTTYPE_INVITETEAM then
+						nx_execute("custom_sender", "custom_request_answer", request_type, request_player, 1)
+						nx_execute(FORM_MAIN_REQUEST, "clear_request")
+						nx_pause(1)
+						--break
+					end
+				end
+			end
+			
+			-- Tự động nhận tổ đội
+			auto_accept_party(true)
+		end
+		
+		-- Tự kích nhân vật offline
+		local game_client = nx_value("game_client")
+		local client_player = game_client:GetPlayer()
+		local scene = game_client:GetScene()
+		local party = client_player:GetRecordRows("team_rec")
+		for r = 0, party - 1 do
+			local team_name = client_player:QueryRecord("team_rec", r, 0)
+			local map = client_player:QueryRecord("team_rec", r, 1)
+			local offline = client_player:QueryRecord("team_rec", r, 5)
+				if string.find(nx_string(map), nx_string(scene:QueryProp("Resource"))) == nil then
+				yBreaker_show_Utf8Text(nx_string(team_name) .. " không ở cùng map, tự động kick!")
+				nx_execute("custom_sender", "custom_kickout_team", team_name)
+			elseif offline ~= 0 then
+				yBreaker_show_Utf8Text(nx_string(team_name) .. " đã offline, tự động kick!")
+				nx_execute("custom_sender", "custom_kickout_team", team_name)
+			end
+		end
+		
         nx_pause(0.2)
     end
 end

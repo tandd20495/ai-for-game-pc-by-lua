@@ -45,11 +45,17 @@
             </subor>
         </control>
 
+		<control name="chk_party" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="20" Top="105" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="true" HintText="Trong PT offline hay ở map khác sẽ tự kick!"/>
+		</control>
+		<control name="lbl_party" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="45" Top="105" Width="60" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự chấp nhận tổ đội." Font="font_main" />
+        </control>
 		<control name="chk_delmail" entity="CheckButton" script="" init="">
-			<prop BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="20" Top="115" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false"/>
+			<prop BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="20" Top="125" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false"/>
 		</control>
 		<control name="lbl_delmail" entity="Label" script="" init="">
-                <prop Align="Left" RefCursor="WIN_HELP" Left="45" Top="115" Width="60" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Xóa thư ML Đan, Đơn Hàng." Font="font_main" />
+                <prop Align="Left" RefCursor="WIN_HELP" Left="45" Top="125" Width="60" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Xóa thư ML Đan, Đơn Hàng." Font="font_main" />
         </control>
 		
 		<control name="max_turn" entity="Float_Edit" script="" init="">

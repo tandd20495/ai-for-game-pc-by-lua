@@ -1439,7 +1439,8 @@ function getItemInMail(str_goods)
     return nx_string(configid)
 end
 
-function xoathu(item_del)
+-- Hàm xóa thư
+function del_email(item_del)
 	local Recv_rec_name = "RecvLetterRec"
 	local game_client = nx_value("game_client")
     local player_client = game_client:GetPlayer()
@@ -1469,5 +1470,15 @@ function xoathu(item_del)
 			end
 		end
 	end
+end
+
+-- Hàm Tự chấp nhận tổ đội
+function auto_accept_party(flag_accept)
+  local request, player = nx_execute("form_stage_main\\form_main\\form_main_request", "find_team_request", REQUESTTYPE_TEAMREQUEST)
+  --local auto_accept = flag_accept
+  if player ~= nil and flag_accept == true then
+    nx_execute("custom_sender", "custom_request_answer", request, player, 1)
+    nx_execute("form_stage_main\\form_main\\form_main_request", "clear_special_request", request)
+  end
 end
 

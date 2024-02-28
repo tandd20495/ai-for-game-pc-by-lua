@@ -2085,6 +2085,13 @@ end
 function get_request_player(index)
   return REQUEST_ARRAY[index][INDEX_REQUEST_PLAYER]
 end
+function find_team_request(type)
+	for i = 1, table.maxn(REQUEST_ARRAY) do
+		if type == REQUEST_ARRAY[i][INDEX_REQUEST_TYPE] then
+			return REQUEST_ARRAY[i][INDEX_REQUEST_TYPE], REQUEST_ARRAY[i][INDEX_REQUEST_PLAYER]
+		end
+	end
+end
 --]
 
 --[ADD: Get request luyện công for Zdn

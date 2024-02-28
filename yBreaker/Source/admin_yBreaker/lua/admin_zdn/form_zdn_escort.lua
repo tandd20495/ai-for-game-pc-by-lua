@@ -65,14 +65,16 @@ function onBtnSubmitClick()
 			isDelRunning = false
 		end
 		
+		-- Update view
+		--updateView()
 		-- Perform delete email
-		while isDelRunning do
-			nx_pause(1)
+		--while isDelRunning do
+		--	nx_pause(1)
 			-- Xóa thư Minh Linh Đan
-			xoathu("faculty_yanwu_jhdw06")
+		--	xoathu("faculty_yanwu_jhdw06")
 			-- Xóa thư Đơn hàng thô
-			xoathu("pingzheng_escort_001")
-		end
+			--xoathu("pingzheng_escort_001")
+		--end
 	else	
 		isDelRunning = false
 		nx_execute(Logic, "Stop")
@@ -107,4 +109,12 @@ end
 
 function show_hide_form_vt()
 	util_auto_show_hide_form("admin_zdn\\form_zdn_escort")
+end
+
+function is_delete_mail()
+	return Form.chk_delmail.Checked
+end
+
+function is_auto_accept_pt()
+	return Form.chk_party.Checked
 end
