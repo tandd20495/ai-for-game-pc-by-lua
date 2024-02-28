@@ -1,6 +1,8 @@
+-- Declacre libraries
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
 
+-- Implement function
 function xabac()
 	-- Get X/Z current
 	local game_visual = nx_value("game_visual")
@@ -50,4 +52,5 @@ function xabac()
 	end
 end
 
+-- Run function
 xabac()

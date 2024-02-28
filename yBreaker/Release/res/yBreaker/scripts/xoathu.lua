@@ -1,3 +1,4 @@
+-- Declacre libraries
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 -- Các định nghĩa trong hộp thư
@@ -67,7 +68,8 @@ function getItemInMail(str_goods)
     return nx_string(configid)
 end
 
-function xoathu(item_del)
+-- Delete mail
+function del_mail(item_del)
 	local Recv_rec_name = "RecvLetterRec"
 	local game_client = nx_value("game_client")
     local player_client = game_client:GetPlayer()
@@ -111,7 +113,7 @@ function loopXoaThu()
 			-- fixitem_002: là công cục sữa chữa
 			-- faculty_yanwu_jhdw06: Minh Linh đan
 			-- Tìm vật phẩm trong file stringname.ides
-			xoathu("faculty_yanwu_jhdw06")
+			del_mail("faculty_yanwu_jhdw06")
 		end
 	end
 end
