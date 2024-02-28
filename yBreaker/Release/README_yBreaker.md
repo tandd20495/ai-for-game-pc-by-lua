@@ -12,7 +12,7 @@ Bước 2: Copy và Replace toàn bộ file (Gồm: bin, res, updater, README_yB
 Bước 3: Vào game bình thường
 
 *** Hướng dẫn cài đặt lại file game gốc Cửu Âm:
-Bước 1: Giải nén org9YIN (Password: 123456)
+Bước 1: Giải nén orgCACK (Password: 123456)
 Bước 2: Copy và Replace toàn bộ file (Folder res gồm: lua.package và skin.package) vừa giải nén vào thư mục Game Cửu Âm Chân Kinh 2 (Mặc định: CuuAmChanKinh2)
 Bước 3: Vào game bình thường (Có thể xóa hoặc k xóa các folder yBreaker thêm vào như: bin\\yBreaker, res\\yBreaker)
 
