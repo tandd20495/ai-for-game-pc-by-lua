@@ -8,7 +8,7 @@
 
 *** Hướng dẫn cài đặt yBreaker ver1.0:
 Bước 1: Giải nén yBreaker_v1.0 (Password: haohoa)
-Bước 2: Copy và Replace toàn bộ file (Gồm: bin, res, README_yBreaker.md) vừa giải nén vào thư mục Game Cửu Âm Chân Kinh 2 (Mặc định: CuuAmChanKinh2)
+Bước 2: Copy và Replace toàn bộ file (Gồm: bin, res, updater, README_yBreaker.md) vừa giải nén vào thư mục Game Cửu Âm Chân Kinh 2 (Mặc định: CuuAmChanKinh2)
 Bước 3: Vào game bình thường
 
 *** Hướng dẫn cài đặt lại file game gốc Cửu Âm:
