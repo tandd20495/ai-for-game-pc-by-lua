@@ -4,7 +4,7 @@ require("util_gui")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local Logic = "admin_zdn\\zdn_logic_escort"
---local THIS_FORM = "admin_zdn\\form_zdn_escort"
+local THIS_FORM = "admin_zdn\\form_zdn_escort"
 
 local escortName = {
 	["zdn_escort_name_1"]= "Thành Đô - Kim Châm",
@@ -112,9 +112,17 @@ function show_hide_form_vt()
 end
 
 function is_delete_mail()
-	return Form.chk_delmail.Checked
+	local form = nx_value(THIS_FORM)
+    if not nx_is_valid(form) then
+        return
+    end
+	return form.chk_delmail.Checked
 end
 
 function is_auto_accept_pt()
-	return Form.chk_party.Checked
+	local form = nx_value(THIS_FORM)
+    if not nx_is_valid(form) then
+        return
+    end
+	return form.chk_party.Checked
 end
