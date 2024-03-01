@@ -221,7 +221,7 @@
 		<control name="groupbox_highest_priority1" entity="GroupBox" script="" init="">
 				<prop Left="-740" Top="340" Width="380" Height="550" BackColor="0,255,255,255" ShadowColor="0,0,0,0" HAnchor="Right" NoFrame="true" DrawMode="Expand"  />        
 				<control name="lbl_title" entity="Label" script="" init="">
-					  <prop RefCursor="WIN_HELP" Left="5" Top="10" Width="70" Height="16" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Text="... for Monmeomeo" Font="font_title" />
+					  <prop RefCursor="WIN_HELP" Left="5" Top="10" Width="70" Height="16" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Text="yBreaker a.k.a HàoHoa" Font="font_title" />
 				</control>
 				 <control name="lbl_title" entity="Label" script="" init="">
 					  <prop RefCursor="WIN_HELP" Left="5" Top="40" Width="70" Height="16" ForeColor="255,255,0,100" ShadowColor="0,0,0,0" Text="Danh sách tài khoản" Font="font_main" />
