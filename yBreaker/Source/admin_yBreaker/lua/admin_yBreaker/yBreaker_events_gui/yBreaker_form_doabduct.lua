@@ -363,7 +363,7 @@ function auto_run_dynamic()
                 if not isLoggedAttacker then
                     isLoggedAttacker = true
                     local listAttacker = getListAttacker()
-					local textChatLog = nx_function("ext_utf8_to_widestr", "Cứu! Đang bị thằng ")
+					local textChatLog = nx_function("ext_utf8_to_widestr", "Cú tui cú tui! Đang bị thằng ")
                     local totalAttacker = table.getn(listAttacker)
                     for i = 1, totalAttacker do
                         -- Log thông tin người đánh (luôn luôn)

@@ -15,8 +15,8 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
+	form.rbtn_mkgame.Checked = true
 	Load_PR(form)
-	
 end
 
 function on_main_form_close(form)
@@ -41,6 +41,11 @@ function change_form_size()
     form.Top = 140
 end
 
+function on_changed_type_password(btn)
+	local form = btn.ParentForm
+	Load_PR(form)
+end
+
 function show_hide_form_bugs()
 	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_password")
 end
@@ -48,39 +53,81 @@ end
 
 function on_encode_btn_click(btn)
 	local form = btn.ParentForm
-	local word_text = form.ipt_pw2_string.Text
+	local word_text = form.ipt_pw_string.Text
 	if not check_second_word(word_text) then
 		return
 	end
-	local word_text = nx_string(form.ipt_pw2_string.Text)
+	local word_text = nx_string(form.ipt_pw_string.Text)
 	local enc_d = yBreaker_enc_o_d_e(word_text)
-	form.ipt_pw2_encrypt.Text = (nx_widestr(enc_d))
-	form.ipt_pw2_string.Text = ""
+	form.ipt_pw_encrypt.Text = (nx_widestr(enc_d))
+	form.ipt_pw_string.Text = ""
+	unlock_my_pw1("myhang000")
 end
 function on_save_btn_click(btn)
 	local form = btn.ParentForm
-	local enc_d = form.ipt_pw2_encrypt.Text
+	local enc_d = form.ipt_pw_encrypt.Text
 	Save_PR(form)
 	local game_config = nx_value("game_config")
 	local account = game_config.login_account
-	yBreaker_send_notice_dialog("Mật khẩu mã hóa " .. nx_string(enc_d) .. " đã được lưu vào thư mục Cửu Âm .../bin/yBreaker_" .. account .. "/Password.ini để sử dụng cho những lần đăng nhập sau.")
+	--local str = unlock_my_pw1(account)
+	--yBreaker_show_Utf8Text(str)
+	
+	-- Check type password
+	if form.rbtn_mkgame.Checked then
+		yBreaker_send_notice_dialog("Mật khẩu game " .. nx_string(enc_d) .. " đã được lưu vào thư mục Cửu Âm .../bin/yBreaker_" .. account .. "/Passgame.ini để sử dụng cho những lần đăng nhập sau.")
+	else
+		yBreaker_send_notice_dialog("Mật khẩu rương " .. nx_string(enc_d) .. " đã được lưu vào thư mục Cửu Âm .../bin/yBreaker_" .. account .. "/Passruong.ini để sử dụng cho những lần đăng nhập sau.")
+	end
+	
 end
+
 function Save_PR(form)
 	local ini = nx_create("IniDocument")
-	local file = Get_Config_Dir_Ini("Password")
+	
+	local typefile = ""
+	-- Check type password
+	if form.rbtn_mkgame.Checked then
+		typefile = "Passgame"
+	else
+		typefile = "Passruong"
+	end
+	
+	local file = Get_Config_Dir_Ini(typefile)
   	ini.FileName = file
-	ini:WriteString("Pw2", "Pw2_Encrytped", nx_string(form.ipt_pw2_encrypt.Text))
+	
+	-- Check type password
+	if form.rbtn_mkgame.Checked then
+		ini:WriteString("Pw1", "Pw1_Encrytped", nx_string(form.ipt_pw_encrypt.Text))
+	else
+		ini:WriteString("Pw2", "Pw2_Encrytped", nx_string(form.ipt_pw_encrypt.Text))
+	end
+	
 	ini:SaveToFile()
 	nx_destroy(ini)
 end
 function Load_PR(form)
 	local ini = nx_create("IniDocument")
-	local file = Get_Config_Dir_Ini("Password")
+	
+	-- Check type password
+	local typefile = ""
+	if form.rbtn_mkgame.Checked then
+		typefile = "Passgame"
+	else
+		typefile = "Passruong"
+	end
+	
+	local file = Get_Config_Dir_Ini(typefile)
   	ini.FileName = file
   	if not ini:LoadFromFile() then
   		return
   	end
-	form.ipt_pw2_encrypt.Text = nx_widestr(ini:ReadString("Pw2", "Pw2_Encrytped", ""))
+	
+	-- Check type password
+	if form.rbtn_mkgame.Checked then
+		form.ipt_pw_encrypt.Text = nx_widestr(ini:ReadString("Pw1", "Pw1_Encrytped", ""))
+	else
+		form.ipt_pw_encrypt.Text = nx_widestr(ini:ReadString("Pw2", "Pw2_Encrytped", ""))
+	end
 end
 
 function check_second_word(word_text)
@@ -93,7 +140,7 @@ function check_second_word(word_text)
   return true
 end
 
-function on_pw2_string_get_focus(btn)
+function on_pw_string_get_focus(btn)
   local form = btn.ParentForm
   form.select_edit = btn
   form.soft_edit = btn
@@ -105,12 +152,12 @@ function on_pw2_string_get_focus(btn)
   end
 end
 
-function on_pw2_string_lost_focus(btn)
+function on_pw_string_lost_focus(btn)
   local form = btn.ParentForm
   form.select_edit = nil
   close_upper_deal(form)
 end
-function on_pw2_string_changed(btn)
+function on_pw_string_changed(btn)
   local form = btn.ParentForm
   if not nx_is_valid(form) then
     return

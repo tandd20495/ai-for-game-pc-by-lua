@@ -45,7 +45,125 @@ function refresh_registe(form)
   form.btn_regist.Visible = show_registe
   form.lbl_21.Visible = show_registe
 end
+--[ Script Autologin of yBreaker
+create_multitextbox = function(script_name, call_back_func_name, text, data_source, style)
+	local multitextbox = nx_value('gui'):Create('MultiTextBox')	
+	multitextbox.DrawMode = 'Expand'
+	multitextbox.LineColor = '0,0,0,0'
+	multitextbox.Solid = false
+	multitextbox.AutoSize = false
+	multitextbox.Font = 'font_text_title1'
+	multitextbox.LineTextAlign = 'Top'	
+	multitextbox.SelectBarColor = '0,0,0,0'
+	multitextbox.MouseInBarColor = '0,0,0,0'
+	multitextbox.BackColor = '0,255,255,255'
+	multitextbox.ViewRect = '12,12,260,70'
+	multitextbox.Width = 260	
+	multitextbox.HtmlText = nx_widestr('<a style="'..nx_string(style)..'"> ' .. nx_string(text) .. '</a>') -- 
+	multitextbox.Height = multitextbox:GetContentHeight() + 5
+	multitextbox.Left = 10
+	multitextbox.Top = 0		
+	multitextbox.DataSource = nx_string(data_source)
+	nx_bind_script(multitextbox, nx_string(script_name))
+	nx_callback(multitextbox, 'on_click_hyperlink', nx_string(call_back_func_name))
+	return multitextbox
+end
+wstrToUtf8 = function(content)
+	return nx_function('ext_widestr_to_utf8', content)
+end 
+function removeEmptyItems(input) 
+	for i = #input, 1, -1 do 
+		if input[i] == nil or input[i] == '' then 
+			table.remove(input, i) 
+		end 
+	end 
+	return input
+end  
+function auto_split_string(input, splitChar) 
+	local t = util_split_string(input, splitChar) 
+	return removeEmptyItems(t) 
+end  
+load_account_by_dir = function(form)
+	local file_ini = nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','add_file_res','list_id')
+	local ini = nx_create("IniDocument")
+	if not nx_is_valid(ini) then
+        return
+    end	
+	local grid = form.textgrid_pos	
+	grid:ClearRow()
+	grid:ClearSelect()
+	ini.FileName = file_ini
+	if ini:LoadFromFile() then	
+		if ini:FindSection('list_acc') then
+			local list_acc = wstrToUtf8(nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','readIni',file_ini,'list_acc','list_id',''))			
+			local count_pos = auto_split_string(list_acc,',')	
+			if table.getn(count_pos) > 0 then
+				for j = 1,table.getn(count_pos) do
+					local multitextbox = create_multitextbox('form_stage_login\\form_login','on_click_hyper_enter_acc',count_pos[j],count_pos[j],'HLStypebargaining')
+					local del = create_multitextbox('form_stage_login\\form_login', 'on_click_btn_del', 'Xoas',count_pos[j], 'HLStypebargaining')
+					gridAndFunc(grid,multitextbox,del)
+				end	
+			end
+		end
+	end	
+end
+btn_add_start = function(btn)
+	local form = btn.ParentForm
+	local txt_list = form.edt_add_account.Text
+	local file_ini = nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','add_file_res','list_id')
+	local list_acc = wstrToUtf8(nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','readIni',file_ini,'list_acc','list_id',''))
+	local count_pos = auto_split_string(list_acc,',')
+	local list_id = ''
+	if string.find(nx_string(list_acc), nx_string(txt_list), 1, true) then
+		return
+	end
+	table.insert(count_pos,nx_string(txt_list))
+	if table.getn(count_pos) < 0 then return end	
+	for j = 1,table.getn(count_pos) do
+		if count_pos[j] ~= "" and count_pos[j] ~= '0' then
+			list_id = list_id..count_pos[j]..','		
+		end
+	end	
+	nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','writeIni',file_ini,'list_acc','list_id',list_id)
+	load_account_by_dir(form)
+end
+on_click_btn_del = function(btn)
+	local form = btn.ParentForm
+	local data = btn.DataSource		
+	local data_item = ''
+	local file_ini = nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','add_file_res','list_id')
+	local list_acc = wstrToUtf8(nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','readIni',file_ini,'list_acc','list_id',''))
+	local count_pos = auto_split_string(list_acc,',')
+	if table.getn(count_pos) < 0 then return end	
+	for i =1, table.getn(count_pos) do	
+		if count_pos[i] == data then			
+			table.remove(count_pos, i)
+		end
+	end
+	for j = 1, table.getn(count_pos) do		
+		data_item = data_item..','..count_pos[j]
+	end
+	nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','writeIni',file_ini,'list_acc','list_id',data_item)
+	load_account_by_dir(form)
+end
+function gridAndFunc(grid,mTextName,del)
+	local form = nx_value('form_stage_login\\form_login')
+	local row = grid:InsertRow(-1)
+	grid:SetGridControl(row, 0, mTextName)	
+	grid:SetGridControl(row, 1, del)	
+end
+on_click_hyper_enter_acc = function(btn)
+	local form = btn.ParentForm
+	form.ipt_1.Text = nx_widestr(btn.DataSource)
+	nx_pause(0.1)
+	on_btn_enter_click(btn)
+end
+--]
+
 function main_form_open(form)
+--[ Call function of yBreaker
+  load_account_by_dir(form)
+--]
   form.ipt_2.Encrypt = true
   form.groupbox_web_btn.Visible = false
   form.btn_sdo_login.Visible = false
@@ -173,6 +291,27 @@ function main_form_open(form)
     AOWSteamClient:LoginBySteam(form)
     try_login_game(form)
   end
+--[Tự động log acc theo danh sách để luyện chí bảo.
+--if string.find(game_config.login_account, 'autocack_', 1, true) then
+--		local account = string.sub(game_config.login_account, 10)
+--		form.ipt_1.Text = nx_widestr(account)
+--		local saved_password = nx_execute('auto_new\\autocack','set_pass_login',account)
+--		local saved_password = "myhang"
+--		nx_pause(2)
+--		if saved_password ~= nil then
+--			form.ipt_2.Text = nx_widestr("")
+--			form.ipt_2:Append(nx_function("ext_utf8_to_widestr", saved_password))
+--			password = nx_string(form.ipt_2.Text)
+--			game_config.save_account = false
+--			game_config.login_account = nx_string(account)
+--			nx_pause(1)
+--			game_config.login_password = nx_string(password)
+--			try_login_game(form)
+--		else
+--			nx_msgbox("not pass to login")
+--		end
+--end
+--]	
 end
 function main_form_close(form)
   local timer = nx_value(GAME_TIMER)
@@ -296,8 +435,21 @@ function on_btn_enter_click(self)
     return 0
   end
   if password == "" and "" == login_validate then
-    disp_error(util_text("ui_NotInputPassword"))
-    return 0
+
+--[Auto set passgame for auto login of yBreaker
+	local passgame = nx_execute('admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs','unlock_my_pw1', account)
+	nx_pause(0.5)
+	if passgame ~= nil then
+		form.ipt_2.Text = nx_widestr("")
+		form.ipt_2:Append(nx_function("ext_utf8_to_widestr",passgame))	
+		nx_pause(0.5)	
+		password = nx_string(form.ipt_2.Text)		
+	else
+		disp_error(util_text("ui_NotInputPassword"))
+		return 0
+	end 
+--]
+
   end
   if string.len(account) < 2 then
     disp_error(util_text("ui_NotInputAccountLength"))
@@ -313,19 +465,23 @@ function on_btn_enter_click(self)
   local account = game_config.login_account
   local exe_path = nx_function("ext_get_current_exe_path")
   nx_function("ext_create_directory", exe_path .. account)
-  local gui = nx_value("gui")
-  local is_need_login_tips = nx_execute("form_stage_login\\form_login_tips", "is_need_login_tips")
-  local form_login_tips = util_get_form("form_stage_login\\form_login_tips", true)
-  if is_need_login_tips and nx_is_valid(form_login_tips) then
-    form_login_tips.Top = (gui.Desktop.Height - form_login_tips.Height) / 2
-    form_login_tips.Left = (gui.Desktop.Width - form_login_tips.Width) / 2
-    form_login_tips.Visible = true
-    form_login_tips:ShowModal()
-    local res = nx_wait_event(100000000, nx_null(), "login_tips")
-    if res ~= "ok" then
-      return
-    end
-  end
+
+--[REM message dialog nhắc nhở khi đăng nhập yBreaker
+--  local gui = nx_value("gui")
+--  local is_need_login_tips = nx_execute("form_stage_login\\form_login_tips", "is_need_login_tips")
+--  local form_login_tips = util_get_form("form_stage_login\\form_login_tips", true)
+--  if is_need_login_tips and nx_is_valid(form_login_tips) then
+--    form_login_tips.Top = (gui.Desktop.Height - form_login_tips.Height) / 2
+--    form_login_tips.Left = (gui.Desktop.Width - form_login_tips.Width) / 2
+--    form_login_tips.Visible = true
+--    form_login_tips:ShowModal()
+--    local res = nx_wait_event(100000000, nx_null(), "login_tips")
+--    if res ~= "ok" then
+--      return
+--    end
+--  end
+--]
+
   try_login_game(form)
   return 1
 end

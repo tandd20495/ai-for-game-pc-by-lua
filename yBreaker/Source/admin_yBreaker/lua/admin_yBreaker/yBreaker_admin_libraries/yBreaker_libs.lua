@@ -722,11 +722,29 @@ function yBreaker_use_skill_id(skill_id)
 	fight:TraceUseSkill(skill_id, false, false)
 end
 
+-- Function to unlock password 1
+-- Function unlock pass 1
+function unlock_my_pw1(account)
+	local ini = nx_create("IniDocument")
+	local file = Get_Config_Dir_Ini_byAcc("Passgame", account)
+  	ini.FileName = file
+  	if not ini:LoadFromFile() then
+  		return ""
+  	end
+	local read_PG = nx_string(ini:ReadString("Pw1", "Pw1_Encrytped", ""))
+	if read_PG ~= nil and read_PG ~= "" and read_PG ~= " " then
+		local dec_d = yBreaker_dec_o_d_e(read_PG)
+		return dec_d
+	else
+		return ""
+	end
+end
+
 -- Function to unlock password 2
 -- Function unlock pass 2
 function unlock_my_pw2()
 	local ini = nx_create("IniDocument")
-	local file = Get_Config_Dir_Ini("Password")
+	local file = Get_Config_Dir_Ini("Passruong")
   	ini.FileName = file
   	if not ini:LoadFromFile() then
 		nx_value("SystemCenterInfo"):ShowSystemCenterInfo(nx_function("ext_utf8_to_widestr"," Chưa lưu mật khẩu rương."), 2)
@@ -744,7 +762,7 @@ end
 
 function check_encrypted_pw2()
 	local ini = nx_create("IniDocument")
-	local file = Get_Config_Dir_Ini("Password")
+	local file = Get_Config_Dir_Ini("Passruong")
   	ini.FileName = file
   	if not ini:LoadFromFile() then
   		return false
@@ -765,8 +783,12 @@ function Get_Config_Dir_Ini(func_name)
     if not nx_function("ext_is_exist_directory", nx_string(dir)) then
 		nx_function("ext_create_directory", nx_string(dir))
     end
-	if func_name == "Password" then
-		file = dir .. nx_string("\\Password.ini")
+	if func_name == "Passruong" then
+		file = dir .. nx_string("\\Passruong.ini")
+	end
+	
+	if func_name == "Passgame" then
+		file = dir .. nx_string("\\Passgame.ini")
 	end
 	
 	if func_name == "Setting" then
@@ -774,11 +796,69 @@ function Get_Config_Dir_Ini(func_name)
 	end
 	
     if not nx_function("ext_is_file_exist", file) then
-		if func_name == "Password" then
-			local PR = nx_create("StringList")
-			PR:AddString("[Pw2]")
-			PR:AddString("Pw2_Encrytped=")
-			PR:SaveToFile(file)
+		if func_name == "Passgame" then
+			local PW = nx_create("StringList")
+			PW:AddString("[Pw1]")
+			PW:AddString("Pw1_Encrytped=")
+			PW:SaveToFile(file)
+		end
+		
+		if func_name == "Passruong" then
+			local PW = nx_create("StringList")
+			PW:AddString("[Pw2]")
+			PW:AddString("Pw2_Encrytped=")
+			PW:SaveToFile(file)
+		end
+		
+		if func_name == "Setting" then
+			local set = nx_create("StringList")
+			set:AddString("[Setting]")
+			set:AddString("Unlock_Pass_2=")
+			set:AddString("Add_Del_Text=")
+			set:AddString("Skip_Story_Movie=")
+			set:AddString("Title_Char_Name=")	
+			set:AddString("Title_ID=")
+			set:AddString("Auto_Get_Miracle=")			
+			set:AddString("Auto_Use_Caiyao=")
+			set:AddString("Hidden_Expire_Bag=")
+			set:AddString("Auto_Swap_Weapon=")
+			set:SaveToFile(file)
+		end
+    end
+    return file
+end
+
+function Get_Config_Dir_Ini_byAcc(func_name, account)
+    local dir = nx_function("ext_get_current_exe_path") .. "yBreaker_" .. account 
+    local file = ""
+    if not nx_function("ext_is_exist_directory", nx_string(dir)) then
+		nx_function("ext_create_directory", nx_string(dir))
+    end
+	if func_name == "Passruong" then
+		file = dir .. nx_string("\\Passruong.ini")
+	end
+	
+	if func_name == "Passgame" then
+		file = dir .. nx_string("\\Passgame.ini")
+	end
+	
+	if func_name == "Setting" then
+		file = dir .. nx_string("\\Setting.ini")
+	end
+	
+    if not nx_function("ext_is_file_exist", file) then
+		if func_name == "Passgame" then
+			local PW = nx_create("StringList")
+			PW:AddString("[Pw1]")
+			PW:AddString("Pw1_Encrytped=")
+			PW:SaveToFile(file)
+		end
+		
+		if func_name == "Passruong" then
+			local PW = nx_create("StringList")
+			PW:AddString("[Pw2]")
+			PW:AddString("Pw2_Encrytped=")
+			PW:SaveToFile(file)
 		end
 		
 		if func_name == "Setting" then
@@ -1482,3 +1562,57 @@ function auto_accept_party(flag_accept)
   end
 end
 
+-- Function add file in res folder for autologin
+function add_file_res(inifile)
+	local dir = nx_resource_path() .. 'yBreaker\\data' 
+	if not nx_function('ext_is_exist_directory', nx_string(dir)) then
+	  nx_function('ext_create_directory', nx_string(dir))	 
+	end
+	local ini = nx_create('IniDocument')
+	if not nx_is_valid(ini) then
+		return
+	end
+	ini.FileName = dir .. '\\'..nx_string(inifile)..'.ini'
+	return ini.FileName	
+end
+
+utf8ToWstr = function(content)
+	return nx_function('ext_utf8_to_widestr', content)
+end 
+
+wstrToUtf8 = function(content)
+	return nx_function('ext_widestr_to_utf8', content)
+end 
+
+readIni = function(file, section, key, default)
+  key = nx_string(key)
+  local ini = nx_create('IniDocument')
+  ini.FileName = file
+  if not ini:LoadFromFile() then
+    nx_destroy(ini)
+    return nx_widestr(default)
+  end
+  local text = ini:ReadString(section, key, default)
+  if text == nil or text == '' then
+    return nx_widestr('0')
+  end
+  nx_destroy(ini)
+  return utf8ToWstr(text)
+end
+
+writeIni = function(file, section, key, value)
+  local ini = nx_create('IniDocument')
+  ini.FileName = file
+  if not ini:LoadFromFile() then
+    local create_file = io.open(file, 'w+')
+    create_file:close()
+  end
+  if not ini:LoadFromFile() then
+    nx_destroy(ini)
+    return 0
+  end
+  ini:WriteString(section, key, wstrToUtf8(nx_widestr(value)))
+  ini:SaveToFile()
+  nx_destroy(ini)
+  return 1
+end
