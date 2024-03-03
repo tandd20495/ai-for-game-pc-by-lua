@@ -145,7 +145,6 @@ function build_start_count()
 		return
 	end
 	for i = 1, table.getn(array_type) do
-		yBreaker_show_Utf8Text("build_start_count-for")
 		nx_pause(0)
 		form[data_config_count[array_type[i]]].Text = nx_widestr(data_stat_count[array_type[i]])
 	end
