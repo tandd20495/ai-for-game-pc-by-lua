@@ -13,7 +13,6 @@ local FORM_MAIN_FACE_CHAT = "form_stage_main\\form_main\\form_main_face_chat"
 local FORM_MAIN_FACE = "form_stage_main\\form_main\\form_main_face"
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_chat"
 
-local is_running = false
 local data_config_checkbox = {
 	[CHATTYPE_VISUALRANGE] = "cbtn_chat_visualrange",
 	[CHATTYPE_SCENE] = "cbtn_chat_scene",
@@ -103,14 +102,14 @@ function loop_chat()
 					chattimeout = 20
 				end
 				-- Kiểm tra
-				if form[data_config_checkbox[chattype]].Checked == true and (data_last_chat[chattype] == 0 or yBreaker_time_diff(data_last_chat[chattype]) >= chattimeout) then
+				if form[data_config_checkbox[chattype]].Checked == true and (data_last_chat[chattype] == 0 or os.difftime(os.time(), data_last_chat[chattype]) >= chattimeout) then
 					data_last_chat[chattype] = os.time()
 					data_stat_count[chattype] = data_stat_count[chattype] + 1
 					chat_content = nx_function("ext_ws_replace", nx_widestr(chat_content), nx_widestr("<font face=\"font_title_tasktrace\" color=\"#ffffff\" >"), nx_widestr(""))
 					chat_content = nx_function("ext_ws_replace", nx_widestr(chat_content), nx_widestr("</font>"), nx_widestr(""))
 					nx_execute("custom_sender", "custom_chat", nx_int(chattype), nx_widestr(chat_content))
 				end
-				build_stat_count()
+				build_start_count()
 				chat_step = chat_step - 1
 			end
 		end
@@ -118,7 +117,7 @@ function loop_chat()
 	end
 end
 
-function reset_stat()
+function reset_start()
 	data_stat_count = {
 		[CHATTYPE_VISUALRANGE] = 0,
 		[CHATTYPE_SCENE] = 0,
@@ -140,12 +139,14 @@ function reset_stat()
 		[CHATTYPE_NEW_SCHOOL] = 0
 	}
 end
-function build_stat_count()
+function build_start_count()
 	local form = nx_value(THIS_FORM)
 	if not nx_is_valid(form) then
 		return
 	end
 	for i = 1, table.getn(array_type) do
+		yBreaker_show_Utf8Text("build_start_count-for")
+		nx_pause(0)
 		form[data_config_count[array_type[i]]].Text = nx_widestr(data_stat_count[array_type[i]])
 	end
 end
@@ -155,8 +156,8 @@ function on_form_main_init(form)
 end
 function on_main_form_open(form)
 	change_form_size()
-	form.is_minimize = false
-	is_running = false
+	--form.is_minimize = false
+	--is_running = false
 	form.ipt_search_key.Text = nx_widestr(util_text("ui_trade_search_key"))
 	form.combobox_itemname.config = false
 	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
@@ -166,6 +167,12 @@ function on_main_form_close(form)
 	is_running = false
 	nx_destroy(form)
 end
+
+function on_btn_minimize_click(btn)
+  local form = btn.ParentForm
+  form.Visible = false
+end
+
 function on_btn_close_click(btn)
 	local form = nx_value(THIS_FORM)
 	if not nx_is_valid(form) then
@@ -179,8 +186,8 @@ function on_btn_control_click(btn)
 		return
 	end
 	chat_step = table.getn(array_type)
-	reset_stat()
-	build_stat_count()
+	reset_start()
+	build_start_count()
 	if is_running then
 		is_running = false
 		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
@@ -189,7 +196,8 @@ function on_btn_control_click(btn)
 		is_running = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
 		btn.ForeColor = "255,220,20,60"
-		loop_chat()
+		
+		loop_chat(is_running)
 	end
 end
 function change_form_size()
