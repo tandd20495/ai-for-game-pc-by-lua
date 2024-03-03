@@ -11,8 +11,8 @@ Bước 1: Giải nén yBreaker_v1.0 (Password: haohoa)
 Bước 2: Copy và Replace toàn bộ file (Gồm: bin, res, updater, README_yBreaker.md) vừa giải nén vào thư mục Game Cửu Âm Chân Kinh 2 (Mặc định: CuuAmChanKinh2)
 Bước 3: Vào game bình thường
 
-*** Hướng dẫn cài đặt lại file game gốc Cửu Âm:
-Bước 1: Giải nén orgCACK (Password: 123456)
+*** Hướng dẫn cài đặt lại file gốc game Cửu Âm:
+Bước 1: Giải nén orgCACK
 Bước 2: Copy và Replace toàn bộ file (Folder res gồm: lua.package và skin.package) vừa giải nén vào thư mục Game Cửu Âm Chân Kinh 2 (Mặc định: CuuAmChanKinh2)
 Bước 3: Vào game bình thường (Có thể xóa hoặc k xóa các folder yBreaker thêm vào như: bin\\yBreaker, res\\yBreaker)
 
@@ -29,13 +29,13 @@ Bước 3: Vào game bình thường (Có thể xóa hoặc k xóa các folder y
 + Không bị mất kết nối ở màn hình đăng nhập.
 
 *** Các tính năng tiêu biểu:
-/help or /HELP 				: Hướng dẫn sử dụng lệnh trong yBreaker.
-/pw or /PW					: Mã hóa và lưu mật khẩu rương để dùng chức năng tự mở rương tại /set
-/yt or /YT or ấn phím F12	: Để bật giao diện chính của yBreaker (Thay đồ, Thiết lập, Đổi mạch, PVP, Quét quanh, Ngoại lệ, Tích THBB, Cầm sư, Ấn phím, Thần hành, Tạp hóa, Sửa đồ, Trợ lý, Mở rộng, Hỗ trợ)
-/tl or /TL					: Chạy tác vụ hàng ngày/ tuần (Gồm: Luyện công, Thụ nghiệp, Vận tiêu, Hào kiệt, Do thám, NV nội 6, Lăng tiêu thành, Cắn nội tu)
-/at or /AT					: Tính năng mở rộng (Gồm: Rao hàng, bày bán, Dùng vật phẩm, Trồng trọt, Săn bắt, Hái lượm, Câu cá, Luyện tửu, Gửi thư, Luyện công, Thụ nghiệp, Vận tiêu, Nội 6, Lăng tiêu thành, Tình dao cung)
-/set or /SET				: Cài đặt khác (Gồm: Tự mở rương, Tự thêm chữ Xóa, Bỏ qua cốt truyện, Đổi tiêu đề client thành tên nhân vật, Đổi tiêu đề thành tên tài khoản, Tự nhận kỳ ngộ, Tự ăn bánh bao, Tự đổi vũ khí theo kĩ năng và đồ 30%)
-/pvc or /PVC				: Thay đồ PVC (Có 2 mode: 1. Lưu đã chọn và tự kích hoạt thay PVC khi đổi trang bị, 2. Không lưu)
+/yt 	or /YT or ấn phím F12	: Để bật giao diện chính của yBreaker (Thay đồ, Thiết lập, Đổi mạch, PVP, Quét quanh, Ngoại lệ, Tích THBB, Cầm sư, Ấn phím, Thần hành, Tạp hóa, Sửa đồ, Trợ lý, Mở rộng, Hỗ trợ)
+/help 	or /HELP 				: Hướng dẫn sử dụng lệnh trong yBreaker.
+/pw 	or /PW					: Mã hóa và lưu mật khẩu rương để dùng chức năng tự đăng nhập khi click lên tài khoản ở màn hình login và tự mở rương tại /set
+/tl 	or /TL					: Chạy tác vụ hàng ngày/ tuần (Gồm: Luyện công, Thụ nghiệp, Vận tiêu, Hào kiệt, Do thám, NV nội 6, Lăng tiêu thành, Cắn nội tu)
+/at 	or /AT					: Tính năng mở rộng (Gồm: Rao hàng, bày bán, Dùng vật phẩm, Trồng trọt, Săn bắt, Hái lượm, Câu cá, Luyện tửu, Gửi thư, Luyện công, Thụ nghiệp, Vận tiêu, Nội 6, Lăng tiêu thành, Tình dao cung)
+/set 	or /SET					: Cài đặt khác (Gồm: Tự mở rương, Tự thêm chữ Xóa, Bỏ qua cốt truyện, Đổi tiêu đề client thành tên nhân vật, Đổi tiêu đề thành tên tài khoản, Tự nhận kỳ ngộ, Tự ăn bánh bao, Tự đổi vũ khí theo kĩ năng và đồ 30%)
+/pvc 	or /PVC					: Thay đồ PVC (Có 2 mode: 1. LƯU đồ đã chọn và tự kích hoạt thay PVC khi đổi trang bị, 2. KHÔNG LƯU)
  
 *** Các tính năng cày cuốc:
 /lc 		or /LC			: Luyện công (Có thể LC tại chỗ)
