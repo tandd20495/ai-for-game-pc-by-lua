@@ -1,0 +1,1 @@
+https://www.andnixsh.com/2019/12/lua-luac-decryption-and-encryption-to.html
