@@ -41,7 +41,7 @@
         </control>
 				
 	    <control name="chk_relive" entity="CheckButton" script="" init="">
-            <prop HintText="Tự trị thương lân cận <br>Phạm vi áp dụng: Cả boom và buff" Left="122" Top="97" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop HintText="Tự trị thương lân cận." Left="122" Top="97" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
             <event on_checked_changed="" />
         </control>
         <control name="lbl_relive" entity="Label" script="" init="">
@@ -49,16 +49,16 @@
         </control>
 		
 		<control name="chk_autorun" entity="CheckButton" script="" init="">
-            <prop HintText="Check vào sẽ di chuyển theo tọa độ đã thiết lập. <br>Bỏ check sẽ tự di chuyển theo mục tiêu tên nhân vật hoặc bang." Left="15" Top="97" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop HintText="&lt;font color=&apos;#f6b93b&apos;&gt;•Tick:&lt;/font&gt; vào sẽ di chuyển theo tọa độ đã thiết lập. <br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Bỏ Tick:&lt;/font&gt; sẽ tự di chuyển theo mục tiêu đã chọn (tên nhân vật hoặc bang)." Left="15" Top="97" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
             <event on_checked_changed="" />
         </control>
         <control name="lbl_autonrun" entity="Label" script="" init="">
             <prop RefCursor="WIN_HELP" Left="33" Top="97" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Di chuyển" Font="font_text_figure 30px" />
         </control>
 		
-		<control name="btn_setting" entity="Button" script="" init="">
-		<prop HintText="Thiết lập tọa độ di chuyển." Left="55" Top="97" Width="16" Height="16" NormalImage="gui\common\button\btn_set_out.png" FocusImage="gui\common\button\btn_set_on.png" PushImage="gui\common\button\btn_set_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_btn" TabStop="true" NoFrame="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
-		<event on_click="" />
+		<control name="btn_setting" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_boombuff_pos_setting" init="">
+		<prop HintText="Thiết lập tọa độ di chuyển." Left="90" Top="97" Width="16" Height="16" NormalImage="gui\common\button\btn_set_out.png" FocusImage="gui\common\button\btn_set_on.png" PushImage="gui\common\button\btn_set_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_btn" TabStop="true" NoFrame="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+		<event on_click="show_hide_form_pos_setting" />
 		</control>
 		<!--
 		<control name="chk_acceptreq" entity="CheckButton" script="" init="">

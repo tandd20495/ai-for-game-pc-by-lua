@@ -1,3 +1,4 @@
+require("util_gui")
 require("util_functions")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_util")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_form_common")
@@ -350,4 +351,9 @@ function getVisualObj(obj)
 		return
 	end
 	return nx_value("game_visual"):GetSceneObj(obj.Ident)
+end
+
+-- Show hide form blink
+function show_hide_form_pos_setting()
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_boombuff_pos_setting")
 end
