@@ -205,8 +205,5 @@ function on_btn_relogin_click(btn)
 end
 function on_btn_cancel_click(btn)
   on_close_form(btn)
-end
-
-function on_btn_auto_click(btn)
-	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
+  util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_main")
 end

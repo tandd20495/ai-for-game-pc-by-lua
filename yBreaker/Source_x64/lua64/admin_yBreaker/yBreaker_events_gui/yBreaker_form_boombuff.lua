@@ -3,6 +3,7 @@ require("util_move") -- Xac dinh toa do distance3d
 require("share\\chat_define")
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_lib_moving")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_boombuff"
 local is_start = false
@@ -44,7 +45,7 @@ function on_btn_start_click(btn)
 	UpdateStatus()
 	while is_start do
 		-- Tránh bị treo game trong vòng lặp (Nếu trong while do không có nx_pause(0.1) sẽ bị treo game)
-		nx_pause(0.1)	
+		nx_pause(0.2)	
 		
 		local is_vaild_data = true
         local game_client
@@ -81,8 +82,30 @@ function on_btn_start_click(btn)
 			return
 		end
 		
+		local form_player_set = nx_value("admin_yBreaker\\yBreaker_form_boombuff_player_setting")
+		--if not nx_is_valid(form_player_set) then
+		--	return
+		--end
+		
+		local form_guild_set = nx_value("admin_yBreaker\\yBreaker_form_boombuff_guild_setting")
+		--if not nx_is_valid(form_guild_set) then
+		--	return
+		--end
+		
+		-- Nếu bị chết thì trị thương lân cận
+		if form.chk_relive.Checked then
+			
+			local logicstate = player_client:QueryProp("LogicState")
+			if logicstate == 120 then
+				nx_pause(2)
+				nx_execute("custom_sender", "custom_relive", 2, 0)
+				nx_pause(8)
+				--break
+			end
+		end
+		
 		if is_vaild_data == true then
-			-- Mode Boom
+			-- MODE BUFF
 			if form.rbtn_buff.Checked then
 				local game_scence_objs = game_scence:GetSceneObjList()
 				local num_objs = table.getn(game_scence_objs)
@@ -94,7 +117,7 @@ function on_btn_start_click(btn)
 					end	
 					
 					-- Handle for Player checked
-					if form.chk_player.Checked or form.chk_guild.Checked then 
+					--if form.chk_player.Checked or form.chk_guild.Checked then  -- Chỉ cần check 1 trong 2 là sẽ lấy tên ở tên nhân vật để buff acc tên bang
 						-- Type 2 là người chơi
 						if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
 						
@@ -102,7 +125,18 @@ function on_btn_start_click(btn)
 							local name_guild = game_scence_objs[i]:QueryProp("GuildName")
 							
 							-- Kiểm tra đúng tên thì chọn mục tiêu
-							if name_player == nx_widestr(form.edt_player_txt.Text) or name_guild == nx_widestr(form.edt_guild_txt.Text) then
+							if  form.chk_player.Checked and nx_widestr(name_player) == nx_widestr(form.edt_player_txt.Text) or 
+								nx_is_valid(form_player_set) and form_player_set.chk_player_1.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_1.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_2.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_2.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_3.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_3.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_4.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_4.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_5.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_5.Text)   or
+								form.chk_guild.Checked  	 and nx_widestr(name_guild) == nx_widestr(form.edt_guild_txt.Text) or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_1.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_1.Text)   or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_2.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_2.Text)   or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_3.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_3.Text)   or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_4.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_4.Text)   or
+								nx_is_valid(form_guild_set) and form_guild_set.chk_guild_5.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_5.Text)   then
 								-- Chọn mục tiêu
 								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
 								
@@ -110,15 +144,15 @@ function on_btn_start_click(btn)
 								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
 								local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
 								
-								if form.chk_relive.Checked then
+								--if form.chk_relive.Checked then
 									-- Nếu bị chết thì trị thương lân cận
-									local logicstate = player_client:QueryProp("LogicState")
-									if logicstate == 120 then
-										nx_execute("custom_sender", "custom_relive", 2, 0)
-										nx_pause(7)
-										break
-									end
-								end
+								--	local logicstate = player_client:QueryProp("LogicState")
+								--	if logicstate == 120 then
+								--		nx_execute("custom_sender", "custom_relive", 2, 0)
+								--		nx_pause(7)
+								--		break
+								--	end
+								--end
 							
 								if dist_player <= 20 then
 									--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
@@ -166,32 +200,51 @@ function on_btn_start_click(btn)
 										get_buff_info("wuji_buf_CS_tm_ywt07", game_scence_objs[i]) 				then
 										
 										local fight = nx_value("fight")
-										--Use skill buff PTC trạng thái buff (trạng thái tấn công: CS_jh_xfz02)
+										-- Use skill buff PTC trạng thái buff (trạng thái tấn công: CS_jh_xfz02)
 										fight:TraceUseSkill("CS_jh_xfz02_hide", false, false)
+									else
+										local fight = nx_value("fight")
+										
+										-- Use skill attack object
+										--fight:TraceUseSkill("CS_jh_xfz06", false, false)
+										--nx_pause(0.2)
+										--fight:TraceUseSkill("CS_jh_xfz01", false, false)
+										
+										-- Use skill def
+										fight:TraceUseSkill("CS_jh_xfz07", false, false)
+										nx_pause(0.2)
+										fight:TraceUseSkill("CS_jh_xfz03", false, false)
+										nx_pause(0.2)
+										break
 									end
 				
-								else
-									if form.chk_autorun.Checked then				
-										yBreaker_show_Utf8Text("Ngoài phạm vi buff, đang di chuyển lại mục tiêu trong phạm vi 20m")
-										-- Di chuyển đến khoảng cách trong tầm buff
+								end
+									-- Tự động chạy
+									--if form.chk_autorun.Checked then
+										
+										-- Bắt đầu di chuyển theo danh sách tọa thiết lập
+									--	StartMoving()	
+									--	break -- Dùng lệnh này để tránh object không tồn tại
+									--else
+								if dist_player > 5 then
+										-- Di chuyển theo sau mục tiêu
 										local map_query = nx_value("MapQuery")
 										local city = map_query:GetCurrentScene()
-										local posX = visualObj.PositionX - 10
-										local posY = visualObj.PositionY - 10
-										local posZ = visualObj.PositionZ - 10
+										local posX = visualObj.PositionX
+										local posY = visualObj.PositionY
+										local posZ = visualObj.PositionZ
 										tools_move(city, posX, posY, posZ, direct_run)	
 										direct_run = false
-										
 										break -- Dùng lệnh này để tránh object không tồn tại
-									end
-														
+									--end				
 								end
 							end
 						end			
-					end				
+					--end				
 				end	
 			end
 		
+			-- MODE BOOM
 			if form.rbtn_boom.Checked then
 	
 				local game_scence_objs = game_scence:GetSceneObjList()
@@ -212,9 +265,19 @@ function on_btn_start_click(btn)
 							local name_player = game_scence_objs[i]:QueryProp("Name")
 							local name_guild = game_scence_objs[i]:QueryProp("GuildName")
 							
-							-- Nếu đúng tên thì select
-							if  form.chk_player.Checked and name_player == nx_widestr(form.edt_player_txt.Text) or 
-								form.chk_guild.Checked  and name_guild  == nx_widestr(form.edt_guild_txt.Text)  then
+							-- Kiểm tra đúng tên thì chọn mục tiêu
+							if  form.chk_player.Checked and nx_widestr(name_player) == nx_widestr(form.edt_player_txt.Text) or 
+								nx_is_valid(form_player_set) and form_player_set.chk_player_1.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_1.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_2.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_2.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_3.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_3.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_4.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_4.Text)   or
+								nx_is_valid(form_player_set) and form_player_set.chk_player_5.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_5.Text)   or
+								form.chk_guild.Checked  	 and nx_widestr(name_guild) == nx_widestr(form.edt_guild_txt.Text) or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_1.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_1.Text)   or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_2.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_2.Text)   or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_3.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_3.Text)   or
+								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_4.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_4.Text)   or
+								nx_is_valid(form_guild_set) and form_guild_set.chk_guild_5.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_5.Text)   then
 
 								-- Tự vào PT theo tên người chơi đã điền
 								--if form.chk_acceptreq.Checked then
@@ -238,26 +301,29 @@ function on_btn_start_click(btn)
 								--		end
 								--	end
 								--end
+								
+								-- Chọn mục tiêu
+								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
 							
 								-- Object đang target
-								if nx_string(player_client:QueryProp("LastObject")) ~= nx_string(game_scence_objs[i].Ident) then
+								--if nx_string(player_client:QueryProp("LastObject")) ~= nx_string(game_scence_objs[i].Ident) then
 									
 									--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
 									local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
 									
 									local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
 									
-									if form.chk_relive.Checked then
+									--if form.chk_relive.Checked then
 										-- Nếu bị chết thì trị thương lân cận
-										local logicstate = player_client:QueryProp("LogicState")
-										if logicstate == 120 then
-											nx_execute("custom_sender", "custom_relive", 2, 0)
-											nx_pause(7)
-											break
-										end
-									end
+									--	local logicstate = player_client:QueryProp("LogicState")
+									--	if logicstate == 120 then
+									--		nx_execute("custom_sender", "custom_relive", 2, 0)
+									--		nx_pause(7)
+									--		break
+									--	end
+									--end
 									
-									if dist_player < 20 then
+									if dist_player <= 20 then
 										--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
 										if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
 											nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
@@ -274,9 +340,17 @@ function on_btn_start_click(btn)
 											nx_execute('game_effect', 'locate_ground_pick_decal', object_target.PositionX + math.random() + math.random(-2, 2), object_target.PositionY, object_target.PositionZ + math.random() + math.random(-2, 2), 30)
 											nx_value('fight'):TraceUseSkill('cs_tm_fgzyc05', true, false)
 										end
-									else
-										if form.chk_autorun.Checked then
-											-- Di chuyển đến khoảng cách trong tầm buff
+									--else
+									end
+										-- Tự động chạy
+										--if form.chk_autorun.Checked then
+											
+											-- Bắt đầu di chuyển theo danh sách tọa thiết lập
+										--	StartMoving()	
+										--	break -- Dùng lệnh này để tránh object không tồn tại
+										--else
+									if dist_player > 5 then
+											-- Di chuyển theo sau mục tiêu
 											local map_query = nx_value("MapQuery")
 											local city = map_query:GetCurrentScene()
 											local posX = visualObj.PositionX
@@ -284,12 +358,15 @@ function on_btn_start_click(btn)
 											local posZ = visualObj.PositionZ
 											tools_move(city, posX, posY, posZ, direct_run)	
 											direct_run = false
-											
 											break -- Dùng lệnh này để tránh object không tồn tại
-										end
+										--end
 									end
-								end
-							else
+								--end
+							--else
+							end
+							
+							if not (form.chk_player.Checked and form.chk_guild.Checked) then
+								yBreaker_show_Utf8Text("Khi bỏ chọn cả tên và bang hội, sẽ tự ném boom dưới chân!")
 								local player = yBreaker_get_player()
 								-- Ném boom dưới chân
 								nx_value('gui').GameHand:SetHand('groundpick', 'Default', 'map\\tex\\Target_area_G.dds', '' .. 4, 'xxx', nx_string(10))
@@ -297,6 +374,7 @@ function on_btn_start_click(btn)
 								local object_target = nx_value('game_visual'):GetSceneObj(player.Ident)
 								nx_execute('game_effect', 'locate_ground_pick_decal', object_target.PositionX + math.random() + math.random(-2, 2), object_target.PositionY, object_target.PositionZ + math.random() + math.random(-2, 2), 30)
 								nx_value('fight'):TraceUseSkill('cs_tm_fgzyc05', true, false)
+								--break
 							end
 						end
 					end
@@ -328,6 +406,9 @@ function UpdateStatus()
 			form.btn_start.ForeColor = "255,255,255,255"
 		    is_start = false
 			
+			-- Dừng di chuyển
+			StopMoving()
+		
 		else
 			-- Check có học skill PTC chưa?
 			if form.rbtn_buff.Checked then
@@ -359,5 +440,512 @@ function UpdateStatus()
 			form.btn_start.ForeColor = "255,220,20,60"
 		    is_start = true
 		end
+		
+		-- Tự động chạy
+		if form.chk_autorun.Checked then
+			
+			-- Bắt đầu di chuyển theo danh sách tọa thiết lập
+			StartMoving()	
+			--break -- Dùng lệnh này để tránh object không tồn tại
+		end
 	end
+end
+
+-- Logic moving to postion
+--local Running = false
+local PositionList = {}
+local nextPos = 1
+local TimerObjNotValid = 0
+
+function StartMoving()
+    --if is_start then
+    --   return
+    --end
+    --is_start = true
+    loadConfig()
+	
+	local form = nx_value(THIS_FORM)
+	if not nx_is_valid(form) then
+		return
+	end
+
+    while is_start do
+		nx_pause(0.2)
+		
+		-- Nếu bị chết thì trị thương lân cận
+		if form.chk_relive.Checked then
+			local game_client = nx_value("game_client")
+			local player_client = game_client:GetPlayer()
+			local logicstate = player_client:QueryProp("LogicState")
+			if logicstate == 120 then
+				nx_pause(2)
+				nx_execute("custom_sender", "custom_relive", 2, 0)
+				nx_pause(8)
+				--break
+			end
+		end
+		
+        loopMoving()
+		-- MODE BUFF
+		if form.rbtn_buff.Checked then
+			nx_pause(0.2)
+			loopBuff()
+		end	
+		
+		--MODE BOOM
+		if form.rbtn_boom.Checked then
+			nx_pause(0.2)
+			loopBoom()
+			
+		end
+		
+        --nx_pause(0.2)
+    end
+end
+
+function StopMoving()
+    --is_start = false
+    StopFindPath()
+end
+
+-- private
+function loopMoving()
+    if IsMapLoading() then
+        return
+    end
+
+    if nextPos > #PositionList then
+        nextPos = 1
+    end
+
+    local p = PositionList[nextPos]
+    if GetCurMap() ~= p.map then
+        GoToMapByPublicHomePoint(p.map)
+        return
+    end
+    
+
+    if GetDistance(p.x, p.y, p.z) > 2 then
+        GoToPosition(p.x, p.y, p.z)
+    else
+		-- waitTimeOut()
+		-- Tăng position +1
+		nextPos = nextPos + 1
+	end
+
+    XuongNgua()
+end
+
+function waitTimeOut()
+    if TimerDiff(TimerObjNotValid) < 7 then
+        return
+    end
+    if TimerDiff(TimerObjNotValid) < 8 then
+        nextPos = nextPos + 1
+    end
+    TimerObjNotValid = TimerInit()
+end
+
+function loadConfig()
+    PositionList = {}
+    local posStr = IniReadUserConfig("BoomBuff_Pos", "P", "")
+    if posStr ~= "" then
+        local posList = util_split_string(nx_string(posStr), ";")
+        for _, pos in pairs(posList) do
+            local prop = util_split_string(pos, ",")
+            if nx_string(prop[1]) == "1" then
+                local p = {
+                    ["map"] = prop[2],
+                    ["x"] = nx_number(prop[3]),
+                    ["y"] = nx_number(prop[4]),
+                    ["z"] = nx_number(prop[5])
+                }
+                table.insert(PositionList, p)
+            end
+        end
+        nextPos = 1
+    else
+        StopMoving()
+    end
+end
+
+function loopBoom()
+	-- Tránh bị treo game trong vòng lặp (Nếu trong while do không có nx_pause(0.1) sẽ bị treo game)
+	--nx_pause(0.1)	
+	
+	local is_vaild_data = true
+	local game_client
+	local game_visual
+	local game_player
+	local player_client
+	local game_scence
+
+	game_client = nx_value("game_client")
+	if not nx_is_valid(game_client) then
+		is_vaild_data = false
+	end
+	game_visual = nx_value("game_visual")
+	if not nx_is_valid(game_visual) then
+		is_vaild_data = false
+	end
+	if is_vaild_data == true then
+		game_player = game_visual:GetPlayer()
+		if not nx_is_valid(game_player) then
+			is_vaild_data = false
+		end
+		player_client = game_client:GetPlayer()
+		if not nx_is_valid(player_client) then
+			is_vaild_data = false
+		end
+		game_scence = game_client:GetScene()
+		if not nx_is_valid(game_scence) then
+			is_vaild_data = false
+		end
+	end
+	
+	local form = nx_value(THIS_FORM)
+	if not nx_is_valid(form) then
+		return
+	end
+	
+	local form_player_set = nx_value("admin_yBreaker\\yBreaker_form_boombuff_player_setting")
+	--if not nx_is_valid(form_player_set) then
+	--	return
+	--end
+	
+	local form_guild_set = nx_value("admin_yBreaker\\yBreaker_form_boombuff_guild_setting")
+	--if not nx_is_valid(form_guild_set) then
+	--	return
+	--end
+		
+	if is_vaild_data == true then
+		-- MODE BOOM
+		if form.rbtn_boom.Checked then
+	
+			local game_scence_objs = game_scence:GetSceneObjList()
+			local num_objs = table.getn(game_scence_objs)
+		   
+			for i = 1, num_objs do
+
+				local obj_type = 0
+				if game_scence_objs[i] == nil then
+					break
+				end
+				if game_scence_objs[i]:FindProp("Type") then
+					obj_type = game_scence_objs[i]:QueryProp("Type")
+					
+					-- Type 2 là người chơi
+					if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
+
+						local name_player = game_scence_objs[i]:QueryProp("Name")
+						local name_guild = game_scence_objs[i]:QueryProp("GuildName")
+						
+						-- Kiểm tra đúng tên thì chọn mục tiêu
+						if  form.chk_player.Checked and nx_widestr(name_player) == nx_widestr(form.edt_player_txt.Text) or 
+							nx_is_valid(form_player_set) and form_player_set.chk_player_1.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_1.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_2.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_2.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_3.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_3.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_4.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_4.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_5.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_5.Text)   or
+							form.chk_guild.Checked  	 and nx_widestr(name_guild) == nx_widestr(form.edt_guild_txt.Text) or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_1.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_1.Text)   or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_2.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_2.Text)   or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_3.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_3.Text)   or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_4.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_4.Text)   or
+							nx_is_valid(form_guild_set) and form_guild_set.chk_guild_5.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_5.Text)   then
+
+							-- Tự vào PT theo tên người chơi đã điền
+							--if form.chk_acceptreq.Checked then
+							--	local FORM_MAIN_REQUEST = "form_stage_main\\form_main\\form_main_request"
+							--	local num_request = nx_execute(FORM_MAIN_REQUEST, "get_num_request")
+							--	if num_request >= 1 then
+							--		for i = num_request, 1, -1 do
+							--			local request_type = nx_execute(FORM_MAIN_REQUEST, "get_request_type", i)
+							--			local request_player = nx_execute(FORM_MAIN_REQUEST, "get_request_player", i)
+							--			if request_type ~= nil and  request_player ~= nil then
+							--				if request_type == REQUESTTYPE_INVITETEAM or request_type == REQUESTTYPE_TEAMREQUEST then
+							--					nx_value("form_main_chat"):AddChatInfoEx(nx_widestr(request_type) .. nx_widestr(request_player) .. nx_widestr(" xin to doi"), CHATTYPE_SYSTEM, false)
+							--					if nx_widestr(form.edt_player_txt.Text) == nx_widestr(request_player) then
+							--						nx_execute("custom_sender", "custom_request_answer", request_type, request_player, 1)
+							--						nx_execute(FORM_MAIN_REQUEST, "clear_special_request", request_type)
+							--						break
+							--					end
+							--				end
+							--			end
+							--			nx_pause(0.3)
+							--		end
+							--	end
+							--end
+							
+							-- Chọn mục tiêu
+							nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+						
+							-- Object đang target
+							--if nx_string(player_client:QueryProp("LastObject")) ~= nx_string(game_scence_objs[i].Ident) then
+								
+								--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
+								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
+								
+								local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+								
+								--if form.chk_relive.Checked then
+									-- Nếu bị chết thì trị thương lân cận
+								--	local logicstate = player_client:QueryProp("LogicState")
+								--	if logicstate == 120 then
+								--		nx_execute("custom_sender", "custom_relive", 2, 0)
+								--		nx_pause(7)
+								--		break
+								--	end
+								--end
+								
+								if dist_player <= 20 then
+									--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
+									if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
+										nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+										nx_pause(0.2)
+									end
+
+									-- Check mục tiêu có buff không?
+									if not get_buff_info("buf_CS_tm_fgzyc05a_range", game_scence_objs[i]) then		 
+										-- Ném boom
+										-- Kiểm tra có buff boom không? Nếu không mới ném
+										nx_value('gui').GameHand:SetHand('groundpick', 'Default', 'map\\tex\\Target_area_G.dds', '' .. 4, 'xxx', nx_string(10))
+										nx_execute('game_effect', 'hide_ground_pick_decal')
+										local object_target = nx_value('game_visual'):GetSceneObj(game_scence_objs[i].Ident)
+										nx_execute('game_effect', 'locate_ground_pick_decal', object_target.PositionX + math.random() + math.random(-2, 2), object_target.PositionY, object_target.PositionZ + math.random() + math.random(-2, 2), 30)
+										nx_value('fight'):TraceUseSkill('cs_tm_fgzyc05', true, false)
+									end
+								--else
+								end
+									-- Tự động chạy
+									--if form.chk_autorun.Checked then
+										
+										-- Bắt đầu di chuyển theo danh sách tọa thiết lập
+									--	StartMoving()	
+									--	break -- Dùng lệnh này để tránh object không tồn tại
+									--else
+								if dist_player > 5 then
+										-- Di chuyển theo sau mục tiêu
+										local map_query = nx_value("MapQuery")
+										local city = map_query:GetCurrentScene()
+										local posX = visualObj.PositionX
+										local posY = visualObj.PositionY
+										local posZ = visualObj.PositionZ
+										tools_move(city, posX, posY, posZ, direct_run)	
+										direct_run = false
+										break -- Dùng lệnh này để tránh object không tồn tại
+									--end
+								end
+							--end
+						--else
+						end
+						
+						if not (form.chk_player.Checked and form.chk_guild.Checked) then
+							yBreaker_show_Utf8Text("Khi bỏ chọn cả tên và bang hội, sẽ tự ném boom dưới chân!")
+							local player = yBreaker_get_player()
+							-- Ném boom dưới chân
+							nx_value('gui').GameHand:SetHand('groundpick', 'Default', 'map\\tex\\Target_area_G.dds', '' .. 4, 'xxx', nx_string(10))
+							nx_execute('game_effect', 'hide_ground_pick_decal')
+							local object_target = nx_value('game_visual'):GetSceneObj(player.Ident)
+							nx_execute('game_effect', 'locate_ground_pick_decal', object_target.PositionX + math.random() + math.random(-2, 2), object_target.PositionY, object_target.PositionZ + math.random() + math.random(-2, 2), 30)
+							nx_value('fight'):TraceUseSkill('cs_tm_fgzyc05', true, false)
+							--break
+						end
+					end
+				end
+			end
+		end
+    end
+end
+
+function loopBuff()
+	-- Tránh bị treo game trong vòng lặp (Nếu trong while do không có nx_pause(0.1) sẽ bị treo game)
+	--nx_pause(0.1)	
+	
+	local is_vaild_data = true
+	local game_client
+	local game_visual
+	local game_player
+	local player_client
+	local game_scence
+
+	game_client = nx_value("game_client")
+	if not nx_is_valid(game_client) then
+		is_vaild_data = false
+	end
+	game_visual = nx_value("game_visual")
+	if not nx_is_valid(game_visual) then
+		is_vaild_data = false
+	end
+	if is_vaild_data == true then
+		game_player = game_visual:GetPlayer()
+		if not nx_is_valid(game_player) then
+			is_vaild_data = false
+		end
+		player_client = game_client:GetPlayer()
+		if not nx_is_valid(player_client) then
+			is_vaild_data = false
+		end
+		game_scence = game_client:GetScene()
+		if not nx_is_valid(game_scence) then
+			is_vaild_data = false
+		end
+	end
+	
+	local form = nx_value(THIS_FORM)
+	if not nx_is_valid(form) then
+		return
+	end
+	
+	local form_player_set = nx_value("admin_yBreaker\\yBreaker_form_boombuff_player_setting")
+	--if not nx_is_valid(form_player_set) then
+	--	return
+	--end
+	
+	local form_guild_set = nx_value("admin_yBreaker\\yBreaker_form_boombuff_guild_setting")
+	--if not nx_is_valid(form_guild_set) then
+	--	return
+	--end
+		
+	if is_vaild_data == true then
+		-- MODE BUFF
+		if form.rbtn_buff.Checked then
+			local game_scence_objs = game_scence:GetSceneObjList()
+			local num_objs = table.getn(game_scence_objs)
+		   
+			for i = 1, num_objs do
+				local obj_type = 0		
+				if game_scence_objs[i]:FindProp("Type") then
+					obj_type = game_scence_objs[i]:QueryProp("Type")
+				end	
+				
+				-- Handle for Player checked
+				--if form.chk_player.Checked or form.chk_guild.Checked then  -- Chỉ cần check 1 trong 2 là sẽ lấy tên ở tên nhân vật để buff acc tên bang
+					-- Type 2 là người chơi
+					if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
+					
+						local name_player = game_scence_objs[i]:QueryProp("Name")
+						local name_guild = game_scence_objs[i]:QueryProp("GuildName")
+						
+						-- Kiểm tra đúng tên thì chọn mục tiêu
+						if  form.chk_player.Checked and nx_widestr(name_player) == nx_widestr(form.edt_player_txt.Text) or 
+							nx_is_valid(form_player_set) and form_player_set.chk_player_1.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_1.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_2.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_2.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_3.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_3.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_4.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_4.Text)   or
+							nx_is_valid(form_player_set) and form_player_set.chk_player_5.Checked and nx_widestr(name_player) == nx_widestr(form_player_set.edt_player_5.Text)   or
+							form.chk_guild.Checked  	 and nx_widestr(name_guild) == nx_widestr(form.edt_guild_txt.Text) or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_1.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_1.Text)   or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_2.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_2.Text)   or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_3.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_3.Text)   or
+							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_4.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_4.Text)   or
+							nx_is_valid(form_guild_set) and form_guild_set.chk_guild_5.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_5.Text)   then
+							
+							-- Chọn mục tiêu
+							nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+							
+							--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
+							local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
+							local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+							
+							--if form.chk_relive.Checked then
+								-- Nếu bị chết thì trị thương lân cận
+							--	local logicstate = player_client:QueryProp("LogicState")
+							--	if logicstate == 120 then
+							--		nx_execute("custom_sender", "custom_relive", 2, 0)
+							--		nx_pause(7)
+							--		break
+							--	end
+							--end
+						
+							if dist_player <= 20 then
+								--1. Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
+								if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
+									nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+									nx_pause(0.2)
+								end	
+								
+								--: Mê Nghiệt của HHMD: buf_CS_by_xhmdl01_01
+								--: Cấm khinh công của DM: wuji_buf_CS_tm_ywt08_range (wuji: Võ kỹ)
+								--: Mê của THBB : buf_CS_jh_lbwb01_01stun
+								--: Mê của PTC: buf_CS_jh_xfz02
+								--: Mê của UUSD: buf_CS_jh_yydf03
+								--: Cấm KC UUSD: buf_CS_jh_yydf07
+								--: Phá def THBB: buf_CS_jh_yydf07
+								--: Trói của CYV: buf_CS_jy_xsd01_01
+								--: Trói ném CYV: buf_CS_jy_tdshs05_1
+								--: Mê của Rồng: buf_CS_jh_xlsbz15_02
+								--: Lao tới Rồng: buf_CS_jh_xlsbz07
+								--: Mê của Khai Cổ: buf_CS_wd_tjq08
+								--: Mê của Khai thường: buf_CS_wdzp_tjq08
+								--: Cấm Trịch Bút: wuji_buf_CS_tm_ywt07 (Võ kỹ)
+								--: Thổ tín: buf_CS_tm_jsc02
+								--: Bản đằng choáng: buf_CS_jh_llt02
+								--: Trường tam: buf_CS_jh_llt03_2: Giảm tốc + chính xác / buf_CS_jh_llt03_1: Phong chiêu + cấm KC
+								
+								--yBreaker_show_Utf8Text("Trong phạm vi buff, đang check buff xấu trên người mục tiêu...")
+								-- Check buff xấu tốn tại trên người mục tiêu  
+								if  get_buff_info("buf_CS_by_xhmdl01_01", game_scence_objs[i]) 				or
+									get_buff_info("wuji_buf_CS_tm_ywt08_range", game_scence_objs[i])		or
+									get_buff_info("buf_CS_jh_lbwb01_01stun", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_xfz02", game_scence_objs[i]) 					or
+									get_buff_info("buf_CS_jh_yydf03", game_scence_objs[i]) 					or
+									get_buff_info("buf_CS_jh_yydf07", game_scence_objs[i]) 					or
+									get_buff_info("buf_CS_jh_yqq04", game_scence_objs[i]) 					or
+									get_buff_info("buf_CS_jy_xsd01_01", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_wd_tjq08", game_scence_objs[i]) 					or
+									get_buff_info("buf_CS_wdzp_tjq08", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jy_tdshs05_1", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_xlsbz15_02", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_tm_jsc02", game_scence_objs[i]) 					or
+									get_buff_info("buf_CS_jh_llt03_2", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_llt03_1", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_llt02", game_scence_objs[i]) 					or
+									get_buff_info("wuji_buf_CS_tm_ywt07", game_scence_objs[i]) 				then
+									
+									local fight = nx_value("fight")
+									-- Use skill buff PTC trạng thái buff (trạng thái tấn công: CS_jh_xfz02)
+									fight:TraceUseSkill("CS_jh_xfz02_hide", false, false)
+								else
+									local fight = nx_value("fight")
+									
+									-- Use skill attack object
+									--fight:TraceUseSkill("CS_jh_xfz06", false, false)
+									--nx_pause(0.2)
+									--fight:TraceUseSkill("CS_jh_xfz01", false, false)
+									
+									-- Use skill def
+									fight:TraceUseSkill("CS_jh_xfz07", false, false)
+									nx_pause(0.2)
+									fight:TraceUseSkill("CS_jh_xfz03", false, false)
+									nx_pause(0.2)
+									break
+								end
+			
+							end
+								-- Tự động chạy
+								--if form.chk_autorun.Checked then
+									
+									-- Bắt đầu di chuyển theo danh sách tọa thiết lập
+								--	StartMoving()	
+								--	break -- Dùng lệnh này để tránh object không tồn tại
+								--else
+							if dist_player > 5 then
+								-- Di chuyển theo sau mục tiêu
+								local map_query = nx_value("MapQuery")
+								local city = map_query:GetCurrentScene()
+								local posX = visualObj.PositionX
+								local posY = visualObj.PositionY
+								local posZ = visualObj.PositionZ
+								tools_move(city, posX, posY, posZ, direct_run)	
+								direct_run = false
+								break -- Dùng lệnh này để tránh object không tồn tại
+								--end				
+							end
+						end
+					end			
+				--end				
+			end	
+		end
+    end
 end

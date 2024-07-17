@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_boombuff_guild_setting" init="on_form_main_init">
+        <prop LimitInScreen="true" Left="77" Top="120" Width="235" Height="200" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />
+        <control name="btn_close" entity="Button" script="" init="">
+            <prop HintText="Tắt giao diện này danh sách bang hội sẽ bị hủy!" NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="204" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>
+		
+		<!--
+        <control name="btn_help" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_help_out.png" FocusImage="gui\common\button\btn_help_on.png" PushImage="gui\common\button\btn_help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="6.5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" 
+			HintText="&lt;font color=&apos;#f6b93b&apos;&gt;•Mode Boom:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật/ bang hội. <br>Bước 2: Chọn Tự trị thương không? <br>Bước 3: Chọn mode Boom. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;
+			<br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Mode Buff:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật/ bang hội. <br>Bước 2: Tự trị thương không? <br>Bước 3: Chọn mode Buff. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;"  />
+            <event on_click="" />
+        </control>
+		-->
+		
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Danh sách bang hội" Font="font_title" />
+        </control>
+		<control name="chk_guild_1" entity="CheckButton" script="" init="">
+            <prop Left="25" Top="40" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,0,168,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="" />
+        </control>
+		<control name="edt_guild_1" entity="Edit" script="" init="">
+            <prop Text="NgạoThế" Left="75" Top="38" Width="150" Height="25" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
+        </control>
+		
+		<control name="chk_guild_2" entity="CheckButton" script="" init="">
+            <prop Left="25" Top="70" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,0,168,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="" />
+        </control>
+        <control name="edt_guild_2" entity="Edit" script="" init="">
+            <prop Text="DuLong(S4) " Left="75" Top="68" Width="150" Height="25" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
+        </control>
+		
+		<control name="chk_guild_3" entity="CheckButton" script="" init="">
+            <prop Left="25" Top="100" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,0,168,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="" />
+        </control>
+        <control name="edt_guild_3" entity="Edit" script="" init="">
+            <prop Text="" Left="75" Top="98" Width="150" Height="25" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
+        </control>
+		
+		<control name="chk_guild_4" entity="CheckButton" script="" init="">
+            <prop Left="25" Top="130" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,0,168,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="" />
+        </control>
+        <control name="edt_guild_4" entity="Edit" script="" init="">
+            <prop Text="" Left="75" Top="128" Width="150" Height="25" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
+        </control>
+		
+		<control name="chk_guild_5" entity="CheckButton" script="" init="">
+            <prop Left="25" Top="160" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,0,168,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="" />
+        </control>
+        <control name="edt_guild_5" entity="Edit" script="" init="">
+            <prop Text="" Left="75" Top="158" Width="150" Height="25" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
+        </control>
+
+    </control>
+</form>

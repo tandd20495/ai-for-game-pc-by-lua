@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
-    <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_boombuff_pos_setting" init="formInit">
+    <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_boombuff_guild_setting" init="formInit">
         <prop LimitInScreen="true" ShowGrid="true" Width="300" Height="200" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png"/>
         <event on_open="formOpen" on_close="formClose" />
 
@@ -10,7 +10,7 @@
         </control>
 
         <control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="300" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thiết lập tọa độ" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="7" Width="300" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thiết lập nhân vật" Font="font_title" />
         </control>
 
         <control name="position_grid" entity="Grid" script="" init="">
@@ -30,8 +30,12 @@
         </control>
 
         <control name="add_position" entity="MultiTextBox" script="" init="">
-            <prop TextColor="255,0,180,50" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,206,154" LineHeight="15" HtmlText='<a href="">Thêm tọa độ</a>' ScrollSize="17" Left="20" Top="160" Width="80" Height="24" ShadowColor="0,0,0,0" Font="font_text" NoFrame="true" />
+            <prop TextColor="255,0,168,255" SelectBarColor="0,0,0,255" MouseInBarColor="0,255,255,0" ViewRect="0,0,206,154" LineHeight="15" HtmlText='<a href="">Thêm</a>' ScrollSize="17" Left="125" Top="162" Width="24" Height="24" ShadowColor="0,0,0,0" Font="font_text" NoFrame="true" />
             <event on_click_hyperlink="onBtnAddPositionClick" />
+        </control>
+		
+		<control name="edt_guild" entity="Edit" script="" init="">
+            <prop TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="20" Top="160" Width="100" Height="25" ForeColor="255,76,209,55" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="NhấtPhẩmCác" />
         </control>
 
         <control name="btn_save" entity="Button" script="" init="">
