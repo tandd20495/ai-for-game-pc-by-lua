@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_stackthbb" init="on_form_main_init">
+        <prop LimitInScreen="true" Left="0" Top="0" Width="100" Height="140" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" Fixed="false" BackColor="0,255,255,255" NoFrame="true" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />
+		<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="73" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+            <event on_click="on_btn_close_click" />
+        </control>
+		<control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="5" Top="10" Width="70" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tích Dã" Font="font_title" />
+        </control>
+		<control name="btn_control" entity="Button" script="" init="">
+			<prop Left="20" Top="40" Width="60" Height="30" Text="Chạy" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Lưu ý:&lt;/font&gt;<br>● Chưa hỗ trợ tự gọi PET&lt;font color=&apos;#46fd15&apos;&gt; Chung Linh Điêu&lt;/font&gt; <br>● Cần gọi PET trước khi ấn nút&lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;"/>
+			<event on_click="on_btn_thbb_click" />
+		</control>
+		<control name="cbtn_lhq" entity="CheckButton" script="" init="">
+			<prop BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" Left="20" Top="80" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" Checked="false"/>
+		</control>
+		<control name="lbl_lhq" entity="Label" script="" init="">
+                <prop Align="Left" RefCursor="WIN_HELP" Left="45" Top="80" Width="60" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="La Hán" Font="font_main" />
+        </control>
+		
+		<control name="btn_house" entity="Button" script="" init="">
+			<prop Left="20" Top="105" Width="60" Height="20" Text="Gia Viên" DrawMode="Expand" NormalImage="gui\common\button\btn_normal1_out.png" FocusImage="gui\common\button\btn_normal1_on.png" PushImage="gui\common\button\btn_normal1_down.png" DisableImage="gui\common\button\btn_normal1_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Lưu ý:&lt;/font&gt;<br>● Ẩn/Hiện thanh kỹ năng trong&lt;font color=&apos;#46fd15&apos;&gt; Gia Viên&lt;/font&gt;"/>
+			<event on_click="show_hide_house_form" />
+		</control>
+
+    </control>
+</form>

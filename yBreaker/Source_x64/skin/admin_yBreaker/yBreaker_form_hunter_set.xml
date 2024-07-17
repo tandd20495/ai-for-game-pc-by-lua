@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+  <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_hunter_set" init="on_main_form_init">
+    <prop ShowGrid="true" Left="77" Top="120" Width="372" Height="340" BackColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+    <event on_open="on_main_form_open" on_close="on_main_form_close" />
+
+    <control name="btn_close" entity="Button" script="" init="">
+      <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="344" Top="6" Width="20" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" />
+      <event on_click="on_btn_close_click" />
+    </control>
+    <control name="lbl_title" entity="Label" script="" init="">
+      <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="372" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thợ Săn Setting" Font="font_title" />
+    </control>
+
+    <!-- Mua công cụ thợ săn khi công cụ hỏng -->
+    <control name="check_btn1" entity="CheckButton" script="" init="">
+      <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="40" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+      <event on_checked_changed="on_cbtn_buy_item" />
+    </control>
+    <control name="check_text_1" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="30" Top="40" Width="50" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Mua công cụ thợ săn khi công cụ hỏng" Font="font_text_figure 30px" />
+    </control>
+    <!-- Dùng 'Ích Khí Hoàn' khi hết hể lực -->
+    <control name="check_btn2" entity="CheckButton" script="" init="">
+      <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="65" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+      <event on_checked_changed="on_cbtn_use_item" />
+    </control>
+    <control name="check_text2" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="30" Top="65" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Dùng 'Ích khí hoàn' khi hết hể lực" estTrans="true" Font="font_text_figure 30px" />
+    </control>
+    <!-- Quay lại vị trí cũ -->
+    <control name="check_btn3" entity="CheckButton" script="" init="">
+      <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="90" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+      <event on_checked_changed="on_cbtn_move_to_back" />
+    </control>
+    <control name="check_text3" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="30" Top="90" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Quay lại vị trí cũ" Font="font_text_figure 30px" />
+    </control>
+    <!-- Tự động nhặt item -->
+    <control name="check_btn4" entity="CheckButton" script="" init="">
+      <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="115" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+      <event on_checked_changed="on_cbtn_pick_up_item" />
+    </control>
+    <control name="check_text4" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="30" Top="115" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự động nhặt item" Font="font_text_figure 30px" />
+    </control>
+    <control name="check_input4" entity="Edit" script="" init="">
+        <prop MaxLength="255" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="180" Top="113" Width="50" Height="25" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_text_figure" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="0.5" HintText="Set 2.3 -> 2.5" />
+    </control>
+    <control name="truonghop_nhatdo" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="280" Top="115" Width="70" Height="16" ForeColor="255,0,255,0" ShadowColor="0,0,0,0" Text="Nhặt VP" Font="font_text_figure 32px" />
+    </control>
+    <!-- Xóa vật phẩm theo danh sách -->
+    <control name="check_btn5" entity="CheckButton" script="" init="">
+      <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="10" Top="140" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Thêm vật phẩm cần xóa theo từng túi đồ ở dưới, &lt;font color=&apos;#cc0404&apos;&gt;Nhập chính xác chữ Hoa - Thường&lt;/font&gt;" />
+      <event on_checked_changed="on_cbtn_delete_item" />
+    </control>
+    <control name="check_text5" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="30" Top="140" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Xóa vật phẩm theo danh sách" Font="font_text_figure 30px" />
+    </control>
+
+
+    <!-- tab túi vật phẩm, nguyên liệu -->
+    <control name="horizontal_1" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="4" Top="160" Width="392" Height="9" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_line\line_horizontal.png" />
+    </control>
+    <control name="horizontal_2" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="4" Top="190" Width="392" Height="9" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_line\line_horizontal.png" />
+    </control>
+
+    <control name="GroupTab" entity="GroupBox" script="" init="">
+      <prop Left="0" Top="166" Width="400" Height="28" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+      <control name="tabVP" entity="RadioButton" script="" init="">
+        <prop ClickEvent="true" BoxSize="12" NormalImage="gui\common\checkbutton\rbtn_top_out.png" FocusImage="gui\common\checkbutton\rbtn_top_on.png" CheckedImage="gui\common\checkbutton\rbtn_top_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="8" Top="1" Width="80" Height="33" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,0,0" Text="Vật Phẩm" Font="font_main" TabStop="true" NoFrame="true" DrawMode="Expand" InSound="MouseOn_20" ClickSound="ok_7" />
+        <event on_click="on_tabtuiVP_click" />
+      </control>
+      <control name="tabNL" entity="RadioButton" script="" init="">
+        <prop ClickEvent="true" BoxSize="12" NormalImage="gui\common\checkbutton\rbtn_top_out.png" FocusImage="gui\common\checkbutton\rbtn_top_on.png" CheckedImage="gui\common\checkbutton\rbtn_top_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="88" Top="1" Width="80" Height="33" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Text="Nguyên Liệu" Font="font_main" TabStop="true" NoFrame="true" DrawMode="Expand" InSound="MouseOn_20" ClickSound="ok_7" />
+        <event on_click="on_tabtuiNL_click" />
+      </control>
+    </control>
+
+    <control name="GroupTuiVP" entity="GroupBox" script="" init="">
+      <prop Left="0" Top="200" Width="400" Height="380" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+      <control name="tab_TuiVP_1_text" entity="Label" script="" init="">
+        <prop RefCursor="WIN_HELP" Left="10" Top="11" Width="50" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Điền ID vật phẩm muốn xóa:" Font="font_text_figure 30px" />
+      </control>
+      <control name="tab_TuiVP_1_input" entity="Edit" script="" init="">
+        <prop MaxLength="255" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="180" Top="5" Width="110" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_text_figure" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" HintText="Nhập id vật phẩm"/>
+      </control>
+      <control name="tab_TuiVP_1_btn" entity="Button" script="" init="">
+        <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="300" Top="2" Width="80" Height="30" DrawMode="Expand" ForeColor="255,0,255,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Thêm VP" Font="font_text_figure" AutoSize="true" />
+        <event on_click="on_btn_tab_tuiVP_1" />
+      </control>
+
+      <control name="tab_tuiVP_2_text" entity="Label" script="" init="">
+        <prop RefCursor="WIN_HELP" Left="10" Top="55" Width="50" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Các vật phẩm sẽ xóa" Font="font_text_figure" />
+      </control>
+      <control name="tab_tuiVP_2_input" entity="Edit" script="" init="">
+        <prop ReadOnly="true" SelectForeColor="255,76,61,44" SelectBackColor="190,190,190,190" Caret="Default" Left="135" Top="47" Width="155" Height="30" ForeColor="255,73,49,49" BackColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_text_figure 30px" Cursor="WIN_IBEAM" TabStop="true" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_line\ibox_1.png" />
+      </control>
+      <control name="combobox_tab_tuiVP_2" entity="ComboBox" script="" init="">
+        <prop ButtonWidth="22" DropDownHeight="78" OnlySelect="true" Left="135" Top="50" Width="152" Height="22" ForeColor="0,0,0,0" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" DisableEnter="true" />
+        <subor name="InputEdit">
+          <prop ReadOnly="true" MaxLength="22" TextOffsetX="6" SelectForeColor="255,128,101,74" SelectBackColor="150,0,0,0" Caret="Default" ForeColor="255,128,101,74" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,0,0,0" Font="font_main" Cursor="WIN_IBEAM" NoFrame="true" DrawMode="Expand" />
+        </subor>
+        <subor name="DropButton">
+          <prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="22" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="Center" />
+        </subor>
+        <subor name="DropListBox">
+          <prop MouseSelect="true" ItemHeight="16" TextOffsetX="6" SelectBackColor="255,255,255,255" SelectBackImage="gui\common\combobox\bg_select2.png" ScrollSize="14" ForeColor="255,255,255,255" BackColor="0,255,255,255" ShadowColor="0,0,0,0" Font="font_main" NoFrame="true" DrawMode="Expand" BackImage="gui\common\combobox\bg_list2.png" />
+            <subor name="VScrollBar">
+              <prop ButtonSize="14" FullBarBack="false" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" BackImage="gui\common\scrollbar\bg_scrollbar2.png" />
+              <subor name="DecButton">
+                <prop NormalImage="gui\common\scrollbar\button_2\btn_up_out.png" FocusImage="gui\common\scrollbar\button_2\btn_up_on.png" PushImage="gui\common\scrollbar\button_2\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+              </subor>
+              <subor name="IncButton">
+                <prop NormalImage="gui\common\scrollbar\button_2\btn_down_out.png" FocusImage="gui\common\scrollbar\button_2\btn_down_on.png" PushImage="gui\common\scrollbar\button_2\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+              </subor>
+              <subor name="TrackButton">
+                <prop NormalImage="gui\common\scrollbar\button_2\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_2\btn_trace_on.png" PushImage="gui\common\scrollbar\button_2\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="50" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+              </subor>
+          </subor>
+        </subor>
+      </control>
+      <control name="tab_tuiVP_2_btn" entity="Button" script="" init="">
+        <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="300" Top="45" Width="80" Height="30" DrawMode="Expand" ForeColor="255,255,0,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Xóa" Font="font_text_figure" AutoSize="true" />
+        <event on_click="on_btn_tab_tuiVP_2" />
+      </control>
+    </control>
+
+    <control name="GroupTuiNL" entity="GroupBox" script="" init="">
+      <prop Left="0" Top="200" Width="400" Height="380" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" />
+      <control name="tab_TuiNL_1_text" entity="Label" script="" init="">
+        <prop RefCursor="WIN_HELP" Left="10" Top="11" Width="50" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Điền ID vật phẩm muốn xóa:" Font="font_text_figure 30px" />
+      </control>
+      <control name="tab_TuiNL_1_input" entity="Edit" script="" init="">
+        <prop MaxLength="255" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="180" Top="5" Width="110" Height="30" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_text_figure" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" Text="" HintText="Nhập id vật phẩm"/>
+      </control>
+      <control name="tab_TuiNL_1_btn" entity="Button" script="" init="">
+        <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="300" Top="2" Width="80" Height="30" DrawMode="Expand" ForeColor="255,0,255,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Thêm NL" Font="font_text_figure" AutoSize="true" />
+        <event on_click="on_btn_tab_tuiNL_1" />
+      </control>
+
+      <control name="tab_tuiNL_2_text" entity="Label" script="" init="">
+        <prop RefCursor="WIN_HELP" Left="10" Top="55" Width="50" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Các vật phẩm sẽ xóa" Font="font_text_figure" />
+      </control>
+      <control name="tab_tuiNL_2_input" entity="Edit" script="" init="">
+        <prop ReadOnly="true" SelectForeColor="255,76,61,44" SelectBackColor="190,190,190,190" Caret="Default" Left="135" Top="47" Width="155" Height="30" ForeColor="255,73,49,49" BackColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_text_figure 30px" Cursor="WIN_IBEAM" TabStop="true" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_line\ibox_1.png" />
+      </control>
+      <control name="combobox_tab_tuiNL_2" entity="ComboBox" script="" init="">
+        <prop ButtonWidth="22" DropDownHeight="78" OnlySelect="true" Left="135" Top="50" Width="152" Height="22" ForeColor="0,0,0,0" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,0,0,0" NoFrame="true" DrawMode="Expand" DisableEnter="true" />
+        <subor name="InputEdit">
+          <prop ReadOnly="true" MaxLength="22" TextOffsetX="6" SelectForeColor="255,128,101,74" SelectBackColor="150,0,0,0" Caret="Default" ForeColor="255,128,101,74" BackColor="0,255,255,255" LineColor="0,0,0,0" BlendColor="0,255,255,255" ShadowColor="0,0,0,0" Font="font_main" Cursor="WIN_IBEAM" NoFrame="true" DrawMode="Expand" />
+        </subor>
+        <subor name="DropButton">
+          <prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="22" Height="22" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="Center" />
+        </subor>
+        <subor name="DropListBox">
+          <prop MouseSelect="true" ItemHeight="16" TextOffsetX="6" SelectBackColor="255,255,255,255" SelectBackImage="gui\common\combobox\bg_select2.png" ScrollSize="14" ForeColor="255,255,255,255" BackColor="0,255,255,255" ShadowColor="0,0,0,0" Font="font_main" NoFrame="true" DrawMode="Expand" BackImage="gui\common\combobox\bg_list2.png" />
+            <subor name="VScrollBar">
+              <prop ButtonSize="14" FullBarBack="false" Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,224,224,224" ShadowColor="0,0,0,0" NoFrame="true" BackImage="gui\common\scrollbar\bg_scrollbar2.png" />
+              <subor name="DecButton">
+                <prop NormalImage="gui\common\scrollbar\button_2\btn_up_out.png" FocusImage="gui\common\scrollbar\button_2\btn_up_on.png" PushImage="gui\common\scrollbar\button_2\btn_up_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+              </subor>
+              <subor name="IncButton">
+                <prop NormalImage="gui\common\scrollbar\button_2\btn_down_out.png" FocusImage="gui\common\scrollbar\button_2\btn_down_on.png" PushImage="gui\common\scrollbar\button_2\btn_down_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="14" BackColor="255,192,192,192" ShadowColor="0,0,0,0" />
+              </subor>
+              <subor name="TrackButton">
+                <prop NormalImage="gui\common\scrollbar\button_2\btn_trace_out.png" FocusImage="gui\common\scrollbar\button_2\btn_trace_on.png" PushImage="gui\common\scrollbar\button_2\btn_trace_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Width="14" Height="50" BackColor="255,192,192,192" ShadowColor="0,0,0,0" DrawMode="ExpandV" />
+              </subor>
+          </subor>
+        </subor>
+      </control>
+      <control name="tab_tuiNL_2_btn" entity="Button" script="" init="">
+        <prop NormalImage="gui\common\button\btn_normal2_out.png" FocusImage="gui\common\button\btn_normal2_on.png" PushImage="gui\common\button\btn_normal2_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="300" Top="45" Width="80" Height="30" DrawMode="Expand" ForeColor="255,255,0,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Xóa" Font="font_text_figure" AutoSize="true" />
+        <event on_click="on_btn_tab_tuiNL_2" />
+      </control>
+    </control>
+
+    <control name="horizontal_3" entity="Label" script="" init="">
+      <prop RefCursor="WIN_HELP" Left="4" Top="290" Width="392" Height="9" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_line\line_horizontal.png" />
+    </control>
+
+    <control name="btn_control" entity="Button" script="" init="">
+      <prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="136" Top="300" Width="87" Height="30" ForeColor="255,0,255,0" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Bắt đầu" Font="font_text_figure" AutoSize="true" />
+      <event on_click="main" />
+    </control>
+  </control>
+</form>

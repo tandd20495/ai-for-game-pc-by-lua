@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_Qvcd" init="DoQVCDIni">
+        <prop LimitInScreen="true" Left="69" Top="38" Width="270" Height="320" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="DoQVCDOpen" on_close="DoQVCDClose" />     
+		
+		<control name="btn_close" entity="Button" script="" init="">
+            <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="240" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Tắt Auto:&lt;/font&gt;<br>● Bấm&lt;font color=&apos;#ff0000&apos;&gt; Dừng&lt;/font&gt;<br>&lt;font color=&apos;#ff0000&apos;&gt; trước khi tắt" />
+            <event on_click="CloseClick" />
+        </control>		
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="60" Top="6" Width="150" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Nhiệm vụ Vô Cực Đảo" Font="font_title_Mojia" />
+        </control>
+		
+		<control name="cbtn_q1" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="50" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q1_changed" />
+        </control>
+		<control name="lbl_q1" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="50" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Học Tiếng Đông Doanh" Font="font_main" />
+        </control>
+		<control name="cbtn_q2" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="70" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q2_changed" />
+        </control>
+		<control name="lbl_q2" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="70" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Trêu Chọc Thôn Dân" Font="font_main" />
+        </control>
+		<control name="cbtn_q3" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="90" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q3_changed" />
+        </control>
+		<control name="lbl_q3" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="90" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Do Thám Đông Doanh" Font="font_main" />
+        </control>
+		<control name="cbtn_q4" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="110" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q4_changed" />
+        </control>
+		<control name="lbl_q4" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="110" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thu Thập Đất Sét" Font="font_main" />
+        </control>
+		<control name="cbtn_q5" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="130" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q5_changed" />
+        </control>
+		<control name="lbl_q5" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="130" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chế Tác Trà Cụ" Font="font_main" />
+        </control>
+		<control name="cbtn_q6" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="150" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q6_changed" />
+        </control>
+		<control name="lbl_q6" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="150" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tâng Bốc" Font="font_main" />
+        </control>
+		<control name="cbtn_q7" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="170" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q7_changed" />
+        </control>
+		<control name="lbl_q7" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="170" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tỉ Thí Kiếm Đạo" Font="font_main" />
+        </control>
+		<control name="cbtn_q8" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="190" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q8_changed" />
+        </control>
+		<control name="lbl_q8" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="190" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Trưng Thu Lương Thực" Font="font_main" />
+        </control>
+		<control name="cbtn_q9" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="210" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q9_changed" />
+        </control>
+		<control name="lbl_q9" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="210" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Bảo Dưỡng Binh Khí" Font="font_main" />
+        </control>
+		<control name="cbtn_q10" entity="CheckButton" script="" init="">
+            <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="230" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" />
+            <event on_checked_changed="on_cbtn_q10_changed" />
+        </control>
+		<control name="lbl_q10" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="230" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thăm Dò Bắc Loan Thôn" Font="font_main" />
+        </control>
+		<!-- <control name="cbtn_q11" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="250" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q11_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q11" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="250" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thăm Dò Vô Cực Cung" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q12" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="270" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q12_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q12" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="270" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tình Báo Phòng Vệ" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q13" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="290" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q13_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q13" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="290" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Trộm Bí Kíp" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q14" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="310" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q14_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q14" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="310" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thăm Dò Thế Lực Bồng Lai" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q15" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="330" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q15_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q15" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="330" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thích Sát Bồng Lai Cao Thủ" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q16" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="350" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q16_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q16" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="350" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Hội Võ Trung Nguyên" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q17" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="370" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q17_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q17" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="370" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Hướng Dẫn Kiếm Thuật" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q18" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="390" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q18_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q18" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="390" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Huấn Luyện Túc Khinh" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q19" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="410" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q19_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q19" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="410" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Thưởng Thức Trà" Font="font_main" /> -->
+        <!-- </control> -->
+		<!-- <control name="cbtn_q20" entity="CheckButton" script="" init=""> -->
+            <!-- <prop  BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_4_off.png" FocusImage="gui\common\checkbutton\cbtn_4_on.png" CheckedImage="gui\common\checkbutton\cbtn_4_down.png" DisableImage="gui\common\checkbutton\cbtn_4_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" Left="20" Top="430" Width="16" Height="16" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" HintText="Vui lòng sắp skill như sau: &lt;font color=&apos;#ffee2e&apos;&gt;Phá deff ở ô cuối cùng, nộ chiêu ở ô kế cuối, các chiêu dame chính ở ô đầu tiên đến ô thứ 7!&lt;/font&gt;" /> -->
+            <!-- <event on_checked_changed="on_cbtn_q20_changed" /> -->
+        <!-- </control> -->
+		<!-- <control name="lbl_q20" entity="Label" script="" init=""> -->
+            <!-- <prop Align="Left" RefCursor="WIN_HELP" Left="43" Top="430" Width="72" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Xây Dựng Thành Phòng" Font="font_main" /> -->
+        <!-- </control> -->
+		<control name="btn_control" entity="Button" script="" init="">
+			<prop NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="91" Top="270" Width="87" Height="30" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" DrawMode="ExpandH" Enabled="false"/>
+			<event on_click="DoQVCD" />
+		</control>
+    </control>
+</form>

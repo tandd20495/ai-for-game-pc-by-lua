@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<form>
+    <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_pvp" init="on_form_main_init">
+        <prop LimitInScreen="true" Left="0" Top="0" Width="145" Height="200" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" Fixed="false" BackColor="0,255,255,255" NoFrame="true" BackImage="gui\common\form_back\bg_form.png" />
+        <event on_open="on_main_form_open" on_close="on_main_form_close" />
+		<control name="btn_minimize" entity="Button" script="" init="">
+			<prop NormalImage="gui\common\button\btn_minimum_out.png" FocusImage="gui\common\button\btn_minimum_on.png" PushImage="gui\common\button\btn_minimum_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="7" Width="20" Height="22" BackColor="0,255,255,255" ShadowColor="0,0,0,0" HintText="Ẩn GUI cho chức năng chạy ẩn" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="on_btn_minimize_click" />
+		</control>
+		<control name="btn_close" entity="Button" script="" init="">
+		<prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="115" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
+		<event on_click="on_btn_close_click" />
+		</control>
+        <control name="lbl_title" entity="Label" script="" init="">
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="145" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Kỹ Năng" Font="font_title" />
+        </control>
+		
+		<control name="btn_scan" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_selectinfo" init="">
+			<prop Left="10" Top="40" Width="60" Height="30" Text="Săm Soi" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="show_hide_form_selectinfo" />
+		</control>
+		<control name="btn_swap" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_swap" init="">
+			<prop Left="75" Top="40" Width="60" Height="30" Text="Đổi Đồ" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="show_hide_form_swap" />
+		</control>
+		<control name="btn_jingmai" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_jingmai" init="">
+			<prop Left="10" Top="115" Width="60" Height="30" Text="Đổi Mạch" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="show_hide_form_jingmai" />
+		</control>
+		<control name="btn_cutskill" entity="Button" script="" init="">
+			<prop Left="75" Top="115" Width="60" Height="30" Text="Cắt Chiêu" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="on_btn_cutskill_click" />
+		</control>
+		
+		<control name="btn_parry" entity="Button" script="" init="">
+			<prop Left="10" Top="155" Width="60" Height="30" Text="Tự Đỡ" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Lưu ý:&lt;/font&gt;<br>● Tự đỡ sẽ kích hoạt sau khi ấn nút&lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt; <br>● Tự đỡ sẽ luôn giữ def, chỉ nhả def khi đối phương phá def hoặc bản thân ra chiêu." DrawMode="Expand" NormalImage="gui\common\button\btn_normal1_out.png" FocusImage="gui\common\button\btn_normal1_on.png" PushImage="gui\common\button\btn_normal1_down.png" DisableImage="gui\common\button\btn_normal1_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="on_btn_parry_click" />
+		</control>
+		<control name="btn_start_pvp" entity="Button" script="" init="">
+			<prop Left="75" Top="155" Width="60" Height="30" Text="Chạy" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Lưu ý:&lt;/font&gt;<br>● Sau khi ấn nút&lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt; sẽ tự dùng kỹ năng có hiệu ứng choáng, mê để bắt phá def của đối phương." DrawMode="Expand" NormalImage="gui\common\button\btn_normal1_out.png" FocusImage="gui\common\button\btn_normal1_on.png" PushImage="gui\common\button\btn_normal1_down.png" DisableImage="gui\common\button\btn_normal1_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+			<event on_click="on_btn_start_click" />
+		</control>
+		<control name="combobox_taolu" entity="ComboBox" script="" init="">
+			<prop Left="10" Top="80" Width="125" Height="30" ButtonWidth="28" ButtonHeight="28" DropDownHeight="200" OnlySelect="true" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+			<event on_selected="on_combobox_taolu_selected" />
+			<subor name="InputEdit">
+				<prop ReadOnly="true" TextOffsetX="2" Align="Left" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Expand" Top="1"/>
+			</subor>
+			<subor name="DropButton">
+				<prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down2_on.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" Top="5"/>
+			</subor>
+			<subor name="DropListBox">
+				<prop MouseSelect="true" ItemHeight="18" TextOffsetX="5" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+				<subor name="VScrollBar">
+					<prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,0,0,0" ShadowColor="0,0,0,0" />
+					<subor name="DecButton">
+						<prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_up_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+					</subor>
+					<subor name="IncButton">
+						<prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_down_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+					</subor>
+					<subor name="TrackButton">
+						<prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\bg_scrollbar.png" Width="17" Height="10" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+					</subor>
+				</subor>
+			</subor>
+		</control>
+		<!-- <control name="combobox_binhthu" entity="ComboBox" script="" init="">
+			<prop Left="10" Top="115" Width="125" Height="30" ButtonWidth="28" ButtonHeight="28" DropDownHeight="200" OnlySelect="true" BackColor="24,221,249,248" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+			<event on_selected="on_combobox_binhthu_selected" />
+			<subor name="InputEdit">
+				<prop ReadOnly="true" TextOffsetX="2" Align="Left" SelectBackColor="190,190,190,190" Caret="Default" ForeColor="255,255,255,255" BackColor="8,106,141,52" LineColor="0,0,0,0" ShadowColor="0,20,0,0" Font="font_main" Cursor="WIN_IBEAM" AutoSize="true" DrawMode="Expand" Top="1"/>
+			</subor>
+			<subor name="DropButton">
+				<prop NormalImage="gui\common\combobox\btn_down1_out.png" FocusImage="gui\common\combobox\btn_down1_on.png" PushImage="gui\common\combobox\btn_down1_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\combobox\btn_down2_on.png" Width="20" Height="20" BackColor="255,192,192,192" ShadowColor="0,0,0,0" AutoSize="true" DrawMode="Center" Top="5"/>
+			</subor>
+			<subor name="DropListBox">
+				<prop MouseSelect="true" ItemHeight="18" TextOffsetX="5" SelectBackImage="gui\map\mapn\select.png" ScrollSize="17" ForeColor="255,155,153,125" BackColor="42,251,141,38" ShadowColor="0,0,0,0" Font="font_tip" NoFrame="true" DrawMode="Expand" BackImage="gui\common\form_back\bj_kuang.png" />
+				<subor name="VScrollBar">
+					<prop Maximum="10" SmallChange="1" LargeChange="5" BackColor="0,0,0,0" ShadowColor="0,0,0,0" />
+					<subor name="DecButton">
+						<prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_up_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+					</subor>
+					<subor name="IncButton">
+						<prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\button_1\btn_down_on.png" Width="17" Height="15" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+					</subor>
+					<subor name="TrackButton">
+						<prop FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Icon="gui\common\scrollbar\bg_scrollbar.png" Width="17" Height="10" BackColor="0,0,0,0" ShadowColor="0,0,0,0" AutoSize="true" />
+					</subor>
+				</subor>
+			</subor>
+		</control> -->
+    </control>
+</form>
