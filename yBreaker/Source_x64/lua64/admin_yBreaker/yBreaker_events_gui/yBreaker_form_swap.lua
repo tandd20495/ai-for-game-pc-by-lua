@@ -98,6 +98,63 @@ function on_btn_swap_items_equip_click(btn)
 	end
 end
 
+-- Function get current weapon for swap (Tránh swap 2 cây song đao bích tiêu 20% giật)
+function get_cur_weapon(skill_pack_ini, skill_prop)
+	local game_client = nx_value("game_client")
+	local client_player = game_client:GetPlayer()
+	if nx_is_valid(client_player) then
+		local scene = game_client:GetScene()
+		local view_table = game_client:GetViewList()
+		for i = 1, table.getn(view_table) do
+			local view = view_table[i]
+			if view.Ident == nx_string("1") then
+				local view_obj_table = view:GetViewObjList()
+				for k = 1, table.getn(view_obj_table) do
+					local view_obj = view_obj_table[k]
+					if view_obj:QueryProp("EquipType") == "Weapon" then
+						local row = view_obj:GetRecordRows("PropModifyPackRec")
+						local st_damage = 0
+						local cp_damage = 0
+						if row > 0 then
+							for k = 0, row - 1 do
+								local damage = view_obj:QueryRecord("PropModifyPackRec", k, 0)
+								if nx_number(damage) > 13033 and nx_number(damage) < 13900 then
+									if nx_number(damage) > 13224 then
+										-- Công phá
+										cp_damage = cp_damage + (nx_number(damage) - 13224)
+									else
+										-- Sát thương
+										st_damage = st_damage + (nx_number(damage) - 13033)
+									end
+								end
+							end
+						end
+
+						local skill_damage = 0
+						local row = view_obj:GetRecordRows("SkillModifyPackRec")
+						if row > 0 then
+							for k = 0, row - 1 do
+								local prop = view_obj:QueryRecord("SkillModifyPackRec", k, 0)
+								local sec_index = skill_pack_ini:FindSectionIndex(nx_string(prop))
+								local value = ""
+								if sec_index >= 0 then
+									value = skill_pack_ini:ReadString(sec_index, "r", nx_string(""))
+								end
+								local tuple = util_split_string(value, ",")
+								if nx_string(tuple[1]) == nx_string(skill_prop) then
+									skill_damage = skill_damage + 1
+								end
+							end
+						end
+						return st_damage, cp_damage, skill_damage
+					end
+				end
+				break
+			end
+		end
+	end
+end
+
 -- Function equip items by properties
 function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 	if nx_is_valid(form_bag) then
@@ -142,7 +199,7 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 				skill_prop = "CS_wd_tjq03"
 			end
 			
-						-- Kim xà thích
+			-- Kim xà thích
 			if skill_prop == "wuji_CS_tm_jsc05" then
 				skill_prop = "CS_tm_jsc05"
 			end
@@ -166,7 +223,7 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 				skill_prop = "CS_jh_myjf03"
 			end
 			if skill_prop == "wuji_CS_jh_myjf08" then
-				skill_prop = "CS_jh_myjf03"
+				skill_prop = "CS_jh_myjf08"
 			end
 			
 			-- Kim đỉnh
@@ -214,6 +271,105 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 			if skill_prop == "CS_dy_sdyjl09_hide" then
 				skill_prop = "CS_dy_sdyjl09"
 			end
+			
+			-- Xử lý vấn đề võ kỹ không thể swap bình thư, vũ khí, trang bị đầu, oản, thoái
+  			-- Minh Giáo ---
+			if skill_prop == "wuji_CS_jh_ldg02" or skill_prop == "wuji_CS_jh_ldg02_hide" then -- Phong Kinh Cung Minh normal - võ kỹ - hide
+				skill_prop = "CS_jh_ldg02"
+			elseif skill_prop == "wuji_CS_jh_ldg01" then -- Tiễn vũ mạn thiên (phá def)
+				skill_prop = "CS_jh_ldg01"
+			elseif skill_prop == "wuji_CS_jh_ldg05" then -- Vạn Tiễn Xuyên Tâm
+				skill_prop = "CS_jh_ldg05"
+				
+			-- Thiếu Lâm --- 
+			elseif skill_prop == "wuji_CS_sl_djgq04" then -- Hư bộ đoạn trửu (phá def)
+				skill_prop = "CS_sl_djgq04"
+			elseif skill_prop == "wuji_CS_sl_djgq02" then -- Phiên thiên phách địa
+				skill_prop = "CS_sl_djgq02"
+			elseif skill_prop == "wuji_CS_sl_djgq03" then -- tiên bộ xung chùy 
+				skill_prop = "CS_sl_djgq03"
+			
+			-- Võ Đang --
+			elseif skill_prop == "wuji_CS_wd_qfjf04" then -- Phong thanh tế nguyệt (phá def)
+				skill_prop = "CS_wd_qfjf04"
+			elseif skill_prop == "wuji_CS_wd_qfjf02" or  skill_prop == "wuji_CS_wd_qfjf02_sky" then -- Trọc kích thanh vị
+				skill_prop = "CS_wd_qfjf02"
+			elseif skill_prop == "wuji_CS_wd_qfjf06" or skill_prop == "wuji_CS_wd_qfjf06_sky" then -- Kích Trọc Dương Thanh
+				skill_prop = "CS_wd_qfjf06"
+				
+			-- Uyên Ương Song Đao -- Xử lý trạng thái có nộ biến thành bộ khác
+			elseif skill_prop == "CS_jh_yydf07_hide" then -- Thiên Kim Nhất Khắc (phá def)
+				skill_prop = "CS_jh_yydf07"
+			elseif skill_prop == "CS_jh_yydf02_hide" then -- Xung Phong
+				skill_prop = "CS_jh_yydf02"
+			elseif skill_prop == "CS_jh_yydf01_hide" then -- Thiên Giáo Diễm
+				skill_prop = "CS_jh_yydf01"
+			elseif skill_prop == "CS_jh_yydf03_hide" then -- Hút
+				skill_prop = "CS_jh_yydf03"
+			elseif skill_prop == "CS_jh_yydf04_hide" then -- Xoay
+				skill_prop = "CS_jh_yydf04"
+			
+			-- Mị Ảnh Võ Kỹ
+			elseif skill_prop == "wuji_CS_jh_myjf03" then -- hình ảnh bất ly (cổ)
+				skill_prop = "CS_jh_myjf03"
+			elseif skill_prop == "wuji_CS_jh_myjf08" then -- quỷ bộ trảm ảnh (cổ)
+				skill_prop = "CS_jh_myjf08"
+			
+			-- Đã cẩu bổng (cổ)
+			elseif skill_prop == "wuji_CS_gb_dgbf07" then -- Bát cẩu triều thiên (cổ)
+				skill_prop = "CS_gb_dgbf07"
+			elseif skill_prop == "wuji_CS_gb_dgbf08" then -- Thiên hạ vô cẩu (cổ)
+				skill_prop = "CS_gb_dgbf08"
+			elseif skill_prop == "wuji_CS_gb_dgbf02" then -- Tà đả cẩu bối  (cổ)
+				skill_prop = "CS_gb_dgbf02"
+			
+			-- Huyết Sát Đao Võ Kỹ
+			elseif skill_prop == "wuji_CS_jy_xsd03" then -- Đao Quang Huyết Ảnh (Xung Phong)
+				skill_prop = "CS_jy_xsd03"
+			elseif skill_prop == "wuji_CS_jy_xsd02" then -- Truy Tận Diệt Sát (Xích đu tới)
+				skill_prop = "CS_jy_xsd02"
+			elseif skill_prop == "CS_jy_xsd08_sky" then -- Hàn Phong Ẩm Huyết (Sky_TrênKhông)
+				skill_prop = "CS_jy_xsd08"
+			elseif skill_prop == "wuji_CS_jy_xsd07" then -- Cách Sách Vận Luân (khí chiêu 1 hit)
+				skill_prop = "CS_jy_xsd07"
+			
+			-- Đã Cẩu Bổng (Võ Kỹ)
+			elseif skill_prop == "wuji_CS_gbzp_dgbf07" then -- Bát cẩu triều thiên (Hất)
+				skill_prop = "CS_gbzp_dgbf07"
+			elseif skill_prop == "wuji_CS_gbzp_dgbf02" then -- Tà đả cẩu bối (1 hit)
+				skill_prop = "CS_gbzp_dgbf02"
+			elseif skill_prop == "wuji_CS_gbzp_dgbf08" then -- Thiên hạ Vô Cẩu (nộ)
+				skill_prop = "CS_gbzp_dgbf08"
+			
+			-- Thái Cực Quyền (Fake) --
+			elseif skill_prop == "wuji_CS_wdzp_tjq08" then -- Khai Thái Cực (fake)
+				skill_prop = "CS_wdzp_tjq08"
+			
+			-- Diêm Vương Thiếp --
+			elseif skill_prop == "wuji_CS_tm_ywt03" then -- Vô Thường Đạo (võ kỹ)
+				skill_prop = "CS_tm_ywt03"
+			elseif skill_prop == "wuji_CS_tm_ywt04" then -- Sát Thần Dương Đạo (võ kỹ)
+				skill_prop = "CS_tm_ywt04"
+			elseif skill_prop == "wuji_CS_tm_ywt05" then -- Mạnh Bà Quán Nhật (võ kỹ) 
+				skill_prop = "CS_tm_ywt05"
+			elseif skill_prop == "wuji_CS_tm_ywt06" then -- Oan Hồn Thiêu Thân (võ kỹ)  
+				skill_prop = "CS_tm_ywt06"
+			elseif skill_prop == "wuji_CS_tm_ywt07" then -- Diêm Vương Trịch Bút (võ kỹ)
+				skill_prop = "CS_tm_ywt07"
+			elseif skill_prop == "CS_tm_ywt07_sky" then -- Diêm Vương Trịch Bút (trên không)
+				skill_prop = "CS_tm_ywt07"
+			elseif skill_prop == "wuji_CS_tm_ywt07_sky" then -- Diêm Vương Trịch Bút (trên không + võ kỹ)
+				skill_prop = "CS_tm_ywt07"
+			
+			-- TCQ cổ --
+			elseif skill_prop == "wuji_CS_wd_tjq08" then -- TCQ ( cổ VK)
+				skill_prop = "CS_wd_tjq08"
+			-- LTT cổ --
+			elseif skill_prop == "wuji_CS_sl_lzs07" then -- LTT cổ VK ----Phê Cang
+				skill_prop = "CS_sl_lzs07"
+			elseif skill_prop == "wuji_CS_sl_lzs06" then -- LTT cổ VK ---Tróc ảnh
+				skill_prop = "CS_sl_lzs06"
+			end
 
 			local LimitIndex = nx_execute("tips_data", "get_ini_prop", "share\\Skill\\skill_new.ini", skill_prop, "UseLimit", "")
 			if LimitIndex == nil then
@@ -229,13 +385,17 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 			if not nx_is_valid(skill_query) then
 				return
 			end
+			
+			-- Get item type
 			local ItemType = skill_query:GetSkillWeaponType(nx_int(LimitIndex))
 			if ItemType == nil then
 				return
 			end
+			
+			-- Get weapon properties
+			local weapon_st_damage, weapon_cp_damage, weapon_skill_damage = get_cur_weapon(skill_pack_ini, skill_prop)
 
 			if nx_is_valid(client_player) then
-
 				local view_table = game_client:GetViewList()
 				for i = 1, table.getn(view_table) do
 					local view = view_table[i]
@@ -247,8 +407,11 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 							-- ItemType: Get vũ khí dựa vào skill ở trên/ 
 							-- nx_number(145): Oản
 							-- nx_int(0): Tất cả các loại (Oản + B.thư, ...)
-							if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) or nx_number(view_obj:QueryProp("ItemType")) == nx_number(145) then
-
+							--if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) or nx_number(view_obj:QueryProp("ItemType")) == nx_number(145) then
+							-- nx_number(0): Fix cho hộ chỉ
+							if nx_number(view_obj:QueryProp("ItemType")) == nx_number(ItemType) or ItemType == nx_number(0) then
+								-- Đếm dòng skill 10% trên trang bị
+								local cnt_opt_skill = 0
 								local row = view_obj:GetRecordRows("SkillModifyPackRec")
 								if row > 0 then
 									for k = 0, row - 1 do
@@ -261,9 +424,19 @@ function equip_item_prop(form_bag, skill_pack_ini, skill_prop, active)
 										
 										local tuple = util_split_string(value, ",")
 										if nx_string(tuple[1]) == nx_string(skill_prop) then
-											item_quip = view_obj
+											-- Đếm dòng skill 10% trên trang bị
+											cnt_opt_skill = cnt_opt_skill + 1
 										end
 									end
+								end
+								
+								-- Nếu dòng skill >= 2 dòng (20%) thì mới gán item để swap
+								if nx_number(weapon_skill_damage) < nx_number(cnt_opt_skill) and cnt_opt_skill >= 2 then
+								--if cnt_opt_skill >= 2 then
+									item_quip = view_obj
+									
+									-- Lấy dòng % trên vũ khí (Song đao 20%, ...)
+									weapon_skill_damage = cnt_opt_skill
 								end
 							end
 							
