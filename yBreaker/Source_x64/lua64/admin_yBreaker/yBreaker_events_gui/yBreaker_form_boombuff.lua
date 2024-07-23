@@ -36,6 +36,15 @@ function on_btn_close_click(btn)
 	on_main_form_close(form)
 end
 
+function getName_myself()
+    local player = nx_value("game_client"):GetPlayer()
+    if not nx_is_valid(player) then
+        return 0
+    end
+    local name_myself = player:QueryProp("Name")
+    return name_myself
+end
+
 function on_btn_start_click(btn)
 	local form = btn.ParentForm
 	if not nx_is_valid(form) then
@@ -137,8 +146,14 @@ function on_btn_start_click(btn)
 								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_3.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_3.Text)   or
 								nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_4.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_4.Text)   or
 								nx_is_valid(form_guild_set) and form_guild_set.chk_guild_5.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_5.Text)   then
-								-- Chọn mục tiêu
-								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+								
+								local name_myself = getName_myself()
+								
+								-- Check name not select my self
+								if name_myself ~= nx_widestr(name_player) then
+									-- Chọn mục tiêu
+									nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+								end
 								
 								--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
 								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
@@ -302,8 +317,13 @@ function on_btn_start_click(btn)
 								--	end
 								--end
 								
-								-- Chọn mục tiêu
-								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+								local name_myself = getName_myself()
+								
+								-- Check name not select my self
+								if name_myself ~= nx_widestr(name_player) then
+									-- Chọn mục tiêu
+									nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+								end
 							
 								-- Object đang target
 								--if nx_string(player_client:QueryProp("LastObject")) ~= nx_string(game_scence_objs[i].Ident) then
@@ -677,8 +697,13 @@ function loopBoom()
 							--	end
 							--end
 							
-							-- Chọn mục tiêu
-							nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+							local name_myself = getName_myself()
+							
+							-- Check name not select my self
+							if name_myself ~= nx_widestr(name_player) then
+								-- Chọn mục tiêu
+								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+							end
 						
 							-- Object đang target
 							--if nx_string(player_client:QueryProp("LastObject")) ~= nx_string(game_scence_objs[i].Ident) then
@@ -841,8 +866,13 @@ function loopBuff()
 							nx_is_valid(form_guild_set) and	form_guild_set.chk_guild_4.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_4.Text)   or
 							nx_is_valid(form_guild_set) and form_guild_set.chk_guild_5.Checked and nx_widestr(name_guild) == nx_widestr(form_guild_set.edt_guild_5.Text)   then
 							
-							-- Chọn mục tiêu
-							nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+							local name_myself = getName_myself()
+							
+							-- Check name not select my self
+							if name_myself ~= nx_widestr(name_player) then
+								-- Chọn mục tiêu
+								nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+							end
 							
 							--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
 							local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
