@@ -43,6 +43,15 @@ function show_hide_form_selectinfo()
 	util_auto_show_hide_form(THIS_FORM)
 end
 
+function getRage()
+    local player = nx_value("game_client"):GetPlayer()
+    if not nx_is_valid(player) then
+        return 0
+    end
+    local sp = player:QueryProp("SP")
+    return tonumber(sp)
+end
+
 function scan_info_player()
 	is_scan_info_player = true
     while is_scan_info_player == true do
@@ -109,6 +118,9 @@ function scan_info_player()
 						local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
 						local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
 						
+						-- Lấy nộ bản thân
+						local sp_self = getRage()
+						
 						-- Set giá trị cho Name
 						form.lbl_title.Text = nx_widestr(name_player)
 						
@@ -129,6 +141,9 @@ function scan_info_player()
 
 						-- Số thành viên của PT
 						form.t_team_num_txt.Text = nx_widestr(cntpt_player)
+						
+						-- Nộ của bản thân
+						form.t_sp_self_txt.Text = nx_widestr(sp_self)
 
                     end
                 end

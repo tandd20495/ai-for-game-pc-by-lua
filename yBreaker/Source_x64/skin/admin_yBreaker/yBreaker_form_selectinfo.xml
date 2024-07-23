@@ -39,10 +39,10 @@
             <prop Format="%.2f" DragStep="0.010000" Min="-7000.000000" Max="7000.000000"  Left="140" Top="35" Width="30" Height="16" Text="m" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0"  Font="font_text_figure" />
         </control>	
 		<control name="t_sp" entity="Label" script="" init="">
-            <prop Align="Left" RefCursor="WIN_HELP" Left="80" Top="55" Width="30" Height="18" ForeColor="255,0,255,0" ShadowColor="0,0,0,0" Text="Nộ: " DrawMode="Expand"  Font="font_text_figure" />
+            <prop Align="Left" RefCursor="WIN_HELP" Left="80" Top="55" Width="30" Height="18" ForeColor="255,0,255,0" ShadowColor="0,0,0,0" Text="Nộ địch: " DrawMode="Expand"  Font="font_text_figure" />
         </control> 
 		<control name="t_sp_txt" entity="Label" script="" init="">
-            <prop Left="120" Top="50" Width="40" Height="25" RefCursor="WIN_HELP" ForeColor="255,0,255,0" ShadowColor="0,0,0,0"  Font="font_sns_title_huali_1" />
+            <prop Left="130" Top="50" Width="42" Height="30" RefCursor="WIN_HELP" ForeColor="255,0,255,0" ShadowColor="0,0,0,0"  Font="font_sns_title_huali_1" />
         </control>	
 		<control name="t_team_name" entity="Label" script="" init="">
             <prop Align="Left" RefCursor="WIN_HELP" Left="15" Top="80" Width="25" Height="18" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Text="Đội: " DrawMode="Expand"  Font="font_text_figure" />
@@ -51,10 +51,16 @@
             <prop Left="45" Top="80" Width="110" Height="18" RefCursor="WIN_HELP" ForeColor="255,246,185,59" ShadowColor="0,0,0,0"  Font="font_text_figure" />
         </control>	
 		<control name="t_team_num" entity="Label" script="" init="">
-            <prop Align="Left" RefCursor="WIN_HELP" Left="15" Top="100" Width="35" Height="18" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Text="Số Lượng: " DrawMode="Expand"  Font="font_text_figure" />
+            <prop Align="Left" RefCursor="WIN_HELP" Left="15" Top="100" Width="35" Height="18" ForeColor="255,246,185,59" ShadowColor="0,0,0,0" Text="Số người: " DrawMode="Expand"  Font="font_text_figure" />
         </control> 
 		<control name="t_team_num_txt" entity="Label" script="" init="">
             <prop Left="80" Top="100" Width="40" Height="18" RefCursor="WIN_HELP" ForeColor="255,246,185,59" ShadowColor="0,0,0,0"  Font="font_text_figure" />
+        </control>	
+		<control name="t_sp_self" entity="Label" script="" init="">
+            <prop Align="Left" RefCursor="WIN_HELP" Left="100" Top="100" Width="30" Height="18" ForeColor="255,0,255,255" ShadowColor="0,0,0,0" Text="Nộ ta: " DrawMode="Expand"  Font="font_text_figure" />
+        </control> 
+		<control name="t_sp_self_txt" entity="Label" script="" init="">
+            <prop Left="140" Top="95" Width="42" Height="30" RefCursor="WIN_HELP" ForeColor="255,0,255,255" ShadowColor="0,0,0,0"  Font="font_sns_title_huali_1" />
         </control>	
     </control>
 </form>
