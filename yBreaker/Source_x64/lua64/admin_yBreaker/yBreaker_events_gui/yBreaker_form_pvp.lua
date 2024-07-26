@@ -628,6 +628,7 @@ function on_btn_start_click(btn)
     end
     if auto_is_running then
         auto_is_running = false
+		isAutoActiveParry = false
 		btn.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 		btn.ForeColor = "255,255,255,255"
 		-- Dừng đỡ đòn khi kết thúc
@@ -638,6 +639,7 @@ function on_btn_start_click(btn)
             return false
         end
         auto_is_running = true
+		isAutoActiveParry = true
 		btn.Text = nx_function("ext_utf8_to_widestr", "Dừng")
 		btn.ForeColor = "255,220,20,60"
 		-- Tự đỡ khi bắt đầu
