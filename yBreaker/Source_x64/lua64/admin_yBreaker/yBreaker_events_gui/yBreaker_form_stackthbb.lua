@@ -35,8 +35,9 @@ function change_form_size()
     end
 	
 	local gui = nx_value("gui")
-	form.Left = 325
-	form.Top = (gui.Height /2)
+	form.Left = 1224
+	form.Top = 881
+	--form.Top = (gui.Height /2)
 end
 
 function on_btn_close_click(btn)

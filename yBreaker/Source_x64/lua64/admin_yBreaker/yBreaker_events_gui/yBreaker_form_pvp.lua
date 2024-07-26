@@ -662,6 +662,26 @@ function on_btn_parry_click(btn)
     end
 end
 
+-- Function speed
+function on_btn_speed_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+
+	-- Execute function speed
+	nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_speed", "yBreaker_bug_speed")
+
+	if form.btn_speed.Text == nx_function("ext_utf8_to_widestr", "Dừng Lại") then
+		
+		form.btn_speed.Text = nx_function("ext_utf8_to_widestr", "Tăng Tốc")
+		form.btn_speed.ForeColor = "255,255,255,255"
+	else
+		form.btn_speed.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+		form.btn_speed.ForeColor = "255,220,20,60"
+	end
+end
+
 -- Function cắt animation
 function on_btn_cutskill_click(btn)
     local form = btn.ParentForm
@@ -687,9 +707,10 @@ function change_form_size()
     if not nx_is_valid(form) then
         return
     end
-    local gui = nx_value("gui")
-    form.Left = 100
-    form.Top = (gui.Height / 2)
+    --local gui = nx_value("gui")
+    form.Left = 1432
+	form.Top = 543
+    --form.Top = (gui.Height / 2)
 end
 
 function on_groupbox_dbomall_get_capture(groupbox)

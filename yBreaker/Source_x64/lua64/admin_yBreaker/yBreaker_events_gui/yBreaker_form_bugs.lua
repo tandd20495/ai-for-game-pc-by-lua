@@ -40,15 +40,23 @@ function change_form_size()
         return
     end
     local gui = nx_value("gui")
-    form.Left = 100
-    form.Top = 140
+    form.Left = 458
+    form.Top = 699
 end
 
 function show_hide_form_bugs()
+	-- Gọi form bug
 	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_bugs")
+	
+	-- Gọi thêm các form tính năng hành hiệp khác
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_swap")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_scan")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_selectinfo")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_stackthbb")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_boombuff")
 end
-
-
 
 -- Function apply Speed
 function on_btn_speed_apply_click(btn)
@@ -171,27 +179,6 @@ function on_btn_jump_hight_click(btn)
 	-- Execute start jump
 	update_btn_start_jump()
 
-end
-
-
--- Function cắt animation
-function on_btn_god_ping_click(btn)
-    local form = btn.ParentForm
-    if not nx_is_valid(form) then
-        return
-    end
-	
-	-- Execute function đè ping
-	nx_execute("admin_yBreaker\\yBreaker_scripts_func\\yBreaker_scripts_godping", "yBreaker_god_ping")
-
-	if form.btn_god_ping.Text == nx_function("ext_utf8_to_widestr", "Dừng Lại") then
-		
-		form.btn_god_ping.Text = nx_function("ext_utf8_to_widestr", "Cắt Chiêu")
-		form.btn_god_ping.ForeColor = "255,255,255,255"
-	else
-		form.btn_god_ping.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
-		form.btn_god_ping.ForeColor = "255,220,20,60"
-	end
 end
 
 function autoSpeed(speed)

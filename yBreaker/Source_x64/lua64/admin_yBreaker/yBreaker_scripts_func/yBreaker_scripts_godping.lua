@@ -4,7 +4,7 @@ require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 function yBreaker_god_ping()  
 	if not isPing then
 		isPing = true
-		yBreaker_show_Utf8Text("Cắt hoạt ảnh kỹ năng nhân vật khi đang dùng kỹ năng!")
+		yBreaker_show_Utf8Text("Cắt hoạt ảnh kỹ năng!")
 		while isPing == true do
 			nx_pause(0)
 			local is_vaild_data = true
@@ -38,6 +38,6 @@ function yBreaker_god_ping()
 		end
 	else
 		isPing = false
-		yBreaker_show_Utf8Text("Dừng cắt hoạt ảnh!")
+		-- yBreaker_show_Utf8Text("Dừng cắt hoạt ảnh!")
 	end
 end

@@ -410,8 +410,9 @@ function change_form_size()
 		return
 	end
 	local gui = nx_value("gui")
-	form.Left = 100
-	form.Top = (gui.Height - form.Height) / 2
+	form.Left = 1343
+	form.Top = 822
+	--form.Top = (gui.Height - form.Height) / 2
 end
 
 function show_hide_form_boombuff()

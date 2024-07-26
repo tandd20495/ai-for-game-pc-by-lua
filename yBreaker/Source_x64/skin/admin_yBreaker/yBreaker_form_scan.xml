@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_scan" init="on_form_main_init">
-        <prop LimitInScreen="true" ShowGrid="true" Left="45" Top="77" Width="350" Height="380" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <prop LimitInScreen="true" ShowGrid="true" Left="45" Top="77" Width="350" Height="440" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
 		
 		<control name="lbl_title" entity="Label" script="" init="">
@@ -39,15 +39,15 @@
 
 		<!-- Hàng ngang -->
         <control name="lbl_kx" entity="Label" script="" init="">
-            <prop RefCursor="WIN_HELP" Left="6" Top="5" Width="340" Height="390" ShadowColor="0,0,0,0" DrawMode="ExpandH" BackImage="gui\special\team\bg_team_jieban.png" />
+            <prop RefCursor="WIN_HELP" Left="6" Top="5" Width="340" Height="410" ShadowColor="0,0,0,0" DrawMode="ExpandH" BackImage="gui\special\team\bg_team_jieban.png" />
         </control>
         <control name="lbl_k" entity="Label" script="" init="">
-            <prop RefCursor="WIN_HELP" Left="6" Top="5" Width="340" Height="390" ShadowColor="0,0,0,0" DrawMode="Expand" />
+            <prop RefCursor="WIN_HELP" Left="6" Top="5" Width="340" Height="410" ShadowColor="0,0,0,0" DrawMode="Expand" />
         </control>
 		
 		<!-- Gird chứa thông tin -->
         <control name="info_grid_details" entity="Grid" script="" init="">
-            <prop ShowComment="true" RowHeaderVisible="false" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" SelectBackDraw="gui\common\combobox\bg_select3.png" CanSelectRow="true" ColWidth="40" RowHeight="28" ScrollSize="17" HasHScroll="true" Left="5" Top="60" Width="340" Height="270" ForeColor="255,178,153,127" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Text="textgrid_1" Font="font_text" TabStop="true" DrawMode="Expand" />
+            <prop ShowComment="true" RowHeaderVisible="false" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" SelectBackDraw="gui\common\combobox\bg_select3.png" CanSelectRow="true" ColWidth="40" RowHeight="28" ScrollSize="17" HasHScroll="true" Left="5" Top="60" Width="340" Height="330" ForeColor="255,178,153,127" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Text="textgrid_1" Font="font_text" TabStop="true" DrawMode="Expand" />
             <event on_right_select_grid="" on_select_grid="" />
 			
             <subor name="HScrollBar">
@@ -83,15 +83,15 @@
 		
 		<!-- Checkbox lọc các mục tiêu chọn bản thân -->
 		<control name="chk_fil_self" entity="CheckButton" script="" init="">
-			<prop Checked="true" Left="130" Top="343" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" HintText="• Chỉ hiện các đối tượng &lt;font color=&apos;#46fd15&apos;&gt;đang target tới bản thân.&lt;/font&gt; "/>
+			<prop Checked="true" Left="130" Top="403" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" HintText="• Chỉ hiện các đối tượng &lt;font color=&apos;#46fd15&apos;&gt;đang target tới bản thân.&lt;/font&gt; "/>
 		</control>
 		<control name="lbl_fil_self" entity="Label" script="" init="">
-                <prop Left="153" Top="343" Width="60" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chọn bạn" Font="font_main" />
+                <prop Left="153" Top="403" Width="60" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chọn bạn" Font="font_main" />
         </control>
 		
 		<!-- Bắt đầu tìm người -->
 		<control name="btn_refresh" entity="Button" script="" init="">
-            <prop Left="230" Top="341" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal1_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tìm Người" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop Left="230" Top="401" Width="100" Height="30" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal1_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Text="Tìm Người" Font="font_btn" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
             <event on_click="on_click_btn_refresh" />
         </control>
     </control>
