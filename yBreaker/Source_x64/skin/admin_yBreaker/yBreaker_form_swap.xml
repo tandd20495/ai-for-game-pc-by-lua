@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_swap" init="on_form_main_init">
-        <prop LimitInScreen="true" Left="0" Top="0" Width="90" Height="130" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" Fixed="false" BackColor="0,255,255,255" NoFrame="true" BackImage="gui\common\form_back\bg_form.png" />
+        <prop Transparent="true" LimitInScreen="true" Left="0" Top="0" Width="90" Height="130" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" Fixed="false" BackColor="0,255,255,255" NoFrame="true" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
 		<control name="btn_minimize" entity="Button" script="" init="">
 			<prop NormalImage="gui\common\button\btn_minimum_out.png" FocusImage="gui\common\button\btn_minimum_on.png" PushImage="gui\common\button\btn_minimum_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="5" Top="7" Width="20" Height="22" BackColor="0,255,255,255" ShadowColor="0,0,0,0" HintText="Ẩn GUI cho chức năng chạy ẩn" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />

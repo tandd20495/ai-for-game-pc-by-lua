@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <form>
     <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_scan" init="on_form_main_init">
-        <prop LimitInScreen="true" ShowGrid="true" Left="45" Top="77" Width="350" Height="440" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
+        <prop Transparent="true" LimitInScreen="true" ShowGrid="true" Left="45" Top="77" Width="350" Height="440" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
 		
 		<control name="lbl_title" entity="Label" script="" init="">
