@@ -1,7 +1,7 @@
 [-- HàoHoa - Nhất Phẩm Các --]
 
 [ Note:
-*+ Có thể sử dụng chung với auto ZDN.
+*+ Sử dụng chung với auto ZDN.
 ]
 
 *** Hướng dẫn cài đặt:
