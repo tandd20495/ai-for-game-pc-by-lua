@@ -40,18 +40,17 @@ function change_form_size()
 end
 
 function init_grid(form)
-  form.info_grid_details.ColCount = 5
+  form.info_grid_details.ColCount = 4
   form.info_grid_details:SetColAlign(0, "left")
-  form.info_grid_details:SetColAlign(1, "left")
-  form.info_grid_details:SetColAlign(2, "left")
-  form.info_grid_details:SetColAlign(3, "left")
-  form.info_grid_details:SetColAlign(4, "left")
+  form.info_grid_details:SetColAlign(1, "center")
+  form.info_grid_details:SetColAlign(2, "center")
+  form.info_grid_details:SetColAlign(3, "center")
+  --form.info_grid_details:SetColAlign(4, "center")
   form.info_grid_details:SetColWidth(0, form.btn_name.Width)
-  form.info_grid_details:SetColWidth(1, form.btn_guild.Width)
-  form.info_grid_details:SetColWidth(2, form.btn_party.Width)
-  form.info_grid_details:SetColWidth(3, form.btn_member.Width)
-  --form.info_grid_details:SetColWidth(4, form.btn_targeted.Width - 25)
-  form.info_grid_details:SetColWidth(4, form.btn_targeted.Width)
+  --form.info_grid_details:SetColWidth(1, form.btn_guild.Width)
+  form.info_grid_details:SetColWidth(1, form.btn_party.Width)
+  form.info_grid_details:SetColWidth(2, form.btn_member.Width)
+  form.info_grid_details:SetColWidth(3, form.btn_targeted.Width)
 end
 
 --
@@ -69,24 +68,23 @@ function show_hide_form_scan()
 end
 
 -- Add information of player on grid
-function add_row_info_grid(player_name, player_guild, player_party, player_member, player_targeted)
+function add_row_info_grid(player_name, player_party, player_member, player_targeted)
 	local form = nx_value(THIS_FORM)
 	if not nx_is_valid(form) then
 		return
 	end
-		yBreaker_show_Utf8Text(player_name)
+	
 	local row = form.info_grid_details:InsertRow(-1)
 	form.info_grid_details:BeginUpdate()
 	-- form.info_grid_details:InsertRow(row)
 	form.info_grid_details:SetGridText(row, 0, nx_widestr(player_name))
-	form.info_grid_details:SetGridText(row, 1, nx_widestr(player_guild))
-	form.info_grid_details:SetGridText(row, 2, nx_widestr(player_party))
-	form.info_grid_details:SetGridText(row, 3, nx_widestr(player_member))
-	form.info_grid_details:SetGridText(row, 4, nx_widestr(player_targeted))
+	form.info_grid_details:SetGridText(row, 1, nx_widestr(player_party))
+	form.info_grid_details:SetGridText(row, 2, nx_widestr(player_member))
+	form.info_grid_details:SetGridText(row, 3, nx_widestr(player_targeted))
 	form.info_grid_details:EndUpdate()
 end
 
--- Làm mới
+-- Handle button Tìm Người
 function on_click_btn_refresh(btn)
 	local form = nx_value(THIS_FORM)
 	if not nx_is_valid(form) then
@@ -108,6 +106,7 @@ function on_click_btn_refresh(btn)
     end
 end
 
+-- Function main for scan player
 function scan_player_around()
     while is_running_scan_player == true do
         local is_vaild_data = true
@@ -151,142 +150,81 @@ function scan_player_around()
 			-- Clear data
 			form.info_grid_details:ClearRow()
 			
-			-- Mode lọc chọn bạn
-			--if form.chk_fil_self.Checked then
-				for i = 1, num_objs do
-					local obj_type = 0
-					if game_scence_objs[i]:FindProp("Type") then
-						obj_type = game_scence_objs[i]:QueryProp("Type")
+			for i = 1, num_objs do
+				local obj_type = 0
+				if game_scence_objs[i]:FindProp("Type") then
+					obj_type = game_scence_objs[i]:QueryProp("Type")
+				end
+				if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
+					local name_player = game_scence_objs[i]:QueryProp("Name")
+					--local guild_player = game_scence_objs[i]:QueryProp("GuildName")
+					local party_player = game_scence_objs[i]:QueryProp("TeamCaptain")
+					local cnt_member = game_scence_objs[i]:QueryProp("TeamMemberCount")
+					local select_target_ident = game_scence_objs[i]:QueryProp("LastObject")
+					
+					-- Set empty
+					local name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
+					
+					-- Set chuỗi rỗng cho bang hội/ tổ đội
+					--if 	guild_player == 0 then
+					--	guild_player = nx_function("ext_utf8_to_widestr", "-")
+					--end
+					if  party_player == 0 then
+						party_player = nx_function("ext_utf8_to_widestr", "-")
 					end
-					if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
-						local name_player = game_scence_objs[i]:QueryProp("Name")
-						local guild_player = game_scence_objs[i]:QueryProp("GuildName")
-						local party_player = game_scence_objs[i]:QueryProp("TeamCaptain")
-						local cnt_member = game_scence_objs[i]:QueryProp("TeamMemberCount")
-						local select_target_ident = game_scence_objs[i]:QueryProp("LastObject")
+					if 	select_target_ident == 0 or nx_widestr(select_target_ident) == nx_widestr("0-0") then
+						name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
+					end
+					
+					-- Mode: Chọn bạn (chỉ add tối tượng đang chọn bạn)
+					if form.chk_fil_self.Checked then
+					
+						--// Get target của đối tượng
+						-- Get lastobject của đối tượng (a) target
+						-- Dùng lastobject này để get name người chơi (b) đó
+						-- Dùng name người chơi b để add vào grid
+						local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
+						if nx_is_valid(select_target) then
 						
-						-- Set empty
-						local name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
-						
-						-- Set chuỗi rỗng cho bang hội/ tổ đội
-						if 	guild_player == 0 then
-							guild_player = nx_function("ext_utf8_to_widestr", "-")
-						end
-						if  party_player == 0 then
-							party_player = nx_function("ext_utf8_to_widestr", "-")
-						end
-						if 	select_target_ident == 0 or nx_widestr(select_target_ident) == nx_widestr("0-0") then
-							name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
-						end
-						
-						-- Mode: Chọn bạn (chỉ add tối tượng đang chọn bạn)
-						if form.chk_fil_self.Checked then
-						
-							--// Get target của đối tượng
-							-- Get lastobject của đối tượng (a) target
-							-- Dùng lastobject này để get name người chơi (b) đó
-							-- Dùng name người chơi b để add vào grid
-							local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
-							if nx_is_valid(select_target) then
-							
-								-- Đối tượng target bạn
-								if nx_widestr(player_client:QueryProp("Name")) == nx_widestr(select_target:QueryProp("Name")) then
-									name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
-									
-									-- Không add bản thân vào
-									if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
-										-- Add object
-										add_row_info_grid(name_player, guild_player, party_player, cnt_member, name_target_this_player)
-									end
-								end
-							end
-						else
-							--// Get target của đối tượng
-							-- Get lastobject của đối tượng (a) target
-							-- Dùng lastobject này để get name người chơi (b) đó
-							-- Dùng name người chơi b để add vào grid
-							local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
-							if nx_is_valid(select_target) then
-								-- Không add text NPC mà đối tượng đang target
-								if select_target:QueryProp("Name") ~= 0 then
-									name_target_this_player = select_target:QueryProp("Name")
-								end
-							end
-							
 							-- Đối tượng target bạn
-							if nx_widestr(player_client:QueryProp("Name")) == nx_widestr(name_target_this_player) then
+							if nx_widestr(player_client:QueryProp("Name")) == nx_widestr(select_target:QueryProp("Name")) then
 								name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
+								
+								-- Không add bản thân vào
+								if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
+									-- Add object
+									add_row_info_grid(name_player, party_player, cnt_member, name_target_this_player)
+								end
 							end
-
-							-- Không add bản thân vào
-							if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
-
-								-- Add object
-								add_row_info_grid(name_player, guild_player, party_player, cnt_member, name_target_this_player)
+						end
+					else -- Mode: Add all
+						--// Get target của đối tượng
+						-- Get lastobject của đối tượng (a) target
+						-- Dùng lastobject này để get name người chơi (b) đó
+						-- Dùng name người chơi b để add vào grid
+						local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
+						if nx_is_valid(select_target) then
+							-- Không add text NPC mà đối tượng đang target
+							if select_target:QueryProp("Name") ~= 0 then
+								name_target_this_player = select_target:QueryProp("Name")
 							end
+						end
+						
+						-- Đối tượng target bạn
+						if nx_widestr(player_client:QueryProp("Name")) == nx_widestr(name_target_this_player) then
+							name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
+						end
+
+						-- Không add bản thân vào
+						if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
+
+							-- Add object
+							add_row_info_grid(name_player, party_player, cnt_member, name_target_this_player)
 						end
 					end
 				end
+			end
 			
-			--else
-			--
-			--	for i = 1, num_objs do
-			--		local obj_type = 0
-			--		if game_scence_objs[i]:FindProp("Type") then
-			--			obj_type = game_scence_objs[i]:QueryProp("Type")
-			--		end
-			--		if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") == 0 then
-			--			local name_player = game_scence_objs[i]:QueryProp("Name")
-			--			local guild_player = game_scence_objs[i]:QueryProp("GuildName")
-			--			local party_player = game_scence_objs[i]:QueryProp("TeamCaptain")
-			--			local cnt_member = game_scence_objs[i]:QueryProp("TeamMemberCount")
-			--			local select_target_ident = game_scence_objs[i]:QueryProp("LastObject")
-			--			
-			--			-- Set empty
-			--			local name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
-			--			
-			--			-- Set chuỗi rỗng cho bang hội/ tổ đội
-			--			if 	guild_player == 0 then
-			--				guild_player = nx_function("ext_utf8_to_widestr", "-")
-			--			end
-			--			if  party_player == 0 then
-			--				party_player = nx_function("ext_utf8_to_widestr", "-")
-			--			end
-			--			if 	select_target_ident == 0 or nx_widestr(select_target_ident) == nx_widestr("0-0") then
-			--				name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
-			--			end
-			--			
-			--			--// Get target của đối tượng
-			--			-- Get lastobject của đối tượng (a) target
-			--			-- Dùng lastobject này để get name người chơi (b) đó
-			--			-- Dùng name người chơi b để add vào grid
-			--			local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
-			--			if nx_is_valid(select_target) then
-			--				-- Không add text NPC mà đối tượng đang target
-			--				if select_target:QueryProp("Name") ~= 0 then
-			--					name_target_this_player = select_target:QueryProp("Name")
-			--				end
-			--			end
-			--			
-			--			-- Đối tượng target bạn
-			--			if nx_widestr(player_client:QueryProp("Name")) == nx_widestr(name_target_this_player) then
-			--				name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
-			--			end
-			--			
-			--			-- Không add bản thân vào
-			--			if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
-			--				--if form.chk_fil_self.Checked and nx_widestr(name_target_this_player) == nx_function("ext_utf8_to_widestr", "Chọn bạn") then
-			--					-- Add object
-			--				--	add_row_info_grid(name_player, guild_player, party_player, cnt_member, name_target_this_player)
-			--				--else
-			--					-- Add object
-			--					add_row_info_grid(name_player, guild_player, party_player, cnt_member, name_target_this_player)
-			--				--end
-			--			end
-			--			
-			--		end
-			--	end
-			--end
         end
         nx_pause(1)
     end
