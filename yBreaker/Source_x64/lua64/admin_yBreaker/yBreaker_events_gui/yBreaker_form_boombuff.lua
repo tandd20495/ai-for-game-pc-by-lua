@@ -23,6 +23,8 @@ function on_main_form_open(form)
 	form.chk_player.Checked = true
 	--form.chk_acceptreq.Checked = true
 	form.chk_relive.Checked = true
+	--Set default value
+	form.lbl_title.Text = ""
 end
 function on_main_form_close(form)
 	is_start = false

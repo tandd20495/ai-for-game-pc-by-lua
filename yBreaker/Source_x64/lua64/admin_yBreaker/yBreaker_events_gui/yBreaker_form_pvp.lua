@@ -504,6 +504,7 @@ end
 
 function on_main_form_open(form)
     change_form_size()
+	form.lbl_title.Text = ""
     form.is_minimize = false
     auto_is_running = false
     isAutoActiveParry = false

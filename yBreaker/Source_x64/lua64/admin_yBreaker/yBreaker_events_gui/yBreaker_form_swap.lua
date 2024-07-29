@@ -25,6 +25,7 @@ function on_main_form_open(form)
 	form.chk_items.Checked = true
 	form.btn_swap_items.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 	form.btn_swap_items.ForeColor = "255,255,255,255"
+	form.lbl_title.Text = ""
 	
 	-- Variable for swap item equip
     local swap_items_equip = false	
@@ -41,8 +42,8 @@ function change_form_size()
         return
     end
     local gui = nx_value("gui")
-    form.Left = 1343
-	form.Top = 692
+    form.Left = 1320
+	form.Top = 697
     --form.Top = (gui.Height / 2)
 end
 

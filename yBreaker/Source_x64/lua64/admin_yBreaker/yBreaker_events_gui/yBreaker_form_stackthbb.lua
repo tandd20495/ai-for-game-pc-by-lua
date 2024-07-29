@@ -21,6 +21,7 @@ function on_main_form_open(form)
 	form.cbtn_lhq.Checked = true
 	form.btn_control.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 	form.btn_control.ForeColor = "255,255,255,255"
+	form.lbl_title.Text = ""
 end
 
 function on_main_form_close(form)

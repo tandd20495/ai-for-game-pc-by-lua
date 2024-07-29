@@ -12,6 +12,7 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
+	form.lbl_title.Text = ""
     reload_form()
 end
 

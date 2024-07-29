@@ -3,7 +3,8 @@
      <control name="main_form" entity="Form" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_boombuff" init="on_form_main_init">
         <prop Transparent="true" LimitInScreen="true" Left="77" Top="120" Width="235" Height="200" ShadowColor="0,0,0,0" Font="Default" DrawMode="Expand" BackImage="gui\common\form_back\bg_form.png" />
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
-        <control name="btn_close" entity="Button" script="" init="">
+        <!--
+		<control name="btn_close" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_close_out.png" FocusImage="gui\common\button\btn_close_on.png" PushImage="gui\common\button\btn_close_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="204" Top="7" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" />
             <event on_click="on_btn_close_click" />
         </control>
@@ -14,7 +15,7 @@
 			<br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Mode Buff:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật/ bang hội. <br>Bước 2: Tự trị thương không? <br>Bước 3: Chọn mode Buff. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;"  />
             <event on_click="" />
         </control>
-
+		-->
         <control name="lbl_title" entity="Label" script="" init="">
             <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="230" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Boom Buff" Font="font_title" />
         </control>

@@ -19,6 +19,7 @@ end
 function on_main_form_open(form)
     change_form_size()
     form.is_minimize = false
+	form.lbl_title.Text = ""
 end
 
 function on_main_form_close(form)
@@ -40,8 +41,8 @@ function change_form_size()
         return
     end
     local gui = nx_value("gui")
-    form.Left = 458
-    form.Top = 699
+    form.Left = 465
+    form.Top = 665
 end
 
 function show_hide_form_bugs()

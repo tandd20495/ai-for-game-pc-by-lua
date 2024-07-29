@@ -19,6 +19,7 @@ function on_main_form_open(form)
 	change_form_size()
 	form.is_minimize = false
 	form.chk_fil_self.Checked = true
+	form.lbl_title.Text = ""
 end
 
 --
