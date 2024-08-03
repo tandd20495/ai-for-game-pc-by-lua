@@ -154,68 +154,27 @@ function auto_run()
 				if game_scence_objs[i]:FindProp("Type") then
 					obj_type = game_scence_objs[i]:QueryProp("Type")
 				end
-				-- Type == 2: người
-				-- player
-				if form_setting.player and nx_string(form_setting.Edit_box_1.Text) == "all" then
-					if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") ~= 1 then
-						local player_dan_name = game_scence_objs[i]:QueryProp("Name")
-						local player_dan_ident = game_scence_objs[i].Ident
-						local player_dan_bang = game_scence_objs[i]:QueryProp("GuildName")
-						local player_target = game_visual:GetSceneObj(player_dan_ident)
-						if nx_is_valid(player_target) then
-							local display_player_posX = string.format("%.0f", player_target.PositionX)
-							local display_player_posZ = string.format("%.0f", player_target.PositionZ)
-							
-							local pathX = player_target.PositionX
-							local pathY = player_target.PositionY
-							local pathZ = player_target.PositionZ
-							
-							local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#00a8ff\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
-
-							-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
-							if form_main.chk_sos.Checked then
-								-- Flash game window
-								nx_function("ext_flash_window")
-								-- Chat hệ thống
-								nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
-							end
-
-							form_main.mltbox_content:AddHtmlText(txt_chat, -1)
-						end
-					end
-				end
-				if form_setting.player or form_setting.guild or form_setting.checkbufplayer then
-					if obj_type == 2 and (nx_widestr(game_scence_objs[i]:QueryProp("Name")) == nx_widestr(form_setting.Edit_box_1.Text) or nx_widestr(game_scence_objs[i]:QueryProp("GuildName")) == nx_widestr(form_setting.Edit_box_2.Text) or nx_function("find_buffer", game_scence_objs[i], nx_string(form_setting.Edit_box_4.Text))) and game_scence_objs[i]:QueryProp("OffLineState") ~= 1 then
-						local player_dan_name = game_scence_objs[i]:QueryProp("Name")
-						local player_dan_ident = game_scence_objs[i].Ident
-						local player_dan_bang = game_scence_objs[i]:QueryProp("GuildName")
-						
-						local player_target = game_visual:GetSceneObj(player_dan_ident)
-						if nx_is_valid(player_target) then
-							local display_player_posX = string.format("%.0f", player_target.PositionX)
-							local display_player_posZ = string.format("%.0f", player_target.PositionZ)
-							
-							local pathX = player_target.PositionX
-							local pathY = player_target.PositionY
-							local pathZ = player_target.PositionZ
-
-							if form_setting.player and nx_widestr(game_scence_objs[i]:QueryProp("Name")) == nx_widestr(form_setting.Edit_box_1.Text) then
+				
+				-- Không add bản thân vào
+				if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
+					-- player
+					if form_setting.player and nx_string(form_setting.Edit_box_1.Text) == "all" then
+						-- Type == 2: người
+						if obj_type == 2 and game_scence_objs[i]:QueryProp("OffLineState") ~= 1 then
+							local player_dan_name = game_scence_objs[i]:QueryProp("Name")
+							local player_dan_ident = game_scence_objs[i].Ident
+							local player_dan_bang = game_scence_objs[i]:QueryProp("GuildName")
+							local player_target = game_visual:GetSceneObj(player_dan_ident)
+							if nx_is_valid(player_target) then
+								local display_player_posX = string.format("%.0f", player_target.PositionX)
+								local display_player_posZ = string.format("%.0f", player_target.PositionZ)
+								
+								local pathX = player_target.PositionX
+								local pathY = player_target.PositionY
+								local pathZ = player_target.PositionZ
 								
 								local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#00a8ff\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
-								-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
-								if form_main.chk_sos.Checked then
-								
-									-- Flash game window
-									nx_function("ext_flash_window")
-									-- Chat hệ thống
-									nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
-								end
-								
-								form_main.mltbox_content:AddHtmlText(txt_chat, -1)
-							elseif form_setting.checkbufplayer and nx_function("find_buffer", game_scence_objs[i], nx_string(form_setting.Edit_box_4.Text)) then
-								
-								local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#f6b93b\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
-								
+
 								-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
 								if form_main.chk_sos.Checked then
 									-- Flash game window
@@ -223,52 +182,97 @@ function auto_run()
 									-- Chat hệ thống
 									nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
 								end
-								
-								form_main.mltbox_content:AddHtmlText(txt_chat, -1)
-							elseif form_setting.guild and nx_widestr(game_scence_objs[i]:QueryProp("GuildName")) == nx_widestr(form_setting.Edit_box_2.Text) then
-								
-								local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#4cd137\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
-								
-								-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
-								if form_main.chk_sos.Checked then
-									-- Flash game window
-									nx_function("ext_flash_window")
-									-- Chat hệ thống
-									nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
-								end
-								
+
 								form_main.mltbox_content:AddHtmlText(txt_chat, -1)
 							end
 						end
 					end
-				end
-				-- npc
-				if form_setting.npc then
-					if obj_type == 4 and string.find(nx_string(game_scence_objs[i]:QueryProp("ConfigID")), nx_string(form_setting.Edit_box_3.Text)) ~= nil then
-						local npc_name = util_text(game_scence_objs[i]:QueryProp("ConfigID"))
-						local npc_ident = game_scence_objs[i].Ident
-						local map = nx_value("form_stage_main\\form_map\\form_map_scene").current_map
+					if form_setting.player or form_setting.guild or form_setting.checkbufplayer then
+						if obj_type == 2 and (nx_widestr(game_scence_objs[i]:QueryProp("Name")) == nx_widestr(form_setting.Edit_box_1.Text) or nx_widestr(game_scence_objs[i]:QueryProp("GuildName")) == nx_widestr(form_setting.Edit_box_2.Text) or nx_function("find_buffer", game_scence_objs[i], nx_string(form_setting.Edit_box_4.Text))) and game_scence_objs[i]:QueryProp("OffLineState") ~= 1 then
+							local player_dan_name = game_scence_objs[i]:QueryProp("Name")
+							local player_dan_ident = game_scence_objs[i].Ident
+							local player_dan_bang = game_scence_objs[i]:QueryProp("GuildName")
+							
+							local player_target = game_visual:GetSceneObj(player_dan_ident)
+							if nx_is_valid(player_target) then
+								local display_player_posX = string.format("%.0f", player_target.PositionX)
+								local display_player_posZ = string.format("%.0f", player_target.PositionZ)
+								
+								local pathX = player_target.PositionX
+								local pathY = player_target.PositionY
+								local pathZ = player_target.PositionZ
 
-						local npc_target = game_visual:GetSceneObj(npc_ident)
-						if nx_is_valid(npc_target) then
-							local npc_posX = string.format("%.0f", npc_target.PositionX)
-							local npc_posZ = string.format("%.0f", npc_target.PositionZ)
-		
-							local pathX = game_scence_objs[i].DestX
-							local pathY = game_scence_objs[i].DestY
-							local pathZ = game_scence_objs[i].DestZ
-		
-							local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#ff2bdf\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>)"), nx_widestr(npc_name), nx_widestr(npc_posX), nx_widestr(npc_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(npc_ident), map)
-							
-							-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
-							if form_main.chk_sos.Checked then
-								-- Flash game window
-								nx_function("ext_flash_window")
-								-- Chat hệ thống
-								nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
+								if form_setting.player and nx_widestr(game_scence_objs[i]:QueryProp("Name")) == nx_widestr(form_setting.Edit_box_1.Text) then
+									
+									local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#00a8ff\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
+									-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
+									if form_main.chk_sos.Checked then
+									
+										-- Flash game window
+										nx_function("ext_flash_window")
+										-- Chat hệ thống
+										nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
+									end
+									
+									form_main.mltbox_content:AddHtmlText(txt_chat, -1)
+								elseif form_setting.checkbufplayer and nx_function("find_buffer", game_scence_objs[i], nx_string(form_setting.Edit_box_4.Text)) then
+									
+									local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#f6b93b\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
+									
+									-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
+									if form_main.chk_sos.Checked then
+										-- Flash game window
+										nx_function("ext_flash_window")
+										-- Chat hệ thống
+										nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
+									end
+									
+									form_main.mltbox_content:AddHtmlText(txt_chat, -1)
+								elseif form_setting.guild and nx_widestr(game_scence_objs[i]:QueryProp("GuildName")) == nx_widestr(form_setting.Edit_box_2.Text) then
+									
+									local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#4cd137\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>) <font color=\"#EA2027\">{@8:bang}</font>"), nx_widestr(player_dan_name), nx_widestr(display_player_posX), nx_widestr(display_player_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(player_dan_ident), player_dan_bang)
+									
+									-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
+									if form_main.chk_sos.Checked then
+										-- Flash game window
+										nx_function("ext_flash_window")
+										-- Chat hệ thống
+										nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
+									end
+									
+									form_main.mltbox_content:AddHtmlText(txt_chat, -1)
+								end
 							end
-							
-							form_main.mltbox_content:AddHtmlText(txt_chat, -1)
+						end
+					end
+					-- npc
+					if form_setting.npc then
+						if obj_type == 4 and string.find(nx_string(game_scence_objs[i]:QueryProp("ConfigID")), nx_string(form_setting.Edit_box_3.Text)) ~= nil then
+							local npc_name = util_text(game_scence_objs[i]:QueryProp("ConfigID"))
+							local npc_ident = game_scence_objs[i].Ident
+							local map = nx_value("form_stage_main\\form_map\\form_map_scene").current_map
+
+							local npc_target = game_visual:GetSceneObj(npc_ident)
+							if nx_is_valid(npc_target) then
+								local npc_posX = string.format("%.0f", npc_target.PositionX)
+								local npc_posZ = string.format("%.0f", npc_target.PositionZ)
+			
+								local pathX = game_scence_objs[i].DestX
+								local pathY = game_scence_objs[i].DestY
+								local pathZ = game_scence_objs[i].DestZ
+			
+								local txt_chat = nx_value("gui").TextManager:GetFormatText(nx_string("<font color=\"#ff2bdf\">{@0:name}</font> (<a href=\"findpath,{@3:scene},{@4:x},{@5:y},{@6:z},{@7:ident}\" style=\"HLStype1\">{@1:x},{@2:z}</a>)"), nx_widestr(npc_name), nx_widestr(npc_posX), nx_widestr(npc_posZ), nx_widestr(get_current_map()), nx_widestr(pathX), nx_widestr(pathY), nx_widestr(pathZ), nx_widestr(npc_ident), map)
+								
+								-- Nếu có check vào SOS thì nháy màn hình và chat hệ thống
+								if form_main.chk_sos.Checked then
+									-- Flash game window
+									nx_function("ext_flash_window")
+									-- Chat hệ thống
+									nx_value("form_main_chat"):AddChatInfoEx(txt_chat, CHATTYPE_SYSTEM, false)
+								end
+								
+								form_main.mltbox_content:AddHtmlText(txt_chat, -1)
+							end
 						end
 					end
 				end
