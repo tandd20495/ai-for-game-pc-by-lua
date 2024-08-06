@@ -11,8 +11,8 @@
 		
         <control name="btn_help" entity="Button" script="" init="">
             <prop NormalImage="gui\common\button\btn_help_out.png" FocusImage="gui\common\button\btn_help_on.png" PushImage="gui\common\button\btn_help_down.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" Left="180" Top="6.5" Width="20" Height="22" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,255,255,255" Font="font_main" TabStop="true" AutoSize="true" DrawMode="FitWindow" InSound="MouseOn_20" ClickSound="cancel_5" 
-			HintText="&lt;font color=&apos;#f6b93b&apos;&gt;•Mode Boom:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật. <br>Bước 2: Chọn Tự trị thương không? <br>Bước 3: Chọn mode Boom. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;
-			<br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Mode Buff:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật. <br>Bước 2: Tự trị thương không? <br>Bước 3: Chọn mode Buff. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;"  />
+			HintText="&lt;font color=&apos;#f6b93b&apos;&gt;•Mode Boom:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật. <br>Bước 2: Chọn Tự hồi thành không? <br>Bước 3: Chọn mode Boom. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;
+			<br>&lt;font color=&apos;#ff2bdf&apos;&gt;•Mode Buff:&lt;/font&gt; <br>Bước 1: Điền tên nhân vật. <br>Bước 2: Tự hồi thành không? <br>Bước 3: Chọn mode Buff. <br>Bước 4: Ấn nút &lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt;"  />
             <event on_click="" />
         </control>
 		-->
@@ -75,7 +75,7 @@
             <event on_checked_changed="" />
         </control>
         <control name="lbl_relive" entity="Label" script="" init="">
-            <prop RefCursor="WIN_HELP" Left="140" Top="72" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự trị thương" Font="font_text_figure 30px" />
+            <prop RefCursor="WIN_HELP" Left="140" Top="72" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự hồi thành" Font="font_text_figure 30px" />
         </control>
 		
 		<control name="chk_autorun" entity="CheckButton" script="" init="">
