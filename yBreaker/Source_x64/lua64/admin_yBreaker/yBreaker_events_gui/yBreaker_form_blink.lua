@@ -71,7 +71,7 @@ function on_btn_blink_click(btn)
 						jump_to_pos_new(vi_tri_da_chon_x, vi_tri_da_chon_y, vi_tri_da_chon_z, map_id())
 					end
 				else
-					tools_show_notice(nx_function("ext_utf8_to_widestr", "Bật MAP lên và chọn điểm đến mới ấn nút Blink"))
+					tools_show_notice(nx_function("ext_utf8_to_widestr", "Bật MAP lên và chọn điểm đến mới ấn nút Nhảy"))
 				end
 			end 			
 		end
