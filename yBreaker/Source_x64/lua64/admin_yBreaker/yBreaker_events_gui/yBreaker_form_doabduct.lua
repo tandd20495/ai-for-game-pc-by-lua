@@ -142,6 +142,11 @@ function auto_run_dynamic()
 	--Get map_id by select inindex of combobox
 	map_id = get_mapid_by_selectindex(form.combobox_main_map)
 	
+	-- Nếu map_id là rỗng thì set map hiện tại là map_id
+	if map_id == "" then
+		map_id = current_map
+	end
+	
 	-- Kiểm tra map hiện tại có đúng như map đã chọn
 	if current_map ~= map_id then
 		-- Dịch chuyển đến map chính đã chọn
@@ -1381,8 +1386,10 @@ function set_form_type_dynamic(form)
     local map = get_current_map()
 
     form.btn_dynamic_control.Text = nx_widestr("...")
-    form.combobox_main_map.Text = util_text("school08")
-    form.combobox_sub_map.Text = util_text("school05")
+    --form.combobox_main_map.Text = util_text("school08")
+   -- form.combobox_sub_map.Text = util_text("school05")
+	form.combobox_main_map.Text = nx_function("ext_utf8_to_widestr", "Hiện Tại")
+	 form.combobox_sub_map.Text = nx_function("ext_utf8_to_widestr", "Hiện Tại")
 	
 	-- Add main map for combobox
     local combobox_main_map = form.combobox_main_map
@@ -1394,7 +1401,8 @@ function set_form_type_dynamic(form)
     end
 
 	add_string_to_combobox(combobox_main_map)
-	combobox_main_map.DropListBox.SelectIndex = 0
+	--combobox_main_map.DropListBox.SelectIndex = 0
+	combobox_main_map.DropListBox.SelectIndex = -1
 	
 	-- Add sub map for combobox
     local combobox_sub_map = form.combobox_sub_map
@@ -1406,7 +1414,8 @@ function set_form_type_dynamic(form)
     end
 	
 	add_string_to_combobox(combobox_sub_map)
-	combobox_sub_map.DropListBox.SelectIndex = 1
+	--combobox_sub_map.DropListBox.SelectIndex = 1
+	combobox_sub_map.DropListBox.SelectIndex = -1
 
     if not nx_function("ext_is_file_exist", nx_work_path() .. DATA_ABDUCT_PATH) then
 		yBreaker_show_Utf8Text("Lỗi file dữ liệu data_abduct.lua")
