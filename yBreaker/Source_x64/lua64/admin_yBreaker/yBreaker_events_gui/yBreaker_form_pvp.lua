@@ -464,7 +464,8 @@ function auto_run()
                     -- Đỡ đòn nếu còn chiến đấu
                     timeStartSkill = 0
                     --logToForm("Đỡ đòn tự do")
-                    if isAutoActiveParry and getPlayerPropInt("InParry") == nx_int(0) and game_player.state == "static" and getPlayerPropInt("LogicState") == nx_int(1) then
+                    --if isAutoActiveParry and getPlayerPropInt("InParry") == nx_int(0) and game_player.state == "static" and getPlayerPropInt("LogicState") == nx_int(1) then
+					if isAutoActiveParry and getPlayerPropInt("InParry") == nx_int(0) and getPlayerPropInt("LogicState") == nx_int(1) then
                         nx_execute("custom_sender", "custom_active_parry", nx_int(1), nx_int(0))
                     end
 
