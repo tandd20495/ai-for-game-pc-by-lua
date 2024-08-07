@@ -5,7 +5,7 @@
         <event on_open="on_main_form_open" on_close="on_main_form_close" />
 		
 		<control name="lbl_title" entity="Label" script="" init="">
-            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="350" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tìm Quanh Đây" Font="font_title" />
+            <prop Align="Center" RefCursor="WIN_HELP" Left="0" Top="10" Width="350" Height="20" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tìm Quanh" Font="font_title" />
         </control>
 		<!--
 		<control name="btn_close" entity="Button" script="" init="">

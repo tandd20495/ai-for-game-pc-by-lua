@@ -20,6 +20,7 @@ function on_main_form_open(form)
 	form.is_minimize = false
 	form.chk_fil_self.Checked = true
 	form.lbl_title.Text = ""
+	form.btn_refresh.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 end
 
 --
@@ -95,12 +96,12 @@ function on_click_btn_refresh(btn)
 	
     if is_running_scan_player then
         is_running_scan_player = false
-        form.btn_refresh.Text = nx_function("ext_utf8_to_widestr", "Tìm Người")
+        form.btn_refresh.Text = nx_function("ext_utf8_to_widestr", "Chạy")
 		form.btn_refresh.ForeColor = "255,255,255,255"
 		--form.info_grid_details:ClearRow()
     else
         is_running_scan_player = true
-        form.btn_refresh.Text = nx_function("ext_utf8_to_widestr", "Dừng Lại")
+        form.btn_refresh.Text = nx_function("ext_utf8_to_widestr", "Dừng")
 		form.btn_refresh.ForeColor = "255,220,20,60"
 		
 		-- Function main of scan
