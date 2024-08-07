@@ -35,20 +35,28 @@
             <prop Align="Left" Left="115" Top="110" Width="300" Height="30" Text="Chưa thiết lập" DrawMode="Expand" NormalImage="gui\common\form_back\bg_menu_3.png" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_main" />
         </control>
 
+		<control name="btn_jingmai_5" entity="Button" script="" init="">
+            <prop Left="10" Top="145" Width="100" Height="30" Text="Mạch Công" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_click="on_btn_jingmai_5_click" />
+        </control>
+        <control name="lbl_jingmai_5" entity="Button" script="" init="">
+            <prop Align="Left" Left="115" Top="145" Width="300" Height="30" Text="Chưa thiết lập" DrawMode="Expand" NormalImage="gui\common\form_back\bg_menu_3.png" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_main" />
+        </control>
+		
         <control name="btn_jingmai_inboss" entity="Button" script="" init="">
-            <prop Left="10" Top="145" Width="100" Height="30" Text="Mạch Thủ" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop Left="10" Top="180" Width="100" Height="30" Text="Mạch Thủ" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
             <event on_click="on_btn_jingmai_inboss_click" />
         </control>
         <control name="lbl_jingmai_inboss" entity="Button" script="" init="">
-            <prop Align="Left" Left="115" Top="145" Width="300" Height="30" Text="Chưa thiết lập" DrawMode="Expand" NormalImage="gui\common\form_back\bg_menu_3.png" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_main" />
+            <prop Align="Left" Left="115" Top="180" Width="300" Height="30" Text="Chưa thiết lập" DrawMode="Expand" NormalImage="gui\common\form_back\bg_menu_3.png" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_main" />
         </control>
 
         <control name="btn_jingmai_outboss" entity="Button" script="" init="">
-            <prop Left="10" Top="180" Width="100" Height="30" Text="Mạch Né" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop Left="10" Top="215" Width="100" Height="30" Text="Mạch Né" DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
             <event on_click="on_btn_jingmai_outboss_click" />
         </control>
         <control name="lbl_jingmai_outboss" entity="Button" script="" init="">
-            <prop Align="Left" Left="115" Top="180" Width="300" Height="30" Text="Chưa thiết lập" DrawMode="Expand" NormalImage="gui\common\form_back\bg_menu_3.png" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_main" />
+            <prop Align="Left" Left="115" Top="215" Width="300" Height="30" Text="Chưa thiết lập" DrawMode="Expand" NormalImage="gui\common\form_back\bg_menu_3.png" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Font="font_main" />
         </control>
 
         <control name="btn_testfile" entity="Button" script="" init="">

@@ -174,6 +174,17 @@ function on_btn_jingmai_in_click(btn)
     --on_main_form_close(form)
 end
 
+-- Kích mạch công
+function on_btn_jingmai_5_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+    active_jingmai("jingmai_attack") 
+    --on_main_form_close(form)
+end
+
+
 -- Kích mạch ngoại
 function on_btn_jingmai_out_click(btn)
     local form = btn.ParentForm
@@ -204,23 +215,16 @@ function on_btn_jingmai_outboss_click(btn)
     --on_main_form_close(form)
 end
 
--- Tắt hết mạch
+-- Tắt hết (nội và mạch)
 function on_btn_jingmai_close_click(btn)
     local form = btn.ParentForm
     if not nx_is_valid(form) then
         return
     end
+	-- Tắt mạch
     close_all_jingmai()
-    --on_main_form_close(form)
-end
-
--- Tắt nội công
-function on_btn_neigong_close_click(btn)
-    local form = btn.ParentForm
-    if not nx_is_valid(form) then
-        return
-    end
-    local game_client = nx_value("game_client")
+	
+	local game_client = nx_value("game_client")
     if not nx_is_valid(game_client) then
         return
     end
@@ -228,11 +232,12 @@ function on_btn_neigong_close_click(btn)
     if not nx_is_valid(player_client) then
         return
     end
+	
+	-- Tắt nội công
     local minNeigongID, maxNeigongID = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs", "getMinAndMaxNeigong")
     if minNeigongID ~= "" and player_client:QueryProp("CurNeiGong") ~= minNeigongID then
         nx_execute("custom_sender", "custom_use_neigong", nx_string(minNeigongID))
     end
-	--btn.ForeColor = "255,220,20,60"
     --on_main_form_close(form)
 end
 

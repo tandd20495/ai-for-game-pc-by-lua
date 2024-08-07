@@ -31,6 +31,7 @@ function on_main_form_open(form)
 	form.combobox_testfile.Visible = false
 	form.btn_jingmai_in.Text = nx_function("ext_utf8_to_widestr", "Mạch Nội")
 	form.btn_jingmai_out.Text = nx_function("ext_utf8_to_widestr", "Mạch Ngoại")
+	form.btn_jingmai_5.Text = nx_function("ext_utf8_to_widestr", "Mạch Công")
 	form.btn_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "Mạch Thủ")
 	form.btn_jingmai_outboss.Text = nx_function("ext_utf8_to_widestr", "Mạch Né")
     reload_form()
@@ -81,6 +82,7 @@ function reload_form()
     ini.FileName = account .. "\\yBreaker_config.ini"
     local jingmais_in = {}
     local jingmais_out = {}
+	local jingmais_attack = {}
     local jingmais_inboss = {}
     local jingmais_outboss = {}
     local max_neigong = ""
@@ -102,6 +104,15 @@ function reload_form()
                 table.insert(jingmais_out, jm)
             end
         end
+		
+		-- Đọc mạch công
+        for i = 1, 8 do
+            local jm = ini:ReadString(nx_string("jingmai_attack"), nx_string("jingmai" .. i), "")
+            if jm ~= "" then
+                table.insert(jingmais_attack, jm)
+            end
+        end
+		
         -- Đọc mạch nội boss
         for i = 1, 8 do
             local jm = ini:ReadString(nx_string("jingmai_inboss"), nx_string("jingmai" .. i), "")
@@ -152,6 +163,20 @@ function reload_form()
         end
         form.lbl_jingmai_out.HintText = text
     end
+	if table.getn(jingmais_attack) <= 0 then
+        -- Chưa thiết lập mạch công
+        form.lbl_jingmai_5.Text = nx_function("ext_utf8_to_widestr", "   Chưa thiết lập")
+        form.lbl_jingmai_5.HintText = nx_widestr("")
+    else
+        -- Đã thiết lập mạch công
+        form.lbl_jingmai_5.Text = nx_widestr("   ") .. nx_widestr(table.getn(jingmais_attack)) .. nx_function("ext_utf8_to_widestr", " mạch. Để chuột vào để xem chi tiết")
+        local text = nx_widestr("")
+        for i = 1, table.getn(jingmais_attack) do
+            text = text .. nx_widestr("<s>- ") .. util_text(nx_string(jingmais_attack[i])) .. nx_widestr("<br>")
+        end
+        form.lbl_jingmai_5.HintText = text
+    end
+	
     if table.getn(jingmais_inboss) <= 0 then
         -- Chưa thiết lập mạch nội boss
         form.lbl_jingmai_inboss.Text = nx_function("ext_utf8_to_widestr", "   Chưa thiết lập")
@@ -314,6 +339,17 @@ function on_btn_jingmai_out_click(btn)
     save_jingmai_config("jingmai_out")
     reload_form()
     --tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch ngoại đã được lưu lại"))
+end
+
+-- Lưu mạch công
+function on_btn_jingmai_5_click(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+    save_jingmai_config("jingmai_attack")
+    reload_form()
+    --tools_show_notice(nx_function("ext_utf8_to_widestr", "Mạch công đã được lưu lại"))
 end
 
 -- Lưu mạch nội boss
@@ -479,7 +515,7 @@ end
 
 -----------------------------------
 -- Lưu lại mạch nội hay mạch ngoại đánh người đánh boss
--- type: jingmai_in, jingmai_out
+-- type: jingmai_in, jingmai_out, jingmai_inboss, jingmai_outboss, jingmai_attack
 function save_jingmai_config(type)
     local game_config = nx_value("game_config")
     local account = game_config.login_account
