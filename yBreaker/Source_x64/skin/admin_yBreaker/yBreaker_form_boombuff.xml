@@ -68,14 +68,24 @@
 		<event on_click="show_hide_form_guild_setting" />
 		</control>
 		-->		
+		<control name="chk_skill" entity="CheckButton" script="" init="">
+            <prop HintText="&lt;font color=&apos;#f6b93b&apos;&gt;Lưu ý:&lt;/font&gt; 
+					<br>- Chọn: tự dùng Khí chiêu và Giá chiêu Phật Tâm Chưởng.
+					<br>- Không chọn: không sử dụng Khí chiêu và Giá chiêu Phật Tâm Chưởng." Left="199" Top="72" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+            <event on_checked_changed="" />
+        </control>
+        <control name="lbl_skill" entity="Label" script="" init="">
+            <prop RefCursor="WIN_HELP" Left="215" Top="72" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Gồng" Font="font_text_figure 30px" />
+        </control>
+		
 	    <control name="chk_relive" entity="CheckButton" script="" init="">
             <prop HintText="&lt;font color=&apos;#f6b93b&apos;&gt;Lưu ý:&lt;/font&gt; 
 					<br>- Chọn: tự lưu điểm hồi thành trước khi dùng tính năng này.
-					<br>- Không chọn: mặc định sẽ trị thương lân cận." Left="122" Top="72" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
+					<br>- Không chọn: mặc định sẽ trị thương lân cận." Left="117" Top="72" Width="16" Height="16" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_2_out.png" FocusImage="gui\common\checkbutton\cbtn_2_on.png" CheckedImage="gui\common\checkbutton\cbtn_2_down.png" DisableImage="gui\common\checkbutton\cbtn_2_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="255,255,255,255" FocusColor="255,255,255,255" PushColor="255,128,101,74" DisableColor="0,0,0,0" ForeColor="255,76,209,55" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" AutoSize="true" InSound="MouseOn_20" ClickSound="ok_7" />
             <event on_checked_changed="" />
         </control>
         <control name="lbl_relive" entity="Label" script="" init="">
-            <prop RefCursor="WIN_HELP" Left="140" Top="72" Width="70" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Tự hồi thành" Font="font_text_figure 30px" />
+            <prop RefCursor="WIN_HELP" Left="135" Top="72" Width="55" Height="16" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Hồi thành" Font="font_text_figure 30px" />
         </control>
 		
 		<control name="chk_autorun" entity="CheckButton" script="" init="">

@@ -594,6 +594,10 @@ function loopBuff()
 							--: Thổ tín: buf_CS_tm_jsc02
 							--: Bản đằng choáng: buf_CS_jh_llt02
 							--: Trường tam: buf_CS_jh_llt03_2: Giảm tốc + chính xác / buf_CS_jh_llt03_1: Phong chiêu + cấm KC
+							--: Nộ 10 Cờ Cổ: buf_CS_jh_sfgp08_1/ buf_CS_jh_sfgp08_01 -> Sai
+							--: Nộ 12 Cờ Cổ: buf_CS_jh_sfgp08_2/ buf_CS_jh_sfgp08_02 -> Sai
+							--: Nộ Đàn: buf_CS_jh_tmby03_01
+							
 							
 							--yBreaker_show_Utf8Text("Trong phạm vi buff, đang check buff xấu trên người mục tiêu...")
 							-- Check buff xấu tốn tại trên người mục tiêu  
@@ -613,6 +617,9 @@ function loopBuff()
 								get_buff_info("buf_CS_jh_llt03_2", game_scence_objs[i]) 				or
 								get_buff_info("buf_CS_jh_llt03_1", game_scence_objs[i]) 				or
 								get_buff_info("buf_CS_jh_llt02", game_scence_objs[i]) 					or
+								get_buff_info("buf_CS_jh_sfgp08_01", game_scence_objs[i]) 				or
+								get_buff_info("buf_CS_jh_sfgp08_02", game_scence_objs[i]) 				or
+								get_buff_info("buf_CS_jh_tmby03_01", game_scence_objs[i]) 				or
 								get_buff_info("wuji_buf_CS_tm_ywt07", game_scence_objs[i]) 				then
 								
 								-- Check name not select my self
@@ -632,10 +639,13 @@ function loopBuff()
 								--nx_pause(0.2)
 								--fight:TraceUseSkill("CS_jh_xfz01", false, false)
 								
-								-- Use skill def
-								fight:TraceUseSkill("CS_jh_xfz07", false, false)
-								--nx_pause(0.2)
-								fight:TraceUseSkill("CS_jh_xfz03", false, false)
+								if nx_is_valid(form) and form.chk_skill.Checked then
+									
+									-- Use khí chiêu và giá chiêu PTC
+									fight:TraceUseSkill("CS_jh_xfz07", false, false)
+									nx_pause(0.2)
+									fight:TraceUseSkill("CS_jh_xfz03", false, false)
+								end
 								--nx_pause(0.2)
 								--break
 							end
