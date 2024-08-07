@@ -1372,10 +1372,10 @@ function set_form_type_dynamic(form)
         return 0
     end
 	
-    form.cbtn_dynamic_fight.Checked = true
+    form.cbtn_dynamic_fight.Checked = false
     form.cbtn_dynamic_usespride.Checked = false
     form.cbtn_dynamic_returnhomepoint.Checked = false
-    form.cbtn_dynamic_stop_if_beattacked.Checked = true
+    form.cbtn_dynamic_stop_if_beattacked.Checked = false
     form.cbtn_dynamic_chat_attacker.Checked = false
 	form.cbtn_dynamic_help_me.Checked = true
 	form.cbtn_dynamic_help_me_guild.Checked = false
