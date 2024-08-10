@@ -50,7 +50,7 @@
 		<!-- Gird chứa thông tin -->
         <control name="info_grid_details" entity="Grid" script="" init="">
             <prop ShowComment="true" RowHeaderVisible="false" SelectForeColor="255,128,101,74" SelectBackColor="190,190,190,190" SelectBackDraw="gui\common\combobox\bg_select3.png" CanSelectRow="true" ColWidth="40" RowHeight="28" ScrollSize="17" HasHScroll="true" Left="5" Top="60" Width="340" Height="330" ForeColor="255,178,153,127" BackColor="0,255,255,255" LineColor="0,0,0,0" ShadowColor="0,0,0,0" Text="textgrid_1" Font="font_text" TabStop="true" DrawMode="Expand" />
-            <event on_right_select_grid="" on_select_grid="" />
+            <event on_right_select_grid="" on_select_grid="on_info_grid_details_select_grid" />
 			
             <subor name="HScrollBar">
                 <prop Maximum="10" SmallChange="1" LargeChange="4" BackColor="255,224,224,224" ShadowColor="0,0,0,0" />
@@ -83,12 +83,38 @@
             </subor>
         </control>
 		
+		<!-- Tùy chọn khác khác -->
+		<control name="chk_other" entity="CheckButton" script="" init="">
+			<prop HintText="&lt;font color=&apos;#f6b93b&apos;&gt;Lưu ý:&lt;/font&gt;
+					<br>- Chọn: mở giao diện tùy chọn khác hiển thị lên bảng Tìm Tòi.
+					<br>- Không chọn: tắt giao diện tùy chọn khác hiển thị lên bảng Tìm Tòi." Checked="false" Left="10" Top="403" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+			<event on_checked_changed="on_chk_other_changed" />
+		</control>
+		
+		<control name="lbl_other" entity="Label" script="" init="">
+                <prop Left="30" Top="403" Width="60" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="KHÁC" Font="font_main" />
+        </control>
+		
 		<!-- Checkbox lọc các mục tiêu chọn bản thân -->
 		<control name="chk_fil_self" entity="CheckButton" script="" init="">
-			<prop Checked="true" Left="130" Top="403" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" HintText="• Chỉ hiện các đối tượng &lt;font color=&apos;#46fd15&apos;&gt;đang target tới bản thân.&lt;/font&gt; "/>
+			<prop HintText="&lt;font color=&apos;#f6b93b&apos;&gt;Lưu ý:&lt;/font&gt;
+					<br>- Chọn: chỉ hiện các đối tượng &lt;font color=&apos;#46fd15&apos;&gt;đang chọn bạn.&lt;/font&gt;
+					<br>- Không chọn: hiện tất cả các đối tượng là &lt;font color=&apos;#46fd15&apos;&gt;người chơi.&lt;/font&gt;" Checked="false" Left="130" Top="403" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+			<event on_checked_changed="on_chk_self_changed" />
 		</control>
 		<control name="lbl_fil_self" entity="Label" script="" init="">
                 <prop Left="153" Top="403" Width="60" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="Chọn bạn" Font="font_main" />
+        </control>
+		
+		<!-- Checkbox lọc các mục tiêu đàn -->
+		<control name="chk_zither" entity="CheckButton" script="" init="">
+			<prop HintText="&lt;font color=&apos;#f6b93b&apos;&gt;Lưu ý:&lt;/font&gt;
+					<br>- Chọn: chỉ hiện các đối tượng &lt;font color=&apos;#46fd15&apos;&gt;đang ngồi đàn.&lt;/font&gt;
+					<br>- Không chọn: hiện tất cả các đối tượng là &lt;font color=&apos;#46fd15&apos;&gt;người chơi.&lt;/font&gt;" Checked="false" Left="70" Top="403" Width="20" Height="20" BoxSize="12" NormalImage="gui\common\checkbutton\cbtn_5_out.png" FocusImage="gui\common\checkbutton\cbtn_5_on.png" CheckedImage="gui\common\checkbutton\cbtn_5_down.png" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" TabStop="true" AutoSize="true" />
+			<event on_checked_changed="on_chk_zither_changed" />
+		</control>
+		<control name="lbl_zither" entity="Label" script="" init="">
+                <prop Left="90" Top="403" Width="60" Height="20" Align="Left" RefCursor="WIN_HELP" ForeColor="255,255,255,255" ShadowColor="0,0,0,0" Text="ĐÀN" Font="font_main" />
         </control>
 		
 		<!-- Bắt đầu tìm người -->
