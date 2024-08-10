@@ -22,7 +22,7 @@
             <prop Text="Tổ đội" Left="111" Top="30" Width="100" Height="30" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,220,197,159" BackColor="0,192,192,192" LineColor="0,0,0,0" ShadowColor="0,255,0,0" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
         </control>
         <control name="btn_member" entity="Button" script="" init="">
-            <prop Text="SL" Left="205" Top="30" Width="25" Height="30" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,220,197,159" BackColor="0,192,192,192" LineColor="0,0,0,0" ShadowColor="0,255,0,0" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
+            <prop Text="SL" Left="205" Top="30" Width="30" Height="30" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,220,197,159" BackColor="0,192,192,192" LineColor="0,0,0,0" ShadowColor="0,255,0,0" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
         </control>
         <control name="btn_targeted" entity="Button" script="" init="">
             <prop Text="Mục tiêu" Left="249" Top="30" Width="80" Height="30" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,220,197,159" BackColor="0,192,192,192" LineColor="0,0,0,0" ShadowColor="0,255,0,0" Font="font_main" TabStop="true" DrawMode="ExpandH" InSound="MouseOn_20" ClickSound="ok_7" />
@@ -36,7 +36,7 @@
             <prop RefCursor="WIN_HELP" Left="204" Top="35" Width="4" Height="418" ShadowColor="0,0,0,0" BackImage="gui\special\team\line_team_2.png" />
         </control>
         <control name="lbl_col_3" entity="Label" script="" init="">
-            <prop RefCursor="WIN_HELP" Left="230" Top="35" Width="4" Height="418" ShadowColor="0,0,0,0" BackImage="gui\special\team\line_team_2.png" />
+            <prop RefCursor="WIN_HELP" Left="235" Top="35" Width="4" Height="418" ShadowColor="0,0,0,0" BackImage="gui\special\team\line_team_2.png" />
         </control>
 
 		<!-- Hàng ngang -->

@@ -1,6 +1,7 @@
 require("util_gui")
 require("util_move")
 require("util_functions")
+require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_util")
 
@@ -634,12 +635,19 @@ function scan_custom()
 								if nx_widestr(name_myself) == nx_widestr(name_target_this_player) then
 									name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
 								end
+								
+								--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
+								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
+								local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+								
+								-- Set position between player
+								local dist_p = nx_string(nx_int(dist_player)) .. "m"
 							
 								-- Không add bản thân vào
 								if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
 
 									-- Add object
-									add_row_info_grid(name_player, party_player, cnt_member, name_target_this_player)
+									add_row_info_grid(name_player, party_player, dist_p, name_target_this_player)
 								end
 							end
 						end
@@ -660,12 +668,12 @@ function scan_custom()
 						local name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
 						
 						-- Set chuỗi rỗng cho bang hội/ tổ đội
-						--if 	guild_player == 0 then
-						--	guild_player = nx_function("ext_utf8_to_widestr", "-")
-						--end
-						if  party_player == 0 then
-							party_player = nx_function("ext_utf8_to_widestr", "-")
+						if 	guild_player == 0 then
+							guild_player = nx_function("ext_utf8_to_widestr", "-")
 						end
+						--if  party_player == 0 then
+						--	party_player = nx_function("ext_utf8_to_widestr", "-")
+						--end
 						if 	select_target_ident == 0 or nx_widestr(select_target_ident) == nx_widestr("0-0") then
 							name_target_this_player = nx_function("ext_utf8_to_widestr", "-")
 						end
@@ -687,12 +695,19 @@ function scan_custom()
 								if nx_widestr(name_myself) == nx_widestr(name_target_this_player) then
 									name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
 								end
+								
+								--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
+								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
+								local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+								
+								-- Set position between player
+								local dist_p = nx_string(nx_int(dist_player)) .. "m"
 							
 								-- Không add bản thân vào
 								if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
 
 									-- Add object
-									add_row_info_grid(name_player, party_player, cnt_member, name_target_this_player)
+									add_row_info_grid(name_player, guild_player, dist_p, name_target_this_player)
 								end
 							end
 						end
@@ -727,25 +742,32 @@ function scan_custom()
 						for ibuff = nBuff , #TableBuffList do
 							-- Check BUFF
 							if nx_function("find_buffer", game_scence_objs[i], nx_string(TableBuffList[ibuff])) then
-								local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
-								if nx_is_valid(select_target) then
-									-- Không add text NPC mà đối tượng đang target
-									if select_target:QueryProp("Name") ~= 0 then
-										name_target_this_player = select_target:QueryProp("Name")
-									end
-								end
+								--local select_target = game_client:GetSceneObj(nx_string(select_target_ident))
+								--if nx_is_valid(select_target) then
+								--	-- Không add text NPC mà đối tượng đang target
+								--	if select_target:QueryProp("Name") ~= 0 then
+								--		name_target_this_player = select_target:QueryProp("Name")
+								--	end
+								--end
+								--
+								---- Đối tượng target bạn
+								--local name_myself = getName_myself()
+								--if nx_widestr(name_myself) == nx_widestr(name_target_this_player) then
+								--	name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
+								--end
 								
-								-- Đối tượng target bạn
-								local name_myself = getName_myself()
-								if nx_widestr(name_myself) == nx_widestr(name_target_this_player) then
-									name_target_this_player = nx_function("ext_utf8_to_widestr", "Chọn bạn")
-								end
+								--Lấy khoảng cách từ nhân vật tới mục tiêu đang chọn
+								local visualObj = game_visual:GetSceneObj(game_scence_objs[i].Ident)
+								local dist_player = getDistanceWithObj({game_player.PositionX, game_player.PositionY, game_player.PositionZ}, visualObj)
+								
+								-- Set position between player
+								local dist_p = nx_string(nx_int(dist_player)) .. "m"
 							
 								-- Không add bản thân vào
 								if nx_widestr(game_scence_objs[i]:QueryProp("Name")) ~= nx_widestr(player_client:QueryProp("Name")) then
 
 									-- Add object
-									add_row_info_grid(name_player, party_player, cnt_member, name_target_this_player)
+									add_row_info_grid(name_player, util_text(TableBuffList[ibuff]), dist_p, name_target_this_player)
 								end
 							end
 						end
