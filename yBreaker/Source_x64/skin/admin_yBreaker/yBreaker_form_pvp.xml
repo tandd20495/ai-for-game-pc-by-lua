@@ -34,9 +34,9 @@
 			<event on_click="on_btn_cutskill_click" />
 		</control>
 		
-		<control name="btn_parry" entity="Button" script="admin_yBreaker\yBreaker_events_gui\yBreaker_form_config" init="">
+		<control name="btn_parry" entity="Button" script="" init="">
 			<prop Left="10" Top="155" Width="60" Height="30" Text="Cài Đặt" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Lưu ý:&lt;/font&gt;<br>● Cần &lt;font color=&apos;#46fd15&apos;&gt; Cài Đặt&lt;/font&gt; Kinh Mạch hoặc Võ trước khi sử dụng." DrawMode="Expand" NormalImage="gui\common\button\btn_normal1_out.png" FocusImage="gui\common\button\btn_normal1_on.png" PushImage="gui\common\button\btn_normal1_down.png" DisableImage="gui\common\button\btn_normal1_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />
-			<event on_click="show_hide_form_config" />
+			<event on_click="on_btn_show_hide_form_setting" />
 		</control>
 		<control name="btn_start_pvp" entity="Button" script="" init="">
 			<prop Left="75" Top="155" Width="60" Height="30" Text="Chạy" HintText="&lt;font color=&apos;#ffee2e&apos;&gt;Lưu ý:&lt;/font&gt;<br>● Sau khi ấn nút&lt;font color=&apos;#46fd15&apos;&gt; Chạy&lt;/font&gt; luôn giữ def và tự dùng kỹ năng có hiệu ứng choáng, mê khi đối phương phá def." DrawMode="Expand" NormalImage="gui\common\button\btn_normal_out.png" FocusImage="gui\common\button\btn_normal_on.png" PushImage="gui\common\button\btn_normal_down.png" DisableImage="gui\common\button\btn_normal_forbid.png" FocusBlendColor="255,255,255,255" PushBlendColor="255,255,255,255" DisableBlendColor="255,255,255,255" NormalColor="0,0,0,0" FocusColor="0,0,0,0" PushColor="0,0,0,0" DisableColor="0,0,0,0" ForeColor="255,255,255,255" BackColor="255,192,192,192" ShadowColor="0,0,0,0" Font="font_main" TabStop="true" InSound="MouseOn_20" ClickSound="ok_7" />

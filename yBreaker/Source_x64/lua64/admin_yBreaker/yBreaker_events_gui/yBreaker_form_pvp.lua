@@ -612,7 +612,7 @@ function on_main_form_close(form)
     auto_is_running = false
     isAutoActiveParry = false
     nx_destroy(form)
-    nx_execute("admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_log", "on_btn_close_click", true)
+    --nx_execute("admin_yBreaker\\yBreaker_events_gui\\yBreaker_form_log", "on_btn_close_click", true)
 end
 
 function on_btn_close_click(form)
@@ -771,4 +771,13 @@ end
 
 function show_hide_form_pvp()
 	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_pvp")
+end
+
+function on_btn_show_hide_form_setting(btn)
+    local form = btn.ParentForm
+    if not nx_is_valid(form) then
+        return
+    end
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_config")
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_jingmai")
 end

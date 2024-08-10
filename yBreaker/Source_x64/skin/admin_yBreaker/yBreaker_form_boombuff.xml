@@ -30,7 +30,7 @@
             <prop RefCursor="WIN_HELP" Left="30" Top="42" Width="50" Height="16" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Text="Tên" Font="font_text_figure 30px" />
         </control>
         <control name="edt_player_txt" entity="Edit" script="" init="">
-            <prop Text="" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="55" Top="38" Width="140" Height="25" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
+            <prop Text="" TextOffsetX="2" Align="Center" Caret="Default" SelectBackColor="190,190,190,190" DrawMode="Expand" Left="60" Top="38" Width="140" Height="25" ForeColor="255,0,168,255" ShadowColor="0,0,0,0" Font="font_money" Cursor="WIN_IBEAM"  BackImage="gui\common\form_line\ibox_1.png" />
         </control>
 		
 		<control name="btn_add_name_player" entity="MultiTextBox" script="" init="">
