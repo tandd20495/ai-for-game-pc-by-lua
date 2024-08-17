@@ -1,4 +1,5 @@
 require("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs")
+require("admin_yBreaker\\yBreaker_admin_libraries\\yBreaker_libs")
 
 local THIS_FORM = "admin_yBreaker\\yBreaker_form_jingmai"
 local SUB_CLIENT_ACTIVE_JINGMAI = 1
@@ -221,8 +222,6 @@ function on_btn_jingmai_close_click(btn)
     if not nx_is_valid(form) then
         return
     end
-	-- Tắt mạch
-    close_all_jingmai()
 	
 	local game_client = nx_value("game_client")
     if not nx_is_valid(game_client) then
@@ -233,11 +232,23 @@ function on_btn_jingmai_close_click(btn)
         return
     end
 	
-	-- Tắt nội công
-    local minNeigongID, maxNeigongID = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs", "getMinAndMaxNeigong")
-    if minNeigongID ~= "" and player_client:QueryProp("CurNeiGong") ~= minNeigongID then
-        nx_execute("custom_sender", "custom_use_neigong", nx_string(minNeigongID))
-    end
+	local game_visual = nx_value("game_visual")
+	local game_player = game_visual:GetPlayer()
+	
+	-- Chỉ khi nhân vật đứng yên và không chiến đấu mới tắt hết
+	--if nx_is_valid(game_player) and game_player.state == "static" and getPlayerPropInt("LogicState") ~= nx_int(1) then
+	if getPlayerPropInt("LogicState") ~= nx_int(1) then
+		-- Tắt mạch
+		close_all_jingmai()
+		
+		-- Tắt nội công
+		local minNeigongID, maxNeigongID = nx_execute("admin_yBreaker\\yBreaker_admin_libraries\\tool_libs", "getMinAndMaxNeigong")
+		if minNeigongID ~= "" and player_client:QueryProp("CurNeiGong") ~= minNeigongID then
+			nx_execute("custom_sender", "custom_use_neigong", nx_string(minNeigongID))
+		end
+	else
+		yBreaker_show_Utf8Text("Chỉ tắt hết khi không có chiến đấu!")
+	end
     --on_main_form_close(form)
 end
 
