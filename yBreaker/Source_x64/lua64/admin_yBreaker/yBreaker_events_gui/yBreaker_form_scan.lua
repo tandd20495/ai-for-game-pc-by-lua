@@ -31,6 +31,15 @@ end
 function on_main_form_close(form)
 	is_running_scan_player = false
 	nx_destroy(form)
+	
+	-- Close form other
+	local form_other = nx_value("admin_yBreaker\\yBreaker_form_scan_other")
+	if not nx_is_valid(form_other) then
+		return
+	end
+	nx_destroy(form_other)
+	
+	util_auto_show_hide_form("admin_yBreaker\\yBreaker_form_boombuff")
 end
 
 --
