@@ -171,7 +171,7 @@ function tools_move(scene, x, y, z, passtest, findonlymap)
         return false
     end
     if passtest ~= nil and passtest == true then
-        tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu tìm đường"))
+        --tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu tìm đường"))
         if findonlymap == nil then
             nx_value("path_finding"):FindPathScene(scene, x, y, z, 0)
         else
@@ -201,7 +201,7 @@ function tools_move(scene, x, y, z, passtest, findonlymap)
 
       local distance = math.sqrt(pxd * pxd + pyd * pyd + pzd * pzd)
       if distance <= 0.6 then
-        tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu tìm đường"))
+        --tools_show_notice(nx_function("ext_utf8_to_widestr", "Bắt đầu tìm đường"))
         if findonlymap == nil then
             nx_value("path_finding"):FindPathScene(scene, x, y, z, 0)
         else

@@ -221,7 +221,7 @@ function UpdateStatus()
 					tools_show_notice(nx_function("ext_utf8_to_widestr", "Chưa học kĩ năng Không Tương Vô Tương, không thể dùng chức năng này!"), 2)
 					return
 				end
-				yBreaker_show_Utf8Text("Bán kính hoạt động 50m.")
+				--yBreaker_show_Utf8Text("Tìm đối tượng trọng phạm vi 50mét.")
 			end
 		
 			-- Check có học skill Boom Đường Môn chưa?
@@ -234,7 +234,7 @@ function UpdateStatus()
 					tools_show_notice(nx_function("ext_utf8_to_widestr", "Chưa học kĩ năng Tiềm Tung Niếp Tích, không thể dùng chức năng này!"), 2)
 					return
 				end
-				yBreaker_show_Utf8Text("Bán kính hoạt động 50m.")
+				--yBreaker_show_Utf8Text("Tìm đối tượng trọng phạm vi 50mét.")
 			end
 			
 			form.btn_start.Text = nx_function("ext_utf8_to_widestr", "Dừng")
@@ -433,7 +433,7 @@ function loopBoom()
 					for iplayer = nPlayer , #TablePlayerList do
 						-- Kiểm tra đúng tên thì chọn mục tiêu
 						if form.chk_player.Checked and nx_string(name_player) == nx_string(TablePlayerList[iplayer]) then
-							yBreaker_show_Utf8Text(nx_function("ext_utf8_to_widestr", "Đang kiểm tra buff" .. nx_string(TablePlayerList[iplayer])))
+							--yBreaker_show_Utf8Text("Cách " .. TablePlayerList[iplayer] .. " ".. nx_string(nx_int(dist_player)) .. " mét, trong phạm vi ném boom!")
 							local name_myself = getName_myself()
 						
 							---- Check name not select my self
@@ -467,10 +467,11 @@ function loopBoom()
 							end
 							
 							if dist_player > 20 then
+								--yBreaker_show_Utf8Text("Cảnh báo! Cách " .. TablePlayerList[iplayer] .. " ".. nx_string(nx_int(dist_player)) .. " mét, đang di chuyển lại gần!")
 								-- Di chuyển theo sau mục tiêu
 								local map_query = nx_value("MapQuery")
 								local city = map_query:GetCurrentScene()
-								local posX = visualObj.PositionX
+								local posX = visualObj.PositionX + 5
 								local posY = visualObj.PositionY
 								local posZ = visualObj.PositionZ
 								tools_move(city, posX, posY, posZ, direct_run)	
@@ -481,7 +482,7 @@ function loopBoom()
 					end
 					
 					if not form.chk_player.Checked then
-						yBreaker_show_Utf8Text("Đang tự ném boom dưới chân!")
+						--yBreaker_show_Utf8Text("Đang tự ném boom dưới chân!")
 						local player = yBreaker_get_player()
 						-- Ném boom dưới chân
 						nx_value('gui').GameHand:SetHand('groundpick', 'Default', 'map\\tex\\Target_area_G.dds', '' .. 4, 'xxx', nx_string(10))
@@ -557,7 +558,7 @@ function loopBuff()
 					for iplayer = nPlayer , #TablePlayerList do
 						-- Kiểm tra đúng tên thì chọn mục tiêu
 						if form.chk_player.Checked and nx_string(name_player) == nx_string(TablePlayerList[iplayer]) then
-							yBreaker_show_Utf8Text(nx_function("ext_utf8_to_widestr", "Đang kiểm tra buff" .. nx_string(TablePlayerList[iplayer])))
+							
 							local name_myself = getName_myself()
 						
 							---- Check name not select my self
@@ -576,62 +577,133 @@ function loopBuff()
 									nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
 									nx_pause(0.2)
 								end	
+								--yBreaker_show_Utf8Text("Cách " .. TablePlayerList[iplayer] .. " ".. nx_string(nx_int(dist_player)) .. " mét, trong phạm vi buff!")
 							
-							--: Mê Nghiệt của HHMD: buf_CS_by_xhmdl01_01
-							--: Cấm khinh công của DM: wuji_buf_CS_tm_ywt08_range (wuji: Võ kỹ)
-							--: Mê của THBB : buf_CS_jh_lbwb01_01stun
-							--: Mê của PTC: buf_CS_jh_xfz02
-							--: Mê của UUSD: buf_CS_jh_yydf03
-							--: Cấm KC UUSD: buf_CS_jh_yydf07
-							--: Phá def THBB: buf_CS_jh_yydf07
-							--: Trói của CYV: buf_CS_jy_xsd01_01
-							--: Trói ném CYV: buf_CS_jy_tdshs05_1
-							--: Mê của Rồng: buf_CS_jh_xlsbz15_02
-							--: Lao tới Rồng: buf_CS_jh_xlsbz07
-							--: Mê của Khai Cổ: buf_CS_wd_tjq08
-							--: Mê của Khai thường: buf_CS_wdzp_tjq08
-							--: Cấm Trịch Bút: wuji_buf_CS_tm_ywt07 (Võ kỹ)
-							--: Thổ tín: buf_CS_tm_jsc02
-							--: Bản đằng choáng: buf_CS_jh_llt02
-							--: Trường tam: buf_CS_jh_llt03_2: Giảm tốc + chính xác / buf_CS_jh_llt03_1: Phong chiêu + cấm KC
-							--: Nộ 10 Cờ Cổ: buf_CS_jh_sfgp08_1/ buf_CS_jh_sfgp08_01 -> Sai
-							--: Nộ 12 Cờ Cổ: buf_CS_jh_sfgp08_2/ buf_CS_jh_sfgp08_02 -> Sai
-							--: Nộ Đàn: buf_CS_jh_tmby03_01
+								--: CẤP 1: Skill hiệu ứng cứng quan trọng quần công:
+									--: buf_CS_jh_xlsbz15_02=Long Chiến Vu Dã (Hôn mê)
+									--: buf_CS_jh_xlsbz07=Đột Như Kỳ Lai (Hôn mê)
+									--: buf_CS_by_xhmdl01_01=Nghiệt (HHMD Hôn mê)
+									--: buf_cs_wd_tjq08=Khai Thái Cực (Cổ)
+									--: buf_CS_wdzp_tjq08=Khai Thái Cực (Phái)
+									--: buf_CS_jh_lbwb01_01stun=Điểm huyệt (Thần Hành)
+									--: buf_CS_jh_yqq04=Dã Cầu Quyền-4 (Thần Hành)
+									--: buf_CS_jy_xsd01_01=Huyết Tẩy Sơn Hà (Trói xích CYV)
+									--: buf_CS_jy_tdshs05_1=Triền Nhiễu (Trói ném CYV)
+									--: buf_CS_jh_xfz02=Hôn Mê (Phật Tâm)
+									--: buf_CS_yhwq_hsqs01=Điệp Mang (Vô Khuyết) -> Buff không giải được hiệu ứng
+									--: buf_CS_yh_hsqs01=Điệp Mang (Thế Lực)  -> Buff không giải được hiệu ứng
+									--: buf_CS_jh_yydf03=Hôn mê (Uyên Ương Song Đao Hút)
+									--: buf_CS_jh_yydf07=Cấm Khinh Công (Uyên Ương Song Đao Phá Def)
+									--: buf_CS_jh_jgjf08_1=Cửu Kiếm Quy Nhất (Cửu Cung)
+									--: buf_CS_jh_jgjf05b_range=Thiên Khuyết (Cửu Cung)
+									--: buf_CS_jh_jgjf06b_range=Địa liệt (Cửu Cung)
+									--: buf_CS_jh_jgjf09=Cửu Cửu Hoàn Nguyên (Nộ Cửu Cung)
+									--: buf_CS_jh_flxmz06_range=Thụ Đại Chiêu Phong (Phong Lôi Trượng)
+									--: buf_CS_jh_lybj06_02=Phong Ảnh Cù Triền  (Liệt Vân Bát Tiễn: Trừ né 100%) -> Buff không giải được hiệu ứng trừ né 100%
+									--: buf_CS_jh_lybj06_01=Hôn mê 2s (Liệt Vân Bát Tiễn)
+									--: wuji_buf_CS_tm_ywt08_range=Oan Hồn Triền Túc (Bẫy phong chiêu/ Định thân Trịch Bút/ wuji: Võ kỹ)
+									--: wuji_buf_CS_tm_ywt07=Diêm Vương Trịch Bút (Nộ Giảm tốc/ Cấm khinh công/ Đơ/ wuji: Võ kỹ)
+									--: buf_CS_tm_jsc02=Thổ Tín 
+									--: buf_CS_jh_llt02=Bản Đẳng (Lung Linh Đẩu)
+									--: buf_CS_jh_llt03_1=Trường Tam Tiểu (Lung Linh Đẩu:  Phong chiêu + cấm KC)
+									--: buf_CS_jh_llt03_2=Trường Tam Đại (Lung Linh Đẩu: Giảm tốc + chính xác)
+									--: buf_CS_jh_tmby03_01=Faint Dư Âm Âm Ba (Nộ Đàn)
+									--: buf_CS_jh_sfgp08=Long Du Đại Hải (Nộ Cờ)
+									--: buf_CS_jh_sf08=Long Du Đại Hải (Nộ Cờ)
+									--: buf_CS_gb_dgbf05=Áp Biển Cẩu Bối (Phá def trừ KC)
+									--: buf_CS_gb_dgbf05_01=Áp Biển Cẩu Bối (Phá def cấm KC)
+									--: buf_wuji_CS_gbzp_dgbf08=Thiên Hạ Vô Cẩu (Nộ DCB Võ Kỹ Cấm Nhảy)
+									--: buf_CS_jh_chz03_02=Nhất Đạn Chỉ Khoảnh (Điểm huyệt Tham Hợp Chỉ)
+									--: buf_CS_jh_tmjt06_range=Ma Khí Tung Hoành (Vòng ma tâm) -> Buff không giải được hiệu ứng trừ vòng
+									--: buf_CS_jh_tmjt04=Ma Tình Mê Tung (Phá def ma tâm) -> Buff không giải được hiệu ứng -100% nội ngoại phòng
 							
+								--: CẤP 1+: Skill hiệu ứng mềm và cứng ngắn:
+									--: buf_cantparry=Phá vỡ (Bể def) -> Buff không giải được hiệu ứng vỡ def
+									--: buf_CantParry01=Phá vỡ -> Buff không giải được hiệu ứng vỡ def
+									
+								--: CẤP 2: Hiệu ứng Nội công: 
+									--: buf_ng_jh_105_01 = Hàn Băng Chân Khí/ buf_ng_jh_105_02= Hàn Khí
+									--: buf_ng_th_001_2=Triều Khởi (Bích Ba Tâm Kinh)
+									--: buf_ng_th_001_1=Triều Thoái (Bích Ba Tâm Kinh)
+									--: buf_ng_jh_307_01=Huyết Đao (Huyết Đao Kinh) -> Buff không giải được hiệu ứng
+									--: buf_ng_kl_002_1=Kiều Dương Chân Khí (Kiêu Dương Quyết) -> Buff không giải được hiệu ứng
+									
+								--: CẤP 3: Trạng thái nhân vật: 
+									--: locked = Xung phong -> Không check vì khi xung phong hoặc bị xung phong đều buff -> Mất skill khi đang ra
+									--: be_hitout = Hất lên
+									--: hitdown = Đánh Ngã
 							
-							--yBreaker_show_Utf8Text("Trong phạm vi buff, đang check buff xấu trên người mục tiêu...")
-							-- Check buff xấu tốn tại trên người mục tiêu  
-							if  get_buff_info("buf_CS_by_xhmdl01_01", game_scence_objs[i]) 				or
-								get_buff_info("wuji_buf_CS_tm_ywt08_range", game_scence_objs[i])		or
-								get_buff_info("buf_CS_jh_lbwb01_01stun", game_scence_objs[i]) 			or
-								get_buff_info("buf_CS_jh_xfz02", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_jh_yydf03", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_jh_yydf07", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_jh_yqq04", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_jy_xsd01_01", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_wd_tjq08", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_wdzp_tjq08", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_jy_tdshs05_1", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_jh_xlsbz15_02", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_tm_jsc02", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_jh_llt03_2", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_jh_llt03_1", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_jh_llt02", game_scence_objs[i]) 					or
-								get_buff_info("buf_CS_jh_sfgp08_01", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_jh_sfgp08_02", game_scence_objs[i]) 				or
-								get_buff_info("buf_CS_jh_tmby03_01", game_scence_objs[i]) 				or
-								get_buff_info("wuji_buf_CS_tm_ywt07", game_scence_objs[i]) 				then
-								
-								-- Check name not select my self
-								if name_myself ~= nx_widestr(name_player) then
-									-- Chọn mục tiêu
-									nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
-								end
-								
-								local fight = nx_value("fight")
-								-- Use skill buff PTC trạng thái buff (trạng thái tấn công: CS_jh_xfz02)
-								fight:TraceUseSkill("CS_jh_xfz02_hide", false, false)
-							else
+								-- Get state of object
+								local role = game_visual:GetSceneObj(nx_string(game_scence_objs[i].Ident))
+							
+								-- Check buff xấu tốn tại trên người mục tiêu  
+								if  get_buff_info("buf_CS_jh_xlsbz15_02", game_scence_objs[i]) 			or -- Lưu ý khi dùng hàm get_buff_info: Với chuỗi string truyền vào phải là CS viết hoa:
+									get_buff_info("buf_CS_jh_xlsbz07", game_scence_objs[i]) 			or -- get_buff_info("buf_CS_xx", game_scence_objs[i]) thì mới hoạt động
+									get_buff_info("buf_CS_by_xhmdl01_01", game_scence_objs[i])			or -- get_buff_info("buf_cs_xx", game_scence_objs[i]) sẽ không hoạt động
+									get_buff_info("buf_cs_wd_tjq08", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_wdzp_tjq08", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_lbwb01_01stun", game_scence_objs[i]) 		or
+									get_buff_info("buf_CS_jh_yqq04", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jy_xsd01_01", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jy_tdshs05_1", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_xfz02", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_yhwq_hsqs01", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_yh_hsqs01", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_yydf03", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_yydf07", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_jgjf08_1", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_jgjf05b_range", game_scence_objs[i]) 		or
+									get_buff_info("buf_CS_jh_jgjf06b_range", game_scence_objs[i]) 		or
+									get_buff_info("buf_CS_jh_jgjf09", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_flxmz06_range", game_scence_objs[i]) 		or
+									get_buff_info("buf_CS_jh_lybj06_02", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_lybj06_01", game_scence_objs[i]) 			or
+									get_buff_info("wuji_buf_CS_tm_ywt08_range", game_scence_objs[i]) 	or
+									get_buff_info("wuji_buf_CS_tm_ywt07", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_tm_jsc02", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_llt02", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_llt03_1", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_llt03_2", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_tmby03_01", game_scence_objs[i]) 			or
+									get_buff_info("buf_CS_jh_sfgp08", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_sf08", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_gb_dgbf05", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_gb_dgbf05_01", game_scence_objs[i]) 			or
+									get_buff_info("buf_wuji_CS_gbzp_dgbf08", game_scence_objs[i]) 		or
+									get_buff_info("buf_CS_jh_tmjt06_range", game_scence_objs[i]) 		or
+									get_buff_info("buf_CS_jh_tmjt04", game_scence_objs[i]) 				or
+										
+									get_buff_info("buf_cantparry", game_scence_objs[i]) 				or
+									get_buff_info("buf_CantParry01", game_scence_objs[i]) 				or
+									
+									get_buff_info("buf_ng_jh_105_01", game_scence_objs[i]) 				or
+									get_buff_info("buf_ng_th_001_2", game_scence_objs[i]) 				or
+									get_buff_info("buf_ng_th_001_1", game_scence_objs[i]) 				or
+									get_buff_info("buf_ng_jh_307_01", game_scence_objs[i]) 				or
+									get_buff_info("buf_ng_kl_002_1", game_scence_objs[i]) 				or
+									get_buff_info("buf_CS_jh_chz03_02", game_scence_objs[i]) 			or
+									
+									nx_string(role.state) == "hitdown" or nx_string(role.state) == "be_hitout" then
+									
+									-- Check name not select my self
+									if name_myself ~= nx_widestr(name_player) then
+										-- Chọn mục tiêu cần buff
+										nx_execute('custom_sender', 'custom_select', game_scence_objs[i].Ident)
+										
+										local fight = nx_value("fight")
+										-- Use skill buff PTC trạng thái buff (trạng thái tấn công: CS_jh_xfz02)
+										fight:TraceUseSkill("CS_jh_xfz02_hide", false, false)
+									end
+									
+									-- Target mục tiêu khác
+									--if i > 1 then
+										-- Delay để target
+									--	nx_pause(4)
+									--	nx_execute('custom_sender', 'custom_select', game_scence_objs[i - 1].Ident)
+									--end
+								end	
+								--else
+
 								local fight = nx_value("fight")
 								
 								-- Use skill attack object
@@ -648,17 +720,19 @@ function loopBuff()
 								end
 								--nx_pause(0.2)
 								--break
-							end
+							--end
 		
-						end
+							end
 
 							if dist_player > 20 then
+								--yBreaker_show_Utf8Text("Cảnh báo! Cách " .. TablePlayerList[iplayer] .. " ".. nx_string(nx_int(dist_player)) .. " mét, đang di chuyển lại gần!")
 								-- Di chuyển theo sau mục tiêu
 								local map_query = nx_value("MapQuery")
 								local city = map_query:GetCurrentScene()
-								local posX = visualObj.PositionX
-								local posY = visualObj.PositionY
-								local posZ = visualObj.PositionZ
+								
+								local posX = visualObj.PositionX + 5
+								local posY = visualObj.PositionY 
+								local posZ = visualObj.PositionZ 
 								tools_move(city, posX, posY, posZ, direct_run)	
 								direct_run = false
 								break -- Dùng lệnh này để tránh object không tồn tại			
@@ -669,4 +743,19 @@ function loopBuff()
 			end	
 		end
     end
+end
+
+--
+function util_get_target_role_model()
+  local game_client = nx_value("game_client")
+  local game_visual = nx_value("game_visual")
+  if nx_is_valid(game_visual) then
+    local client_role = game_client:GetSceneObj(game_visual.PlayerIdent)
+    if nx_is_valid(client_role) then
+      local target_ident = client_role:QueryProp("LastObject")
+      local vis_target = game_visual:GetSceneObj(nx_string(target_ident))
+      return vis_target
+    end
+  end
+  return nx_null()
 end
