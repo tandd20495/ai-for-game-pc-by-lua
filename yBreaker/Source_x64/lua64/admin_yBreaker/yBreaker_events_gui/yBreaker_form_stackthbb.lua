@@ -202,17 +202,17 @@ function stack_THBB()
 		-- Not non responding
 		nx_pause(0.2)
 		
-		--Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
-		if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
-			nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
-		end		
-		
 		--Gọi PET (Hiện tại chưa gọi được npc_homepet_001=Chung Linh Điêu)
 		local game_visual = nx_value("game_visual")
 		local game_player = game_visual:GetPlayer()
 			
 		-- Chỉ khi nhân vật đứng yên mới thực hiện
 		if nx_is_valid(game_player) and game_player.state == "static" then
+			--Get buff trên người xem đang cưỡi ngựa hay không? Có thì xuống ngựa
+			if yBreaker_get_buff_id_info("buf_riding_01") ~= nil then
+				nx_execute("custom_sender", "custom_remove_buffer", "buf_riding_01")
+			end		
+			
 			-- Chưa có stack nào/ hoặc stack < 10 hoặc thời gian thần hành còn thấp hơn 300s mới tích
 			local count_buff_myself = yBreaker_get_stack_buff_info_myself("buf_CS_jh_lbwb02")
 			local remain_buff_myself = yBreaker_get_time_buff_info_myself("buf_CS_jh_lbwb02")
@@ -291,6 +291,15 @@ function stack_THBB()
 				--if yBreaker_get_buff_id_info("buf_pet_qinggongpoint_1") ~= nil then
 				--	yBreaker_show_Utf8Text("Buff PET hồi 5 KC: delay 8")
 				--end
+			end
+		else
+			-- Không đứng yên thì swap lại nội chính nếu có
+			local game_client = nx_value("game_client")
+			local player_client = game_client:GetPlayer()
+			
+			-- Đổi lại nội chính đang dùng trước khi swap nội Cái Bang
+			if nx_string(neigong_using) ~= "" and nx_string(neigong_using) ~= nx_string(player_client:QueryProp("CurNeiGong")) then
+				nx_execute("custom_sender", "custom_use_neigong", nx_string(neigong_using))
 			end
 		end
 	
